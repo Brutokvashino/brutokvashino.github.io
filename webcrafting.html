@@ -448,76 +448,222 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function terrain() {
-          var txt = getRndInteger(1,5);
-          if (txt == 1) {
-            return "mountains";
-          }
-          else if (txt == 2) {
-                return "cloudy";
-            }
+          var txt = getRndInteger(1,48);
+          if (txt == 1) { return "snowy_mountains";} else if (txt == 2) { return "mountains";} else if (txt == 3) { return "high_hills";} else if (txt == 4) { return "stream";} else if (txt == 5) { return "wetland";} else if (txt == 6) { return "swamp";} else if (txt == 7) { return "lake";} else if (txt == 8) { return "cliffside";} else if (txt == 9) { return "hills";} else if (txt == 10) { return "field";} else if (txt == 11) { return "beach";} else if (txt == 12) { return "dunes";} else if (txt == 13) { return "river";} else if (txt == 14) { return "caves";} else if (txt == 15) { return "jungle";} else if (txt == 16) { return "scrub";} else if (txt == 17) { return "desert";} else if (txt == 18) { return "tundra";} else if (txt == 19) { return "evergreen_forest";} else if (txt == 20) { return "deciduous_forest";} else if (txt == 21) { return "rock_island";} else if (txt == 22) { return "open_ocean";} else if (txt == 23) { return "sandy_island";} else if (txt == 24) { return "jungle_island";} else if (txt == 25) { return "waterfall_basin";} else if (txt == 26) { return "canyon";} else if (txt == 27) { return "steep_hills";} else if (txt == 28) { return "fjord";} else if (txt == 29) { return "volcano";} else if (txt == 30) { return "geysirs";} else if (txt == 31) { return "hot_spring";} else if (txt == 32) { return "desert_scrub";} else if (txt == 33) { return "tidepools";} else if (txt == 34) { return "moor";} else if (txt == 35) { return "mediterranean";} else if (txt == 36) { return "savannah";} else if (txt == 37) { return "african_jungle";} else if (txt == 38) { return "outback";} else if (txt == 39) { return "asian_jungle";} else if (txt == 40) { return "pacific_island";} else if (txt == 41) { return "eastern_forest";} else if (txt == 42) { return "caribbean_jungle";} else if (txt == 43) { return "amazonian_rainforest";} else if (txt == 44) { return "appalachian_forest";} else if (txt == 45) { return "central_american_jungle";} else if (txt == 46) { return "middle_eastern_valley";} else if (txt == 47) { return "european_forest";} else if (txt == 48) { return "sandy_swamp";}
+          else if (txt == 0) {return "";}
         }
         function weather() {
-        var txt = getRndInteger(1,5);
-          if (txt == 1) {
-            return "clear";
-          }
-          else if (txt == 2) {
-                return "cloudy";
-            }
+        var txt = getRndInteger(1,34);
+          if (txt == 1) { return "clear";} else if (txt == 2) { return "cloudy";} else if (txt == 3) { return "rainy";} else if (txt == 4) { return "foggy";} else if (txt == 5) { return "misty";} else if (txt == 6) { return "monsoon";} else if (txt == 7) { return "hurricane";} else if (txt == 8) { return "tornado";} else if (txt == 9) { return "storm";} else if (txt == 10) { return "lightning_storm";} else if (txt == 11) { return "wildfire";} else if (txt == 12) { return "overcast";} else if (txt == 13) { return "patched_sky";} else if (txt == 14) { return "hailstorm";} else if (txt == 15) { return "snow";} else if (txt == 16) { return "blizzard";} else if (txt == 17) { return "cool";} else if (txt == 18) { return "warm";} else if (txt == 19) { return "freezing";} else if (txt == 20) { return "hot";} else if (txt == 21) { return "humid";} else if (txt == 22) { return "dry";} else if (txt == 23) { return "mountains";} else if (txt == 24) { return "comfortable";} else if (txt == 25) { return "windy";} else if (txt == 26) { return "breezy";} else if (txt == 27) { return "doldrum";} else if (txt == 28) { return "earthquake";} else if (txt == 29) { return "volcanic_ash";} else if (txt == 30) { return "flood";} else if (txt == 31) { return "pollen";} else if (txt == 32) { return "migration";}else if (txt == 33) {return "locusts";} else if (txt == 34) {return "drought";}
+          else if (txt == 0) {return "";}
+
         }
         function flora() {
-          var txt = getRndInteger(1,5);
-          if (txt == 0) {
-            return "crabgrass, 'queen Annes lace', pigweed, 'lambsquarters', cattail, hemlock, wineberry, salmonberry, black_raspberry, scarlet_pimpernel, knotweed, mullein, veronica, dandelion, henbit, lobelia, spring_beauties, buttercup, strawberry_wild, blueberry_wild, porcelainberry, fox_grapes, seagrapes, wild_oats, nightshade, wild_garlic, guord, cactus, yucca, joshua_tree, prickly_pear, seagrass, rose, 'crop plant',";
-          }
-          else if (txt == 2) {
-                return "cardamine_hirsuta";
-            }
-         else if (txt == 3) {
-                return "prunella_vulgaris";
-            }    
-        else if (txt == 3) {
-                return "plantago_major";
-            }
-        else if (txt == 3) {
-                return "plantago_lanceolata";
-            }    
+          var txt = getRndInteger(1,76);
+          if (txt == 0) {return ", cactus, yucca, joshua_tree, prickly_pear, seagrass, rose, 'crop plant',";
+          } else if (txt == 1) { return "cardamine_hirsuta";} else if (txt == 2) { return "prunella_vulgaris";} else if (txt == 3) { return "plantago_major";} else if (txt == 4) { return "plantago_lanceolata";}else if (txt == 5) { return "crabgrass";}     else if (txt == 6) { return "'queen Annes lace'";}    else if (txt == 7) {return "pigweed";}    else if (txt == 8) {return "lambsquarters";}else if (txt == 9) {return "cattail";} else if (txt == 10) {return "hemlock";}else if (txt == 11) {return "wineberry";}else if (txt == 12) {return "salmonberry";}else if (txt == 13) {return "black_raspberry";}else if (txt == 14) { return "scarlet_pimpernel";}else if (txt == 15) {return "knotweed";}else if (txt == 16) {return "mullein";}else if (txt == 17) {return "veronica";}else if (txt == 18) {return "dandelion";}else if (txt == 19) {return "henbit";}else if (txt == 20) {return "lobelia";}else if (txt == 21) {return "spring_beauties";}else if (txt == 22) {return "serviceberry";}else if (txt == 23) {return "'poison ivy'";}else if (txt == 24) {return "elderberry";}else if (txt == 25) {return "nightshade";}else if (txt == 26) {return "'crows foot grass'";}else if (txt == 27) {return "cotton";}else if (txt == 28) {return "maize";}else if (txt == 29) {return "squash";}else if (txt == 30) {return "melon";}else if (txt == 31) {return "blueberry";}else if (txt == 32) {return "currant";}else if (txt == 33) {return "wild_strawberry";} else if (txt == 34) {return "death_camas";}
+          else if (txt == 35) {return "moss";}
+          else if (txt == 36) {return "mushroom";}
+          else if (txt == 37) {return "buttercup";}
+          else if (txt == 38) {return "strawberry_wild";}
+          else if (txt == 39) {return "blueberry";}
+          else if (txt == 40) {return "porcelainberry";}
+          else if (txt == 41) {return "mile-a-minute";}
+          else if (txt == 42) {return "poison_oak";}
+          else if (txt == 43) {return "poison_sumac";}
+          else if (txt == 44) {return "peppervine";}
+          else if (txt == 45) {return "virginia_creeper";}
+          else if (txt == 46) {return "box_elder";}
+          else if (txt == 47) {return "sassafrass";}else if (txt == 48) {return "wintergreen";}else if (txt == 49) {return "fox_grapes";}else if (txt == 50) {return "seagrapes";}else if (txt == 51) {return "wild_oats";}else if (txt == 52) {return "nightshade";}else if (txt == 53) {return "wild_garlic";}else if (txt == 54) {return "guord";}else if (txt == 55) {return "yucca";}else if (txt == 56) {return "joshua_tree";}else if (txt == 57) {return "pricky_pear";}else if (txt == 58) {return "purslane";}else if (txt == 59) {return "black_medic";}else if (txt == 60) {return "white_clover";}else if (txt == 61) {return "alsike_clover";}else if (txt == 62) {return "lichen";}else if (txt == 63) {return "spanish_moss";}else if (txt == 64) {return "fern";}else if (txt == 65) {return "thistle";}else if (txt == 66) {return "burdock";}else if (txt == 67) {return "barngrass";}else if (txt == 68) {return "elephant_grass";}else if (txt == 69) {return "campana";}else if (txt == 70) {return "bacon_and_eggs";}else if (txt == 71) {return "hydrangea";}else if (txt == 72) {return "fig";}else if (txt == 73) {return "tea";}else if (txt == 74) {return "wild_rice";} else if (txt == 75) {return "lily_of_the_valley";}else if (txt == 76) {return "hibiscus";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+
         }
         function trees() {
-          var txt = getRndInteger(1,5);
-          if (txt == 0) {
-            return "strobus, hemlock, cedar, juniper, weide, acer, abedul, roble, redwood, ash, larch, maple_japanese, tulip, basswood, elm, catalpa, wisteria, bamboo, olive, crab_apple, linden, cherry, pawpaw,";
-          }
+          var txt = getRndInteger(1,67);
+           if (txt == 1) {return "pine";}
+        else if (txt == 2) { return "hemlock";}
+        else if (txt == 3) { return "cedar";}
+        else if (txt == 4) {return "juniper";}
+        else if (txt == 5) {return "willow";}
+        else if (txt == 6) {return "maple";}
+        else if (txt == 7) {return "birch";}
+        else if (txt == 8) {return "oak";}
+        else if (txt == 9) {return "redwood";}
+        else if (txt == 10) {return "larch";}
+        else if (txt == 11) {return "maple_japanese"; }
+        else if (txt == 12) { return "tulip";}
+        else if (txt == 13) {return "basswood";}
+        else if (txt == 14) {return "elm";}
+        else if (txt == 15) {return "catalpa";}
+        else if (txt == 16) {return "wisteria";}
+        else if (txt == 17) {return "bamboo";}
+        else if (txt == 18) { return "olive";}
+        else if (txt == 19) {return "linden";}
+        else if (txt == 20) {return "cherry"; }
+        else if (txt == 21) { return "orange";}
+        else if (txt == 22) { return "persimmon";}
+        else if (txt == 23) {return "pear"; }
+        else if (txt == 24) {return "tree_of_heaven"; }
+        else if (txt == 25) {return "mimosa";}
+        else if (txt == 26) {return "hemlock";}
+        else if (txt == 27) {return "holly";}
+        else if (txt == 28) {return "white_oak";}
+        else if (txt == 29) {return "red_oak";}
+        else if (txt == 30) {return "live_oak";}
+        else if (txt == 31) {return "willow_oak";}
+        else if (txt == 32) {return "crab_apple";}
+        else if (txt == 33) { return "pawpaw";}
+        else if (txt == 34) {return "mangrove";}
+        else if (txt == 35) {return "lemon";}
+        else if (txt == 36) {return "acacia";}
+        else if (txt == 37) {return "baobab";}
+        else if (txt == 38) {return "banyon";}
+        else if (txt == 39) {return "eucalyptus";}
+        else if (txt == 40) {return "lime";}
+        else if (txt == 41) {return "'saw palm'";}
+        else if (txt == 42) {return "coconut";}
+        else if (txt == 43) {return "'date palm'";}
+        else if (txt == 44) { return "cacao";}
+        else if (txt == 45) {return "almond";}
+        else if (txt == 46) {return "mulberry";}
+        else if (txt == 47) {return "banana";}
+        else if (txt == 48) { return "breadfruit";}
+        else if (txt == 49) {return "sycamore";}else if (txt == 50) {return "hazelnut";}else if (txt == 51) {return "cashew";}else if (txt == 52) {return "papaya";}else if (txt == 53) { return "guava"; }else if (txt == 54) {return "chestnut";}else if (txt == 55) {return "'horse chestnut'";}else if (txt == 56) {return "walnut";}else if (txt == 57) {return "'black walnut'"; }else if (txt == 58) {return "fir";}else if (txt == 59) {return "yew";}else if (txt == 60) { return "spruce";}else if (txt == 61) {return "'ponderosa pine'";}else if (txt == 62) {return "hickory";}else if (txt == 63) {return "urushi";}else if (txt == 64) {return "rhododendron";}else if (txt == 65) {return "witch_hazel";}else if (txt == 66) {return "hawthorn";}else if (txt == 67) {return "laurel";}
+        
+        else if (txt == 68) {return "";}
+        else if (txt == 0) {return "";}
+        else if (txt == 0) {return "";}
+        else if (txt == 0) {return "";}
+        else if (txt == 0) {return "";}
+        else if (txt == 0) {return "";}
+        else if (txt == 0) {return "";}
+        else if (txt == 0) {return "";}
+
+
         }
         function aquaticfauna() {
-          var txt = getRndInteger(1,5);
-          if (txt == 0) {
-            return "tadpoles, dragonfly_nymphs, waterbugs, water_strider, bass, sunfish, salmon, snail, shark_river, topminnow,";
-          }
+          var txt = getRndInteger(1,11);
+          if (txt == 1) {return "tadpoles";}else if (txt == 2) {return "dragonfly_nymphs";}else if (txt == 3) {return "waterbugs";}else if (txt == 4) {return "water_strider";}else if (txt == 5) {return "bass";}else if (txt == 6) {return "sunfish";}else if (txt == 7) {return "salmon";}else if (txt == 8) {return "snail";}else if (txt == 9) {return "shark_river";}else if (txt == 10) {return "topminnow";}else if (txt == 11) {return "crawfish";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
         }
         function oceanfauna() {
           var txt = getRndInteger(1,5);
           if (txt == 0) {
-            return "shark_reef, shark_hammerhead, shark_goblin, shark_thresher, shark_nurse, shark_great_white, sea_butterfly, striped_bass, sea_robin, sea_bass, stingray, mantaray, tuna, bonita, red_snapper, kingfish, dogfish, irish_moss, edible_kelp, seaweed, red_tide, salmon, herring, cod, jellyfish, man_of_war, 'blue-ringed_octopus', cone_snail, urchin, seastar, octopus, phytoplankton, 'killer whale', seal, 'humpback whale',";
-          }
+            return "shark_reef, shark_hammerhead, shark_goblin, shark_thresher, shark_nurse, shark_great_white, sea_butterfly, striped_bass, sea_robin, sea_bass, stingray, mantaray, tuna, bonita, red_snapper, kingfish, dogfish, irish_moss, edible_kelp, seaweed, red_tide, salmon, herring, cod, jellyfish, man_of_war, 'blue-ringed_octopus', cone_snail, urchin, seastar, octopus, phytoplankton, 'killer whale', seal, 'humpback whale',";}
+            else if (txt == 0) {return "coquina";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
         }
         function fauna() {
-          var txt = getRndInteger(1,5);
+          var txt = getRndInteger(1,40);
           if (txt == 0) {
-            return "deer_whitetail, deer_roe, tiger, mouse, spider_clover, orb_weaver, yellow_jacket, mud_dauber, red_ant, snake_gardner, snake_milk, snake_coral, horse, ox, goat, sheep, boar, llama, spider_wolf, 'spider_ant-mimic', robin, blue_jay, sparrow, mocking_bird, catbird, polyphemous_moth, carpenter_bee, bumblebee, wasp, honeybee, fox, coyote, wolf, wild_dog, wild_cat, puma, parrot, canary, gold_finch, bluebird, blackbird, starling, magpie, crow, raven, turkey, turkey_vulture, vulture, hawk, falcon, eagle, bald_eagle, oriole, cave_crickets, cricket, grasshopper, centipede, funnelweb_spider, black_widow_spider, recluse_spider, bold_jumper_spider, jumping_spider, harvestman_spider, slug, snail, red_slug, lumbricus_terrestris";
-          }
+            return ", , , spider_clover, orb_weaver, yellow_jacket, mud_dauber, red_ant, snake_gardner, snake_milk, snake_coral, horse, ox, goat, sheep, boar, llama, spider_wolf, 'spider_ant-mimic', robin, blue_jay, sparrow, mocking_bird, catbird, polyphemous_moth, carpenter_bee, bumblebee, wasp, honeybee, fox, coyote, wolf, wild_dog, wild_cat, puma, parrot, canary, gold_finch, bluebird, blackbird, starling, magpie, crow, raven, turkey, turkey_vulture, vulture, hawk, falcon, eagle, bald_eagle, oriole, cave_crickets, cricket, grasshopper, centipede, funnelweb_spider, black_widow_spider, recluse_spider, jumping_spider, harvestman_spider, slug, snail, red_slug, lumbricus_terrestris";}
+            else if (txt == 1) {return "butterfly_monarch";}
+            else if (txt == 2) {return "butterfly_swallowtail";}
+            else if (txt == 3) {return "tarantula";}
+            else if (txt == 4) {return "bold_jumping_spider";}
+            else if (txt == 5) {return "golden_orb_weaver";}
+            else if (txt == 6) {return "praying_mantis";}
+            else if (txt == 7) {return "spotted_lanternfly";}
+            else if (txt == 8) {return "bird_mites";}
+            else if (txt == 9) {return "deer_whitetail";}
+            else if (txt == 10) {return "deer_roe";}
+            else if (txt == 11) {return "elk";}
+            else if (txt == 12) {return "moose";}
+            else if (txt == 13) {return "bear_black";}
+            else if (txt == 14) {return "bear_polar";}
+            else if (txt == 15) {return "bear_grizzly";}
+            else if (txt == 16) {return "panda";}
+            else if (txt == 17) {return "chicken";}
+            else if (txt == 18) {return "tiger";}
+            else if (txt == 19) {return "mouse";}
+            else if (txt == 20) {return "mountain_goat";}
+            else if (txt == 21) {return "puma";}
+            else if (txt == 22) {return "mouse";}
+            else if (txt == 23) {return "rat";}
+            else if (txt == 24) {return "seasnake";}
+            else if (txt == 25) {return "rattlesnake";}
+            else if (txt == 26) {return "snake_cottonmouth";}
+            else if (txt == 27) {return "snake_copperhead";}
+            else if (txt == 28) {return "coral_snake";}
+            else if (txt == 29) {return "milk_snake";}
+            else if (txt == 30) {return "gardener_snake";}
+            else if (txt == 31) {return "black_racer_snake";}
+            else if (txt == 32) {return "black_mamba_snake";}
+            else if (txt == 33) {return "python";}
+            else if (txt == 34) {return "anaconda";}
+            else if (txt == 35) {return "boa_constrictor";}
+            else if (txt == 36) {return "horny_lizard";}
+            else if (txt == 37) {return "aye_aye";}
+            else if (txt == 38) {return "squirrel_black";}
+            else if (txt == 39) {return "squirrel_red";}
+            else if (txt == 40) {return "squirrel_gray";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+
+
+
         }
         function rarecrop() {
-          var txt = getRndInteger(1,5);
+          var txt = getRndInteger(1,13);
           if (txt == 0) {
-            return "carrot, fonio, maize, grapes, blackberry_june, blackberry_august, raspberry, strawberry, blueberry, wheat, oats, rye, millet, quinoa, peas, sweet_potato, potato, peanuts, tomato, onions, leaks, garlic, olives, pumpkin, beans, peppers, cucumber, apples, pears, limes, lemon, kiwi, orange, pineapple, figs, pomagranate";
-          }
+            return ", , , , , , , , , , , rye, millet, quinoa, peas, sweet_potato, potato, peanuts, tomato, onions, leaks, garlic, olives, pumpkin, beans, peppers, cucumber, apples, pears, limes, lemon, kiwi, orange, pineapple, figs, pomagranate";}
+            else if (txt == 1) {return "carrot";}
+            else if (txt == 2) {return "fonio";}
+            else if (txt == 3) {return "maize";}
+            else if (txt == 4) {return "grapes";}
+            else if (txt == 5) {return "blackberry_june";}
+            else if (txt == 6) {return "blackberry_august";}
+            else if (txt == 7) {return "raspberry";}
+            else if (txt == 8) {return "strawberry";}
+            else if (txt == 9) {return "blueberry";}
+            else if (txt == 10) {return "wheat";}
+            else if (txt == 11) {return "oats";}
+            else if (txt == 12) {return "rice";}
+            else if (txt == 13) {return "buckwheat";}
+
         }
         function decay() {
           var txt = getRndInteger(1,5);
           if (txt == 0) {
-            return "mutation, bubble, warped, shattered, sparked, dusty, discolor, stain, rust, black_mold, penecillin, moths, mice, spiders, algae, cracks, dust, sunbleached, chipping, ants, fermentation, vinegar, weathering, moss, lichen, fungus, worms, beetles, termites, animal_bite, theft, locusts, radioactive_decay, dead_bugs, flies, maggots";
-            }
+            return "sparked, dusty, discolor, stain, rust, black_mold, penecillin, moths, mice, spiders, algae, cracks, dust, sunbleached, chipping, ants, fermentation, vinegar, weathering, moss, lichen, fungus, worms, beetles, termites, animal_bite, theft, locusts, radioactive_decay, dead_bugs, flies, maggots"; }
+            else if (txt == 1) {return "mutation";}
+            else if (txt == 2) {return "bubble";}
+            else if (txt == 3) {return "warped";}
+            else if (txt == 4) {return "shattered";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+            else if (txt == 0) {return "";}
+
         }
 function getterrain(){
     document.getElementById("terraingot").innerHTML = terrain();
