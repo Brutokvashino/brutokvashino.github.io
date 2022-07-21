@@ -417,9 +417,7 @@ font-style:normal;
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-#iframewrapper {
-	
-}
+
 a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
     font-size: 28px!important;
 }
@@ -449,15 +447,254 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
 <script>
-function getintro() {
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+        function intros() {
+          var txt = getRndInteger(1,6);
+          if (txt == 1) {return "Scenic";}
+          else if (txt == 0) {return ", , , , , , The_Sun-Drenched_Tropical_Paradise_of, Beautiful, The_Kingdom_of, Foggy, Wet, Infested, Cultural, Scary, Rural, The_City_of, Blessed, Cursed, Lost, The_Lost_City_of, Bath, Far, Near, Abandoned, Burnt, Salty, Bright, Quaint, Deserted, Haunted, Filthy, Smoggy, Snowy, Boozy, Free, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,";}
+          else if (txt == 2) {return "Historic";}
+          else if (txt == 3) {return "Remote";}
+          else if (txt == 4) {return "Colonial";}
+          else if (txt == 5) {return "The Sun-Drenched";}
+          else if (txt == 6) {return "Tropical";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+        }
+        function prefixes() {
+          var txt = getRndInteger(1,4);
+          if (txt == 0) {return ", West, East, South,, Monte,,, Old, Upper, Lower, Port, Red, Black, Pink, White, Green, Yellow, Orange, Dead, Broken, Dry, Road_of, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall, Spring, Winter, Summer, Tierra, Winding, Wandering, Lost, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,";}
+          else if (txt == 1) {return "North";}
+          else if (txt == 2) {return "Mount";}
+          else if (txt == 3) {return "Greater";}
+          else if (txt == 4) {return "New";}
+          else if (txt == 0) {return "";}
+
+      }
+      
+      function townnames() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", , Willow, Stone, Paradise, Pine, Birken, Horse, Weiden, Linden, Eichen, Bones, Redwood, Cactus, Mill, Mills, Forge, Rock, Snake, Dog, Dogwood, Pumpkin, Edge, Rose, Sunflower, Petunia, Lily, Deer, Fox, Tulip, Lions, Skull, Devils, Sand, Wine, Placido, San,, Turtle, Robin, Toten, Kreuz, Lichten, Briar, Thorn, Flower, Daisy, Peach, Hound, Cedar, Bear, Wolf, Apple, Butter, Mine, Mountain, Man's, Smuggler's, Rattlesnake, Winter, Summer, Tierra, Summoner's, Glacier, Ocean, Palm, Hinter, Nether, Heather, Danger, Aguas, Isla, Crocodile, Vogel, Diamond, Emerald, Berstein, Amber, Crystal, Pearl, Hawthorn, Blackthorn, Thorn, Bayberry, Belle, Redwood, Sequoia, Lenape, Cherokee, Cerulean, Cree, Cherry, Orange, Sky, Glass, Silver, Gold, Spruce, Hemlock, Hope, Harmony, Cinder, Crane, Dove, Palo, Saddle, Leaf, Mist, Drift, Spine, Bell, Myth, Ever, Arbor, Fall, Autumn, Dark, Black, White, Grey, Argentine, Venice, Flood, Fire, Frontier, Fox, Racoon, Goldenrod, Ember,";}
+          else if (txt == 1) {return "River";}
+          else if (txt == 2) {return "Oak";}
+          else if (txt == 3) {return "Spring";}
+          else if (txt == 0) {return "";}
+
+      }
+      function suffixes() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", Hausen, Burg, Del, Meade, , Field, , Stadt, Port, Ville, Falls, Dorf, Bridge, Byr, Land, Meadow, Ford, by_the_Water, Water, Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
+          else if (txt == 1) {return "Berg";}
+          else if (txt == 2) {return "Valley";}
+          else if (txt == 3) {return "Towne";}
+          else if (txt == 0) {return "";}
+
+      }
+      function nations() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return "Chad, , the_Cave_of_treasures, Sierra_de_Atapuerca, Lascaux, , the_Cave_of_Wonders, Plageo, Pangea, Lorien, Angmar, Pearlbrook, spirecrest, bellfaire, Everfrost, Hopewatch, Mistrise, Puddledeep, Greensprout, Everblossom, , Dunewaste, Gildin, Emc, Randolphville, the_Golden_Kingdom, the_Unhappy_Kingdom, Bethlehem, Tekoa, Anathoth, Gibeah, Adamah, Rarámuri, Tarahumara, Fiji, Lenape, Huron, Munsee, Apache, Cherokee, Swampy_Cree, Forest_Cree, Inuit, Cheyenne, Hopi, Navajo, Dakota, Pensacola, Chatot, Apalachee, Timucua Tocobaga, Jororo, Ais, Jeaga, Mayaimi, Tequesta, Calusa, Matecumbe, Taino, Apache, Pueblo, Kikapoo, Oneida, Celts, Saxony, Iberia, Basque_Country, Angles, Lombards, Visigoths, Goths, Ostrogoths, Carolingians, Merovingians, Franks, Arawak, Sentinel, Caribs, Yoruba,";}
+          else if (txt == 1) {return "Ethiopia";}
+          else if (txt == 2) {return "France";}
+          else if (txt == 3) {return "Everdell";}
+          else if (txt == 0) {return "";}
+
+      }
+      function rooms() {
+          var txt = getRndInteger(1,4);
+          if (txt == 0) {return ", meeting_room, computer_room, office, studio, , toilet, full_bath, stalls, windows, conservatory, storeroom, hallway,, gameroom, foyer, terrace, balcony, watch, library, lab, cellar, pantry, dining_room, bedroom, stairs, attic, living_room, music_room, ballroom, cafeteria, banquet_hall, throneroom, theater, cinema, temple, coatroom, garden, greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
+          else if (txt == 1) {return "courtroom";}
+          else if (txt == 2) {return "shower";}
+          else if (txt == 3) {return "gallery";}
+          else if (txt == 4) {return "kitchen";}
+          else if (txt == 0) {return "";}
+
+      }
+      function structures() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", zoo, , monument, , bank, town_hall, courthouse, museum, hospital, residence, apartment, theater, warehouse, general_store, café, restaurant, inn, hotel, motel, prison, police_station, saloon, bar, office, factory, windmill, bakery, marketplace, plaza, fountain, well, outhouse, restrooms, barracks, training_ground, park, festival_field, racetrack, threshing_floor, foodstore, fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
+          else if (txt == 1) {return "enclosure";}
+          else if (txt == 2) {return "tower";}
+          else if (txt == 3) {return "altar";}
+          else if (txt == 0) {return "";}
+
+      }
+      function weapons() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", Pike, Shield, , Longsword, Greatsword, Rapier, Sabre, Knife, Club,, Wand, Fan, Disc, Scythe, Axe, Warhammer, Battleaxe, Projectiles, Bow, Sling, Slingshot, Fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
+          else if (txt == 1) {return "Spear";}
+          else if (txt == 2) {return "Sword";}
+          else if (txt == 3) {return "Staff";}
+          else if (txt == 0) {return "";}
+
+      }
+      function roads() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", bridge, uphill, downhill, , scrambling, falling_rocks, bridge_short, bridge_long, bridge_makeshift, potholes, bumpy, bridge_broken, river_crossing, cliffside, town, inn, grave,, stretch, forest, steep_walls, narrow, wide, intersection, crossroad, traveler, campsite, roadkill, fallen_tree, guarded_detour, toll, guard_tower, gate, cobble, dirt, gravel, dusty, grass, mud, sinkhole, flooded, landslide, debris, hitchhiker, stranded, animal_crossing,";}
+          else if (txt == 1) {return "crowded";}
+          else if (txt == 2) {return "winding";}
+          else if (txt == 3) {return "bandit-ridden";}
+          else if (txt == 0) {return "";}
+
+      }
+      function partyjobs() {
+          var txt = getRndInteger(1,4);
+          if (txt ==1) {return""}
+          else if (txt == 1) {return "Healer";}
+          else if (txt == 2) {return "Tank";}
+          else if (txt == 3) {return "Archer";}
+          else if (txt == 4) {return "Summoner";}
+          else if (txt == 0) {return "";}
+          else if (txt == 100) {return ", , , , Mage, Thief, Scholar, Negotiator, Demolition_Expert, Guide, Chef, Bodyguard, Leader,";}
+
+      }
+      function characters() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return", Angel, Demon, , Tiefling, Dragon, Elf, , Paladin, Gnome, Half-Elf, Halfling, Orc, Goblin, Troll, Half-Orc, Wizard, Yokai, Immortal, Bangaa, Sprite, Nymph, Fairy, Mermaid, Fishfolk, Undead, Zombie, Skeleton, Shade, Ghost, Vampire, Werewolf, Satyr, Leonin, Ronso, Mousefolk, Birdfolk, Fox, Toadfolk, Harefolk, Turtlefolk, Giant, Elemental, Bugbear, Cherub, Forestfolk, Hyrulean, Krampus, Lizardfolk, Kajiit, Moogle, Mudblood, Viera, NuMou, Seeq, Garif, Yensa, Mii, Bitmoji, Gerudo, Dalek, Zora, Animal, Treefolk, Black-Mage, Heartless, Spaceman, Nobody, Mr. Saturn, Witch, Wikke, Animal Whisperer, Changeling, Valkyrie, Hulk, Klingon, Romulan, Vulcan, Firefolk, Rockfolk, Goron, Twi'lek, Android, Saiyan, Robot, Pokemon, Cyborg, Jelly, Wiggin, Hedgehog, Mushroom, Slenderman, Bugfolk, Plantfolk, Centaur, Warforged, Silican, Falmer, Minotaur, Loxodon, Deerfolk, Gargoyle, Spiderfolk, Unicorn, Genie, Cyclops, Anubis, Harpy/Griffin/Sphinx, ScorpionFolk, Icefolk, Golem, Pigfolk, Sage, Monkeykin, Bigfoot, Yeti, Imp, Draugr, Faun, Pegasus, Nekko, Moonlight_Shadow, Chimera,";}
+          else if (txt == 1) {return"Human"}
+          else if (txt == 2) {return "Dwarf";}
+          else if (txt == 3) {return "Dark Elf";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+      function interactions() {
+          var txt = getRndInteger(1,4);
+          if (txt == 0) {return ", , , antagonize, gossip, bless, kidnap, hit, fight, trip, steal, wave, grunt, question, directions, scowl, smile, , slap, harass, ignore, run, follow, beckon, flirt, threaten, curse, invite, inform, give, beg, stare, laugh, joke, overshare, introduce, smalltalk, listen, overhear, mispeak, propose, befriend, enamor, frown, cry, yawn, disgust, repulse, attract, enchant, preach, handshake, trust, mistrust, convince, pillage, defeat,";}
+          else if (txt == 1) {return "hit";}
+          else if (txt == 2) {return "greet";}
+          else if (txt == 3) {return "rob";}
+          else if (txt == 4) {return "hug";}
+          else if (txt == 0) {return "";}
+
+      }
+      function activities() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return "recline, ,run , sing, pray, daydream, eat, drink, scratch oneself, groom oneself, take, place, use_, , hold, pull, push, lift, , walk, fall,";}
+          else if (txt == 1) {return "sit";}
+          else if (txt == 2) {return "sleep";}
+          else if (txt == 3) {return "examine";}
+          else if (txt == 0) {return "";}
+
+      }
+
+      function questitems() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", Golden_Hat_of_Schifferstadt, , Lance_of_Longinus, , Sword_of_Kings, Don_Patch_Sword, the_Kolojala_sword, Helmet_of_Albrech, Ring_of_Reingold, Invisibility_Cloak, wand_of_Albus_Dumbledore, Philosopher's_Stone,";}
+          else if (txt == 1) {return "Golden Snitch";}
+          else if (txt == 2) {return "Holy Grail";}
+          else if (txt == 3) {return "Goliath Sword";}
+          else if (txt == 0) {return "";}
+
+      }
+      function mysteriousitems() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", breadcrumbs, pen, Spear, Pike, Shield, Sword, Longsword, Greatsword, Rapier, sabre, knife, club, staff, wand, fan, disc, scythe, axe, warhammer, battleaxe, projectiles, bow, sling, slingshot, fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
+          else if (txt == 1) {return "book";}
+          else if (txt == 2) {return "orb";}
+          else if (txt == 3) {return "stone";}
+          else if (txt == 0) {return "";}
+
+      }
+      function lootitems() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ", frozen_burrito, bomchu, metal pipe, rock, coins, breadcrumbs, pen, feather, cat_toy, leek, spear, pike, shield, sword, longsword, greatsword, rapier, sabre, knife, club, staff, wand, fan, disc, Scythe, Axe, Warhammer, Battleaxe, Projectiles, Bow, Sling, Slingshot, Fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
+          else if (txt == 1) {return "warm burrito";}
+          else if (txt == 2) {return "candlestick";}
+          else if (txt == 3) {return "rope";}
+          else if (txt == 0) {return "";}
+
+      }
+
+        function getintro(){
+    document.getElementById("introgot").innerHTML = intros();
+    document.getElementById("introgot2").innerHTML = intros();
+
+  }
+  function getprefix(){
+    document.getElementById("prefixgot").innerHTML = prefixes();
+    document.getElementById("prefixgot2").innerHTML = prefixes();
+  }
+  function getsuffix(){
+    document.getElementById("suffixgot").innerHTML = suffixes();
+    document.getElementById("suffixgot2").innerHTML = suffixes();
+  }
+  function gettownname(){
+    document.getElementById("townnamegot").innerHTML = townnames();
+    document.getElementById("townnamegot2").innerHTML = townnames();
+
+  }
+  function getnation(){
+    document.getElementById("nationgot").innerHTML = "of " + nations();
+    document.getElementById("nationgot2").innerHTML = "of " + nations();
+  }
+  function getroad(){
+    document.getElementById("roadgot").innerHTML = roads();
+    document.getElementById("roadgot2").innerHTML = roads();
+
+  }
+  function getweapon(){
+    document.getElementById("weapongot").innerHTML = weapons();
+    document.getElementById("weapongot2").innerHTML = weapons();
+
+  }
+  function getroom(){
+    document.getElementById("roomgot").innerHTML = rooms();
+    document.getElementById("roomgot2").innerHTML = rooms();
+
+  }
+  function getstructure(){
+    document.getElementById("structuregot").innerHTML = structures();
+    document.getElementById("structuregot2").innerHTML = structures();
+  }
+
+  function getcharacter(){
+    document.getElementById("charactergot").innerHTML = characters();
+    document.getElementById("charactergot2").innerHTML = characters();
+
+  }
+  function getpartyjob(){
+    document.getElementById("partyjobgot").innerHTML = partyjobs();
+    document.getElementById("partyjobgot2").innerHTML = partyjobs();
+  }
+
+  function getinteraction(){
+    document.getElementById("interactiongot").innerHTML = interactions();
+    document.getElementById("interactiongot2").innerHTML = interactions();
+  }
+
+  function getactivity(){
+    document.getElementById("activitygot").innerHTML = activities();
+    document.getElementById("activitygot2").innerHTML = activities();
+  }
+  function getquestitem(){
+    document.getElementById("questitemgot").innerHTML = questitems();
+    document.getElementById("questitemgot2").innerHTML = questitems();
+  }
+
+  function getmysteriousitem(){
+    document.getElementById("mysteriousitemgot").innerHTML = mysteriousitems();
+    document.getElementById("mysteriousitemgot2").innerHTML = mysteriousitems();
+  }
+
+  function getlootitem(){
+    document.getElementById("lootitemgot").innerHTML = lootitems();
+    document.getElementById("lootitemgot2").innerHTML = lootitems();
+  }
+
+function copyintro() {
   var copyText = document.getElementById("town-intro");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyText.value);
   alert("Copied the list");
-  document.getElementById("surroundingtext").innerHTML = "Introducing..."
+  document.getElementById("surroundingtext").innerHTML = "..."
 }
-function getprefix() {
+function copyprefix() {
   var copyText = document.getElementById("town-prefix");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
@@ -466,119 +703,81 @@ function getprefix() {
   document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
 }
 </script>
-    Town Intro:
-    <input type="text" id="town-intro" value="Scenic, Historic, Remote, Colonial, The_Sun-Drenched, Tropical, The_Sun-Drenched_Tropical_Paradise_of, Beautiful, The_Kingdom_of, Foggy, Wet, Infested, Cultural, Scary, Rural, The_City_of, Blessed, Cursed, Lost, The_Lost_City_of, Bath, Far, Near, Abandoned, Burnt, Salty, Bright, Quaint, Deserted, Haunted, Filthy, Smoggy, Snowy, Boozy, Free, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,">
-    <button onclick="getintro()">Select</button>
-    <br>
+    Introducing the town of:
+    <button id="getintro" onclick="getintro()">Select</button>
+    <span id="introgot"></span>
+    <br><br>
     Town Prefixes:
-    <input type="text" id="town-prefix" value="North, West, East, South, Mount, Monte, Greater, New_, Old, Upper, Lower, Port, Red, Black, Pink, White, Green, Yellow, Orange, Dead, Broken, Dry, Road_of, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall, Spring, Winter, Summer, Tierra, Winding, Wandering, Lost, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,">
-    <button onclick="getprefix()">Select</button>
-    <br>
-    Town Suffixes:
-    <input type="text" value="Berg, Hausen, Burg, Del, Meade, Valley, Field, Towne, Stadt, Port, Ville, Falls, Dorf, Bridge, Byr, Land, Meadow, Ford, by_the_Water, Water, Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, "Jökull", Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, "de Fuego", Rift, Burough, "-hold",
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
+    <button id="getprefix" onclick="getprefix()">Select</button>
+    <span id="prefixgot"></span>
+    <br><br>
     Town Name:
-    <input type="text" value="River, Oak, Willow, Stone, Paradise, Pine, Birken, Horse, Weiden, Linden, Eichen, Bones, Redwood, Cactus, Mill, Mills, Forge, Rock, Snake, Dog, Dogwood, Pumpkin, Edge, Rose, Sunflower, Petunia, Lily, Deer, Fox, Tulip, Lions, Skull, Devils, Sand, Wine, Placido, San, Spring, Turtle, Robin, Toten, Kreuz, Lichten, Briar, Thorn, Flower, Daisy, Peach, Hound, Cedar, Bear, Wolf, Apple, Butter, Mine, Mountain, Man's, Smuggler's, Rattlesnake, Winter, Summer, Tierra, Summoner's, Glacier, Ocean, Palm, Hinter, Nether, Heather, Danger, Aguas, Isla, Crocodile, Vogel, Diamond, Emerald, Berstein, Amber, Crystal, Pearl, Hawthorn, Blackthorn, Thorn, Bayberry, Belle, Redwood, Sequoia, Lenape, Cherokee, Cerulean, Cree, Cherry, Orange, Sky, Glass, Silver, Gold, Spruce, Hemlock, Hope, Harmony, Cinder, Crane, Dove, Palo, Saddle, Leaf, Mist, Drift, Spine, Bell, Myth, Ever, Arbor, Fall, Autumn, Dark, Black, White, Grey, Argentine, Venice, Flood, Fire, Frontier, Fox, Racoon, Goldenrod, Ember,
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
-    Nations + in the land of:
-    <input type="text" value="Chad, Ethiopia, the_Cave_of_treasures, Sierra_de_Atapuerca, Lascaux, France, the_Cave_of_Wonders, Plageo, Pangea, Lorien, Angmar, Pearlbrook, spirecrest, bellfaire, Everfrost, Hopewatch, Mistrise, Puddledeep, Greensprout, Everblossom, Everdell, Dunewaste, Gildin, Emc, Randolphville, the_Golden_Kingdom, the_Unhappy_Kingdom, Bethlehem, Tekoa, Anathoth, Gibeah, Adamah, Rarámuri, Tarahumara, Fiji, Lenape, Huron, Munsee, Apache, Cherokee, Swampy_Cree, Forest_Cree, Inuit, Cheyenne, Hopi, Navajo, Dakota, Pensacola, Chatot, Apalachee, Timucua Tocobaga, Jororo, Ais, Jeaga, Mayaimi, Tequesta, Calusa, Matecumbe, Taino, Apache, Pueblo, Kikapoo, Oneida, Celts, Saxony, Iberia, Basque_Country, Angles, Lombards, Visigoths, Goths, Ostrogoths, Carolingians, Merovingians, Franks, Arawak, Sentinel, Caribs, Yoruba,
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
-    Rooms + the door opens up to a:
-    <input type="text" value="courtroom, meeting_room, computer_room, office, studio, shower, toilet, full_bath, stalls, windows, conservatory, storeroom, hallway, gallery, gameroom, foyer, terrace, balcony, watch, library, lab, cellar, pantry, dining_room, bedroom, stairs, attic, living_room, music_room, ballroom, cafeteria, banquet_hall, throneroom, theater, cinema, temple, coatroom, garden, greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
-    Buildings + Entering into the:
-    <input type="text" value="enclosure, zoo, tower, monument, altar, bank, town_hall, courthouse, museum, hospital, residence, apartment, theater, warehouse, general_store, café, restaurant, inn, hotel, motel, prison, police_station, saloon, bar, office, factory, windmill, bakery, marketplace, plaza, fountain, well, outhouse, restrooms, barracks, training_ground, park, festival_field, racetrack, threshing_floor, foodstore, fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,  
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
-    Roads + the way to get there is through this:
-    <input type="text" value="crowded, bridge, uphill, downhill, winding, scrambling, falling_rocks, bridge_short, bridge_long, bridge_makeshift, potholes, bumpy, bridge_broken, river_crossing, cliffside, town, inn, grave, bandits, stretch, forest, steep_walls, narrow, wide, intersection, crossroad, traveler, campsite, roadkill, fallen_tree, guarded_detour, toll, guard_tower, gate, cobble, dirt, gravel, dusty, grass, mud, sinkhole, flooded, landslide, debris, hitchhiker, stranded, animal_crossing, 
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
-    Weapons + weilding a:
-    <input type="text" value="spear, Pike, Shield, Sword, Longsword, Greatsword, Rapier, Sabre, Knife, Club, Staff, Wand, Fan, Disc, Scythe, Axe, Warhammer, Battleaxe, Projectiles, Bow, Sling, Slingshot, Fists, Bombs, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Gun, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance, 
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
+    <button id="gettownname" onclick="gettownname()">Select</button>
+    <span id="townnamegot"></span>
+    <br><br>
+    Town Suffixes:
+    <button id="getsuffix" onclick="getsuffix()">Select</button>
+    <span id="suffixgot"></span>
+    <br><br>
+    Nations:
+    <button id="getnation" onclick="getnation()">Select</button>
+    <span id="nationgot"></span>
+    <br><br>
+    Rooms:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
+    Structures:
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+    Roads are:
+    <button id="getroad" onclick="getroad()">Select</button>
+    <span id="roadgot"></span>
+    <br><br>
+    Weapons:
+    <button id="getweapon" onclick="getweapon()">Select</button>
+    <span id="weapongot"></span>
+    <br><br>
+    Appearance:
+    <button id="getcharacter" onclick="getcharacter()">Select</button>
+    <span id="charactergot"></span>
+    <br><br>
     Party Job:
-    <input type="text" value="Healer, Tank, Archer, Summoner, Mage, Thief, Scholar, Negotiator, Demolition_Expert, Guide, Chef, Bodyguard, Leader,
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
-    Catchphrases:
+    <button id="getpartyjob" onclick="getpartyjob()">Select</button>
+    <span id="partyjobgot"></span>
+    <br><br>
+    <!--Catchphrases:
     <input type="text" value="Kickatuckus, If_so-and-so_were_still_alive..., Kittycat, Chimp, Airslosh,    
     " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
+    <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
+    <span id="catchphrasegot"></span>
+    <br>-->
     Interactions:
-    <input type="text" value="antagonize, greet, rob, gossip, bless, kidnap, hit, fight, trip, steal, wave, grunt, question, directions, scowl, smile, hug, slap, harass, ignore, run, follow, beckon, flirt, threaten, curse, invite, inform, give, beg, stare, laugh, joke, overshare, introduce, smalltalk, listen, overhear, mispeak, propose, befriend, enamor, frown, cry, yawn, disgust, repulse, attract, enchant, preach, handshake, trust, mistrust, convince, pillage, defeat, 
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
-    Solo Activities:
-    <input type="text" value="recline, sit, sleep, sing, pray, daydream, eat, drink, scratch, groom, take, place, use_, examine, hold, pull, push, lift, run, walk, fall,
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
+    <button id="getinteraction" onclick="getinteraction()">Select</button>
+    <span id="interactiongot"></span>
+    <br><br>
+    Activities:
+    <button id="getactivity" onclick="getactivity()">Select</button>
+    <span id="activitygot"></span>
+    <br><br>
     Quest Item:
-    <input type="text" value="Golden_Snitch, Golden_Hat_of_Schifferstadt, Holy_Grail, Lance_of_Longinus, Goliath Sword, Sword_of_Kings, Don_Patch_Sword, the_Kolojala_sword, Helmet_of_Albrech, Ring_of_Reingold, Invisibility_Cloak, wand_of_Albus_Dumbledore, Philosopher's_Stone,
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
+    <button id="getquestitem" onclick="getquestitem()">Select</button>
+    <span id="questitemgot"></span>
+    <br><br>
     Mysterious Item:
-    <input type="text" value="book, orb, stone, breadcrumbs, pen, Spear, Pike, Shield, Sword, Longsword, Greatsword, Rapier, sabre, knife, club, staff, wand, fan, disc, scythe, axe, warhammer, battleaxe, projectiles, bow, sling, slingshot, fists, Bombs, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Gun, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,
-    " id="town...">
-    <button onclick="getget()">Select</button>
-    <br>
+    <button id="getmysteriousitem" onclick="getmysteriousitem()">Select</button>
+    <span id="mysteriousitemgot"></span>
+    <br><br>
     Loot Item:
-    <input type="text" value="warm_burrito, frozen_burrito, candlestick, rope, bombs, metal pipe, rock, coins, breadcrumbs, pen, feather, cat_toy, leek, spear, pike, shield, sword, longsword, greatsword, rapier, sabre, knife, club, staff, wand, fan, disc, Scythe, Axe, Warhammer, Battleaxe, Projectiles, Bow, Sling, Slingshot, Fists, Bombs, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Gun, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance, 
-    " id="town...">
-    <button onclick="getget()">Select</button>
+    <button id="getlootitem" onclick="getlootitem()">Select</button>
+    <span id="lootitemgot"></span>
+    <br><br>
+    Story:
     <br>
-  <button id="runbtn" class="w3-button w3-bar-item ws-green w3-hover-white"  onclick="submitTryit(1);ga('send', 'event', 'runCodePHP', 'click');">Run &#10095;</button>  
-<br>
-  <span id="surroundingtext"></span>
+    In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, there is the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a <span id="weapongot2"></span> to find the <span id="mysteriousitemgot2"></span> and bring back the <span id="questitemgot2"></span>. But first, it is time to <span id="activitygot2"></span> and to <span id="interactiongot2"></span> the locals for some <span id="lootitemgot2"></span>.
 </p>
-<div id="textareacontainer">
-    <div id="textarea">
-      <div id="textareawrapper">
-        <textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false">
-<!DOCTYPE html><html><body><?php $items = array (
-REPLACE_THIS_TEXT_WITH_YOUR_LIST
-); echo $items[array_rand($items)] . "\n"; ?></body></html>   
-</textarea>
-        <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
-          <input type="hidden" name="code" id="code" />
-        </form>
-       </div>
-    </div>
-  </div>
-  <div id="iframecontainer">
-    <div id="iframe">
-        <div id="runloadercontainer"><div id="runloader"></div></div>
-        <div id="iframewrapper">
-          <div id="iframeResult" style="white-space:nowrap;overflow:auto;"><!DOCTYPE html>
-  <html>
-  <body>
-  
-  </body>
-  </html>
 
-  </div>
-        </div>
-      </div>
-  </div>
-
-</div>
 <script>
 
 function submitTryit(n) {
