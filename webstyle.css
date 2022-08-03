@@ -82,15 +82,15 @@
     } 
     
     .mast { 
-        font-size: 2em; text-align: center; text-decoration: none; text-shadow: 1px solid #000; margin-right: 0; padding-top: 10px; padding-bottom: 0; height: 20px; 
+        font-size: 2em; text-align: center; text-decoration: none; text-shadow: 1px solid #000; margin-right: 0; padding-top: 10px; padding-bottom: 0; height: 20px; transition: 0.4s; 
     } 
     
     .templateLink { 
-        text-decoration: none; text-align: left; float: left; font-size: .9em; color: black; margin-top: 0; 
+        text-decoration: none; text-align: center; float: left; font-size: 18px; color: black; margin-top: 0; padding: 12px; line-height: 25px; border-radius: 4px;
     } 
     
-    .orientation { 
-        text-align: left; float: left; font-size: .9em; color: dodgerblue; 
+    navigator a.active { 
+        color: dodgerblue; 
     } 
     
     .logopad { 
@@ -245,12 +245,12 @@
         page-break-before: none; color: #fff; padding-left: 1em; 
     } 
     
-    a:hover { 
-        color: #69180D; font-weight: bold ; text-decoration: none ; 
+    .navigator a:hover { 
+        color: #69180D; font-weight: bold; text-decoration: none; 
     } 
     
     .navigator { 
-        background-color: #E2E3E4; color: #fff; margin-left:0px; margin-top:30px; margin-bottom:0px; float: center; margin-bottom:0px; padding: 0px 0px 0px 0px; width: 100%; height: 40px; 
+        background-color: #E2E3E4; color: #fff; transition: 0.4s; position: fixed; margin-left:0px; margin-top:30px; margin-bottom:0px; float: center; margin-bottom:0px; padding: 0px 0px 0px 0px; width: 100%; height: 40px; z-index: 99; 
     } 
 
     .row {
@@ -258,3 +258,18 @@
         max-width: 2016;
         max-height: 1512;
     }
+
+     @media screen and (max-width: 580px) {
+      #navbar {
+     padding: 20px 10px !important;
+     }
+     #navbar a {
+     float: none;
+     display: block;
+     text-align: left;
+     }
+     #navbar-right {
+     float: none;
+     }
+     }
+
