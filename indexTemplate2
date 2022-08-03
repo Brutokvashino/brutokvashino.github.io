@@ -4,7 +4,7 @@
 <head> 
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/> 
     <title>Tech Journey</title> 
-    <link rel="stylesheet" href="webstyle.css">
+    <link rel="stylesheet" href="webstyle2.css">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
@@ -42,10 +42,10 @@
                                 <nav role="navigation" class="textBody"> 
                                     <ol> 
                                         <li>
-                                            <a onclick="changecssback()" class="rlink">Template 1</a>
+                                            <a href="indexTemplate1" class="rlink">Template 1</a>
                                         </li> 
                                         <li style="padding-top:5px;">
-                                            <a onclick="changecss()" class="rlink2">Template 2</a>
+                                            <a href="indexTemplate2" class="rlink2">Template 2</a>
                                         </li> 
                                     </ol> 
                                 </nav> 
