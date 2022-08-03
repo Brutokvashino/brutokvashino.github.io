@@ -11,7 +11,7 @@
     }
 
     body { 
-        font: 100%; margin: 0; padding: 0; margin-left: 0; margin-right: 0; background-color: #bdeaf2; height: 100%; width: 100%; 
+        color: black; font: 100%; margin: 0; padding: 0; margin-left: 0; margin-right: 0; background-color: #white; height: 100%; width: 100%; 
     } 
 
     .main { 
@@ -74,7 +74,7 @@
     } 
     
     .mastHead { 
-        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0px; width:100%; position: fixed;
+        color: black; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #white; font-weight: bold; height: 100px; margin-top: 0px; width:100%; position: fixed;
     } 
     
     .rigging { 
@@ -106,7 +106,7 @@
     } 
     
     .nav { 
-        background-color: #e2e3e4; color: #000; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .9em; text-align: left; padding-left: 0; float:center; 
+        background-color: #white; color: black; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .9em; text-align: left; padding-left: 0; float:center; 
     } 
     
     .container2 { 
@@ -250,8 +250,8 @@
     } 
     
     #navbar { 
-        background-color: #E2E3E4; 
-         color: #fff; 
+        background-color: white; 
+         color: black; 
          transition: 0.4s; 
          margin-left:0px; 
          margin-top:0px; 
