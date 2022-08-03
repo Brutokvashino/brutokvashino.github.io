@@ -78,7 +78,7 @@
     } 
     
     .rigging { 
-        margin-left:0px; height:100%; text-align:center; 
+        margin-left:0px; height:100%; text-align:center; position: fixed;
     } 
     
     .mast { 
