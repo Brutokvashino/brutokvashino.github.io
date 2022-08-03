@@ -11,7 +11,7 @@
     }
 
     body { 
-        font: 100%; margin: 0; padding: 0; margin-left: 0; margin-right: 0; background-color: #bdeaf2; height: 100%; width: 100%; 
+        font: 100%; margin: 0; padding: 0; margin-left: 0; margin-right: 0; background-color: black; height: 100%; width: 100%; 
     } 
 
     .main { 
@@ -74,7 +74,7 @@
     } 
     
     .mastHead { 
-        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0px; width:100%; position: fixed;
+        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: black; font-weight: bold; height: 100px; margin-top: 0px; width:100%; position: fixed;
     } 
     
     .rigging { 
@@ -86,7 +86,7 @@
     } 
     
     .templateLink { 
-        text-decoration: none; text-align: center; float: left; font-size: 18px; color: black; margin-top: 0; padding: 12px; line-height: 25px; border-radius: 4px; transition: 0.4s;
+        text-decoration: none; text-align: center; float: left; font-size: 18px; color: white; margin-top: 0; padding: 12px; line-height: 25px; border-radius: 4px; transition: 0.4s;
     } 
     
     #navbar a.active { 
@@ -106,7 +106,7 @@
     } 
     
     .nav { 
-        background-color: #e2e3e4; color: #000; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .9em; text-align: left; padding-left: 0; float:center; 
+        background-color: black; color: white; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .9em; text-align: left; padding-left: 0; float:center; 
     } 
     
     .container2 { 
@@ -122,7 +122,7 @@
     } 
     
     .article1 { 
-        font-family: 'Helvetica Neue', Arial, sans-serif; text-align: left; background-color: #fff; margin-right: 10px; margin-left: 10px; 
+        font-family: 'Helvetica Neue', Arial, sans-serif; text-align: left; background-color: black; margin-right: 10px; margin-left: 10px; 
     } 
     
     #research { 
@@ -250,7 +250,7 @@
     } 
     
     #navbar { 
-        background-color: #E2E3E4; 
+        background-color: black; 
          color: #fff; 
          transition: 0.4s; 
          margin-left:0px; 
