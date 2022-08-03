@@ -246,7 +246,7 @@
     } 
     
     .navigator a:hover { 
-        color: #69180D; font-weight: bold; text-decoration: none; 
+        background-color: dodgerblue; color: white; font-weight: bold; text-decoration: none; 
     } 
     
     .navigator { 
