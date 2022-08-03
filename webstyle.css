@@ -15,7 +15,7 @@
     } 
 
     .main { 
-        margin-top: 50px; padding: 30px 0px 30px 0px; 
+        margin-top: 0px; padding-top: 50px; 
     } 
 
     main, header, .last { 
@@ -74,15 +74,15 @@
     } 
     
     .mastHead { 
-        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0; width:100%; position: fixed;
+        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0; width:100%; position: absolute;
     } 
     
     .rigging { 
-        margin-left:0px; height:100%; text-align:center; position: fixed;
+        margin-left:0px; height:100%; text-align:center;
     } 
     
     .mast { 
-        font-size: 2em; text-align: center; text-decoration: none; text-shadow: 1px solid #000; margin-right: 0; padding-top: 10px; padding-bottom: 0; padding-left:10px; height: 50px; transition: 0.4s; position: fixed;
+        font-size: 2em; text-align: center; text-decoration: none; text-shadow: 1px solid #000; margin-right: 0; padding-top: 10px; padding-bottom: 0; padding-left:10px; height: 50px; transition: 0.4s;
     } 
     
     .templateLink { 
@@ -245,12 +245,12 @@
         page-break-before: none; color: #fff; padding-left: 1em; 
     } 
     
-    .navigator a:hover { 
+    #navbar a:hover { 
         background-color: dodgerblue; color: white; font-weight: bold; text-decoration: none; 
     } 
     
-    .navigator { 
-        background-color: #E2E3E4; color: #fff; transition: 0.4s; position: fixed; margin-left:0px; margin-top:0px; margin-bottom:0px; float: center; margin-bottom:0px; padding: 0px 0px 0px 0px; width: 100%; height: 40px; z-index: 99; 
+    #navbar { 
+        background-color: #E2E3E4; color: #fff; transition: 0.4s; margin-left:0px; margin-top:0px; margin-bottom:0px; float: center; margin-bottom:0px; padding: 0px 0px 0px 0px; width: 100%; height: 40px; z-index: 99; 
     } 
 
     .row {
