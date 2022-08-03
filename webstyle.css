@@ -74,7 +74,7 @@
     } 
     
     .mastHead { 
-        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0; width:100%; 
+        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0; width:100%; position: fixed;
     } 
     
     .rigging { 
@@ -82,7 +82,7 @@
     } 
     
     .mast { 
-        font-size: 2em; text-align: center; text-decoration: none; text-shadow: 1px solid #000; margin-right: 0; padding-top: 10px; padding-bottom: 0; height: 50px; transition: 0.4s; 
+        font-size: 2em; text-align: center; text-decoration: none; text-shadow: 1px solid #000; margin-right: 0; padding-top: 10px; padding-bottom: 0; height: 50px; transition: 0.4s; position: fixed;
     } 
     
     .templateLink { 
