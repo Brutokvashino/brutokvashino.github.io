@@ -74,7 +74,7 @@
     } 
     
     .mastHead { 
-        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0px; width:100%; position: absolute;
+        color: white; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #46b0ca; font-weight: bold; height: 100px; margin-top: 0px; width:100%; position: fixed;
     } 
     
     .rigging { 
@@ -89,7 +89,7 @@
         text-decoration: none; text-align: center; float: left; font-size: 18px; color: black; margin-top: 0; padding: 12px; line-height: 25px; border-radius: 4px;
     } 
     
-    navigator a.active { 
+    #navbar a.active { 
         text-decoration: none; text-align: center; float: left; font-size: 18px; color: dodgerblue; margin-top: 0; padding: 12px; line-height: 25px; border-radius: 4px;
      } 
     
