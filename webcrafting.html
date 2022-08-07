@@ -417,9 +417,7 @@ font-style:normal;
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-#iframewrapper {
-	
-}
+
 a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
     font-size: 28px!important;
 }
@@ -436,16 +434,17 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <![endif]-->
 </head>
 <body>
+  <div id="containingall" style="height:100%; margin:0; padding-bottom:150px;">
 <!-- TryitLeaderboard -->
     <script type='text/javascript'>uic_r_o();</script>
     <div class="navbar">
-    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
-    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
-    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
-    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
-    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
-    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
-    </div>
+        <a href="index.html" title="Go here" style="background-color: grey;" class="navitem">Map</a>
+        <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+        <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+        <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+        <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+        <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+      </div>
 <script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -655,8 +654,8 @@ function getRndInteger(min, max) {
             else if (txt == 11) {return "oats";}
             else if (txt == 12) {return "rice";}
             else if (txt == 13) {return "buckwheat";}
-            else if (txt == 14) {return "rye";}
-            else if (txt == 15) {return "millet";}
+            else if (txt = 14) {return "rye";}
+            else if (txt = 15) {return "millet";}
             else if (txt = 0) {return "";}
             else if (txt = 0) {return "";}
             else if (txt = 0) {return "";}
@@ -670,69 +669,69 @@ function getRndInteger(min, max) {
 
         function inspection() {
             var txt = getRndInteger(1,56);
-            if (txt == 1) {return "fruit";}
-            else if (txt == 2) {return "leaves";}
-            else if (txt == 3) {return "twigs";}
-            else if (txt == 4) {return "branch";}
-            else if (txt == 5) {return "fallen tree";}
-            else if (txt == 6) {return "corpse";}
-            else if (txt == 7) {return "seeds";}
-            else if (txt == 8) {return "fungus";}
-            else if (txt == 9) {return "plant";}
-            else if (txt == 10) {return "burrow";}
-            else if (txt == 11) {return "creature";}
-            else if (txt == 12) {return "bark";}
-            else if (txt == 13) {return "soil";}
-            else if (txt == 14) {return "debris";}
-            else if (txt == 15) {return "tracks";}
-            else if (txt == 16) {return "scat";}
-            else if (txt == 17) {return "swarm";}
-            else if (txt == 18) {return "stones";}
-            else if (txt == 19) {return "boulder";}
-            else if (txt == 20) {return "bones";}
-            else if (txt == 21) {return "tufts";}
-            else if (txt == 22) {return "sticks";}
-            else if (txt == 23) {return "ruins";}
-            else if (txt == 24) {return "path";}
-            else if (txt == 25) {return "road";}
-            else if (txt == 26) {return "hay";}
-            else if (txt == 27) {return "grass";}
-            else if (txt == 28) {return "ticks";}
-            else if (txt == 29) {return "hive";}
-            else if (txt == 30) {return "traveler";}
-            else if (txt == 31) {return "bandit";}
-            else if (txt == 32) {return "watcher";}
-            else if (txt == 33) {return "building";}
-            else if (txt == 34) {return "house";}
-            else if (txt == 35) {return "trap";}
-            else if (txt == 36) {return "falling debris";}
-            else if (txt == 37) {return "unstable ground";}
-            else if (txt == 38) {return "sapling";}
-            else if (txt == 39) {return "reeds";}
-            else if (txt == 40) {return "tree";}
-            else if (txt == 41) {return "grove";}
-            else if (txt == 42) {return "rocks";}
-            else if (txt == 43) {return "overgrown";}
-            else if (txt == 44) {return "thorns";}
-            else if (txt == 45) {return "twigs";}
-            else if (txt == 46) {return "farm";}
-            else if (txt == 47) {return "hole";}
-            else if (txt == 48) {return "mites";}
-            else if (txt == 49) {return "campground";}
-            else if (txt == 50) {return "baitcage";}
-            else if (txt == 51) {return "cache";}
-            else if (txt == 52) {return "canal";}
-            else if (txt == 53) {return "guard";}
-            else if (txt == 54) {return "good omen";}
-            else if (txt == 55) {return "bad omen";}
-            else if (txt == 56) {return "message";}
-            else if (txt == 0) {return "";}
+            if (txt = 1) {return "fruit";}
+            else if (txt = 2) {return "leaves";}
+            else if (txt = 3) {return "twigs";}
+            else if (txt = 4) {return "branch";}
+            else if (txt = 5) {return "fallen tree";}
+            else if (txt = 6) {return "corpse";}
+            else if (txt = 7) {return "seeds";}
+            else if (txt = 8) {return "fungus";}
+            else if (txt = 9) {return "plant";}
+            else if (txt = 10) {return "burrow";}
+            else if (txt = 11) {return "creature";}
+            else if (txt = 12) {return "bark";}
+            else if (txt = 13) {return "soil";}
+            else if (txt = 14) {return "debris";}
+            else if (txt = 15) {return "tracks";}
+            else if (txt = 16) {return "scat";}
+            else if (txt = 17) {return "swarm";}
+            else if (txt = 18) {return "stones";}
+            else if (txt = 19) {return "boulder";}
+            else if (txt = 20) {return "bones";}
+            else if (txt = 21) {return "tufts";}
+            else if (txt = 22) {return "sticks";}
+            else if (txt = 23) {return "ruins";}
+            else if (txt = 24) {return "path";}
+            else if (txt = 25) {return "road";}
+            else if (txt = 26) {return "hay";}
+            else if (txt = 27) {return "grass";}
+            else if (txt = 28) {return "ticks";}
+            else if (txt = 29) {return "hive";}
+            else if (txt = 30) {return "traveler";}
+            else if (txt = 31) {return "bandit";}
+            else if (txt = 32) {return "watcher";}
+            else if (txt = 33) {return "building";}
+            else if (txt = 34) {return "house";}
+            else if (txt = 35) {return "trap";}
+            else if (txt = 36) {return "falling debris";}
+            else if (txt = 37) {return "unstable ground";}
+            else if (txt = 38) {return "sapling";}
+            else if (txt = 39) {return "reeds";}
+            else if (txt = 40) {return "tree";}
+            else if (txt = 41) {return "grove";}
+            else if (txt = 42) {return "rocks";}
+            else if (txt = 43) {return "overgrown";}
+            else if (txt = 44) {return "thorns";}
+            else if (txt = 45) {return "twigs";}
+            else if (txt = 46) {return "farm";}
+            else if (txt = 47) {return "hole";}
+            else if (txt = 48) {return "mites";}
+            else if (txt = 49) {return "campground";}
+            else if (txt = 50) {return "baitcage";}
+            else if (txt = 51) {return "cache";}
+            else if (txt = 52) {return "canal";}
+            else if (txt = 53) {return "guard";}
+            else if (txt = 54) {return "good omen";}
+            else if (txt = 55) {return "bad omen";}
+            else if (txt = 56) {return "message";}
+            else if (txt = 0) {return "";}
         }
 
         function decay() {
           var txt = getRndInteger(1,5);
           if (txt == 0) {
-            return "sparked, dusty, discolor, stain, rust, black_mold, penecillin, moths, mice, spiders, algae, cracks, dust, sunbleached, chipping, ants, fermentation, vinegar, weathering, moss, lichen, fungus, worms, beetles, termites, animal_bite, theft, locusts, radioactive_decay, dead_bugs, flies, maggots"; }
+            return "ignited, dusty, discolor, stain, rust, black_mold, penecillin, moths, mice, spiders, algae, cracks, dust, sunbleached, chipping, ants, fermentation, vinegar, weathering, moss, lichen, fungus, worms, beetles, termites, animal_bite, theft, locusts, radioactive_decay, dead_bugs, flies, maggots"; }
             else if (txt == 1) {return "mutation";}
             else if (txt == 2) {return "bubble";}
             else if (txt == 3) {return "warped";}
@@ -746,7 +745,280 @@ function getRndInteger(min, max) {
             else if (txt == 0) {return "";}
             else if (txt == 0) {return "";}
             else if (txt == 0) {return "";}
+        }
+        
+        function seeuro() {
+          var txt = getRndInteger(1,31);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "walnut";}
+            else if (txt == 2) {return "anise";}
+            else if (txt == 3) {return "artichokes";}
+            else if (txt == 4) {return "asparagus";}
+            else if (txt == 5) {return "cabbages";}
+            else if (txt == 6) {return "carobs";}
+            else if (txt == 7) {return "carrots";}
+            else if (txt == 8) {return "cherries";}
+            else if (txt == 9) {return "chestnuts";}
+            else if (txt == 10) {return "chicory root";}
+            else if (txt == 11) {return "clover";}
+            else if (txt == 12) {return "currants";}
+            else if (txt == 13) {return "gooseberries";}
+            else if (txt == 14) {return "hazelnuts";}
+            else if (txt == 15) {return "hops";}
+            else if (txt == 16) {return "leeks";}
+            else if (txt == 17) {return "linseed";}
+            else if (txt == 18) {return "lupins";}
+            else if (txt == 19) {return "lettuce";}
+            else if (txt == 20) {return "olives";}
+            else if (txt == 21) {return "pears";}
+            else if (txt == 22) {return "peas";}
+            else if (txt == 23) {return "peppermint";}
+            else if (txt == 24) {return "plums";}
+            else if (txt == 25) {return "rapeseed";}
+            else if (txt == 26) {return "poppy";}
+            else if (txt == 27) {return "sunflower seed";}
+            else if (txt == 28) {return "raspberries";}
+            else if (txt == 29) {return "mustard seed";}
+            else if (txt == 30) {return "sugar beet";}
+            else if (txt == 31) {return "vetches";}
+        }
+        function sweuro() {
+          var txt = getRndInteger(1,27);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "olives";}
+            else if (txt == 2) {return "anise";}
+            else if (txt == 3) {return "vetches";}
+            else if (txt == 4) {return "artichokes";}
+            else if (txt == 5) {return "asparagus";}
+            else if (txt == 6) {return "cabbages";}
+            else if (txt == 7) {return "carobs";}
+            else if (txt == 8) {return "carrots";}
+            else if (txt == 9) {return "turnips";}
+            else if (txt == 10) {return "chicory roots";}
+            else if (txt == 11) {return "clover";}
+            else if (txt == 12) {return "currants";}
+            else if (txt == 13) {return "figs";}
+            else if (txt == 14) {return "gooseberries";}
+            else if (txt == 15) {return "hazelnuts";}
+            else if (txt == 16) {return "hops";}
+            else if (txt == 17) {return "leeks";}
+            else if (txt == 18) {return "linseed";}
+            else if (txt == 19) {return "peas";}
+            else if (txt == 20) {return "lupins";}
+            else if (txt == 21) {return "mustard seed";}
+            else if (txt == 22) {return "lettuce";}
+            else if (txt == 23) {return "peppermint";}
+            else if (txt == 24) {return "poppy";}
+            else if (txt == 25) {return "rapeseed";}
+            else if (txt == 26) {return "raspberries";}
+            else if (txt == 27) {return "sugar beet";}
+        }
+        function neeuro() {
+          var txt = getRndInteger(1,13);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "sugar beet";}
+            else if (txt == 2) {return "asparagus";}
+            else if (txt == 3) {return "chicory root";}
+            else if (txt == 4) {return "clover";}
+            else if (txt == 5) {return "currants";}
+            else if (txt == 6) {return "gooseberries";}
+            else if (txt == 7) {return "hazelnuts";}
+            else if (txt == 8) {return "hops";}
+            else if (txt == 9) {return "lettuce";}
+            else if (txt == 10) {return "linseed";}
+            else if (txt == 11) {return "oats";}
+            else if (txt == 12) {return "peppermint";}
+            else if (txt == 13) {return "raspberries";}
+        }
+        function nweuro() {
+          var txt = getRndInteger(1,13);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "sugar beet";}
+            else if (txt == 2) {return "asparagus";}
+            else if (txt == 3) {return "chicory roots";}
+            else if (txt == 4) {return "clover";}
+            else if (txt == 5) {return "currants";}
+            else if (txt == 6) {return "gooseberries";}
+            else if (txt == 7) {return "hazelnuts";}
+            else if (txt == 8) {return "hops";}
+            else if (txt == 9) {return "lettuce";}
+            else if (txt == 10) {return "linseed";}
+            else if (txt == 11) {return "oats";}
+            else if (txt == 12) {return "peppermint";}
+            else if (txt == 13) {return "raspberries";}
+        }
+        function centroam() {
+          var txt = getRndInteger(1,12);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "avocadoes";}
+            else if (txt == 2) {return "beans";}
+            else if (txt == 3) {return "cassava";}
+            else if (txt == 4) {return "chillies";}
+            else if (txt == 5) {return "peppers";}
+            else if (txt == 6) {return "coacoa beans";}
+            else if (txt == 7) {return "cottonseed oil";}
+            else if (txt == 8) {return "maize";}
+            else if (txt == 9) {return "papayas";}
+            else if (txt == 10) {return "pumpkins";}
+            else if (txt == 11) {return "sweet potatoes";}
+            else if (txt == 12) {return "vanilla";}
+            else if (txt == 6) {return "";}
 
+          }
+        function westasia() {
+          var txt = getRndInteger(1,43);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "alfalfa";}
+            else if (txt == 2) {return "cotton";}
+            else if (txt == 3) {return "almonds";}
+            else if (txt == 4) {return "anise";}
+            else if (txt == 5) {return "apsaragus";}
+            else if (txt == 6) {return "barley";}
+            else if (txt == 7) {return "carrots";}
+            else if (txt == 8) {return "turnips";}
+            else if (txt == 9) {return "castor oil";}
+            else if (txt == 10) {return "cherries";}
+            else if (txt == 11) {return "chestnut";}
+            else if (txt == 12) {return "chickpeas";}
+            else if (txt == 13) {return "chicory root";}
+            else if (txt == 14) {return "clovers";}
+            else if (txt == 15) {return "dates";}
+            else if (txt == 16) {return "faba beans";}
+            else if (txt == 17) {return "gooseberries";}
+            else if (txt == 18) {return "figs";}
+            else if (txt == 19) {return "grapes";}
+            else if (txt == 20) {return "hazelnuts";}
+            else if (txt == 21) {return "hempseed";}
+            else if (txt == 22) {return "hops";}
+            else if (txt == 23) {return "leeks";}
+            else if (txt == 24) {return "lentils";}
+            else if (txt == 25) {return "lettuce";}
+            else if (txt == 26) {return "linseed";}
+            else if (txt == 27) {return "melons";}
+            else if (txt == 28) {return "olives";}
+            else if (txt == 29) {return "onions";}
+            else if (txt == 30) {return "pears";}
+            else if (txt == 31) {return "peas";}
+            else if (txt == 32) {return "peppermint";}
+            else if (txt == 33) {return "pistachios";}
+            else if (txt == 34) {return "plums";}
+            else if (txt == 35) {return "quinces";}
+            else if (txt == 36) {return "rye";}
+            else if (txt == 37) {return "raspberries";}
+            else if (txt == 38) {return "sunflower";}
+            else if (txt == 39) {return "sesame";}
+            else if (txt == 40) {return "spinach";}
+            else if (txt == 41) {return "triticale";}
+            else if (txt == 42) {return "walnuts";}
+            else if (txt == 43) {return "wheat";}
+        }
+        function eastasia() {
+          var txt = getRndInteger(1,26);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "apricots";}
+            else if (txt == 2) {return "buckwheat";}
+            else if (txt == 3) {return "cabbages";}
+            else if (txt == 4) {return "cinnamon";}
+            else if (txt == 5) {return "cucumbers";}
+            else if (txt == 6) {return "eggplants";}
+            else if (txt == 7) {return "grapefruit";}
+            else if (txt == 8) {return "grapes";}
+            else if (txt == 9) {return "hops";}
+            else if (txt == 10) {return "kiwi";}
+            else if (txt == 11) {return "lemons";}
+            else if (txt == 12) {return "limes";}
+            else if (txt == 13) {return "melons";}
+            else if (txt == 14) {return "oranges";}
+            else if (txt == 15) {return "millets";}
+            else if (txt == 16) {return "peaches";}
+            else if (txt == 17) {return "pears";}
+            else if (txt == 18) {return "persimmons";}
+            else if (txt == 19) {return "plums";}
+            else if (txt == 20) {return "nectarines";}
+            else if (txt == 21) {return "raspberries";}
+            else if (txt == 22) {return "rice";}
+            else if (txt == 23) {return "soybeans";}
+            else if (txt == 24) {return "tangerines";}
+            else if (txt == 25) {return "mandarins";}
+            else if (txt == 26) {return "tea";}
+        }
+        function centrasia() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {
+            return ""; }
+            else if (txt == 1) {return "apples";}
+            else if (txt == 2) {return "alfalfa";}
+            else if (txt == 3) {return "almonds";}
+        }
+        function southasia() {
+          var txt = getRndInteger(1,31);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "areca nut";}
+            else if (txt == 2) {return "bananas";}
+            else if (txt == 3) {return "plantains";}
+            else if (txt == 4) {return "castor oil";}
+            else if (txt == 5) {return "chickpeas";}
+            else if (txt == 6) {return "chicory root";}
+            else if (txt == 7) {return "cinnamon";}
+            else if (txt == 8) {return "clover";}
+            else if (txt == 9) {return "coconuts";}
+            else if (txt == 10) {return "cucumbers";}
+            else if (txt == 11) {return "dates";}
+            else if (txt == 12) {return "eggplants";}
+            else if (txt == 13) {return "ginger";}
+            else if (txt == 14) {return "hempseed";}
+            else if (txt == 15) {return "figs";}
+            else if (txt == 16) {return "lemons";}
+            else if (txt == 17) {return "limes";}
+            else if (txt == 18) {return "lentils";}
+            else if (txt == 19) {return "mangoes";}
+            else if (txt == 20) {return "melons";}
+            else if (txt == 21) {return "millets";}
+            else if (txt == 22) {return "okra";}
+            else if (txt == 23) {return "pepper";}
+            else if (txt == 24) {return "pigeonpeas";}
+            else if (txt == 25) {return "rice";}
+            else if (txt == 26) {return "sesame";}
+            else if (txt == 27) {return "sugarcane";}
+            else if (txt == 28) {return "taro";}
+            else if (txt == 29) {return "tea";}
+            else if (txt == 30) {return "walnuts";}
+            else if (txt == 31) {return "yams";}
+        }
+        function westafrica() {
+          var txt = getRndInteger(1,11);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "oil palm";}
+            else if (txt == 2) {return "fonio";}
+            else if (txt == 3) {return "sheanuts";}
+            else if (txt == 4) {return "coffee";}
+            else if (txt == 5) {return "cowpeas";}
+            else if (txt == 6) {return "melons";}
+            else if (txt == 7) {return "millets";}
+            else if (txt == 8) {return "kola nuts";}
+            else if (txt == 9) {return "rice";}
+            else if (txt == 10) {return "sorghum";}
+            else if (txt == 11) {return "yams";}
+        }
+        function andes() {
+          var txt = getRndInteger(1,6);
+          if (txt == 0) {
+            return "_"; }
+            else if (txt == 1) {return "potato";}
+            else if (txt == 2) {return "sweet potato";}
+            else if (txt == 3) {return "beans";}
+            else if (txt == 4) {return "quinoa";}
+            else if (txt == 5) {return "tomatoes";}
+            else if (txt == 6) {return "lupins";}
         }
 function getterrain(){
     document.getElementById("terraingot").innerHTML = terrain();
@@ -768,6 +1040,36 @@ function getterrain(){
     document.getElementById("inspectioned").innerHTML = inspection();
 }function getdecay(){
     document.getElementById("decaygot").innerHTML = decay();
+}
+function getneeuro(){
+    document.getElementById("neeurogot").innerHTML = neeuro();
+}
+function getseeuro(){
+    document.getElementById("seeurogot").innerHTML = seeuro();
+}
+function getnweuro(){
+    document.getElementById("nweurogot").innerHTML = nweuro();
+}
+function getsweuro(){
+    document.getElementById("sweurogot").innerHTML = sweuro();
+}
+function getwestasia(){
+    document.getElementById("westasiagot").innerHTML = westasia();
+}
+function getsouthasia(){
+    document.getElementById("southasiagot").innerHTML = southasia();
+}
+function geteastasia(){
+    document.getElementById("eastasiagot").innerHTML = eastasia();
+}
+function getcentroam(){
+    document.getElementById("centroamgot").innerHTML = centroam();
+}
+function getwestafrica(){
+    document.getElementById("westafricagot").innerHTML = westafrica();
+}
+function getandes(){
+    document.getElementById("andesgot").innerHTML = andes();
 }
   </script>
 <p>
@@ -826,8 +1128,61 @@ function getterrain(){
     <span id="decaygot"></span>
     <br>
     <br>
-    Smelting:
     <br>
+    <br>
+    NE European Box:
+    <button id="getneeuro" onclick="getneeuro()">Select</button>  
+    <span id="neeurogot"></span>
+    <br>
+    <br>
+    SE European Box:
+    <button id="getseeuro" onclick="getseeuro()">Select</button>  
+    <span id="seeurogot"></span>
+    <br>
+    <br>
+    SW European Box:
+    <button id="getsweuro" onclick="getsweuro()">Select</button>  
+    <span id="sweurogot"></span>
+    <br>
+    <br>
+    NW European Box:
+    <button id="getnweuro" onclick="getnweuro()">Select</button>  
+    <span id="nweurogot"></span>
+    <br>
+    <br>
+    West Asian Box:
+    <button id="getwestasia" onclick="getwestasia()">Select</button>  
+    <span id="westasiagot"></span>
+    <br>
+    <br>
+    East Asian Box:
+    <button id="geteastasia" onclick="geteastasia()">Select</button>  
+    <span id="eastasiagot"></span>
+    <br>
+    <br>
+    South Asian Box:
+    <button id="getsouthasia" onclick="getsouthasia()">Select</button>  
+    <span id="southasiagot"></span>
+    <br>
+    <br>
+    Central American Box:
+    <button id="getcentroam" onclick="getcentroam()">Select</button>  
+    <span id="centroamgot"></span>
+    <br>
+    <br>
+    West Africa Box:
+    <button id="getcentroam" onclick="getwestafrica()">Select</button>  
+    <span id="westafricagot"></span>
+    <br>
+    <br>
+    Andes Box:
+    <button id="getcentroam" onclick="getandes()">Select</button>  
+    <span id="andesgot"></span>
+    <br>
+    <br>
+    <div id="smeltingbox" style="border: solid 1px black; width:500px; position:relative;">
+      <span style="padding-right:145px">Smelting:</span><span>Crafting:</span><br>
+      <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
     <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
     <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
     <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
@@ -835,19 +1190,22 @@ function getterrain(){
     <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
     <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
     <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    </div>
     <br>
     <br>
     Crafting:
     <br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
-    <input type="text"><select name="items" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>            
+    <div id="craftingbox" style="border: solid 1px black; width:500px; position:fixed; margin-bottom:0px; margin-right:0px;">
+    <span>Crafting:</span>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>
+    <input type="text"><select name="itemse" id="items"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><br>            
+    </div>
     <br>
 </p>
 <!--
