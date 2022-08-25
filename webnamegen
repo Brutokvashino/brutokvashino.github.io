@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Name Generator</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="https://www.w3schools.com/images/w3schools_logo.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="200">
+<meta property="og:image:height" content="200">
+<link rel="preload" href="/lib/fonts/fontawesome.woff2?14663396" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="/lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="/lib/w3schools30.css">
+<link rel="stylesheet" href="/lib/codemirror.css">
+<script src="/lib/codemirror.js"></script>
+<script src="/lib/codemirror_htmlmixed.js"></script>
+<script src="/lib/codemirror_javascript.js"></script>
+<script src="/lib/codemirror_css.js"></script>
+<script src="/lib/codemirror_clike.js"></script>
+<script src="/lib/codemirror_php.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-3855518-1', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'GTM-WJ88MZ5');
+ga('send', 'pageview');
+</script>
+
+<script src="/lib/uic.js?v=1.0.5"></script>
+<script data-cfasync="false" type="text/javascript">
+var k42 = false;
+
+// GPT slots
+var gptAdSlots = [];
+window.googletag = window.googletag || { cmd: [] };
+googletag.cmd.push(function() {
+  var leaderMapping = googletag.sizeMapping().
+  // Mobile ad
+  addSize([0, 0], [320, 50]). 
+  // Vertical Tablet ad
+  addSize([468, 0], [468, 60]). 
+  // Horizontal Tablet
+  addSize([728, 0], [728, 90]).
+  // Desktop and bigger ad
+  addSize([970, 0], [[728, 90], [970, 90]]).build();
+  // addSize([970, 0], [728, 90]).build();
+  gptAdSlots[0] = googletag.defineSlot('/16833175/TryitLeaderboard', [[728, 90], [970, 90]], 'div-gpt-ad-1428407818244-0').
+  // gptAdSlots[0] = googletag.defineSlot('/16833175/TryitLeaderboard', [728, 90], 'div-gpt-ad-1428407818244-0').
+  defineSizeMapping(leaderMapping).addService(googletag.pubads());
+  googletag.pubads().setTargeting("content","try" + (function () {
+    var folder = location.pathname;
+    folder = folder.replace("/", "");
+    folder = folder.substr(0, folder.indexOf("/"));
+    return folder;
+  })());
+});  
+
+</script>
+<script data-cfasync="false" type="text/javascript">
+    window.snigelPubConf = {
+    "adengine": {
+
+      "activeAdUnits": [],
+      "additionalGptAdSlotIds": ["div-gpt-ad-1428407818244-0"]
+
+  }
+}
+uic_r_a()
+</script>
+<script async data-cfasync="false" src="https://cdn.snigelweb.com/adengine/w3schools.com/loader.js" type="text/javascript"></script>
+<script>
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+              
+        uic_r_m();
+         
+    }
+    if (window.screen.availWidth <= 768) {
+      restack(window.innerHeight > window.innerWidth);
+    }
+    fixDragBtn();
+    showFrameSize();    
+}
+var fileID = "";
+var loadSave = false;
+function getSavedFile() {
+    loadSave = true;
+    var htmlCode;
+    var paramObj = {};
+    paramObj.fileid = "";
+    fileID = paramObj.fileid;
+    var paramA = JSON.stringify(paramObj);
+    var httpA = new XMLHttpRequest();
+    httpA.open("POST", globalURL, true);
+    httpA.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpA.onreadystatechange = function() {
+        if(httpA.readyState == 4 && httpA.status == 200) {
+            document.getElementById("textareaCode").value = httpA.responseText;
+            window.editor.getDoc().setValue(httpA.responseText);
+            loadSave = false;
+        }
+    }
+    httpA.send(paramA);   
+}
+</script>
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color:#000000;
+  background-color: slategray;
+  margin:10px;
+  font-size:100%;
+}
+.trytopnav {
+  height:100%;
+  overflow:hidden;
+  min-width:380px;
+  position:absolute;
+  width:100%;
+  top:99px;
+  background-color:#1b548e;
+}
+.topnav-icons {
+  margin-right:8px;
+}
+.trytopnav a,.trytopnav button {
+  color:#999999;
+}
+.w3-bar .w3-bar-item:hover {
+  color:#757575 !important;
+}
+a.w3schoolslink {
+  padding:0 !important;
+  display:inline !important;
+}
+a.w3schoolslink:hover,a.w3schoolslink:active {
+  text-decoration:underline !important;
+  background-color:transparent !important;
+}
+#dragbar{
+  position:absolute;
+  cursor: col-resize;
+  z-index:3;
+  padding:5px;
+}
+#shield {
+  display:none;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+  height:100%;
+  z-index:4;
+}
+#framesize span {
+  font-family:Consolas, monospace;
+}
+#container {
+  background-color:slategray;
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:0px;
+  bottom:0;
+  height:100%;
+}
+#textareacontainer, #iframecontainer {
+  height:50%;
+  width:100%;
+}
+#textarea, #iframe {
+  height:100%;
+  width:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+}
+#textarea {
+  padding-left:10px;
+  padding-right:5px;  
+}
+#iframe {
+  padding-left:5px;
+  padding-right:10px;
+  color:#ffffff;
+  font-family: "Times New Roman";    
+}
+#textareawrapper {
+  width:100%;
+  height:100%;
+  background-color: #ffffff;
+  position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#iframewrapper {
+  width:100%;
+  height:100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#ffffff;
+  font-family: "Times New Roman";
+  font-size: 16px;
+}
+#textareaCode {
+  background-color: black;
+  color:white;
+  font-family: consolas,"courier new",monospace;
+  font-size:15px;
+  height:100%;
+  width:100%;
+  padding:8px;
+  resize: none;
+  border:none;
+  line-height:normal;    
+}
+.CodeMirror.cm-s-default {
+  line-height:normal;
+  padding: 4px;
+  height:100%;
+  width:100%;
+}
+#iframeResult, #iframeSource {
+  background-color:lightsteelblue;
+  color:white;
+  font-family: "Times New Roman";    
+  height:100%;
+  width:100%;  
+  padding:20px;
+  border: 2px solid black;
+}
+#iframeResult * {
+  font-family: "Times New Roman"!important;
+}
+#iframeResult h1,#iframeResult h2,#iframeResult h3,#iframeResult h4,#iframeResult h5,#iframeResult h6 {
+  font-weight: bold;
+}
+
+#stackV {background-color:#999999;}
+#stackV:hover {background-color:#BBBBBB !important;}
+#stackV.horizontal {background-color:transparent;}
+#stackV.horizontal:hover {background-color:#BBBBBB !important;}
+#stackH.horizontal {background-color:#999999;}
+#stackH.horizontal:hover {background-color:#999999 !important;}
+#textareacontainer.horizontal,#iframecontainer.horizontal{
+  height:50%;
+  float:none;
+  width:100%;
+}
+#textarea.horizontal{
+  height:100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+#iframe.horizontal{
+  height:100%;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;  
+}
+#container.horizontal{
+  min-height:200px;
+  margin-left:0;
+}
+#tryitLeaderboard {
+  background-color:#ffffff;
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:0px;
+}
+.w3-dropdown-content {width:350px}
+body.darktheme {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35; 
+}
+body.darktheme #tryitLeaderboard{
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+}
+body.darktheme .trytopnav{
+  background-color:#616161;
+  background-color:#38444d;    
+  color:#dddddd;
+}
+body.darktheme #container {
+  background-color:#616161;
+  background-color:#38444d;    
+}
+body.darktheme #textareaCode {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+  color:#fff;
+}
+body.darktheme .trytopnav a,body.darktheme .trytopnav button {
+  color:#dddddd;
+}
+
+#runbtn {
+  background-color: dodgerblue;
+  color:white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:18px;
+  padding:6px 25px;
+  margin-top:4px;
+  border-radius:5px;
+  word-spacing:10px;
+}
+#runbtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+  
+@media screen and (max-width: 727px) {
+  .trytopnav {top:70px;}
+  #container {top:116px;}
+}
+@media screen and (max-width: 467px) {
+  .trytopnav {top:60px;}
+  #container {top:106px;}
+  .w3-dropdown-content {width:100%}
+}
+@media only screen and (max-device-width: 768px) {
+  #iframewrapper {overflow: auto;}
+  #container     {min-width:320px;}
+  .stack         {display:none;}
+  #tryhome       {display:block;}
+}
+
+@font-face {
+font-family: 'fontawesome';
+src:url('../lib/fonts/fontawesome.eot?14663396');
+src:url('../lib/fonts/fontawesome.eot?14663396#iefix') format('embedded-opentype'),
+    url('../lib/fonts/fontawesome.woff?14663396') format('woff'),
+    url('../lib/fonts/fontawesome.ttf?14663396') format('truetype'),
+    url('../lib/fonts/fontawesome.svg?14663396#fontawesome') format('svg');
+font-weight:normal;
+font-style:normal;
+}
+.fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transform:translate(0,0);
+}
+.fa-2x {
+  font-size:2em;
+}
+.fa-home:before {content: '\e800'; }
+.fa-save:before {content: '\e804'; }
+.fa-rotate:before {content: '\e813'; }
+.fa-adjust:before { content: '\e80b'; }
+.fa-menu:before { content: '\f0c9'; }
+.loader {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+#saveLoader {
+    margin:20px;
+}
+#runloadercontainer{
+  display:none;
+  position:absolute;
+  z-index:9;
+}
+#runloader{
+  margin:auto;
+  border: 10px solid #F1F1F1;
+  border-top: 10px solid #04AA6D;
+  border-radius: 50%;
+  max-width: 150px;
+  max-height: 150px;
+  animation: spin 2s linear infinite;
+  position:relative;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
+    font-size: 28px!important;
+}
+
+</style>
+<!--[if lt IE 8]>
+<style>
+#textareacontainer, #iframecontainer {width:48%;}
+#container {height:500px;}
+#textarea, #iframe {width:90%;height:450px;}
+#textareaCode, #iframeResult {height:450px;}
+.stack {display:none;}
+</style>
+<![endif]-->
+</head>
+<body>
+
+  <h1>Name Generator</h1>
+  <div class="navbar">
+    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
+    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+    <a href="webnamegen.html" title="A naming game" class="templateLink">Name Generator</a>   
+  </div>
+
+<a href="javascript:void(0)" id="dragbar"></a>
+<p>
+<script>
+function getRndInteger(min, max) {return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+function titles() {var txt = getRndInteger(1,5);
+if (txt == 1) {return "Judge";}
+else if (txt == 2) {return "Doctor";}
+else if (txt == 3) {return "Professor";}
+else if (txt == 4) {return "King";}
+else if (txt == 5) {return "Queen";}
+          else if (txt == 6) {return "Doctor";}
+          else if (txt == 7) {return "Doctor";}
+          else if (txt == 8) {return "Doctor";}
+          else if (txt == 9) {return "Doctor";}
+          else if (txt == 10) {return "Doctor";}
+          else if (txt == 11) {return "Doctor";}
+          else if (txt == 12) {return "Doctor";}
+          else if (txt == 13) {return "Doctor";}
+          else if (txt == 14) {return "Doctor";}
+          else if (txt == 15) {return "Doctor";}
+          else if (txt == 16) {return "Doctor";}
+          else if (txt == 17) {return "Doctor";}
+          else if (txt == 18) {return "Doctor";}
+          else if (txt == 19) {return "Doctor";}
+          else if (txt == 20) {return "Doctor";}
+          else if (txt == 21) {return "Doctor";}
+          else if (txt == 22) {return "Doctor";}
+          else if (txt == 23) {return "Doctor";}
+          else if (txt == 24) {return "Doctor";}
+          else if (txt == 25) {return "Doctor";}
+          else if (txt == 26) {return "Doctor";}
+          else if (txt == 27) {return "Doctor";}
+          else if (txt == 28) {return "Doctor";}
+          else if (txt == 29) {return "Doctor";}
+          else if (txt == 30) {return "Doctor";}
+          else if (txt == 31) {return "Doctor";}
+          else if (txt == 32) {return "Doctor";}
+          else if (txt == 33) {return "Doctor";}
+          else if (txt == 34) {return "Doctor";}
+          else if (txt == 35) {return "Doctor";}
+          else if (txt == 36) {return "Doctor";}
+          else if (txt == 37) {return "Doctor";}
+          else if (txt == 38) {return "Doctor";}
+          else if (txt == 39) {return "Doctor";}
+          else if (txt == 40) {return "Doctor";}
+}
+function epithets() {var txt = getRndInteger(1,25);
+if (txt == 1) {return "Old";}
+else if (txt == 2) {return "Young";}
+else if (txt == 3) {return "Older";}
+else if (txt == 4) {return "Younger";}
+else if (txt == 5) {return "Good";}
+else if (txt == 6) {return "Evil";}
+else if (txt == 7) {return "Orange";}
+else if (txt == 8) {return "Red";}
+else if (txt == 9) {return "Vengeful";}
+else if (txt == 10) {return "Corrupt";}
+else if (txt == 11) {return "Pure";}
+else if (txt == 12) {return "Defiled";}
+else if (txt == 13) {return "First";}
+else if (txt == 14) {return "Second";}
+else if (txt == 15) {return "Third";}
+else if (txt == 16) {return "Fourth";}
+else if (txt == 17) {return "Fifth";}
+else if (txt == 18) {return "XI";}
+else if (txt == 19) {return "XII";}
+else if (txt == 20) {return "XIII";}
+else if (txt == 21) {return "XIV";}
+else if (txt == 22) {return "XV";}
+else if (txt == 23) {return "XVI";}
+else if (txt == 24) {return "Prototype";}
+else if (txt == 25) {return "Wise";}
+else if (txt == 26) {return "Fool";}
+}
+function epithets1() {var txt = getRndInteger(1,21);
+if (txt == 1) {return "Witch-King";}
+else if (txt == 2) {return "Farmer";}
+else if (txt == 3) {return "King";}
+else if (txt == 4) {return "Queen";}
+else if (txt == 5) {return "Prince";}
+else if (txt == 6) {return "Princess";}
+else if (txt == 7) {return "Bane";}
+else if (txt == 8) {return "Slayer";}
+else if (txt == 9) {return "Keeper";}
+else if (txt == 10) {return "Guardian";}
+else if (txt == 11) {return "Healer";}
+else if (txt == 12) {return "Mage";}
+else if (txt == 13) {return "Innkeeper";}
+else if (txt == 14) {return "Undertaker";}
+else if (txt == 15) {return "Protector";}
+else if (txt == 16) {return "Son";}
+else if (txt == 17) {return "Daughter";}
+else if (txt == 18) {return "Lady";}
+else if (txt == 19) {return "Master";}
+else if (txt == 20) {return "Duke";}
+else if (txt == 21) {return "Duchess";}
+}
+function epithets2() {var txt = getRndInteger(1,25);
+if (txt == 1) {return "Giants";}
+else if (txt == 2) {return "Dragons";}
+else if (txt == 3) {return "Men";}
+else if (txt == 4) {return "Beasts";}
+else if (txt == 5) {return "Angels";}
+else if (txt == 6) {return "Demons";}
+else if (txt == 7) {return "Pure English Butter";}
+else if (txt == 8) {return "the Seven Seas";}
+else if (txt == 9) {return "the East";}
+else if (txt == 10) {return "the South";}
+else if (txt == 11) {return "the North";}
+else if (txt == 12) {return "the West";}
+else if (txt == 13) {return "the Gods";}
+else if (txt == 14) {return "the Skies";}
+else if (txt == 15) {return "the Galaxy";}
+else if (txt == 16) {return "Florida";}
+else if (txt == 17) {return "the Village";}
+else if (txt == 18) {return "the Town";}
+else if (txt == 19) {return "the Horde";}
+else if (txt == 20) {return "Riches";}
+else if (txt == 21) {return "Books";}
+else if (txt == 22) {return "the Scrolls";}
+else if (txt == 23) {return "Secrets";}
+else if (txt == 24) {return "Oaths";}
+else if (txt == 25) {return "Seinfeld";}
+}
+function prefixes() { /*ancients*/
+var txt = getRndInteger(1,30);
+if (txt == 0) {return " ";}
+else if (txt == 1) {return "Chad";}
+else if (txt == 2) {return "Lucy";}
+else if (txt == 3) {return "Tom";}
+else if (txt == 4) {return "Andoca";}
+else if (txt == 5) {return "Barney";}
+else if (txt == 6) {return "Fred";}
+else if (txt == 7) {return "Mica";}
+else if (txt == 8) {return "Terra";}
+else if (txt == 9) {return "Mycol";}
+else if (txt == 10) {return "Wilma";}
+else if (txt == 11) {return "Olivia";}
+else if (txt == 12) {return "Pi";}
+else if (txt == 13) {return "Roxanne";}
+else if (txt == 14) {return "Phil";}
+else if (txt == 15) {return "Caspar";}
+else if (txt == 16) {return "Haley";}
+else if (txt == 17) {return "Jepp";}
+else if (txt == 18) {return "O'Thor";}
+else if (txt == 19) {return "Phelps";}
+else if (txt == 20) {return "Fiddol";}
+else if (txt == 21) {return "Lynn";}
+else if (txt == 22) {return "Mo";}
+else if (txt == 23) {return "Hema";}
+else if (txt == 24) {return "Byron";}
+else if (txt == 25) {return "Musca";}
+else if (txt == 26) {return "Crystal";}
+else if (txt == 27) {return "Sal";}
+else if (txt == 28) {return "Cal";}
+else if (txt == 29) {return "Dolore";}
+else if (txt == 30) {return "Toprak";}
+}      
+      function middlenames() { 
+          var txt = getRndInteger(1,40);
+          if (txt == 0) {return "";}
+          else if (txt == 1) {return "ibn";}
+          else if (txt == 2) {return "bar";}
+          else if (txt == 3) {return "bat";}
+          else if (txt == 4) {return "ben";}
+          else if (txt == 5) {return "Cor-";}
+          else if (txt == 6) {return "van";}
+          else if (txt == 7) {return "von";}
+          else if (txt == 8) {return "ahi";}
+          else if (txt == 9) {return "son of";}
+          else if (txt == 10) {return "daughter of";}
+          else if (txt == 11) {return "O'";}
+          else if (txt == 12) {return "Banana";}
+          else if (txt == 13) {return "the Bat";}
+          else if (txt == 14) {return "the Hedgehog";}
+          else if (txt == 15) {return "Eggman";}
+          else if (txt == 16) {return "the Echidna";}
+          else if (txt == 17) {return "Mc-";}
+          else if (txt == 18) {return "Big";}
+          else if (txt == 19) {return "Little";}
+          else if (txt == 20) {return "Lil'";}
+          else if (txt == 21) {return "Da'";}
+          else if (txt == 22) {return "the";}
+          else if (txt == 23) {return "MC";}
+          else if (txt == 24) {return "that Boy";}
+          else if (txt == 25) {return "that Gurl";}
+          else if (txt == 26) {return "Big Baby";}
+          else if (txt == 27) {return "Ya Boi";}
+          else if (txt == 28) {return "-ward";}
+          else if (txt == 29) {return "Monique";}
+          else if (txt == 30) {return "Beatrice";}
+          else if (txt == 31) {return "Jennifer";}
+          else if (txt == 32) {return "Rachel";}
+          else if (txt == 33) {return "Maria";}
+          else if (txt == 34) {return "Johnathan";}
+          else if (txt == 35) {return "Guiseppe";}
+          else if (txt == 36) {return "Ronald";}
+          else if (txt == 37) {return "John";}
+          else if (txt == 38) {return "Christopher";}
+          else if (txt == 39) {return "Lynn";}
+          else if (txt == 40) {return "Rose";}
+      }
+      function suffixes() { /*noblenames*/
+          var txt = getRndInteger(1,40);
+          if (txt == 0) {return " ";}
+          else if (txt == 1) {return "Ninsun";}
+          else if (txt == 2) {return "An";}
+          else if (txt == 3) {return "Enlil";}
+          else if (txt == 4) {return "Hammurabi";}
+          else if (txt == 5) {return "Ur-Nammu";}
+          else if (txt == 6) {return "Hammurabi";}
+          else if (txt == 7) {return "Dadusha";}
+          else if (txt == 8) {return "Shang";}
+          else if (txt == 9) {return "Rurik";}
+          else if (txt == 10) {return "Saba";}
+          else if (txt == 11) {return "Akhenaton";}
+          else if (txt == 12) {return "Ramses II";}
+          else if (txt == 13) {return "Saul";}
+          else if (txt == 14) {return "David";}
+          else if (txt == 15) {return "Sheba";}
+          else if (txt == 16) {return "Makeda";}
+          else if (txt == 17) {return "Solomon";}
+          else if (txt == 18) {return "Cyrus the Great";}
+          else if (txt == 19) {return "Aksum";}
+          else if (txt == 20) {return "Darius the Great";}
+          else if (txt == 21) {return "Shamgar";}
+          else if (txt == 22) {return "Esther";}
+          else if (txt == 23) {return "Xerxes I";}
+          else if (txt == 24) {return "Vashti";}
+          else if (txt == 25) {return "Deborah";}
+          else if (txt == 26) {return "Han";}
+          else if (txt == 27) {return "Asoka";}
+          else if (txt == 28) {return "Gideon";}
+          else if (txt == 29) {return "John Hyrcanus";}
+          else if (txt == 30) {return "Yohanan Cohen Gadol";}
+          else if (txt == 31) {return "Artaxerxes";}
+          else if (txt == 32) {return "Caesar";}
+          else if (txt == 33) {return "Boudicca";}
+          else if (txt == 34) {return "Alexander";}
+          else if (txt == 35) {return "Alexander Jannaeus";}
+          else if (txt == 36) {return "Alexandra Jannaeus";}
+          else if (txt == 37) {return "Aristobulus II";}
+          else if (txt == 38) {return "Herod Antipas";}
+          else if (txt == 39) {return "Mariamme";}
+          else if (txt == 40) {return "Caesar Agustus";}
+      }
+      function nations() {
+          var txt = getRndInteger(1,36);
+          if (txt == 0) {return ", Lascaux, Mistrise, Puddledeep, the_Cave_of Treasures, Plageo, , Greensprout, Everblossom, , Dunewaste, Gildin, Emc, Randolphville,,, Tekoa, Anathoth, Gibeah, Adamah, Rarámuri, Tarahumara, Fiji, Lenape, Huron, Munsee, Apache, Cherokee, Swampy_Cree, Forest_Cree, Inuit, Cheyenne, Hopi, Navajo, Dakota, Pensacola, Chatot, Apalachee, Timucua Tocobaga, Jororo, Ais, Jeaga, Mayaimi, Tequesta, Calusa, Matecumbe, Taino, Apache, Pueblo, Kikapoo, Oneida, Celts, Saxony, Iberia, Basque_Country, Angles, Lombards, Visigoths, Goths, Ostrogoths, Carolingians, Merovingians, Franks, Arawak, Sentinel, Caribs, Yoruba,";}
+          else if (txt == 1) {return "Ethiopia";}
+          else if (txt == 2) {return "France";}
+          else if (txt == 3) {return "Everdell";}
+          else if (txt == 4) {return "the Cave of Wonders";}
+          else if (txt == 5) {return "Treasure Island";}
+          else if (txt == 6) {return "Treasure Planet";}
+          else if (txt == 7) {return "Sierra de Atapuerca";}
+          else if (txt == 8) {return "Pangea";}
+          else if (txt == 9) {return "Lorien";}
+          else if (txt == 10) {return "Angmar";}
+          else if (txt == 11) {return "Bellfaire";}
+          else if (txt == 12) {return "Pearlbrook";}
+          else if (txt == 13) {return "spirecrest";}
+          else if (txt == 14) {return "Everfrost";}
+          else if (txt == 15) {return "Hopewatch";}
+          else if (txt == 16) {return "the Fatherland";}
+          else if (txt == 17) {return "the Motherland";}
+          else if (txt == 18) {return "the Misty Mountains";}
+          else if (txt == 19) {return "Antarctica";}
+          else if (txt == 20) {return "Gondor";}
+          else if (txt == 21) {return "Helms Deep";}
+          else if (txt == 22) {return "the Golden Kingdom";}
+          else if (txt == 23) {return "Bethlehem";}
+          else if (txt == 24) {return "Nazareth";}
+          else if (txt == 25) {return "the Unhappy Kingdom";}
+          else if (txt == 26) {return "the United Kingdom";}
+          else if (txt == 27) {return "Scotland";}
+          else if (txt == 28) {return "the Cossacks";}
+          else if (txt == 29) {return "Hyrule";}
+          else if (txt == 30) {return "Wessex";}
+          else if (txt == 31) {return "El Dorado";}
+          else if (txt == 32) {return "the Caribbean";}
+          else if (txt == 33) {return "the Underworld";}
+          else if (txt == 34) {return "Mount Olympus";}
+          else if (txt == 35) {return "the Greeks";}
+          else if (txt == 36) {return "Sparta";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+            function rooms() { /*suffixes*/
+          var txt = getRndInteger(1,40);
+          if (txt == 0) {return " ";}
+          else if (txt == 1) {return "-mack";}
+          else if (txt == 2) {return "-sohn";}
+          else if (txt == 3) {return "-dottir";}
+          else if (txt == 4) {return "-ov";}
+          else if (txt == 5) {return "-ovna";}
+          else if (txt == 6) {return "-ovich";}
+          else if (txt == 7) {return "-ko";}
+          else if (txt == 8) {return "-kun";}
+          else if (txt == 9) {return "-sama";}
+          else if (txt == 10) {return "-san";}
+          else if (txt == 11) {return "-chan";}
+          else if (txt == 12) {return "-kin";}
+          else if (txt == 13) {return "-son";}
+          else if (txt == 14) {return "-enko";}
+          else if (txt == 15) {return "-chenko";}
+          else if (txt == 16) {return "-owich";}
+          else if (txt == 17) {return "-owitz";}
+          else if (txt == 18) {return "-ovitch";}
+          else if (txt == 19) {return "-man";}
+          else if (txt == 20) {return "-daughter";}
+          else if (txt == 21) {return "-frau";}
+          else if (txt == 22) {return "-mann";}
+          else if (txt == 23) {return "-smann";}
+          else if (txt == 24) {return "-nka";}
+          else if (txt == 25) {return "-ward";}
+          else if (txt == 26) {return "-smith";}
+          else if (txt == 27) {return "-er";}
+          else if (txt == 28) {return "-stone";}
+          else if (txt == 29) {return "-stein";}
+          else if (txt == 30) {return "-burg";}
+          else if (txt == 31) {return "-berg";}
+          else if (txt == 32) {return "-mond";}
+          else if (txt == 33) {return "-wulf";}
+          else if (txt == 34) {return "-olf";}
+          else if (txt == 35) {return "-gard";}
+          else if (txt == 36) {return "-hild";}
+          else if (txt == 37) {return "-mund";}
+          else if (txt == 38) {return "-ger";}
+          else if (txt == 39) {return "-bert";}
+          else if (txt == 40) {return "-bart";}
+
+      }
+      function structures() { /*biblenames*/
+          var txt = getRndInteger(1,40);
+          if (txt == 0) {return " ";}
+          else if (txt == 1) {return "Michael";}
+          else if (txt == 2) {return "Gabriel";}
+          else if (txt == 3) {return "Raphael";}
+          else if (txt == 4) {return "Uriel";}
+          else if (txt == 5) {return "Sealtiel";}
+          else if (txt == 6) {return "Jehudiel";}
+          else if (txt == 7) {return "Barachiel";}
+          else if (txt == 8) {return "Adam";}
+          else if (txt == 9) {return "Eve";}
+          else if (txt == 10) {return "Cain";}
+          else if (txt == 11) {return "Abel";}
+          else if (txt == 12) {return "Seth";}
+          else if (txt == 13) {return "Enoch";}
+          else if (txt == 14) {return "Enosh";}
+          else if (txt == 15) {return "Enos";}
+          else if (txt == 16) {return "Irad";}
+          else if (txt == 17) {return "Kenan";}
+          else if (txt == 18) {return "Cainan";}
+          else if (txt == 19) {return "Mehujael";}
+          else if (txt == 20) {return "Mehalalel";}
+          else if (txt == 21) {return "Maleleel";}
+          else if (txt == 22) {return "Methushael";}
+          else if (txt == 23) {return "Jared";}
+          else if (txt == 24) {return "Adah";}
+          else if (txt == 25) {return "Lamech";}
+          else if (txt == 26) {return "Zillah";}
+          else if (txt == 27) {return "Jubal";}
+          else if (txt == 28) {return "Tubal-Cain";}
+          else if (txt == 29) {return "Naamah";}
+          else if (txt == 30) {return "Methuselah";}
+          else if (txt == 31) {return "Mathusala";}
+          else if (txt == 32) {return "Cro-Magnon";}
+          else if (txt == 33) {return "Japheth";}
+          else if (txt == 34) {return "Shem";}
+          else if (txt == 35) {return "Sem";}
+          else if (txt == 36) {return "Ham";}
+          else if (txt == 37) {return "Bouniter";}
+          else if (txt == 38) {return "Goyim";}
+          else if (txt == 39) {return "Javan";}
+          else if (txt == 40) {return "Magog";}
+      }
+      function miscnames() { 
+          var txt = getRndInteger(1,40);
+          if (txt == 0) {return " ";}
+          else if (txt == 1) {return "Harry";}
+          else if (txt == 2) {return "Hermione";}
+          else if (txt == 3) {return "Draco";}
+          else if (txt == 4) {return "Russell";}
+          else if (txt == 5) {return "Stewart";}
+          else if (txt == 6) {return "Murdoc";}
+          else if (txt == 7) {return "Noodle";}
+          else if (txt == 8) {return "Anna";}
+          else if (txt == 9) {return "Neville";}
+          else if (txt == 10) {return "Voldemort";}
+          else if (txt == 11) {return "Albus";}
+          else if (txt == 12) {return "Severus";}
+          else if (txt == 13) {return "Steven";}
+          else if (txt == 14) {return "Rachel";}
+          else if (txt == 15) {return "Edmund";}
+          else if (txt == 16) {return "Aslan";}
+          else if (txt == 17) {return "Lucy";}
+          else if (txt == 18) {return "Amy";}
+          else if (txt == 19) {return "Shaquiel";}
+          else if (txt == 20) {return "Winston";}
+          else if (txt == 21) {return "Robert";}
+          else if (txt == 22) {return "Albert";}
+          else if (txt == 23) {return "Oscar";}
+          else if (txt == 24) {return "Lisa";}
+          else if (txt == 25) {return "Obama";}
+          else if (txt == 26) {return "Rutgers";}
+          else if (txt == 27) {return "Alice";}
+          else if (txt == 28) {return "Tweedledee";}
+          else if (txt == 29) {return "Tweedledum";}
+          else if (txt == 30) {return "Bjoern";}
+          else if (txt == 31) {return "Kimari";}
+          else if (txt == 32) {return "Helga";}
+          else if (txt == 33) {return "Olga";}
+          else if (txt == 34) {return "Brynhilde";}
+          else if (txt == 35) {return "Lulu";}
+          else if (txt == 36) {return "Wakka";}
+          else if (txt == 37) {return "Yuna";}
+          else if (txt == 38) {return "Tidus";}
+          else if (txt == 39) {return "Seymour";}
+          else if (txt == 40) {return "Auron";}
+
+      }
+      function roads() { /*occupations*/
+          var txt = getRndInteger(1,40);
+          if (txt == 0) {return " ";}
+          else if (txt == 1) {return "Toolsmith";}
+          else if (txt == 2) {return "Historian";}
+          else if (txt == 3) {return "Doctor";}
+          else if (txt == 4) {return "Priest";}
+          else if (txt == 5) {return "Soldier";}
+          else if (txt == 6) {return "Farmer";}
+          else if (txt == 7) {return "Scholar";}
+          else if (txt == 8) {return "Librarian";}
+          else if (txt == 9) {return "Shopkeep";}
+          else if (txt == 10) {return "Electrician";}
+          else if (txt == 11) {return "Plumber";}
+          else if (txt == 12) {return "Receptionist";}
+          else if (txt == 13) {return "Carpenter";}
+          else if (txt == 14) {return "Baker";}
+          else if (txt == 15) {return "Miller";}
+          else if (txt == 16) {return "Warrior";}
+          else if (txt == 17) {return "Hunter/Huntress";}
+          else if (txt == 18) {return "Sherif";}
+          else if (txt == 19) {return "Programmer";}
+          else if (txt == 20) {return "Builder";}
+          else if (txt == 21) {return "Technician";}
+          else if (txt == 22) {return "Veterinarian";}
+          else if (txt == 23) {return "Undertaker";}
+          else if (txt == 24) {return "Officer";}
+          else if (txt == 25) {return "Filmmaker";}
+          else if (txt == 26) {return "Writer";}
+          else if (txt == 27) {return "Janitor";}
+          else if (txt == 28) {return "Athlete";}
+          else if (txt == 29) {return "Congressman/Congresswoman";}
+          else if (txt == 30) {return "Salesman/Saleswoman";}
+          else if (txt == 31) {return "Politician";}
+          else if (txt == 32) {return "Embassador";}
+          else if (txt == 33) {return "Lawyer";}
+          else if (txt == 34) {return "Scribe";}
+          else if (txt == 35) {return "Curator";}
+          else if (txt == 36) {return "Jailkeeper";}
+          else if (txt == 37) {return "Servant";}
+          else if (txt == 38) {return "Criminal";}
+          else if (txt == 39) {return "Judge";}
+          else if (txt == 40) {return "Real Estate Agent";}
+      }
+      
+        
+            function characters() { /*appearance*/
+          var txt = getRndInteger(1,10);
+          if (txt == 0) {return", , , , , , , , , , Half-Elf, Halfling, Orc, Goblin, Troll, Half-Orc, Wizard, Yokai, Immortal, Bangaa, Sprite, Nymph, Fairy, Mermaid, Fishfolk, Undead, Zombie, Skeleton, Shade, Ghost, Vampire, Werewolf, Satyr, Leonin, Ronso, Mousefolk, Birdfolk, Fox, Toadfolk, Harefolk, Turtlefolk, Giant, Elemental, Bugbear, Cherub, Forestfolk, Hyrulean, Krampus, Lizardfolk, Kajiit, Moogle, Mudblood, Viera, NuMou, Seeq, Garif, Yensa, Mii, Bitmoji, Gerudo, Dalek, Zora, Animal, Treefolk, Black-Mage, Heartless, Spaceman, Nobody, Mr. Saturn, Witch, Wikke, Animal Whisperer, Changeling, Valkyrie, Hulk, Klingon, Romulan, Vulcan, Firefolk, Rockfolk, Goron, Twi'lek, Android, Saiyan, Robot, Pokemon, Cyborg, Jelly, Wiggin, Hedgehog, Mushroom, Slenderman, Bugfolk, Plantfolk, Centaur, Warforged, Silican, Falmer, Minotaur, Loxodon, Deerfolk, Gargoyle, Spiderfolk, Unicorn, Genie, Cyclops, Anubis, Harpy/Griffin/Sphinx, ScorpionFolk, Icefolk, Golem, Pigfolk, Sage, Monkeykin, Bigfoot, Yeti, Imp, Draugr, Faun, Pegasus, Nekko, Moonlight_Shadow, Chimera,";}
+          else if (txt == 1) {return"Human"}
+          else if (txt == 2) {return "Dwarf";}
+          else if (txt == 3) {return "Dark Elf";}
+          else if (txt == 4) {return "Angel";}
+          else if (txt == 5) {return "Demon";}
+          else if (txt == 6) {return "Tiefling";}
+          else if (txt == 7) {return "Dragon";}
+          else if (txt == 8) {return "Elf";}
+          else if (txt == 9) {return "Paladin";}
+          else if (txt == 10) {return "Gnome";}
+          else if (txt == 11) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+
+
+      function partyjobs() { /*role*/
+          var txt = getRndInteger(1,13);
+          if (txt == 0) {return""}
+          else if (txt == 1) {return "Healer";}
+          else if (txt == 2) {return "Tank";}
+          else if (txt == 3) {return "Archer";}
+          else if (txt == 4) {return "Summoner";}
+          else if (txt == 5) {return "Mage";}
+          else if (txt == 6) {return "Thief";}
+          else if (txt == 7) {return "Scholar";}
+          else if (txt == 8) {return "Negotiator";}
+          else if (txt == 9) {return "Demolition Expert";}
+          else if (txt == 10) {return "Guide";}
+          else if (txt == 11) {return "Chef";}
+          else if (txt == 12) {return "Bodyguard";}
+          else if (txt == 13) {return "Leader";}
+          
+
+      }
+      function weapons() {
+          var txt = getRndInteger(1,19);
+          if (txt == 0) {return "Bow, Sling, Slingshot, Fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
+          else if (txt == 1) {return "Spear";}
+          else if (txt == 2) {return "Sword";}
+          else if (txt == 3) {return "Staff";}
+          else if (txt == 4) {return "Pike";}
+          else if (txt == 5) {return "Shield";}
+          else if (txt == 6) {return "Longsword";}
+          else if (txt == 7) {return "Greatsword";}
+          else if (txt == 8) {return "Rapier";}
+          else if (txt == 9) {return "Sabre";}
+          else if (txt == 10) {return "Knife";}
+          else if (txt == 11) {return "Club";}
+          else if (txt == 12) {return "Wand";}
+          else if (txt == 13) {return "Projectiles";}
+          else if (txt == 14) {return "Fan";}
+          else if (txt == 15) {return "Disc";}
+          else if (txt == 16) {return "Scythe";}
+          else if (txt == 17) {return "Axe";}
+          else if (txt == 18) {return "Warhammer";}
+          else if (txt == 19) {return "Battleaxe";}
+          else if (txt == 20) {return "";}
+          else if (txt == 21) {return "";}
+          else if (txt == 22) {return "";}
+          else if (txt == 23) {return "";}
+          else if (txt == 24) {return "";}
+          else if (txt == 25) {return "";}
+          else if (txt == 26) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+      function lastnames() {
+          var txt = getRndInteger(1,30);
+          if (txt == 1) {return "Heidelberg";}
+          else if (txt == 0) {return "Vight, McCourt, Kite, Sahid, Wright, Mortensen, Bloom, Baggins, Holm, Wood, McKellen, Serkis, Jackson, Baker, Bean, Tyler, Blanchett, Rhys-Davies, Boyd, Brandybuck, Monaghan, Lee, Halfelven, Weaving, Took, Maggot, Gil-Galad, Lurtz, Cotton, Proudfoot, Noakes, Dreary, Gamgee, Sackville, Butterbur, Everard, Bracegirdle, Goatleaf, Sandyman, Wormtongue, Toad, Sunblaze, Gatherwind, Witherleaf, Starfall, Bellsong, Evertail, Gildin, Stormwillow, Hare, Poe, Dragonsbane, Iceman, Bogman, Dickens, Ababwa, Robotnik,";}
+          else if (txt == 2) {return "Bombadil";}
+          else if (txt == 3) {return "Rubble";}
+          else if (txt == 4) {return "Flintstone";}
+          else if (txt == 5) {return "Veene";}
+          else if (txt == 6) {return "Roxanne";}
+          else if (txt == 7) {return "Sparr";}
+          else if (txt == 8) {return "Caspar";}
+          else if (txt == 9) {return "Hait";}
+          else if (txt == 10) {return "Sum";}
+          else if (txt == 11) {return "Naspar";}
+          else if (txt == 12) {return "Clays";}
+          else if (txt == 13) {return "Knight";}
+          else if (txt == 14) {return "Parr";}
+          else if (txt == 15) {return "Taight";}
+          else if (txt == 16) {return "Puttanesca";}
+          else if (txt == 17) {return "Flonase";}
+          else if (txt == 18) {return "duRobitussin";}
+          else if (txt == 19) {return "Gabelbart";}
+          else if (txt == 20) {return "Musa";}
+          else if (txt == 21) {return "Lightyear";}
+          else if (txt == 22) {return "Robotnik";}
+          else if (txt == 23) {return "Zurg";}
+          else if (txt == 24) {return "Puff";}
+          else if (txt == 25) {return "Cheeks";}
+          else if (txt == 26) {return "Krabbs";}
+          else if (txt == 27) {return "Starr";}
+          else if (txt == 28) {return "Tentacles";}
+          else if (txt == 29) {return "Squarepants";}
+          else if (txt == 30) {return "Fancyson";}
+        }
+      
+
+function gettitles(){
+    document.getElementById("titlegot").innerHTML = titles();
+}function getepithets(){
+    document.getElementById("epithetgot").innerHTML = "the " + epithets();
+}function getepithets1(){
+    document.getElementById("epithet1got").innerHTML = epithets1();
+}function getepithets2(){
+    document.getElementById("epithet2got").innerHTML = "of " + epithets2();
+}function getprefix(){
+    document.getElementById("prefixgot").innerHTML = prefixes();
+  }function getsuffix(){
+    document.getElementById("suffixgot").innerHTML = suffixes();
+  }function getmiddlenames(){
+    document.getElementById("middlenamegot").innerHTML = middlenames();
+  }function getnation(){
+    document.getElementById("nationgot").innerHTML = "of " + nations();
+  }function getlastnames(){
+    document.getElementById("lastnamegot").innerHTML = lastnames();
+  }function getroad(){
+    document.getElementById("roadgot").innerHTML = roads();
+  }function getweapon(){
+    document.getElementById("weapongot").innerHTML = weapons();
+  }function getmiscnames(){
+    document.getElementById("miscnamesgot").innerHTML = miscnames();
+  }function getroom(){
+    document.getElementById("roomgot").innerHTML = rooms();
+  }function getstructure(){
+    document.getElementById("structuregot").innerHTML = structures();
+  }function getcharacter(){
+    document.getElementById("charactergot").innerHTML = characters();
+  }function getpartyjob(){
+    document.getElementById("partyjobgot").innerHTML = partyjobs();
+  }function getinteraction(){
+    document.getElementById("interactiongot").innerHTML = interactions();
+  }function getactivity(){
+    document.getElementById("activitygot").innerHTML = activities();
+  }function getquestitem(){
+    document.getElementById("questitemgot").innerHTML = questitems();
+   }function getmysteriousitem(){
+    document.getElementById("mysteriousitemgot").innerHTML = mysteriousitems();
+  }function getlootitem(){
+    document.getElementById("lootitemgot").innerHTML = lootitems();
+  }
+
+function copyintro() {
+  var copyText = document.getElementById("town-intro");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the list");
+  document.getElementById("surroundingtext").innerHTML = "..."
+}
+function copyprefix() {
+  var copyText = document.getElementById("town-prefix");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the list");
+  document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
+}
+</script>
+    Title:
+    <button id="gettitles" onclick="gettitles()">Select</button>
+    <span id="titlegot"></span>
+    <br><br>  
+    Bible Names
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+    Ancient Names:
+    <button id="getprefix" onclick="getprefix()">Select</button>
+    <span id="prefixgot"></span>
+    <br><br>
+    Middle Name:
+    <button id="getmiddlenames" onclick="getmiddlenames()">Select</button>
+    <span id="middlenamegot"></span>
+    <br><br>
+    Noble Names:
+    <button id="getsuffix" onclick="getsuffix()">Select</button>
+    <span id="suffixgot"></span>
+    <br><br>
+    Last Names:
+    <button id="getlastnames" onclick="getlastnames()">Select</button>
+    <span id="lastnamegot"></span>
+    <br><br>
+    Suffix:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
+    Reputation:
+    <button id="getepithets" onclick="getepithets()">Select</button>
+    <span id="epithetgot"></span>
+    <br><br>  
+    +:
+    <button id="getepithets1" onclick="getepithets1()">Select</button>
+    <span id="epithet1got"></span>
+    <br><br>  
+    +:
+    <button id="getepithets2" onclick="getepithets2()">Select</button>
+    <span id="epithet2got"></span>
+    <br><br>  
+    
+    Nations:
+    <button id="getnation" onclick="getnation()">Select</button>
+    <span id="nationgot"></span>
+    <br><br>
+    Appearance:
+    <button id="getcharacter" onclick="getcharacter()">Select</button>
+    <span id="charactergot"></span>
+    <br><br>
+    Occupation:
+    <button id="getroad" onclick="getroad()">Select</button>
+    <span id="roadgot"></span>
+    <br><br>
+    Weapons:
+    <button id="getweapon" onclick="getweapon()">Select</button>
+    <span id="weapongot"></span>
+    <br><br>
+    Role:
+    <button id="getpartyjob" onclick="getpartyjob()">Select</button>
+    <span id="partyjobgot"></span>
+    <br><br>
+    <!--Catchphrases:
+    <input type="text" value="Kickatuckus, If_so-and-so_were_still_alive..., Kittycat, Chimp, Airslosh,    
+    " id="town...">
+    <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
+    <span id="catchphrasegot"></span>
+    <br>-->
+</p>
+
+<script>
+
+function submitTryit(n) {
+  if (window.editor) {
+    window.editor.save();
+  }
+  var text = document.getElementById("textareaCode").value;
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");
+  ifr.setAttribute("name", "iframeResult");  
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+  document.getElementById("iframeResult").addEventListener("load", hideSpinner);
+  if (loadSave == true ) {
+    ifr.setAttribute("src", "/code/opentext.htm");
+  } else if (loadSave == false) {
+    displaySpinner();
+    var t=text;
+    t=t.replace(/=/gi,"w3equalsign");
+    t=t.replace(/\+/gi,"w3plussign");    
+    var pos=t.search(/script/i)
+    while (pos>0) {
+      t=t.substring(0,pos) + "w3" + t.substr(pos,3) + "w3" + t.substr(pos+3,3) + "tag" + t.substr(pos+6);
+	    pos=t.search(/script/i);
+    }
+    document.getElementById("code").value=t;
+    document.getElementById("codeForm").action = "https://try.w3schools.com/try_php.php?x=" + Math.random();
+    document.getElementById('codeForm').method = "post";
+    document.getElementById('codeForm').acceptCharset = "utf-8";
+    document.getElementById('codeForm').target = "iframeResult";
+    document.getElementById("codeForm").submit();
+  } else {
+    var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+    ifrw.document.open();
+    ifrw.document.write(text);  
+    ifrw.document.close();
+    //23.02.2016: contentEditable is set to true, to fix text-selection (bug) in firefox.
+    //(and back to false to prevent the content from being editable)
+    //(To reproduce the error: Select text in the result window with, and without, the contentEditable statements below.)  
+    if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
+      ifrw.document.body.contentEditable = true;
+      ifrw.document.body.contentEditable = false;
+    }
+  }
+}
+
+function hideSpinner() {
+  document.getElementById("runloadercontainer").style.display = "none";
+}
+function displaySpinner() {
+  var i, c, w, h, r, top;
+  i = document.getElementById("iframeResult");
+  w = w3_getStyleValue(i, "width");
+  h = w3_getStyleValue(i, "height");
+  c = document.getElementById("runloadercontainer");
+  c.style.width = w;
+  c.style.height = h;
+  c.style.display = "block";
+  w = Number(w.replace("px", "")) / 5;
+  r = document.getElementById("runloader");
+  r.style.width = w + "px";
+  r.style.height = w + "px";
+  h = w3_getStyleValue(r, "height");
+  h = Number(h.replace("px", "")) / 2;
+  top = w3_getStyleValue(c, "height");
+  top = Number(top.replace("px", "")) / 2;
+  top = top - h
+  r.style.top = top + "px";
+}
+
+
+var currentStack=true;
+if ((window.screen.availWidth <= 768 && window.innerHeight > window.innerWidth) || "" == " horizontal") {restack(true);}
+function restack(horizontal) {
+    var tc, ic, t, i, c, f, sv, sh, d, height, flt, width;
+    tc = document.getElementById("textareacontainer");
+    ic = document.getElementById("iframecontainer");
+    t = document.getElementById("textarea");
+    i = document.getElementById("iframe");
+    c = document.getElementById("container");    
+    sv = document.getElementById("stackV");
+    sh = document.getElementById("stackH");
+    tc.className = tc.className.replace("horizontal", "");
+    ic.className = ic.className.replace("horizontal", "");        
+    t.className = t.className.replace("horizontal", "");        
+    i.className = i.className.replace("horizontal", "");        
+    c.className = c.className.replace("horizontal", "");                        
+    if (sv) {sv.className = sv.className.replace("horizontal", "")};
+    if (sv) {sh.className = sh.className.replace("horizontal", "")};
+    stack = "";
+    if (horizontal) {
+        tc.className = tc.className + " horizontal";
+        ic.className = ic.className + " horizontal";        
+        t.className = t.className + " horizontal";        
+        i.className = i.className + " horizontal";                
+        c.className = c.className + " horizontal";                
+        if (sv) {sv.className = sv.className + " horizontal"};
+        if (sv) {sh.className = sh.className + " horizontal"};
+        stack = " horizontal";
+        document.getElementById("textareacontainer").style.height = "50%";
+        document.getElementById("iframecontainer").style.height = "50%";
+        document.getElementById("textareacontainer").style.width = "100%";
+        document.getElementById("iframecontainer").style.width = "100%";
+        currentStack=false;
+    } else {
+        document.getElementById("textareacontainer").style.height = "100%";
+        document.getElementById("iframecontainer").style.height = "100%";
+        document.getElementById("textareacontainer").style.width = "50%";
+        document.getElementById("iframecontainer").style.width = "50%";
+        currentStack=true;        
+    }
+    fixDragBtn();
+    showFrameSize();
+}
+function retheme() {
+  var cc = document.body.className;
+  if (cc.indexOf("darktheme") > -1) {
+    document.body.className = cc.replace("darktheme", "");
+    if (opener) {opener.document.body.className = cc.replace("darktheme", "");}
+    localStorage.setItem("preferredmode", "light");
+  } else {
+    document.body.className += " darktheme";
+    if (opener) {opener.document.body.className += " darktheme";}
+    localStorage.setItem("preferredmode", "dark");
+  }
+}
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  if (x == "dark") {
+    document.body.className += " darktheme";
+  }
+})();
+function showFrameSize() {
+  var t;
+  var width, height;
+  width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
+  height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
+  document.getElementById("framesize").innerHTML = "Result Size: <span>" + width + " x " + height + "</span>";
+}
+var dragging = false;
+var stack;
+function fixDragBtn() {
+  var textareawidth, leftpadding, dragleft, containertop, buttonwidth
+  var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+  if (stack != " horizontal") {
+    document.getElementById("dragbar").style.width = "5px";    
+    textareasize = Number(w3_getStyleValue(document.getElementById("textareawrapper"), "width").replace("px", ""));
+    leftpadding = Number(w3_getStyleValue(document.getElementById("textarea"), "padding-left").replace("px", ""));
+    buttonwidth = Number(w3_getStyleValue(document.getElementById("dragbar"), "width").replace("px", ""));
+    textareaheight = w3_getStyleValue(document.getElementById("textareawrapper"), "height");
+    dragleft = textareasize + leftpadding + (leftpadding / 2) - (buttonwidth / 2);
+    document.getElementById("dragbar").style.top = containertop + "px";
+    document.getElementById("dragbar").style.left = dragleft + "px";
+    document.getElementById("dragbar").style.height = textareaheight;
+    document.getElementById("dragbar").style.cursor = "col-resize";
+    
+  } else {
+    document.getElementById("dragbar").style.height = "5px";
+    if (window.getComputedStyle) {
+        textareawidth = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height");
+        textareaheight = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width");
+        leftpadding = window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top");
+        buttonwidth = window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height");
+    } else {
+        dragleft = document.getElementById("textareawrapper").currentStyle["width"];
+    }
+    textareawidth = Number(textareawidth.replace("px", ""));
+    leftpadding = Number(leftpadding .replace("px", ""));
+    buttonwidth = Number(buttonwidth .replace("px", ""));
+    dragleft = containertop + textareawidth + leftpadding + (leftpadding / 2);
+    document.getElementById("dragbar").style.top = dragleft + "px";
+    document.getElementById("dragbar").style.left = "5px";
+    document.getElementById("dragbar").style.width = textareaheight;
+    document.getElementById("dragbar").style.cursor = "row-resize";        
+  }
+}
+function dragstart(e) {
+  e.preventDefault();
+  dragging = true;
+  var main = document.getElementById("iframecontainer");
+}
+function dragmove(e) {
+  if (dragging) 
+  {
+    document.getElementById("shield").style.display = "block";        
+    if (stack != " horizontal") {
+      var percentage = (e.pageX / window.innerWidth) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.width = percentage + "%";
+        document.getElementById("iframecontainer").style.width = mainPercentage + "%";
+        fixDragBtn();
+      }
+    } else {
+      var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+      var percentage = ((e.pageY - containertop + 20) / (window.innerHeight - containertop + 20)) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.height = percentage + "%";
+        document.getElementById("iframecontainer").style.height = mainPercentage + "%";
+        fixDragBtn();
+      }
+    }
+    showFrameSize();    
+  }
+}
+function dragend() {
+  document.getElementById("shield").style.display = "none";
+  dragging = false;
+  var vend = navigator.vendor;
+  if (window.editor && vend.indexOf("Apple") == -1) {
+      window.editor.refresh();
+  }
+}
+if (window.addEventListener) {              
+  document.getElementById("dragbar").addEventListener("mousedown", function(e) {dragstart(e);});
+  document.getElementById("dragbar").addEventListener("touchstart", function(e) {dragstart(e);});
+  window.addEventListener("mousemove", function(e) {dragmove(e);});
+  window.addEventListener("touchmove", function(e) {dragmove(e);});
+  window.addEventListener("mouseup", dragend);
+  window.addEventListener("touchend", dragend);
+  window.addEventListener("load", fixDragBtn);
+  window.addEventListener("load", showFrameSize);
+}
+
+
+function colorcoding() {
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+    mode: "application/x-httpd-php",
+    lineWrapping: true,
+    smartIndent: false
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+colorcoding();
+
+function w3_getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+
+function openMenu() {
+    var x = document.getElementById("navbarDropMenu");
+    var y = document.getElementById("menuOverlay");
+    var z = document.getElementById("menuButton");
+    if (z.className.indexOf("w3-text-gray") == -1) {
+        z.className += " w3-text-gray";
+    } else { 
+        z.className = z.className.replace(" w3-text-gray", "");
+    }
+    if (z.className.indexOf("w3-gray") == -1) {
+        z.className += " w3-gray";
+    } else { 
+        z.className = z.className.replace(" w3-gray", "");
+    }
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+    if (y.className.indexOf("w3-show") == -1) {
+        y.className += " w3-show";
+    } else { 
+        y.className = y.className.replace(" w3-show", "");
+    }
+
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("menuOverlay")) {
+        openMenu();
+    } 
+}
+uic_r_e()
+</script>
+</body>
+</html>
