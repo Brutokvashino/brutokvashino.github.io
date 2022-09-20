@@ -691,7 +691,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 39) {return "Lynn";}
           else if (txt == 40) {return "Rose";}
       }
-      function suffixes() { /*noblenames*/
+      function noblenames() { /*noblenames*/
           var txt = getRndInteger(1,40);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "Ninsun";}
@@ -778,7 +778,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 0) {return "";}
 
       }
-            function rooms() { /*suffixes*/
+            function suffixes() { /*suffixes*/
           var txt = getRndInteger(1,40);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "-mack";}
@@ -1078,7 +1078,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 207) {return "Keithtopher";}
 
       }
-      function roads() { /*occupations*/
+      function jobs() { /*occupations*/
           var txt = getRndInteger(1,61);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "Toolsmith";}
@@ -2152,38 +2152,52 @@ else if (txt == 30) {return "Toprak";}
 
 function getregnames(){
     document.getElementById("regnamegot").innerHTML = regnames();
+    document.getElementById("regnamegot2").innerHTML = document.getElementById("regnamegot").innerHTML;
 }function gettitles(){
     document.getElementById("titlegot").innerHTML = titles();
-}function getepithets(){
+    document.getElementById("titlegot2").innerHTML = document.getElementById("titlegot").innerHTML;
+  }function getepithets(){
     document.getElementById("epithetgot").innerHTML = "the " + epithets();
+    document.getElementById("epithetgot2").innerHTML = document.getElementById("epithetgot").innerHTML + ",";
 }function getepithets1(){
-    document.getElementById("epithet1got").innerHTML = epithets1();
+  document.getElementById("epithet1got").innerHTML = epithets1();
+  document.getElementById("epithet1got2").innerHTML = document.getElementById("epithet1got").innerHTML;
 }function getepithets2(){
-    document.getElementById("epithet2got").innerHTML = "of " + epithets2();
+  document.getElementById("epithet2got").innerHTML = "of " + epithets2();
+  document.getElementById("epithet2got2").innerHTML = document.getElementById("epithet2got").innerHTML + ",";
 }function getprefix(){
-    document.getElementById("prefixgot").innerHTML = prefixes();
+  document.getElementById("prefixgot").innerHTML = prefixes();
+  document.getElementById("prefixgot2").innerHTML = document.getElementById("prefixgot").innerHTML;
   }function getsuffix(){
     document.getElementById("suffixgot").innerHTML = suffixes();
+    document.getElementById("suffixgot2").innerHTML = document.getElementById("suffixgot").innerHTML;
   }function getmiddlenames(){
     document.getElementById("middlenamegot").innerHTML = middlenames();
+    document.getElementById("middlenamegot2").innerHTML = document.getElementById("middlenamegot").innerHTML;
   }function getnation(){
     document.getElementById("nationgot").innerHTML = "of " + nations();
+    document.getElementById("nationgot2").innerHTML = document.getElementById("nationgot").innerHTML;
   }function getlastnames(){
     document.getElementById("lastnamegot").innerHTML = lastnames();
-  }function getroad(){
-    document.getElementById("roadgot").innerHTML = roads();
+    document.getElementById("lastnamegot2").innerHTML = document.getElementById("lastnamegot").innerHTML;
+  }function getjob(){
+    document.getElementById("jobgot").innerHTML = jobs();
+    document.getElementById("jobgot2").innerHTML = document.getElementById("jobgot").innerHTML;
   }function getweapon(){
     document.getElementById("weapongot").innerHTML = weapons();
+    document.getElementById("weapongot2").innerHTML = "equipped with " + document.getElementById("weapongot").innerHTML;
   }function getmiscnames(){
     document.getElementById("miscnamegot").innerHTML = miscnames();
-  }function getroom(){
-    document.getElementById("roomgot").innerHTML = rooms();
+  }function getnoblenames(){
+    document.getElementById("noblenamegot").innerHTML = noblenames();
   }function getstructure(){
     document.getElementById("structuregot").innerHTML = structures();
   }function getcharacter(){
     document.getElementById("charactergot").innerHTML = characters();
+    document.getElementById("charactergot2").innerHTML = document.getElementById("charactergot").innerHTML;
   }function getpartyjob(){
     document.getElementById("partyjobgot").innerHTML = partyjobs();
+    document.getElementById("partyjobgot2").innerHTML = "(" + document.getElementById("partyjobgot").innerHTML + ")";
   }function getinteraction(){
     document.getElementById("interactiongot").innerHTML = interactions();
   }function getactivity(){
@@ -2230,8 +2244,8 @@ function copyprefix() {
     <span id="lastnamegot"></span>
     <br><br>
     Suffix:
-    <button id="getroom" onclick="getroom()">Select</button>
-    <span id="roomgot"></span>
+    <button id="getsuffix" onclick="getsuffix()">Select</button>
+    <span id="suffixgot"></span>
     <br><br>
     Reputation:
     <button id="getepithets" onclick="getepithets()">Select</button>
@@ -2254,8 +2268,8 @@ function copyprefix() {
     <span id="charactergot"></span>
     <br><br>
     Occupation:
-    <button id="getroad" onclick="getroad()">Select</button>
-    <span id="roadgot"></span>
+    <button id="getjob" onclick="getjob()">Select</button>
+    <span id="jobgot"></span>
     <br><br>
     Weapons:
     <button id="getweapon" onclick="getweapon()">Select</button>
@@ -2264,6 +2278,21 @@ function copyprefix() {
     Role:
     <button id="getpartyjob" onclick="getpartyjob()">Select</button>
     <span id="partyjobgot"></span>
+    <br><br>
+    <br><br>
+    <span id="titlegot2"></span>
+    <span id="regnamegot2"></span>
+    <span id="middlenamegot2"></span>
+    <span id="lastnamegot2"></span>
+    <span id="suffixgot2"></span>
+    <span id="epithetgot2"></span>
+    <span id="epithet1got2"></span>
+    <span id="epithet2got2"></span>
+    <span id="nationgot2"></span>
+    <span id="charactergot2"></span>
+    <span id="jobgot2"></span>
+    <span id="weapongot2"></span>
+    <span id="partyjobgot2"></span>
     <br><br>
     <br><br>
     More...
@@ -2277,8 +2306,8 @@ function copyprefix() {
     <span id="prefixgot"></span>
     <br><br>
     Noble Names:
-    <button id="getsuffix" onclick="getsuffix()">Select</button>
-    <span id="suffixgot"></span>
+    <button id="getnoblenames" onclick="getnoblenames()">Select</button>
+    <span id="noblenamegot"></span>
     <br><br>
     Other Names:
     <button id="getmiscnames" onclick="getmiscnames()">Select</button>
