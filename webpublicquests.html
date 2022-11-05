@@ -442,8 +442,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
     <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
     <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
     <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
-    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>  
-    <a href="webnamegen.html" title="A naming game" class="templateLink">Name Generator</a>   
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
   </div>
 
 <a href="javascript:void(0)" id="dragbar"></a>
@@ -512,7 +511,7 @@ function getRndInteger(min, max) {
       
       function townnames() {
           var txt = getRndInteger(1,23);
-          if (txt == 0) {return ", Dog,, Rose, Sunflower, Petunia, Lily, Deer, Fox, Tulip, Lions, Skull, Devils, Sand, Wine, Placido, San,, Turtle, Robin, Toten, Kreuz, Lichten, Briar, Thorn, Flower, Daisy, Peach, Hound, Cedar, Bear, Wolf, Apple, Butter, Mine, Mountain, Man's, Smuggler's, Rattlesnake, Winter, Summer, Tierra, Summoner's, Glacier, Ocean, Palm, Hinter, Nether, Heather, Danger, Aguas, Isla, Crocodile, Vogel, Diamond, Emerald, Berstein, Amber, Crystal, Pearl, Hawthorn, Blackthorn, Thorn, Bayberry, Belle, Redwood, Sequoia, Lenape, Cherokee, Cerulean, Cree, Cherry, Orange, Sky, Glass, Silver, Gold, Spruce, Hemlock, Hope, Harmony, Cinder, Crane, Dove, Palo, Saddle, Leaf, Mist, Drift, Spine, Bell, Myth, Ever, Arbor, Fall, Autumn, Dark, Black, White, Grey, Argentine, Venice, Flood, Fire, Frontier, Fox, Racoon, Goldenrod, Ember,";}
+          if (txt == 0) {return "Dog,, Rose, Sunflower, Petunia, Lily, Deer, Fox, Tulip, Lions, Skull, Devils, Sand, Wine, Placido, San,, Turtle, Robin, Toten, Kreuz, Lichten, Briar, Thorn, Flower, Daisy, Peach, Hound, Cedar, Bear, Wolf, Apple, Butter, Mine, Mountain, Man's, Smuggler's, Rattlesnake, Winter, Summer, Tierra, Summoner's, Glacier, Ocean, Palm, Hinter, Nether, Heather, Danger, Aguas, Isla, Crocodile, Vogel, Diamond, Emerald, Berstein, Amber, Crystal, Pearl, Hawthorn, Blackthorn, Thorn, Bayberry, Belle, Redwood, Sequoia, Lenape, Cherokee, Cerulean, Cree, Cherry, Orange, Sky, Glass, Silver, Gold, Spruce, Hemlock, Hope, Harmony, Cinder, Crane, Dove, Palo, Saddle, Leaf, Mist, Drift, Spine, Bell, Myth, Ever, Arbor, Fall, Autumn, Dark, Black, White, Grey, Argentine, Venice, Flood, Fire, Frontier, Fox, Racoon, Goldenrod, Ember,";}
           else if (txt == 1) {return "River";}
           else if (txt == 2) {return "Oak";}
           else if (txt == 3) {return "Spring";}
@@ -536,9 +535,21 @@ function getRndInteger(min, max) {
           else if (txt == 21) {return "Pumpkin";}
           else if (txt == 22) {return "Edge";}
           else if (txt == 23) {return "Rose";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
+          else if (txt == 24) {return "Gerudo";}
+          else if (txt == 25) {return "Faron";}
+          else if (txt == 26) {return "Hyrule";}
+          else if (txt == 27) {return "Holodrum";}
+          else if (txt == 28) {return "Tarm";}
+          else if (txt == 29) {return "Zora";}
+          else if (txt == 30) {return "Kakariko";}
+          else if (txt == 31) {return "Onett";}
+          else if (txt == 32) {return "Twoson";}
+          else if (txt == 33) {return "Threed";}
+          else if (txt == 34) {return "Dalaam";}
+          else if (txt == 35) {return "Fourside";}
+          else if (txt == 36) {return "Star";}
+          else if (txt == 37) {return "Stardew";}
+          else if (txt == 38) {return "Fairy";}
 
       }
       function suffixes() {
@@ -561,7 +572,10 @@ function getRndInteger(min, max) {
           else if (txt == 15) {return "Bridge";}
           else if (txt == 16) {return "Land";}
           else if (txt == 17) {return "Ford";}
-          else if (txt == 0) {return "";}
+          else if (txt == 18) {return "Dew";}
+          else if (txt == 19) {return "Fountain";}
+
+
 
       }
       function nations() {
@@ -695,7 +709,7 @@ function getRndInteger(min, max) {
           else if (txt == 39) {return "festival field";}
           else if (txt == 40) {return "racetrack";}
           else if (txt == 41) {return "arena";}
-          else if (txt == 0) {return "";}
+          else if (txt == 42) {return "castle";}
           else if (txt == 0) {return "";}
           else if (txt == 0) {return "";}
           else if (txt == 0) {return "";}
@@ -744,8 +758,8 @@ function getRndInteger(min, max) {
 
       }
       function roads() {
-          var txt = getRndInteger(1,13);
-          if (txt == 0) {return "missing a bridge, river_crossing, cliffside, town, inn, grave,, stretch, forest, steep_walls, narrow, wide, intersection, crossroad, traveler, campsite, roadkill, fallen_tree, guarded_detour, toll, guard_tower, gate, cobble, dirt, gravel, dusty, grass, mud, sinkhole, flooded, landslide, debris, hitchhiker, stranded, animal_crossing,";}
+          var txt = getRndInteger(1,25);
+          if (txt == 0) {return "intersection, crossroad, traveler, campsite, roadkill, fallen_tree, guarded_detour, toll, guard_tower, gate, cobble, dirt, gravel, dusty, grass, mud, sinkhole, flooded, landslide, debris, hitchhiker, stranded, animal_crossing,";}
           else if (txt == 1) {return "crowded";}
           else if (txt == 2) {return "winding";}
           else if (txt == 3) {return "bandit-ridden";}
@@ -759,12 +773,18 @@ function getRndInteger(min, max) {
           else if (txt == 11) {return "bridge makeshift";}
           else if (txt == 12) {return "potholes";}
           else if (txt == 13) {return "bumpy";}
-          else if (txt == 14) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
+          else if (txt == 14) {return "uneven";}
+          else if (txt == 15) {return "cliffside";}
+          else if (txt == 16) {return "main";}
+          else if (txt == 17) {return "grave-ridden";}
+          else if (txt == 18) {return "river-crossing";}
+          else if (txt == 19) {return "broken bridge";}
+          else if (txt == 20) {return "long";}
+          else if (txt == 21) {return "forest";}
+          else if (txt == 22) {return "steep-walled";}
+          else if (txt == 23) {return "narrow";}
+          else if (txt == 24) {return "overgrown";}
+          else if (txt == 25) {return "wide";}
           else if (txt == 0) {return "";}
           else if (txt == 0) {return "";}
 
@@ -788,10 +808,9 @@ function getRndInteger(min, max) {
           
 
       }
-
-	
-	            function characters() { /*appearance*/
-          var txt = getRndInteger(1,127);
+   
+      function characters() { /*appearance*/
+          var txt = getRndInteger(1,10);
           if (txt == 0) {return "";}
           else if (txt == 1) {return"Human"}else if (txt == 2) {return "Dwarf";}   else if (txt == 3) {return "Dark Elf";}  else if (txt == 4) {return "Angel";} else if (txt == 5) {return "Demon";}else if (txt == 6) {return "Tiefling";}else if (txt == 7) {return "Dragon";}else if (txt == 8) {return "Elf";}else if (txt == 9) {return "Paladin";}else if (txt == 10) {return "Gnome";}else if (txt == 11) {return "Animal";}else if (txt == 12) {return "Half-Elf";}else if (txt == 13) {return "Halfling";} else if (txt == 14) {return "Orc";} else if (txt == 15) {return "Goblin";} else if (txt == 16) {return "Troll";} else if (txt == 17) {return "Half-Orc";}else if (txt == 18) {return "Wizard";} else if (txt == 19) {return "Yokai";}else if (txt == 20) {return "Immortal";}else if (txt == 21) {return "Bangaa";}else if (txt == 22) {return "Sprite";}else if (txt == 23) {return "Nymph";}else if (txt == 24) {return "Fairy";}else if (txt == 25) {return "Mermaid";}else if (txt == 26) {return "Fishfolk";}else if (txt == 27) {return "Undead";}else if (txt == 28) {return "Zombie";}else if (txt == 29) {return "Skeleton";}else if (txt == 30) {return "Shade";}else if (txt == 31) {return "Ghost";}else if (txt == 32) {return "Vampire";}else if (txt == 33) {return "Werewolf";}else if (txt == 34) {return "Satyr";}else if (txt == 35) {return "Leonin";}else if (txt == 36) {return "Ronso";}else if (txt == 37) {return "Mousefolk";}else if (txt == 38) {return "Birdfolk";}else if (txt == 39) {return "Fox";}else if (txt == 40) {return "Toadfolk";}else if (txt == 41) {return "Harefolk";}else if (txt == 42) {return "Turtlefolk";}else if (txt == 43) {return "Giant";}else if (txt == 44) {return "Elemental";}else if (txt == 45) {return "Bugbear";}else if (txt == 46) {return "Cherub";}
           else if (txt == 47) {return "Forestfolk";}else if (txt == 48) {return "Hyrulean";}else if (txt == 49) {return "Krampus";}else if (txt == 50) {return "Lizardfolk";}else if (txt == 51) {return "Kajiit";}else if (txt == 52) {return "Moogle";}else if (txt == 53) {return "Mudblood";}else if (txt == 54) {return "Viera";}else if (txt == 55) {return "NuMou";}else if (txt == 56) {return "Seeq";}else if (txt == 57) {return "Garif";}else if (txt == 58) {return "Yensa";}else if (txt == 59) {return "Mii";}else if (txt == 60) {return "Bitmoji";}
@@ -809,13 +828,10 @@ function getRndInteger(min, max) {
           else if (txt == 128) {return "";}
 
       }
-
-
-	
-	
-	function interactions() {
+   
+      function interactions() {
           var txt = getRndInteger(1,19);
-          if (txt == 0) {return ", directions,, , slap, harass, ignore, run, follow, beckon, flirt, threaten, curse, invite, inform, give, beg, stare, laugh, joke, overshare, introduce, smalltalk, listen, overhear, mispeak, propose, befriend, enamor, frown, cry, yawn, disgust, repulse, attract, enchant, preach, handshake, trust, mistrust, convince, pillage, defeat,";}
+          if (txt == 0) {return ", directions, sell to, trade with, slap, harass, run, follow, beckon, flirt, threaten, curse, invite, inform, give, beg, stare, laugh, joke, overshare, introduce, smalltalk, listen, overhear, mispeak, propose, befriend, fall in love with, frown, cry, yawn, disgust, repulse, attract, enchant, preach, handshake, trust, mistrust, convince, pillage, defeat,";}
           else if (txt == 1) {return "hit";}
           else if (txt == 2) {return "greet";}
           else if (txt == 3) {return "rob";}
@@ -835,8 +851,8 @@ function getRndInteger(min, max) {
           else if (txt == 17) {return "sing to";}
           else if (txt == 18) {return "pray for";}
           else if (txt == 19) {return "drink with";}
-          else if (txt == 0) {return " ";}
-          else if (txt == 0) {return " ";}
+          else if (txt == 20) {return "ignore";}
+          else if (txt == 21) {return "charm";}
 
       }
       function activities() {
@@ -909,6 +925,18 @@ function getRndInteger(min, max) {
           else if (txt == 0) {return "";}
 
       }
+      function lootitems() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return ", breadcrumbs, feather, cat_toy, leek, spear, pike, shield, sword, longsword, greatsword, rapier, sabre, knife, club, staff, wand, fan, disc, Scythe, Axe, Warhammer, Battleaxe, Projectiles, Bow, Sling, Slingshot, Fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
+          else if (txt == 1) {return "Kickatuckus";}
+          else if (txt == 1) {return "If so-and-so were still alive...";}
+          else if (txt == 1) {return "Chimp!";}
+          else if (txt == 1) {return "Kittycat";}
+          else if (txt == 1) {return "Airslosh!";}
+          else if (txt == 1) {return "";}
+
+      }
+
       function lootitems() {
           var txt = getRndInteger(1,15);
           if (txt == 0) {return ", breadcrumbs, feather, cat_toy, leek, spear, pike, shield, sword, longsword, greatsword, rapier, sabre, knife, club, staff, wand, fan, disc, Scythe, Axe, Warhammer, Battleaxe, Projectiles, Bow, Sling, Slingshot, Fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
@@ -1049,12 +1077,10 @@ function copyprefix() {
     <button id="getpartyjob" onclick="getpartyjob()">Select</button>
     <span id="partyjobgot"></span>
     <br><br>
-    <!--Catchphrases:
-    <input type="text" value="Kickatuckus, If_so-and-so_were_still_alive..., Kittycat, Chimp, Airslosh,    
-    " id="town...">
+    Dialogue:
     <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
     <span id="catchphrasegot"></span>
-    <br>-->
+    <br>
     Interactions:
     <button id="getinteraction" onclick="getinteraction()">Select</button>
     <span id="interactiongot"></span>
@@ -1074,6 +1100,14 @@ function copyprefix() {
     Loot Item:
     <button id="getlootitem" onclick="getlootitem()">Select</button>
     <span id="lootitemgot"></span>
+    <br><br><br><br>
+    Noteworthy People:
+    <br>
+    
+    <br><br>
+    Noteworthy Quests:
+    <br>
+    
     <br><br>
 </p>
 
@@ -1361,5 +1395,13 @@ window.onclick = function(event) {
 uic_r_e()
 </script>
 <input value="Space to take notes...">
+<!--
+head: narrow, round, 
+mouth: mandibles, snout, 
+eyes: cat, ungulate, insect, spider, membrane, 
+wings: bat, bird, insect
+machine: screen, keys, ports, vent, fan, 
+vehicle: wings, turbine, propeller, engine, wheel, treads, 
+-->
 </body>
 </html>
