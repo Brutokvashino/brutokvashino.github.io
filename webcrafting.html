@@ -451,14 +451,23 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function terrain() {
-          var txt = getRndInteger(1,48);
-          if (txt == 1) { return "snowy_mountains";} else if (txt == 2) { return "mountains";} else if (txt == 3) { return "high_hills";} else if (txt == 4) { return "stream";} else if (txt == 5) { return "wetland";} else if (txt == 6) { return "swamp";} else if (txt == 7) { return "lake";} else if (txt == 8) { return "cliffside";} else if (txt == 9) { return "hills";} else if (txt == 10) { return "field";} else if (txt == 11) { return "beach";} else if (txt == 12) { return "dunes";} else if (txt == 13) { return "river";} else if (txt == 14) { return "caves";} else if (txt == 15) { return "jungle";} else if (txt == 16) { return "scrub";} else if (txt == 17) { return "desert";} else if (txt == 18) { return "tundra";} else if (txt == 19) { return "evergreen_forest";} else if (txt == 20) { return "deciduous_forest";} else if (txt == 21) { return "rock_island";} else if (txt == 22) { return "open_ocean";} else if (txt == 23) { return "sandy_island";} else if (txt == 24) { return "jungle_island";} else if (txt == 25) { return "waterfall_basin";} else if (txt == 26) { return "canyon";} else if (txt == 27) { return "steep_hills";} else if (txt == 28) { return "fjord";} else if (txt == 29) { return "volcano";} else if (txt == 30) { return "geysirs";} else if (txt == 31) { return "hot_spring";} else if (txt == 32) { return "desert_scrub";} else if (txt == 33) { return "tidepools";} else if (txt == 34) { return "moor";} else if (txt == 35) { return "mediterranean";} else if (txt == 36) { return "savannah";} else if (txt == 37) { return "african_jungle";} else if (txt == 38) { return "outback";} else if (txt == 39) { return "asian_jungle";} else if (txt == 40) { return "pacific_island";} else if (txt == 41) { return "eastern_forest";} else if (txt == 42) { return "caribbean_jungle";} else if (txt == 43) { return "amazonian_rainforest";} else if (txt == 44) { return "appalachian_forest";} else if (txt == 45) { return "central_american_jungle";} else if (txt == 46) { return "middle_eastern_valley";} else if (txt == 47) { return "european_forest";} else if (txt == 48) { return "sandy_swamp";}
+          var txt = getRndInteger(1,56);
+          if (txt == 1) { return "snowy_mountains";} else if (txt == 2) { return "mountains";} else if (txt == 3) { return "high_hills";} else if (txt == 4) { return "stream";} else if (txt == 5) { return "wetland";} else if (txt == 6) { return "swamp";} else if (txt == 7) { return "lake";} else if (txt == 8) { return "cliffside";} else if (txt == 9) { return "hills";} else if (txt == 10) { return "field";} else if (txt == 11) { return "beach";} else if (txt == 12) { return "dunes";} else if (txt == 13) { return "river";} else if (txt == 14) { return "caves";} else if (txt == 15) { return "jungle";} else if (txt == 16) { return "scrub";} else if (txt == 17) { return "desert";} else if (txt == 18) { return "tundra";} else if (txt == 19) { return "evergreen_forest";} else if (txt == 20) { return "deciduous_forest";} else if (txt == 21) { return "rock_island";} else if (txt == 22) { return "open_ocean";} else if (txt == 23) { return "sandy_island";} else if (txt == 24) { return "jungle_island";} else if (txt == 25) { return "waterfall_basin";} else if (txt == 26) { return "canyon";} else if (txt == 27) { return "steep_hills";} else if (txt == 28) { return "fjord";} else if (txt == 29) { return "volcano";} else if (txt == 30) { return "geysirs";} else if (txt == 31) { return "hot_spring";} else if (txt == 32) { return "desert_scrub";} else if (txt == 33) { return "tidepools";} else if (txt == 34) { return "moor";} else if (txt == 35) { return "mediterranean";} else if (txt == 36) { return "savannah";} else if (txt == 37) { return "african_jungle";} else if (txt == 38) { return "outback";} else if (txt == 39) { return "asian_jungle";} else if (txt == 40) { return "pacific_island";} else if (txt == 41) { return "eastern_forest";} else if (txt == 42) { return "caribbean_jungle";} else if (txt == 43) { return "amazonian_rainforest";} else if (txt == 44) { return "appalachian_forest";} else if (txt == 45) { return "central_american_jungle";} else if (txt == 46) { return "middle_eastern_valley";} else if (txt == 47) { return "european_forest";} else if (txt == 48) { return "sandy_swamp";} 
+          else if (txt == 49) {return "limestone cliffs";}
+          else if (txt == 50) {return "cave";}
+          else if (txt == 51) {return "slag mounds";}
+          else if (txt == 52) {return "quarry";}
+          else if (txt == 53) {return "mineshaft";}
+          else if (txt == 54) {return "tunnel mine";}
+          else if (txt == 55) {return "city";}
+          else if (txt == 56) {return "town";}
           else if (txt == 0) {return "";}
         }
         function weather() {
-        var txt = getRndInteger(1,34);
+        var txt = getRndInteger(1,36);
           if (txt == 1) { return "clear";} else if (txt == 2) { return "cloudy";} else if (txt == 3) { return "rainy";} else if (txt == 4) { return "foggy";} else if (txt == 5) { return "misty";} else if (txt == 6) { return "monsoon";} else if (txt == 7) { return "hurricane";} else if (txt == 8) { return "tornado";} else if (txt == 9) { return "storm";} else if (txt == 10) { return "lightning_storm";} else if (txt == 11) { return "wildfire";} else if (txt == 12) { return "overcast";} else if (txt == 13) { return "patched_sky";} else if (txt == 14) { return "hailstorm";} else if (txt == 15) { return "snow";} else if (txt == 16) { return "blizzard";} else if (txt == 17) { return "cool";} else if (txt == 18) { return "warm";} else if (txt == 19) { return "freezing";} else if (txt == 20) { return "hot";} else if (txt == 21) { return "humid";} else if (txt == 22) { return "dry";} else if (txt == 23) { return "mountains";} else if (txt == 24) { return "comfortable";} else if (txt == 25) { return "windy";} else if (txt == 26) { return "breezy";} else if (txt == 27) { return "doldrum";} else if (txt == 28) { return "earthquake";} else if (txt == 29) { return "volcanic_ash";} else if (txt == 30) { return "flood";} else if (txt == 31) { return "pollen";} else if (txt == 32) { return "migration";}else if (txt == 33) {return "locusts";} else if (txt == 34) {return "drought";}
-          else if (txt == 0) {return "";}
+          else if (txt == 35) {return "dry";}
+          else if (txt == 36) {return "ash clouds";}
 
         }
         function flora() {
@@ -485,7 +494,6 @@ function getRndInteger(min, max) {
           else if (txt == 81) {return "cactus";}
           else if (txt == 82) {return "yucca";}
           else if (txt == 83) {return "joshua tree";}
-
         }
 
         function beachstuff() {
@@ -724,7 +732,7 @@ function getRndInteger(min, max) {
         }
 
         function trees() {
-          var txt = getRndInteger(1,67);
+          var txt = getRndInteger(1,68);
            if (txt == 1) {return "pine";}
         else if (txt == 2) { return "hemlock";}
         else if (txt == 3) { return "cedar";}
@@ -774,7 +782,7 @@ function getRndInteger(min, max) {
         else if (txt == 47) {return "banana";}
         else if (txt == 48) { return "breadfruit";}
         else if (txt == 49) {return "sycamore";}else if (txt == 50) {return "hazelnut";}else if (txt == 51) {return "cashew";}else if (txt == 52) {return "papaya";}else if (txt == 53) { return "guava"; }else if (txt == 54) {return "chestnut";}else if (txt == 55) {return "'horse chestnut'";}else if (txt == 56) {return "walnut";}else if (txt == 57) {return "'black walnut'"; }else if (txt == 58) {return "fir";}else if (txt == 59) {return "yew";}else if (txt == 60) { return "spruce";}else if (txt == 61) {return "'ponderosa pine'";}else if (txt == 62) {return "hickory";}else if (txt == 63) {return "urushi";}else if (txt == 64) {return "rhododendron";}else if (txt == 65) {return "witch_hazel";}else if (txt == 66) {return "hawthorn";}else if (txt == 67) {return "laurel";}
-        else if (txt == 68) {return "";}
+        else if (txt == 68) {return "dead tree";}
         else if (txt == 0) {return "";}
         else if (txt == 0) {return "";}
         else if (txt == 0) {return "";}
@@ -1099,7 +1107,7 @@ else if (txt == 40) {return "pufferfish";}
         }
 
         function inspection() {
-            var txt = getRndInteger(1,56);
+            var txt = getRndInteger(1,59);
             if (txt == 1) {return "fruit";}
             else if (txt == 2) {return "leaves";}
             else if (txt == 3) {return "twigs";}
@@ -1133,7 +1141,7 @@ else if (txt == 40) {return "pufferfish";}
             else if (txt == 31) {return "bandit";}
             else if (txt == 32) {return "watcher";}
             else if (txt == 33) {return "building";}
-            else if (txt == 34) {return "house";}
+            else if (txt == 34) {return "cache";}
             else if (txt == 35) {return "trap";}
             else if (txt == 36) {return "falling debris";}
             else if (txt == 37) {return "unstable ground";}
@@ -1145,7 +1153,7 @@ else if (txt == 40) {return "pufferfish";}
             else if (txt == 43) {return "overgrown";}
             else if (txt == 44) {return "thorns";}
             else if (txt == 45) {return "twigs";}
-            else if (txt == 46) {return "farm";}
+            else if (txt == 46) {return "tunnel";}
             else if (txt == 47) {return "hole";}
             else if (txt == 48) {return "mites";}
             else if (txt == 49) {return "campground";}
@@ -1156,49 +1164,188 @@ else if (txt == 40) {return "pufferfish";}
             else if (txt == 54) {return "good omen";}
             else if (txt == 55) {return "bad omen";}
             else if (txt == 56) {return "message";}
-            else if (txt == 0) {return "";}
+            else if (txt == 57) {return "friendly meeting";}
+            else if (txt == 58) {return "ambush";}
+            else if (txt == 59) {return "ore";}
         }
+        function structures() {
+          var txt = getRndInteger(1,48);
+          if (txt == 0) {return "foodstore, fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
+          else if (txt == 1) {return "enclosure";}
+          else if (txt == 2) {return "tower";}
+          else if (txt == 3) {return "altar";}
+          else if (txt == 4) {return "zoo";}
+          else if (txt == 5) {return "monument";}
+          else if (txt == 6) {return "bank";}
+          else if (txt == 7) {return "town hall";}
+          else if (txt == 8) {return "courthouse";}
+          else if (txt == 9) {return "museum";}
+          else if (txt == 10) {return "hospital";}
+          else if (txt == 11) {return "residence";}
+          else if (txt == 12) {return "café";}
+          else if (txt == 13) {return "apartment";}
+          else if (txt == 14) {return "theater";}
+          else if (txt == 15) {return "warehouse";}
+          else if (txt == 16) {return "general store";}
+          else if (txt == 17) {return "prison";}
+          else if (txt == 18) {return "restaurant";}
+          else if (txt == 19) {return "inn";}
+          else if (txt == 20) {return "hotel";}
+          else if (txt == 21) {return "motel";}
+          else if (txt == 22) {return "windmill";}
+          else if (txt == 23) {return "police_station";}
+          else if (txt == 24) {return "saloon";}
+          else if (txt == 25) {return "bar";}
+          else if (txt == 26) {return "factory";}
+          else if (txt == 27) {return "office";}
+          else if (txt == 28) {return "restrooms";}
+          else if (txt == 29) {return "bakery";}
+          else if (txt == 30) {return "marketplace";}
+          else if (txt == 31) {return "plaza";}
+          else if (txt == 32) {return "fountain";}
+          else if (txt == 33) {return "well";}
+          else if (txt == 34) {return "outhouse";}
+          else if (txt == 35) {return "threshing_floor";}
+          else if (txt == 36) {return "barracks";}
+          else if (txt == 37) {return "training ground";}
+          else if (txt == 38) {return "park";}
+          else if (txt == 39) {return "festival field";}
+          else if (txt == 40) {return "racetrack";}
+          else if (txt == 41) {return "arena";}
+          else if (txt == 42) {return "castle";}
+          else if (txt == 43) {return "farm";}
+          else if (txt == 44) {return "quarry";}
+          else if (txt == 45) {return "tunnel mine";}
+          else if (txt == 46) {return "mineshaft";}
+          else if (txt == 47) {return "campsite";}
+          else if (txt == 48) {return "tent";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+
+function landmarks() {
+    var txt = getRndInteger(1,21);
+    if (txt == 1) {return "tree";}
+    else if (txt == 2) {return "boulder";}
+    else if (txt == 3) {return "hill";}
+    else if (txt == 4) {return "mountain";}
+    else if (txt == 5) {return "mountains";}
+    else if (txt == 6) {return "oasis";}
+    else if (txt == 7) {return "grove";}
+    else if (txt == 8) {return "lake";}
+    else if (txt == 9) {return "river";}
+    else if (txt == 10) {return "ruins";}
+    else if (txt == 11) {return "path";}
+    else if (txt == 12) {return "road";}
+    else if (txt == 13) {return "building";}
+    else if (txt == 14) {return "traveler";}
+    else if (txt == 15) {return "travelers";}
+    else if (txt == 16) {return "pillar";}
+    else if (txt == 17) {return "tower";}
+    else if (txt == 18) {return "gate";}
+    else if (txt == 19) {return "bridge";}
+    else if (txt == 20) {return "campsite";}
+    else if (txt == 21) {return "temple";}
+}
+        function roads() {
+          var txt = getRndInteger(1,47);
+          if (txt == 0) {return "intersection, crossroad, traveler, campsite, roadkill, fallen_tree, guarded_detour, toll, guard_tower, gate, cobble, dirt, gravel, dusty, grass, mud, sinkhole, flooded, landslide, debris, hitchhiker, stranded, animal_crossing,";}
+          else if (txt == 1) {return "crowded";}
+          else if (txt == 2) {return "winding";}
+          else if (txt == 3) {return "bandit-ridden";}
+          else if (txt == 4) {return "over a bridge";}
+          else if (txt == 5) {return "uphill";}
+          else if (txt == 6) {return "downhill";}
+          else if (txt == 7) {return "scrambling";}
+          else if (txt == 8) {return "falling rocks";}
+          else if (txt == 9) {return "bridge short";}
+          else if (txt == 10) {return "bridge long";}
+          else if (txt == 11) {return "bridge makeshift";}
+          else if (txt == 12) {return "potholes";}
+          else if (txt == 13) {return "bumpy";}
+          else if (txt == 14) {return "uneven";}
+          else if (txt == 15) {return "cliffside";}
+          else if (txt == 16) {return "main";}
+          else if (txt == 17) {return "grave-ridden";}
+          else if (txt == 18) {return "river-crossing";}
+          else if (txt == 19) {return "broken bridge";}
+          else if (txt == 20) {return "long";}
+          else if (txt == 21) {return "forest";}
+          else if (txt == 22) {return "steep-walled";}
+          else if (txt == 23) {return "narrow";}
+          else if (txt == 24) {return "overgrown";}
+          else if (txt == 25) {return "wide";}
+          else if (txt == 26) {return "mosquito infested";}
+          else if (txt == 27) {return "cracked";}
+          else if (txt == 28) {return "dense";}
+          else if (txt == 29) {return "grass";}
+          else if (txt == 30) {return "cracked";}
+          else if (txt == 31) {return "mossy";}
+          else if (txt == 32) {return "slippery";}
+          else if (txt == 33) {return "flooded";}
+          else if (txt == 34) {return "boulders";}
+          else if (txt == 35) {return "mountain pass";}
+          else if (txt == 36) {return "deep valley";}
+          else if (txt == 37) {return "cave";}
+          else if (txt == 38) {return "tunnel";}
+          else if (txt == 39) {return "rapids";}
+          else if (txt == 40) {return "thorny";}
+          else if (txt == 41) {return "muddy";}
+          else if (txt == 42) {return "sinking";}
+          else if (txt == 43) {return "clear";}
+          else if (txt == 44) {return "highway";}
+          else if (txt == 45) {return "busy";}
+          else if (txt == 46) {return "battle-torn";}
+          else if (txt == 47) {return "filled with debris";}
+
+      }
         function fish() {
             var txt = getRndInteger(1,56);
-            if (txt == 1) {return "shell";}
-            else if (txt == 2) {return "detritus";}
-            else if (txt == 3) {return "twigs";}
-            else if (txt == 4) {return "branch";}
-            else if (txt == 5) {return "plank";}
-            else if (txt == 6) {return "corpse";}
-            else if (txt == 7) {return "leaves";}
-            else if (txt == 8) {return "kelp";}
-            else if (txt == 9) {return "creature";}
-            else if (txt == 10) {return "rock";}
-            else if (txt == 11) {return "coral";}
-            else if (txt == 12) {return "rag";}
-            else if (txt == 13) {return "eggs";}
-            else if (txt == 14) {return "insect";}
-            else if (txt == 15) {return "seagrass";}
-            else if (txt == 16) {return "bones";}
-            else if (txt == 17) {return "sticks";}
-            else if (txt == 18) {return "string";}
-            else if (txt == 19) {return "rope";}
-            else if (txt == 20) {return "hay";}
-            else if (txt == 21) {return "reed";}
-            else if (txt == 22) {return "parasite";}
-            else if (txt == 23) {return "trap";}
-            else if (txt == 24) {return "lose bait";}
-            else if (txt == 25) {return "lose hook";}
-            else if (txt == 26) {return "sapling";}
-            else if (txt == 27) {return "root";}
-            else if (txt == 28) {return "fruit husk";}
-            else if (txt == 29) {return "thorns";}
-            else if (txt == 30) {return "nutshell";}
-            else if (txt == 31) {return "baitcage";}
-            else if (txt == 32) {return "cache bag";}
-            else if (txt == 33) {return "good omen";}
-            else if (txt == 34) {return "bad omen";}
-            else if (txt == 35) {return "message in a bottle";}
+            if (txt = 1) {return "shell";}
+            else if (txt = 2) {return "detritus";}
+            else if (txt = 3) {return "twigs";}
+            else if (txt = 4) {return "branch";}
+            else if (txt = 5) {return "plank";}
+            else if (txt = 6) {return "corpse";}
+            else if (txt = 7) {return "leaves";}
+            else if (txt = 8) {return "kelp";}
+            else if (txt = 9) {return "creature";}
+            else if (txt = 10) {return "rock";}
+            else if (txt = 11) {return "coral";}
+            else if (txt = 12) {return "rag";}
+            else if (txt = 13) {return "eggs";}
+            else if (txt = 14) {return "insect";}
+            else if (txt = 15) {return "seagrass";}
+            else if (txt = 16) {return "bones";}
+            else if (txt = 17) {return "sticks";}
+            else if (txt = 18) {return "string";}
+            else if (txt = 19) {return "rope";}
+            else if (txt = 20) {return "hay";}
+            else if (txt = 21) {return "reed";}
+            else if (txt = 22) {return "parasite";}
+            else if (txt = 23) {return "trap";}
+            else if (txt = 24) {return "lose bait";}
+            else if (txt = 25) {return "lose hook";}
+            else if (txt = 26) {return "sapling";}
+            else if (txt = 27) {return "root";}
+            else if (txt = 28) {return "fruit husk";}
+            else if (txt = 29) {return "thorns";}
+            else if (txt = 30) {return "nutshell";}
+            else if (txt = 31) {return "baitcage";}
+            else if (txt = 32) {return "cache bag";}
+            else if (txt = 33) {return "good omen";}
+            else if (txt = 34) {return "bad omen";}
+            else if (txt = 35) {return "message in a bottle";}
         }
 
         function decay() {
-          var txt = getRndInteger(1,46);
+          var txt = getRndInteger(1,49);
           if (txt == 0) {return ""; }
             else if (txt == 1) {return "mutated";}
             else if (txt == 2) {return "bubbled";}
@@ -1246,6 +1393,11 @@ else if (txt == 40) {return "pufferfish";}
             else if (txt == 44) {return "birdnest";}
             else if (txt == 45) {return "loosened";}
             else if (txt == 46) {return "jammed";}
+            else if (txt == 47) {return "cracked";}
+            else if (txt == 48) {return "smashed";}
+            else if (txt == 49) {return "petrified";}
+
+
         }
         
         function seeuro() {
@@ -1534,7 +1686,11 @@ else if (txt == 40) {return "pufferfish";}
         }
 function getterrain(){
     document.getElementById("terraingot").innerHTML = terrain();
-}function getweather(){
+}  
+function getroad() {
+  document.getElementById("roadgot").innerHTML = roads();
+}
+  function getweather(){
     document.getElementById("weathergot").innerHTML = weather();
 }function getflora(){
     document.getElementById("floragot").innerHTML = flora();
@@ -1550,7 +1706,10 @@ function getterrain(){
     document.getElementById("rarecropgot").innerHTML = rarecrop();
 }function inspect(){
     document.getElementById("inspectioned").innerHTML = inspection();
-}function getdecay(){
+}function getlandmark(){
+    document.getElementById("landmarkgot").innerHTML = landmarks();
+}
+function getdecay(){
     document.getElementById("decaygot").innerHTML = decay();
 }
 function getneeuro(){
@@ -1611,11 +1770,16 @@ function getforeststuff(){
   </script>
 <div id="textbackground" style="width:600px; border: solid 1px black; background-color:#e2e3e4; margin-top:30px; padding-left:25px; padding-bottom:50px;">
 <p>
-    Terrain:
+    Landscape:
     <button id="getterrain" onclick="getterrain()">Select</button>  
     <span id="terraingot"></span>
     <br>
     <br>
+    Terrain:
+    <button id="getroad" onclick="getroad()">    
+      <span id="roadgot">Adjective</span> 
+  </button>
+  <br><br>
     Weather:
     <button id="getweather" onclick="getweather()">Select</button>  
     <span id="weathergot"></span>
@@ -1656,6 +1820,11 @@ function getforeststuff(){
     <br>
     branch, pole, 'sturdy pole', handle, 'sturdy handle', stone, shard, 'stone axehead', 'iron nugget', 'iron axehead', boulder, 'copper nugget', 'bronze bar', 'bronze axehead', 'iron spade', 'stone spade', staff, bow, string, 'sturdy string', rope, 'bronze spade', 'iron plowhead', 'plank', 'stone arrowhead', 'arrow shaft', feather,  
     --> 
+    Landmark:
+    <button id="landmark" onclick="getlandmark()">Select</button>  
+    <span id="landmarkgot"></span>
+    <br>
+    <br>
     Inspect:
     <button id="inspect" onclick="inspect()">Select</button>  
     <span id="inspectioned"></span>
@@ -1806,288 +1975,5 @@ function getforeststuff(){
     lithium deposits?
 -->
 </div>
-<script>
-
-function submitTryit(n) {
-  if (window.editor) {
-    window.editor.save();
-  }
-  var text = document.getElementById("textareaCode").value;
-  var ifr = document.createElement("iframe");
-  ifr.setAttribute("frameborder", "0");
-  ifr.setAttribute("id", "iframeResult");
-  ifr.setAttribute("name", "iframeResult");  
-  document.getElementById("iframewrapper").innerHTML = "";
-  document.getElementById("iframewrapper").appendChild(ifr);
-  document.getElementById("iframeResult").addEventListener("load", hideSpinner);
-  if (loadSave == true ) {
-    ifr.setAttribute("src", "/code/opentext.htm");
-  } else if (loadSave == false) {
-    displaySpinner();
-    var t=text;
-    t=t.replace(/=/gi,"w3equalsign");
-    t=t.replace(/\+/gi,"w3plussign");    
-    var pos=t.search(/script/i)
-    while (pos>0) {
-      t=t.substring(0,pos) + "w3" + t.substr(pos,3) + "w3" + t.substr(pos+3,3) + "tag" + t.substr(pos+6);
-	    pos=t.search(/script/i);
-    }
-    document.getElementById("code").value=t;
-    document.getElementById("codeForm").action = "https://try.w3schools.com/try_php.php?x=" + Math.random();
-    document.getElementById('codeForm').method = "post";
-    document.getElementById('codeForm').acceptCharset = "utf-8";
-    document.getElementById('codeForm').target = "iframeResult";
-    document.getElementById("codeForm").submit();
-  } else {
-    var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
-    ifrw.document.open();
-    ifrw.document.write(text);  
-    ifrw.document.close();
-    //23.02.2016: contentEditable is set to true, to fix text-selection (bug) in firefox.
-    //(and back to false to prevent the content from being editable)
-    //(To reproduce the error: Select text in the result window with, and without, the contentEditable statements below.)  
-    if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
-      ifrw.document.body.contentEditable = true;
-      ifrw.document.body.contentEditable = false;
-    }
-  }
-}
-
-function hideSpinner() {
-  document.getElementById("runloadercontainer").style.display = "none";
-}
-function displaySpinner() {
-  var i, c, w, h, r, top;
-  i = document.getElementById("iframeResult");
-  w = w3_getStyleValue(i, "width");
-  h = w3_getStyleValue(i, "height");
-  c = document.getElementById("runloadercontainer");
-  c.style.width = w;
-  c.style.height = h;
-  c.style.display = "block";
-  w = Number(w.replace("px", "")) / 5;
-  r = document.getElementById("runloader");
-  r.style.width = w + "px";
-  r.style.height = w + "px";
-  h = w3_getStyleValue(r, "height");
-  h = Number(h.replace("px", "")) / 2;
-  top = w3_getStyleValue(c, "height");
-  top = Number(top.replace("px", "")) / 2;
-  top = top - h
-  r.style.top = top + "px";
-}
-
-
-var currentStack=true;
-if ((window.screen.availWidth <= 768 && window.innerHeight > window.innerWidth) || "" == " horizontal") {restack(true);}
-function restack(horizontal) {
-    var tc, ic, t, i, c, f, sv, sh, d, height, flt, width;
-    tc = document.getElementById("textareacontainer");
-    ic = document.getElementById("iframecontainer");
-    t = document.getElementById("textarea");
-    i = document.getElementById("iframe");
-    c = document.getElementById("container");    
-    sv = document.getElementById("stackV");
-    sh = document.getElementById("stackH");
-    tc.className = tc.className.replace("horizontal", "");
-    ic.className = ic.className.replace("horizontal", "");        
-    t.className = t.className.replace("horizontal", "");        
-    i.className = i.className.replace("horizontal", "");        
-    c.className = c.className.replace("horizontal", "");                        
-    if (sv) {sv.className = sv.className.replace("horizontal", "")};
-    if (sv) {sh.className = sh.className.replace("horizontal", "")};
-    stack = "";
-    if (horizontal) {
-        tc.className = tc.className + " horizontal";
-        ic.className = ic.className + " horizontal";        
-        t.className = t.className + " horizontal";        
-        i.className = i.className + " horizontal";                
-        c.className = c.className + " horizontal";                
-        if (sv) {sv.className = sv.className + " horizontal"};
-        if (sv) {sh.className = sh.className + " horizontal"};
-        stack = " horizontal";
-        document.getElementById("textareacontainer").style.height = "50%";
-        document.getElementById("iframecontainer").style.height = "50%";
-        document.getElementById("textareacontainer").style.width = "100%";
-        document.getElementById("iframecontainer").style.width = "100%";
-        currentStack=false;
-    } else {
-        document.getElementById("textareacontainer").style.height = "100%";
-        document.getElementById("iframecontainer").style.height = "100%";
-        document.getElementById("textareacontainer").style.width = "50%";
-        document.getElementById("iframecontainer").style.width = "50%";
-        currentStack=true;        
-    }
-    fixDragBtn();
-    showFrameSize();
-}
-function retheme() {
-  var cc = document.body.className;
-  if (cc.indexOf("darktheme") > -1) {
-    document.body.className = cc.replace("darktheme", "");
-    if (opener) {opener.document.body.className = cc.replace("darktheme", "");}
-    localStorage.setItem("preferredmode", "light");
-  } else {
-    document.body.className += " darktheme";
-    if (opener) {opener.document.body.className += " darktheme";}
-    localStorage.setItem("preferredmode", "dark");
-  }
-}
-(
-function setThemeMode() {
-  var x = localStorage.getItem("preferredmode");
-  if (x == "dark") {
-    document.body.className += " darktheme";
-  }
-})();
-function showFrameSize() {
-  var t;
-  var width, height;
-  width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
-  height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
-  document.getElementById("framesize").innerHTML = "Result Size: <span>" + width + " x " + height + "</span>";
-}
-var dragging = false;
-var stack;
-function fixDragBtn() {
-  var textareawidth, leftpadding, dragleft, containertop, buttonwidth
-  var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
-  if (stack != " horizontal") {
-    document.getElementById("dragbar").style.width = "5px";    
-    textareasize = Number(w3_getStyleValue(document.getElementById("textareawrapper"), "width").replace("px", ""));
-    leftpadding = Number(w3_getStyleValue(document.getElementById("textarea"), "padding-left").replace("px", ""));
-    buttonwidth = Number(w3_getStyleValue(document.getElementById("dragbar"), "width").replace("px", ""));
-    textareaheight = w3_getStyleValue(document.getElementById("textareawrapper"), "height");
-    dragleft = textareasize + leftpadding + (leftpadding / 2) - (buttonwidth / 2);
-    document.getElementById("dragbar").style.top = containertop + "px";
-    document.getElementById("dragbar").style.left = dragleft + "px";
-    document.getElementById("dragbar").style.height = textareaheight;
-    document.getElementById("dragbar").style.cursor = "col-resize";
-    
-  } else {
-    document.getElementById("dragbar").style.height = "5px";
-    if (window.getComputedStyle) {
-        textareawidth = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height");
-        textareaheight = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width");
-        leftpadding = window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top");
-        buttonwidth = window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height");
-    } else {
-        dragleft = document.getElementById("textareawrapper").currentStyle["width"];
-    }
-    textareawidth = Number(textareawidth.replace("px", ""));
-    leftpadding = Number(leftpadding .replace("px", ""));
-    buttonwidth = Number(buttonwidth .replace("px", ""));
-    dragleft = containertop + textareawidth + leftpadding + (leftpadding / 2);
-    document.getElementById("dragbar").style.top = dragleft + "px";
-    document.getElementById("dragbar").style.left = "5px";
-    document.getElementById("dragbar").style.width = textareaheight;
-    document.getElementById("dragbar").style.cursor = "row-resize";        
-  }
-}
-function dragstart(e) {
-  e.preventDefault();
-  dragging = true;
-  var main = document.getElementById("iframecontainer");
-}
-function dragmove(e) {
-  if (dragging) 
-  {
-    document.getElementById("shield").style.display = "block";        
-    if (stack != " horizontal") {
-      var percentage = (e.pageX / window.innerWidth) * 100;
-      if (percentage > 5 && percentage < 98) {
-        var mainPercentage = 100-percentage;
-        document.getElementById("textareacontainer").style.width = percentage + "%";
-        document.getElementById("iframecontainer").style.width = mainPercentage + "%";
-        fixDragBtn();
-      }
-    } else {
-      var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
-      var percentage = ((e.pageY - containertop + 20) / (window.innerHeight - containertop + 20)) * 100;
-      if (percentage > 5 && percentage < 98) {
-        var mainPercentage = 100-percentage;
-        document.getElementById("textareacontainer").style.height = percentage + "%";
-        document.getElementById("iframecontainer").style.height = mainPercentage + "%";
-        fixDragBtn();
-      }
-    }
-    showFrameSize();    
-  }
-}
-function dragend() {
-  document.getElementById("shield").style.display = "none";
-  dragging = false;
-  var vend = navigator.vendor;
-  if (window.editor && vend.indexOf("Apple") == -1) {
-      window.editor.refresh();
-  }
-}
-if (window.addEventListener) {              
-  document.getElementById("dragbar").addEventListener("mousedown", function(e) {dragstart(e);});
-  document.getElementById("dragbar").addEventListener("touchstart", function(e) {dragstart(e);});
-  window.addEventListener("mousemove", function(e) {dragmove(e);});
-  window.addEventListener("touchmove", function(e) {dragmove(e);});
-  window.addEventListener("mouseup", dragend);
-  window.addEventListener("touchend", dragend);
-  window.addEventListener("load", fixDragBtn);
-  window.addEventListener("load", showFrameSize);
-}
-
-
-function colorcoding() {
-  var ua = navigator.userAgent;
-  //Opera Mini refreshes the page when trying to edit the textarea.
-  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
-  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
-    mode: "application/x-httpd-php",
-    lineWrapping: true,
-    smartIndent: false
-  });
-//  window.editor.on("change", function () {window.editor.save();});
-}
-colorcoding();
-
-function w3_getStyleValue(elmnt,style) {
-    if (window.getComputedStyle) {
-        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
-    } else {
-        return elmnt.currentStyle[style];
-    }
-}
-
-function openMenu() {
-    var x = document.getElementById("navbarDropMenu");
-    var y = document.getElementById("menuOverlay");
-    var z = document.getElementById("menuButton");
-    if (z.className.indexOf("w3-text-gray") == -1) {
-        z.className += " w3-text-gray";
-    } else { 
-        z.className = z.className.replace(" w3-text-gray", "");
-    }
-    if (z.className.indexOf("w3-gray") == -1) {
-        z.className += " w3-gray";
-    } else { 
-        z.className = z.className.replace(" w3-gray", "");
-    }
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-    if (y.className.indexOf("w3-show") == -1) {
-        y.className += " w3-show";
-    } else { 
-        y.className = y.className.replace(" w3-show", "");
-    }
-
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == document.getElementById("menuOverlay")) {
-        openMenu();
-    } 
-}
-uic_r_e()
-</script>
 </body>
 </html>
