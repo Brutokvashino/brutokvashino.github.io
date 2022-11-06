@@ -451,7 +451,7 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function terrain() {
-          var txt = getRndInteger(1,56);
+          var txt = getRndInteger(1,58);
           if (txt == 1) { return "snowy_mountains";} else if (txt == 2) { return "mountains";} else if (txt == 3) { return "high_hills";} else if (txt == 4) { return "stream";} else if (txt == 5) { return "wetland";} else if (txt == 6) { return "swamp";} else if (txt == 7) { return "lake";} else if (txt == 8) { return "cliffside";} else if (txt == 9) { return "hills";} else if (txt == 10) { return "field";} else if (txt == 11) { return "beach";} else if (txt == 12) { return "dunes";} else if (txt == 13) { return "river";} else if (txt == 14) { return "caves";} else if (txt == 15) { return "jungle";} else if (txt == 16) { return "scrub";} else if (txt == 17) { return "desert";} else if (txt == 18) { return "tundra";} else if (txt == 19) { return "evergreen_forest";} else if (txt == 20) { return "deciduous_forest";} else if (txt == 21) { return "rock_island";} else if (txt == 22) { return "open_ocean";} else if (txt == 23) { return "sandy_island";} else if (txt == 24) { return "jungle_island";} else if (txt == 25) { return "waterfall_basin";} else if (txt == 26) { return "canyon";} else if (txt == 27) { return "steep_hills";} else if (txt == 28) { return "fjord";} else if (txt == 29) { return "volcano";} else if (txt == 30) { return "geysirs";} else if (txt == 31) { return "hot_spring";} else if (txt == 32) { return "desert_scrub";} else if (txt == 33) { return "tidepools";} else if (txt == 34) { return "moor";} else if (txt == 35) { return "mediterranean";} else if (txt == 36) { return "savannah";} else if (txt == 37) { return "african_jungle";} else if (txt == 38) { return "outback";} else if (txt == 39) { return "asian_jungle";} else if (txt == 40) { return "pacific_island";} else if (txt == 41) { return "eastern_forest";} else if (txt == 42) { return "caribbean_jungle";} else if (txt == 43) { return "amazonian_rainforest";} else if (txt == 44) { return "appalachian_forest";} else if (txt == 45) { return "central_american_jungle";} else if (txt == 46) { return "middle_eastern_valley";} else if (txt == 47) { return "european_forest";} else if (txt == 48) { return "sandy_swamp";} 
           else if (txt == 49) {return "limestone cliffs";}
           else if (txt == 50) {return "cave";}
@@ -461,7 +461,8 @@ function getRndInteger(min, max) {
           else if (txt == 54) {return "tunnel mine";}
           else if (txt == 55) {return "city";}
           else if (txt == 56) {return "town";}
-          else if (txt == 0) {return "";}
+          else if (txt == 57) {return "otherworldly";}
+          else if (txt == 58) {return "badlands";}
         }
         function weather() {
         var txt = getRndInteger(1,36);
