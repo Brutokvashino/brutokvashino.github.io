@@ -853,6 +853,15 @@ function getRndInteger(min, max) {
           else if (txt == 19) {return "drink with";}
           else if (txt == 20) {return "ignore";}
           else if (txt == 21) {return "charm";}
+          else if (txt == 22) {return "marry";}
+          else if (txt == 23) {return "kill";}
+          else if (txt == 24) {return "gossip about";}
+          else if (txt == 25) {return "tell a secret to";}
+          else if (txt == 26) {return "interrogate";}
+          else if (txt == 27) {return "make friends with";}
+          else if (txt == 28) {return "accompany";}
+          else if (txt == 29) {return "follow";}
+          else if (txt == 30) {return "flee";}
 
       }
       function activities() {
@@ -880,8 +889,12 @@ function getRndInteger(min, max) {
           else if (txt == 20) {return "use it";}
           else if (txt == 21) {return "hold it";}
           else if (txt == 22) {return "talk to oneself";}
-          else if (txt == 23) {return "";}
-          else if (txt == 0) {return "";}
+          else if (txt == 23) {return "make tea";}
+          else if (txt == 24) {return "smoke";}
+          else if (txt == 25) {return "daydream";}
+          else if (txt == 26) {return "twitch nervously";}
+          else if (txt == 27) {return "sweat";}
+          else if (txt == 28) {return "mosh";}
           else if (txt == 0) {return "";}
 
       }
@@ -903,7 +916,7 @@ function getRndInteger(min, max) {
           else if (txt == 12) {return "Wand of Albus Dumbledore";}
           else if (txt == 13) {return "Shephard's Journal";}
           else if (txt == 14) {return "Enchanted Rose";}
-          else if (txt == 100) {return "";}
+          else if (txt == 100) {return "Sh*tty Blessing";}
       }
       function mysteriousitems() {
           var txt = getRndInteger(1,11);
@@ -956,8 +969,87 @@ function getRndInteger(min, max) {
           else if (txt == 14) {return "a bracelet";}
           else if (txt == 15) {return "a potato";}
           else if (txt == 0) {return "";}
-
       }
+      function monsters() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Bozo";}
+          else if (txt == 2) {return "big Bozo";}
+          else if (txt == 3) {return "Vampire";}
+          else if (txt == 4) {return "Extremist";}
+          else if (txt == 5) {return "";}
+          else if (txt == 6) {return "";}
+          else if (txt == 7) {return "";}
+          else if (txt == 8) {return "";}
+          else if (txt == 9) {return "";}
+          else if (txt == 10) {return "";}
+          else if (txt == 11) {return "";}
+          else if (txt == 12) {return "";}
+          else if (txt == 13) {return "";}
+          else if (txt == 14) {return "";}
+          else if (txt == 15) {return "";}
+          else if (txt == 0) {return "";}
+      }
+      function news() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "An earthquake wrecked the city";}
+          else if (txt == 2) {return "Missles incoming!";}
+          else if (txt == 3) {return "";}
+          else if (txt == 4) {return "";}
+          else if (txt == 5) {return "a hamburger";}
+          else if (txt == 6) {return "bomchu";}
+          else if (txt == 7) {return "a metal pipe";}
+          else if (txt == 8) {return "a rock";}
+          else if (txt == 9) {return "coins";}
+          else if (txt == 10) {return "paper";}
+          else if (txt == 11) {return "partially eaten food";}
+          else if (txt == 12) {return "a pen";}
+          else if (txt == 13) {return "a pencil";}
+          else if (txt == 14) {return "a bracelet";}
+          else if (txt == 15) {return "a potato";}
+          else if (txt == 0) {return "";}
+        }
+      function plots() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "You find an abandoned baby!";}
+          else if (txt == 2) {return "A mysterious animal follows you!";}
+          else if (txt == 3) {return "You are accused of a crime you didn't commit!";}
+          else if (txt == 4) {return "You witness a crime!";}
+          else if (txt == 5) {return "You've been robbed!";}
+          else if (txt == 6) {return "Your child wants a specific toy!";}
+          else if (txt == 7) {return "The city will be destroyed if you do not act quickly!";}
+          else if (txt == 8) {return "The town was invaded by barbarians!";}
+          else if (txt == 9) {return "You find a large sum of money!";}
+          else if (txt == 10) {return "Everyone has turned against you!";}
+          else if (txt == 11) {return "A deadly virus makes everyone go insane!";}
+          else if (txt == 12) {return "The robots have become self-aware!";}
+          else if (txt == 13) {return "The aliens have landed!";}
+          else if (txt == 14) {return "You've been replaced!";}
+          else if (txt == 15) {return "The devil makes you an offer you can't refuse!";}
+          else if (txt == 0) {return "";}
+        }
+        function music() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Sit on a Ball by R.E.M. from Sonic X";}
+          else if (txt == 2) {return "Box-War by Genfall";}
+          else if (txt == 3) {return "Push the Neutron by The Chemical Brothers";}
+          else if (txt == 4) {return "";}
+          else if (txt == 5) {return "";}
+          else if (txt == 6) {return "";}
+          else if (txt == 7) {return "";}
+          else if (txt == 8) {return "";}
+          else if (txt == 9) {return "";}
+          else if (txt == 10) {return "";}
+          else if (txt == 11) {return "";}
+          else if (txt == 12) {return "";}
+          else if (txt == 13) {return "";}
+          else if (txt == 14) {return "";}
+          else if (txt == 15) {return "";}
+          else if (txt == 0) {return "";}
+        }
 function runmadlib(){
   document.getElementById("introgot2").innerHTML = intros();
   document.getElementById("prefixgot2").innerHTML = prefixes();
@@ -1009,6 +1101,14 @@ function runmadlib(){
     document.getElementById("mysteriousitemgot").innerHTML = mysteriousitems();
   }function getlootitem(){
     document.getElementById("lootitemgot").innerHTML = lootitems();
+  }function getmonster(){
+    document.getElementById("monstergot").innerHTML = monsters();
+  }function getnews(){
+    document.getElementById("newsgot").innerHTML = news();
+  }function getplot(){
+    document.getElementById("plotgot").innerHTML = plots();
+  }function getsong(){
+    document.getElementById("songgot").innerHTML = songs();
   }
 
 function copyintro() {
@@ -1100,6 +1200,21 @@ function copyprefix() {
     Loot Item:
     <button id="getlootitem" onclick="getlootitem()">Select</button>
     <span id="lootitemgot"></span>
+    <br><br>
+    Random Encounter:
+    <button id="getmonster" onclick="getmonster()">Select</button>
+    <span id="monstergot"></span>
+    Plot Device:
+    <button id="getplot" onclick="getplot()">Select</button>
+    <span id="plotgot"></span>
+    <br><br>
+    Headlines:
+    <button id="getnews" onclick="getnews()">Select</button>
+    <span id="newsgot"></span>
+    <br><br>
+    Soundtrack:
+    <button id="getsong" onclick="getsong()">Select</button>
+    <span id="songgot"></span>
     <br><br><br><br>
     Noteworthy People:
     <br>
@@ -1109,6 +1224,7 @@ function copyprefix() {
     <br>
     
     <br><br>
+    https://www.random.org/dice/
 </p>
 
 <script>
