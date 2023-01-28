@@ -71,11 +71,66 @@
 <h1>Web Tools</h1>
 </div>
     <div class="blogcontainer">
-    <p>Pretty quickly on my journey, I gathered a list of resources that I return to, or which have helped me before, and sometimes consist of things I just find interesting.</p>
+    <p>Pretty quickly on my journey, I gathered a list of resources that I return to, or which have helped me before, and sometimes consist of things I just find interesting.
+        </p>
     <br><br>
     <p>Wireshark: 
-      <br>https://www.comptia.org/content/articles/what-is-wireshark-and-how-to-use-it#:~:text=Wireshark%20is%20a%20network%20protocol,packet%20sniffer%20in%20the%20world.</p>
-  </div>
+      <br>https://www.comptia.org/content/articles/what-is-wireshark-and-how-to-use-it#:~:text=Wireshark%20is%20a%20network%20protocol,packet%20sniffer%20in%20the%20world.
+        https://www.youtube.com/watch?v=qKiLpN-M4Xc
+        https://www.youtube.com/watch?v=OWKPxAgh9DU
+        https://www.youtube.com/watch?v=zcAQXQ7W_UA
+        https://learningnetworkstore.cisco.com/cisco-learning-labs
+        https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
+        https://developer.cisco.com/learning/tracks/Networking-101-v0/Networking-101-Fundamentals-v0/
+        https://www.ciscopress.com/store/ccnp-tshoot-lab-manual-9781587134036
+        https://www.ciscopress.com/store/ccnp-route-lab-manual-9781587134029
+        https://www.ciscopress.com/store/ccna-200-301-official-cert-guide-and-network-simulator-9780137837748
+        https://www.ciscopress.com/store/ccnp-enterprise-advanced-routing-enarsi-v8-lab-manual-9780136870937
+        https://www.ciscopress.com/store/ccnp-enterprise-advanced-routing-enarsi-300-410-ucertify-9780137420339
+        https://www.ciscopress.com/store/routing-and-switching-essentials-v6-course-booklet-9781587134272
+        https://www.ciscopress.com/store/networking-essentials-lab-manual-9780137659265
+        https://www.ciscopress.com/store/cisco-data-center-fundamentals-9780137638246
+        https://www.ciscopress.com/store/routing-and-switching-essentials-v6-labs-study-guide-9781587134265
+        https://mkto.cisco.com/ccna-cert-guide.html?utm_campaign=ccna&utm_source=website&utm_medium=cdc-ccnapage-hero
+        https://learningnetwork.cisco.com/s/article/200-301-ccna-study-materials
+        https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
+        
+        Python
+        x = input("Please give me a value for x. ")
+        print("Output:n\I am printing what you saved as "+x+". ")
+        
+        Assembly (from https://www.tutorialspoint.com/assembly_programming/assembly_tutorial.pdf)
+        Comment: 
+        ;
+        
+        Declare: 
+        section .data
+        
+        section .bss ; for making variables
+        
+        section .text ; section can be replaced with the word segment
+            global main
+        main:
+        
+        add eax ,ebx ; adds ebx to eax
+        
+        Hello World:
+        section .text 
+            global main ;must be declared for linker (ld) 
+        main: ;tells linker entry point 
+        mov edx,len ;message length 
+        mov ecx,msg ;message to write 
+        mov ebx,1 ;file descriptor (stdout) 
+        mov eax,4 ;system call number (sys_write) 
+        int 0x80 ;call kernel 
+        mov eax,1 ;system call number (sys_exit) 
+        int 0x80 ;call kernel 
+        section .data 
+        msg db 'Hello, world!', 0xa ;our dear string 
+        len equ $ - msg ;length of our dear string
+        
+        </p>
+    </div>
 </div>
 <div class="footer">
 </div>
