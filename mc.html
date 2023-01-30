@@ -686,68 +686,73 @@ function getRndInteger(min, max) {
         }
 
         function getmcdesert() {
-            document.getElementById("mcdesertgot").innerHTML(mcdesertgot)
+            document.getElementById("mcdesertgot").innerHTML(mcdesert)
+        }
+        function getmcbiomes() {
+            document.getElementById("mcbiomesgot").innerHTML(mcbiomes)
         }
         function getrggrassland() {
-            document.getElementById("rggrasslandgot").innerHTML(rggrasslandgot)
+            document.getElementById("rggrasslandgot").innerHTML(rggrassland)
         }
         function getmccanyon() {
-            document.getElementById("mccanyon").innerHTML(mccanyongot)
+            document.getElementById("mccanyongot").innerHTML(mccanyon)
         }
         function getmcfirs() {
-            document.getElementById("mcfirs").innerHTML(mcfirsgot)
+            document.getElementById("mcfirsgot").innerHTML(mcfirs)
         }
         function getmcnight() {
-            document.getElementById("mcnight").innerHTML(mcnightgot)
+            document.getElementById("mcnightgot").innerHTML(mcnight)
         }
         function getmccave() {
-            document.getElementById("mccave").innerHTML(mccavegot)
+            document.getElementById("mccavegot").innerHTML(mccave)
         }
-        function getmcdesert(mcandes) {
-            document.getElementById("mcandes").innerHTML(mcandesgot)
+        function getmcandes() {
+            document.getElementById("mcandesgot").innerHTML(mcandes)
         }
         function getmcjungle() {
-            document.getElementById("mcjungle").innerHTML(mcjunglegot)
+            document.getElementById("mcjunglegot").innerHTML(mcjungle)
         }
         function getmcpeaks() {
-            document.getElementById("mcpeaks").innerHTML(mcpeaksgot)
+            document.getElementById("mcpeaksgot").innerHTML(mcpeaks)
         }
         function getmcocean() {
-            document.getElementById("mcocean").innerHTML(mcoceangot)
+            document.getElementById("mcoceangot").innerHTML(mcocean)
         }
         function getmcswamp() {
-            document.getElementById("mcswamp").innerHTML(mcswampgot)
+            document.getElementById("mcswampgot").innerHTML(mcswamp)
         }
         function getmcdarks() {
-            document.getElementById("mcdarks").innerHTML(mcdarksgot)
+            document.getElementById("mcdarksgot").innerHTML(mcdarks)
         }
         function getmcfirs() {
-            document.getElementById("mcfirs").innerHTML(mcfirsgot)
+            document.getElementById("mcfirsgot").innerHTML(mcfirs)
         }
         function getmcwoods() {
-            document.getElementById("mcwoods").innerHTML(mcwoodsgot)
+            document.getElementById("mcwoodsgot").innerHTML(mcwoods)
         }
         function getmcvillage() {
-            document.getElementById("mcvillage").innerHTML(mcvillagegot)
+            document.getElementById("mcvillagegot").innerHTML(mcvillage)
         }
         function getrgdesert() {
-            document.getElementById("rgdesert").innerHTML(rgdesertgot)
+            document.getElementById("rgdesertgot").innerHTML(rgdesert)
         }
         function getrglakeland() {
-            document.getElementById("rglakeland").innerHTML(rglakelandgot)
+            document.getElementById("rglakelandgot").innerHTML(rglakeland)
         }
-
+        function getrgbiomes() {
+            document.getElementById("rgbiomesgot").innerHTML(rgbiomes)
+        }
         function getrgforest() {
-            document.getElementById("rgforest").innerHTML(rgforestgot)
+            document.getElementById("rgforestgot").innerHTML(rgforest)
         }
         function getrgbirchforest() {
-            document.getElementById("rgbirchforest").innerHTML(rgbirchforestgot)
+            document.getElementById("rgbirchforestgot").innerHTML(rgbirchforest)
         }
         function getrgmountain() {
-            document.getElementById("rgmountain").innerHTML(rgmountaingot)
+            document.getElementById("rgmountaingot").innerHTML(rgmountain)
         }
         function getrgpigvillage() {
-            document.getElementById("rgpigvillage").innerHTML(rgpigvillagegot)
+            document.getElementById("rgpigvillagegot").innerHTML(rgpigvillage)
         }
 
 /*function getmcvillage*/
@@ -3980,216 +3985,177 @@ function landmarks() {
             else if (txt == 5) {return "";}
             else if (txt == 6) {return "";}
         }
+        function town() {
+          var txt = getRndInteger(1,6);
+          if (txt == 0) {
+            return "Stones by Obi"; }
+            else if (txt == 1) {return "A Smidge of Thai";}
+            else if (txt == 2) {return "";}
+            else if (txt == 3) {return "";}
+            else if (txt == 4) {return "";}
+            else if (txt == 5) {return "";}
+            else if (txt == 6) {return "";}
+        }
 
-function getterrain(){
-    terrv = document.createTextNode(" " + terrain());
-    document.getElementById("mlt").appendChild(terrv); 
+        function getterrain(){
+    document.getElementById("terraingot").innerHTML = terrain();
 }  
+function getroad() {
+  document.getElementById("roadgot").innerHTML = roads();
+}
   function getweather(){
-    wethrv= document.createTextNode(" " + weather());
-    document.getElementById("mlt").appendChild(wethrv); 
-}
-function getflora(){
-    florav= document.createTextNode(" " + flora());
-    document.getElementById("mlt").appendChild(florav); 
-}
-
-function gettrees(){
-    treesv = document.createTextNode(" " + trees());
-    document.getElementById("mlt").appendChild(treesv); 
-}
-
-function getfauna(){
-    faunv= document.createTextNode(" " +fauna());
-    document.getElementById("mlt").appendChild(faunv); 
-}
-function getaquafauna(){
-    aqfaunv= document.createTextNode(" " +aquaticfauna());
-    document.getElementById("mlt").appendChild(aqfaunv); 
+    document.getElementById("weathergot").innerHTML = weather();
+}function getflora(){
+    document.getElementById("floragot").innerHTML = flora();
+}function gettrees(){
+    document.getElementById("treesgot").innerHTML = trees();
+}function getfauna(){
+    document.getElementById("faunagot").innerHTML = fauna();
+}function getaquafauna(){
+    document.getElementById("aquafaunagot").innerHTML = aquaticfauna();
 }function getoceanfauna(){
-    ocvaunv= document.createTextNode(" " +oceanfauna());
-    document.getElementById("mlt").appendChild(ocfaunv);
+    document.getElementById("oceanfaunagot").innerHTML = oceanfauna();
 }function getrarecrop(){
-    rarecropv= document.createTextNode(" " +rarecrop());
-    document.getElementById("mlt").appendChild(rarecropv); 
-
+    document.getElementById("rarecropgot").innerHTML = rarecrop();
 }function inspect(){
-    inspecv = document.createTextNode(" " +inspection());
-    document.getElementById("mlt").appendChild(inspecv);
-
+    document.getElementById("inspectioned").innerHTML = inspection();
 }function getlandmark(){
-    landmarkv = document.createTextNode(" " +landmarks());
-    document.getElementById("mlt").appendChild(landmarkv); 
+    document.getElementById("landmarkgot").innerHTML = landmarks();
 }
 function getdecay(){
-    decayv = document.createTextNode(" " +decay());
-    document.getElementById("mlt").appendChild(decayv); 
+    document.getElementById("decaygot").innerHTML = decay();
 }
 function getneeuro(){
-    neeurov = document.createTextNode(" " +neeuro());
-    document.getElementById("mlt").appendChild(neeurov); 
+    document.getElementById("neeurogot").innerHTML = neeuro();
 }
 function getseeuro(){
-    seeurov = document.createTextNode(" " +seeuro());
-    document.getElementById("mlt").appendChild(seeurov); 
+    document.getElementById("seeurogot").innerHTML = seeuro();
 }
 function getnweuro(){
-    nweurov = document.createTextNode(" " +nweuro());
-    document.getElementById("mlt").appendChild(nweurov); 
+    document.getElementById("nweurogot").innerHTML = nweuro();
 }
 function getsweuro(){
-    sweurov = document.createTextNode(" " +sweuro());
-    document.getElementById("mlt").appendChild(sweurov); 
+    document.getElementById("sweurogot").innerHTML = sweuro();
 }
 function getwestasia(){
-    westasiav = document.createTextNode(" " +westasia());
-    document.getElementById("mlt").appendChild(westasia); 
+    document.getElementById("westasiagot").innerHTML = westasia();
 }
 function getsouthasia(){
-    southasiav = document.createTextNode(" " +southasia());
-    document.getElementById("mlt").appendChild(southasiav); 
+    document.getElementById("southasiagot").innerHTML = southasia();
 }
 function geteastasia(){
-    eastasiav = document.createTextNode(" " +eastasia());
-    document.getElementById("mlt").appendChild(eastasiav); 
+    document.getElementById("eastasiagot").innerHTML = eastasia();
 }
 function getcentroam(){
-    centroamv= document.createTextNode(" " +centroam());
-    document.getElementById("mlt").appendChild(centroamv); 
+    document.getElementById("centroamgot").innerHTML = centroam();
 }
 function getwestafrica(){
-    westafricav= document.createTextNode(" " +westafrica());
-    document.getElementById("mlt").appendChild(westafricav); 
+    document.getElementById("westafricagot").innerHTML = westafrica();
 }
 function getandes(){
-    andesv= document.createTextNode(" " +andes());
-    document.getElementById("mlt").appendChild(andesv); 
+    document.getElementById("andesgot").innerHTML = andes();
 }
 function getnortham(){
-    northamv= document.createTextNode(" " +northam());
-    document.getElementById("mlt").appendChild(northamv); 
+    document.getElementById("northamgot").innerHTML = northam();
 }
 function getjunglestuff(){
-    junglestuffv= document.createTextNode(" " +junglestuff());
-    document.getElementById("mlt").appendChild(junglestuffv); 
+    document.getElementById("junglestuffgot").innerHTML = junglestuff();
 }
 function getbeachstuff(){
-    beachstuffv= document.createTextNode(" " +beachstuff());
-    document.getElementById("mlt").appendChild(beachstuffv); 
+    document.getElementById("beachstuffgot").innerHTML = beachstuff();
 }
 function getmountainstuff(){
-    mtstuffv= document.createTextNode(" " +mountainstuff());
-    document.getElementById("mlt").appendChild(mtstuffv); 
+    document.getElementById("mountainstuffgot").innerHTML = mountainstuff();
 }
 function getswampstuff(){
-    swampstuffv= document.createTextNode(" " +swampstuff());
-    document.getElementById("mlt").appendChild(swampstuffv); 
+    document.getElementById("swampstuffgot").innerHTML = swampstuff();
 }
 function getdesertstuff(){
-    desertstuffv= document.createTextNode(" " +desertstuff());
-    document.getElementById("mlt").appendChild(desertstuffv); 
+    document.getElementById("desertstuffgot").innerHTML = desertstuff();
 }
 function gettundrastuff(){
-    tundrastuffv= document.createTextNode(" " +tundrastuff());
-    document.getElementById("mlt").appendChild(tundrastuffv); 
+    document.getElementById("tundrastuffgot").innerHTML = tundrastuff();
 }
 function getforeststuff(){
-    foreststuffv = document.createTextNode(" " +foreststuff());
-    document.getElementById("mlt").appendChild(foreststuffv); 
-}
-function getss(){
-    foreststuffv = document.createTextNode("s");
-    document.getElementById("mlt").appendChild(foreststuffv); 
-}
-function geteds(){
-    foreststuffv = document.createTextNode("ed");
-    document.getElementById("mlt").appendChild(foreststuffv); 
-}
-function getings(){
-    foreststuffv = document.createTextNode("ing");
-    document.getElementById("mlt").appendChild(foreststuffv); 
-}
-function getlys(){
-    foreststuffv = document.createTextNode("ly");
-    document.getElementById("mlt").appendChild(foreststuffv); 
+    document.getElementById("foreststuffgot").innerHTML = foreststuff();
 }
 function getname(){
     titley = titles();
     titlegot = document.createTextNode(" You now go by the name: "+ titley);
-    document.getElementById("mlt").appendChild(titlegot);
+    document.getElementById("namegot").appendChild(titlegot);
     nameo = regnames();
     namee = namee + nameo;
     named = document.createTextNode(" " + nameo);
-    document.getElementById("mlt").appendChild(named);  
+    document.getElementById("namegot").appendChild(named);  
     document.getElementById("namedisplay").innerHTML = namee;  
     middx = middlenames();
     middxx = document.createTextNode(" " + middx);
-    document.getElementById("mlt").appendChild(middxx); 
+    document.getElementById("namegot").appendChild(middxx); 
     lastsx = lastnames();
     lastx = document.createTextNode(" " + lastsx);
-    document.getElementById("mlt").appendChild(lastx);
+    document.getElementById("namegot").appendChild(lastx);
     episa = epithets();
     episgot = document.createTextNode(" the " + episa + ",");
-    document.getElementById("mlt").appendChild(episgot);
+    document.getElementById("namegot").appendChild(episgot);
   episa1 = epithets1();
   episgot1 = document.createTextNode(" " + episa1);
-    document.getElementById("mlt").appendChild(episgot1);
+    document.getElementById("namegot").appendChild(episgot1);
   episa2 = epithets2();
     episgot2 = document.createTextNode(" of " + episa2);
-    document.getElementById("mlt").appendChild(episgot2);
+    document.getElementById("namegot").appendChild(episgot2);
     endit = document.createTextNode(".");
-    document.getElementById("mlt").appendChild(endit);
+    document.getElementById("namegot").appendChild(endit);
   }
 </script>
 <div id="mlt" style="position:fixed; background:darkslateblue; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-Name: <input id="nameds"></input><br>
-Health: <input id="healthds"></input><br>
+Name: <input id="nameds"></input><span id="namegot"></span><br>
+Health: <input id="healthds">||||||||||</input><br>
 Items: <input id="itemds"></input>
 </div>
 <br><br>
 <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
   Don't Starve Together: Reign of Giants
   <br><button id="getrgbiome" onclick="getrgbiome()">Biome</button><span id="rgbiomegot"></span>
-  <br><button id="getrgdesert" onclick="getrgdesert()">Desert</button><span id="getrgdesert"></span>
-  <br><button id="getrgforest" onclick="getrgforest()">Forest</button><span id="getrgforest"></span>
-  <br><button id="getrgvillage" onclick="getrgvillage()">Village</button><span id="getrgvillage"></span>
-  <br><button id="getrgmountain" onclick="getrgmountain()">Mountain</button><span id="getrgmountain"></span>
-  <br><button id="getrglakeland" onclick="getrglakeland()">Lake Land</button><span id="getrglakeland"></span>
-  <br><button id="getrgbirches" onclick="getrgbirches()">Birch Forest</button><span id="getrgbirches"></span>
+  <br><button id="getrgdesert" onclick="getrgdesert()">Desert</button><span id="rgdesertgot"></span>
+  <br><button id="getrgforest" onclick="getrgforest()">Forest</button><span id="rgforestgot"></span>
+  <br><button id="getrgvillage" onclick="getrgvillage()">Village</button><span id="rgvillagegot"></span>
+  <br><button id="getrgmountain" onclick="getrgmountain()">Mountain</button><span id="rgmountaingot"></span>
+  <br><button id="getrglakeland" onclick="getrglakeland()">Lake Land</button><span id="rglakelandgot"></span>
+  <br><button id="getrgbirches" onclick="getrgbirches()">Birch Forest</button><span id="rgbirchesgot"></span>
   <br>Minecraft
   <br><button id="getmcbiome" onclick="getmcbiome()">Biome</button><span id="mcbiomegot"></span>
-  <br><button id="getmcwoods" onclick="getmcwoods()">Woods</button><span id="getmcwoods"></span>
-  <br><button id="getmcdarks" onclick="getmcdarks()">Dark Forest</button><span id="getmcdarks"></span>
-  <br><button id="getmccanyon" onclick="getmccanyon()">Canyon</button><span id="getmccanyon"></span>
-  <br><button id="getmcswamp" onclick="getmcswamp()">Swamp</button><span id="getmcswamp"></span>
-  <br><button id="getmcocean" onclick="getmcocean()">Ocean</button><span id="getmcocean"></span>
-  <br><button id="getmcdesert" onclick="getmcdesert()">Desert</button><span id="getmcdesert"></span>
-  <br><button id="getmcplain" onclick="getmcplain()">Plain</button><span id="getmcplain"></span>
-  <br><button id="getmcvillage" onclick="getmcvillage()">Village</button><span id="getmcvillage"></span>
-  <br><button id="getmcnight" onclick="getmcnight()">Night</button><span id="getmcnight"></span>
+  <br><button id="getmcwoods" onclick="getmcwoods()">Woods</button><span id="mcwoodsgot"></span>
+  <br><button id="getmcdarks" onclick="getmcdarks()">Dark Forest</button><span id="mcdarksgot"></span>
+  <br><button id="getmccanyon" onclick="getmccanyon()">Canyon</button><span id="mccanyongot"></span>
+  <br><button id="getmcswamp" onclick="getmcswamp()">Swamp</button><span id="mcswampgot"></span>
+  <br><button id="getmcocean" onclick="getmcocean()">Ocean</button><span id="mcoceangot"></span>
+  <br><button id="getmcdesert" onclick="getmcdesert()">Desert</button><span id="mcdesertgot"></span>
+  <br><button id="getmcplain" onclick="getmcplain()">Plain</button><span id="mcplaingot"></span>
+  <br><button id="getmcvillage" onclick="getmcvillage()">Village</button><span id="mcvillagegot"></span>
+  <br><button id="getmcnight" onclick="getmcnight()">Night</button><span id="mcnightgot"></span>
   <br>Stardew Valley
-  <br><button id="get1fg" onclick="get1fg()">Spring Foraging</button><span id="get1fg"></span>
-  <br><button id="get2fg" onclick="get2fg()">Summer Foraging</button><span id="get2fg"></span>
-  <br><button id="get3fg" onclick="get3fg()">Fall Foraging</button><span id="get3fg"></span>
-  <br><button id="get4fg" onclick="get4fg()">Winter Foraging</button><span id="get4fg"></span>
-  <br><button id="get1harv" onclick="get1harv()">Spring Harvest</button><span id="get1harv"></span>
-  <br><button id="get2harv" onclick="get2harv()">Summer Harvest</button><span id="get2harv"></span>
-  <br><button id="get3harv" onclick="get3harv()">Fall Harvest</button><span id="get3harv"></span>
-  <br><button id="getgreenh" onclick="getgreenh()">Greenhouse</button><span id="getgreenh"></span>
-  <br><button id="getsdbeach" onclick="getsdbeach()">Beach</button><span id="getsdbeach"></span>
-  <br><button id="getsdtown" onclick="getsdtown()">Town</button><span id="getsdtown"></span>
-  <br><button id="getsdforest" onclick="getsdforest()">Forest</button><span id="getsdforest"></span>
-  <br><button id="getsdcave" onclick="getsdcave()">Cave</button><span id="getsdcave"></span>
-  <br><button id="get1fish" onclick="get1fish()">Spring Fishing</button><span id="get1fish"></span>
-  <br><button id="get2fish" onclick="get2fish()">Summer Fishing</button><span id="get2fish"></span>
-  <br><button id="get3fish" onclick="get3fish()">Fall Fishing</button><span id="get3fish"></span>
-  <br><button id="get4fish" onclick="get4fish()">Winter Fishing</button><span id="get4fish"></span>
+  <br><button id="get1fg" onclick="get1fg()">Spring Foraging</button><span id="1fgd"></span>
+  <br><button id="get2fg" onclick="get2fg()">Summer Foraging</button><span id="2fgd"></span>
+  <br><button id="get3fg" onclick="get3fg()">Fall Foraging</button><span id="3fgd"></span>
+  <br><button id="get4fg" onclick="get4fg()">Winter Foraging</button><span id="4fgd"></span>
+  <br><button id="get1harv" onclick="get1harv()">Spring Harvest</button><span id="get1harvgot"></span>
+  <br><button id="get2harv" onclick="get2harv()">Summer Harvest</button><span id="get2harvgot"></span>
+  <br><button id="get3harv" onclick="get3harv()">Fall Harvest</button><span id="get3harvgot"></span>
+  <br><button id="getgreenh" onclick="getgreenh()">Greenhouse</button><span id="getgreenhgot"></span>
+  <br><button id="getsdbeach" onclick="getsdbeach()">Beach</button><span id="getsdbeachgot"></span>
+  <br><button id="getsdtown" onclick="getsdtown()">Town</button><span id="getsdtowngot"></span>
+  <br><button id="getsdforest" onclick="getsdforest()">Forest</button><span id="getsdforestgot"></span>
+  <br><button id="getsdcave" onclick="getsdcave()">Cave</button><span id="getsdcavegot"></span>
+  <br><button id="get1fish" onclick="get1fish()">Spring Fishing</button><span id="1fishgot"></span>
+  <br><button id="get2fish" onclick="get2fish()">Summer Fishing</button><span id="2fishgot"></span>
+  <br><button id="get3fish" onclick="get3fish()">Fall Fishing</button><span id="3fishgot"></span>
+  <br><button id="get4fish" onclick="get4fish()">Winter Fishing</button><span id="4fishgot"></span>
   <br>Overcooked + :Recipes
-  <br><button id="getrgbiome" onclick="getmidgard()">Omelette</button><span id=""></span>
-  <br><button id="getrgbiome" onclick="getzanarkand()">Meatballs</button><span id=""></span>
+  <br><button id="getrgbiome" onclick="omelette()">Omelette</button><span id="omegot"></span>
+  <br><button id="getrgbiome" onclick="meatballs()">Meatballs</button><span id="meatbgot"></span>
   <br>Final Fantasy
-  <br><button id="getrgbiome" onclick="getmidgard()">Midgard</button><span id=""></span>
-  <br><button id="getrgbiome" onclick="getzanarkand()">Zanarkand</button><span id=""></span>
+  <br><button id="getrgbiome" onclick="getmidgard()">Midgard</button><span id="got"></span>
+  <br><button id="getrgbiome" onclick="getzanarkand()">Zanarkand</button><span id="got"></span>
   <br><button id="getrgbiome" onclick="()">Encounter</button><span id=""></span>
   <br><button id="getrgbiome" onclick="()">Besaid</button><span id=""></span>
   <br><button id="getrgbiome" onclick="()">Gagazet</button><span id=""></span>
@@ -4225,33 +4191,33 @@ Items: <input id="itemds"></input>
 <br><br>
   <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Character:
-    <button id="gettitles" onclick="getname()">New Name</button>
-    <button id="getlooks" onclick="getlooks()">Appearance</button>
-    <button id="getpartyjob" onclick="getpartyjob()">Personality</button>
-    <button id="getcatchphrase" onclick="getcatchphrase()">Dialogue</button>
+    <button id="gettitles" onclick="getname()">New Name</button><span id="titlegot"></span>
+    <button id="getlooks" onclick="getlooks()">Appearance</button><span id="looksgot"></span>
+    <button id="getpartyjob" onclick="getpartyjob()">Personality</button><span id="partyjobgot"></span>
+    <button id="getcatchphrase" onclick="getcatchphrase()">Dialogue</button><span id="catchphrasegot"></span>
     </div>
     <br><br>
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Entertainment:
-    <button id="getinteraction" onclick="getinteraction()">Interactions</button>
-    <button id="getactivity" onclick="getactivity()">Activities</button>
+    <button id="getinteraction" onclick="getinteraction()">Interactions</button><span id="interactiongot"></span>
+    <button id="getactivity" onclick="getactivity()">Activities</button><span id="activitygot"></span>
     </div>
     <br><br>
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Personal Items:
-    <button id="getquestitem" onclick="getquestitem()">Quest Item</button>
-    <button id="getmysteriousitem" onclick="getmysteriousitem()">Mystery Item</button>
-    <button id="getlootitem" onclick="getlootitem()">Loot</button>
+    <button id="getquestitem" onclick="getquestitem()">Quest Item</button><span id="questitemgot"></span>
+    <button id="getmysteriousitem" onclick="getmysteriousitem()">Mystery Item</button><span id="mysteriousitemgot"></span>
+    <button id="getlootitem" onclick="getlootitem()">Loot</button><span id="lootitemgot"></span>
     </div>
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Daily Life:
-    <button id="getplot" onclick="getplot()">Plot Device</button>
-    <button id="getnews" onclick="getnews()">Headlines</button>
+    <button id="getplot" onclick="getplot()">Plot Device</button><span id="plotgot"></span>
+    <button id="getnews" onclick="getnews()">Headlines</button><span id="newsgot"></span>
     </div>
     <br><br><br><br>
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Villager Occupation:<br>
-    <button id="getjob" onclick="getjob()">Select</button>
+    <button id="getjob" onclick="getjob()">Select</button><span id="jobgot"></span>
       <br><br>
   </div>
     <div style="background-color: white;">
@@ -4277,16 +4243,16 @@ Items: <input id="itemds"></input>
     <br><br>
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Home:
-    <button id="getstructure" onclick="getstructure()">Select</button>
+    <button id="getstructure" onclick="getstructure()">Select</button><span id="structuregot"></span>
     Country:
-    <button id="getterrain" onclick="getnation()">Select</button>  
+    <button id="getterrain" onclick="getnation()">Select</button><span id="terraingot"></span>
     <br>
     <br>
     Travel:
-    <button id="getroad" onclick="gettravel()">Select</button>
+    <button id="getroad" onclick="gettravel()">Select</button><span id="roadgot"></span>
   <br><br>
     Chance:
-    <button id="getweather" onclick="getweather()">Select</button>  
+    <button id="getweather" onclick="getweather()">Select</button>
     <span id="weathergot"></span>
     <br>
     <br>
