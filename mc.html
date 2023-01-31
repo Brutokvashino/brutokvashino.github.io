@@ -475,7 +475,7 @@ function getRndInteger(min, max) {
           else if (txt == 9) {return "chester";}
         }
         function rgforest() {
-          var txt = getRndInteger(1,3);
+          var txt = getRndInteger(1,19);
           if (txt == 1) {return "pine tree";}
           else if (txt == 2) {return "douglas fir tree (yields 1)";}
           else if (txt == 3) {return "spider";}
@@ -497,24 +497,33 @@ function getRndInteger(min, max) {
           else if (txt == 19) {return "chester";}
         }
         function rgmountain() {
-          var txt = getRndInteger(1,2);
-          if (txt == 1) {return "rabbit hole";}
-          else if (txt == 2) {return "grass";}
+          var txt = getRndInteger(1,9);
+          if (txt == 1) {return "flint rock";}
+          else if (txt == 2) {return "sapling";}
+          else if (txt == 3) {return "broken rocks";}
+          else if (txt == 4) {return "flint";}
+          else if (txt == 5) {return "flintless rock";}
+          else if (txt == 6) {return "gold vein";}
+          else if (txt == 7) {return "tallbird";}
+          else if (txt == 8) {return "tallbird fortress";}
+          else if (txt == 9) {return "crow";}
         }
         function rgdesert() {
           var txt = getRndInteger(1,6);
           if (txt == 1) {return "rock";}
           else if (txt == 2) {return "dog den";}
           else if (txt == 3) {return "dog";}
-          else if (txt == 4) {return "tumble";}
+          else if (txt == 4) {return "tumbleweed";}
           else if (txt == 5) {return "knights";}
           else if (txt == 6) {return "bishops";}
           else if (txt == 7) {return "";}
         }
         function rgpigvillage() {
-          var txt = getRndInteger(1,2);
-          if (txt == 1) {return "rabbit hole";}
+          var txt = getRndInteger(1,4);
+          if (txt == 1) {return "rabbithole";}
           else if (txt == 2) {return "grass";}
+          else if (txt == 3) {return "caca";}
+          else if (txt == 4) {return "flower";}
         }
         function rgbirchforest() {
           var txt = getRndInteger(1,8);
@@ -564,44 +573,63 @@ function getRndInteger(min, max) {
           else if (txt == 13) {return "village";}
         }
         function mcpeaks() {
-          var txt = getRndInteger(1,2);
+          var txt = getRndInteger(1,4);
           if (txt == 1) {return "snow";}
           else if (txt == 2) {return "cave";}
-          else if (txt == 3) {return "";}
-          else if (txt == 4) {return "";}
+          else if (txt == 3) {return "coal";}
+          else if (txt == 4) {return "snowstorm";}
           else if (txt == 5) {return "";}
           else if (txt == 6) {return "";}
         }
         function mcwoods() {
-          var txt = getRndInteger(1,6);
+          var txt = getRndInteger(1,7);
           if (txt == 1) {return "lake";}
           else if (txt == 2) {return "goose";}
           else if (txt == 3) {return "berry bush";}
           else if (txt == 4) {return "beehive";}
           else if (txt == 5) {return "flower";}
           else if (txt == 6) {return "birch";}
+          else if (txt == 7) {return "archer";}
         }
-        function mcdarkforest() {
-          var txt = getRndInteger(1,6);
+        function mcdarks() {
+          var txt = getRndInteger(1,7);
           if (txt == 1) {return "lake";}
           else if (txt == 2) {return "goose";}
           else if (txt == 3) {return "berry bush";}
           else if (txt == 4) {return "beehive";}
           else if (txt == 5) {return "flower";}
           else if (txt == 6) {return "birch";}
+          else if (txt == 7) {return "mansion";}
         }
         function mccave() {
-          var txt = getRndInteger(1,7);
+          var txt = getRndInteger(1,24);
           if (txt == 1) {return "rhyolite";}
           else if (txt == 2) {return "gravel";}
-          else if (txt == 3) {return "spider";}
-          else if (txt == 4) {return "silverfish";}
-          else if (txt == 5) {return "earth";}
-          else if (txt == 6) {return "coal";}
-          else if (txt == 7) {return "iron";}
+          else if (txt == 3) {return "andesite";}
+          else if (txt == 4) {return "granite";}
+          else if (txt == 5) {return "diorite";}
+          else if (txt == 6) {return "gold";}
+          else if (txt == 7) {return "emerald";}
+          else if (txt == 8) {return "lapis lazuli";}
+          else if (txt == 9) {return "redstone";}
+          else if (txt == 10) {return "spider";}
+          else if (txt == 11) {return "poison spider";}
+          else if (txt == 12) {return "silverfish";}
+          else if (txt == 13) {return "earth";}
+          else if (txt == 14) {return "coal";}
+          else if (txt == 15) {return "iron";}
+          else if (txt == 16) {return "skeleton";}
+          else if (txt == 17) {return "zombie";}
+          else if (txt == 18) {return "mini zombie";}
+          else if (txt == 19) {return "enderman";}
+          else if (txt == 20) {return "web";}
+          else if (txt == 21) {return "spider nest";}
+          else if (txt == 22) {return "poison spider nest";}
+          else if (txt == 23) {return "lava";}
+          else if (txt == 24) {return "flooded";}
         }
         function mcocean() {
-          var txt = getRndInteger(1,8);
+          var txt = getRndInteger(1,9);
           if (txt == 1) {return "algae";}
           else if (txt == 2) {return "kelp";}
           else if (txt == 3) {return "sand";}
@@ -610,33 +638,53 @@ function getRndInteger(min, max) {
           else if (txt == 6) {return "clay";}
           else if (txt == 7) {return "sunken ship";}
           else if (txt == 8) {return "ruins";}
+          else if (txt == 9) {return "zombie";}
+        }function mcloot() {
+          var txt = getRndInteger(1,14);
+          if (txt == 1) {return "iron bar";}
+          else if (txt == 2) {return "meat";}
+          else if (txt == 3) {return "silk";}
+          else if (txt == 4) {return "emerald";}
+          else if (txt == 5) {return "flower";}
+          else if (txt == 6) {return "shovel";}
+          else if (txt == 7) {return "axe";}
+          else if (txt == 8) {return "bow";}
+          else if (txt == 9) {return "arrow";}
+          else if (txt == 10) {return "bone";}
+          else if (txt == 11) {return "slime";}
+          else if (txt == 12) {return "rotten potato";}
+          else if (txt == 13) {return "potion";}
+          else if (txt == 14) {return "potato";}
         }
         function mcswamp() {
-          var txt = getRndInteger(1,6);
+          var txt = getRndInteger(1,7);
           if (txt == 1) {return "clay";}
           else if (txt == 2) {return "vine";}
           else if (txt == 3) {return "algae";}
           else if (txt == 4) {return "witch hut";}
           else if (txt == 5) {return "flower";}
           else if (txt == 6) {return "pig";}
+          else if (txt == 7) {return "witch";}
+          else if (txt == 8) {return "iron";}
         }
         function mcdesert() {
           var txt = getRndInteger(1,6);
           if (txt == 1) {return "shrub";}
           else if (txt == 2) {return "sand";}
-          else if (txt == 3) {return "";}
-          else if (txt == 4) {return "beehive";}
-          else if (txt == 5) {return "flower";}
-          else if (txt == 6) {return "birch";}
+          else if (txt == 3) {return "ruins";}
+          else if (txt == 4) {return "sandstone";}
+          else if (txt == 5) {return "well";}
+          else if (txt == 6) {return "village";}
         }
         function mcfirs() {
-          var txt = getRndInteger(1,6);
+          var txt = getRndInteger(1,7);
           if (txt == 1) {return "fir tree";}
           else if (txt == 2) {return "fox";}
           else if (txt == 3) {return "berry";}
           else if (txt == 4) {return "ruins";}
           else if (txt == 5) {return "podsol";}
           else if (txt == 6) {return "tall tree";}
+          else if (txt == 7) {return "village";}
         }
         function mccanyon() {
           var txt = getRndInteger(1,6);
@@ -648,15 +696,15 @@ function getRndInteger(min, max) {
           else if (txt == 6) {return "mine";}
         }
         function mcnight() {
-          var txt = getRndInteger(1,6);
+          var txt = getRndInteger(1,7);
           if (txt == 1) {return "creeper";}
           else if (txt == 2) {return "zombie";}
           else if (txt == 3) {return "mini zombie";}
           else if (txt == 4) {return "skeleton";}
           else if (txt == 5) {return "witch";}
           else if (txt == 6) {return "spider";}
+          else if (txt == 7) {return "blob";}
         }
-        
         function mcandes() {
           var txt = getRndInteger(1,5);
           if (txt == 1) {return "acacia";}
@@ -667,7 +715,7 @@ function getRndInteger(min, max) {
           else if (txt == 6) {return "";}
         }
         function mcjungle() {
-          var txt = getRndInteger(1,6);
+          var txt = getRndInteger(1,5);
           if (txt == 1) {return "watermelon";}
           else if (txt == 2) {return "cocoa";}
           else if (txt == 3) {return "parrot";}
@@ -676,265 +724,163 @@ function getRndInteger(min, max) {
           else if (txt == 6) {return "";}
         }
         function mcvillage() {
-          var txt = getRndInteger(1,6);
+          var txt = getRndInteger(1,21);
           if (txt == 1) {return "carrots";}
           else if (txt == 2) {return "wheat";}
           else if (txt == 3) {return "villager";}
           else if (txt == 4) {return "sheep";}
           else if (txt == 5) {return "cow";}
-          else if (txt == 6) {return "pumpkin";}
+          else if (txt == 6) {return "fletcher";}
+          else if (txt == 7) {return "miner";}
+          else if (txt == 8) {return "carpenter";}
+          else if (txt == 9) {return "trader";}
+          else if (txt == 10) {return "hunter";}
+          else if (txt == 11) {return "chef";}
+          else if (txt == 12) {return "blacksmith";}
+          else if (txt == 13) {return "potter";}
+          else if (txt == 14) {return "mason";}
+          else if (txt == 15) {return "priest";}
+          else if (txt == 16) {return "apothecary";}
+          else if (txt == 17) {return "wheat farmer";}
+          else if (txt == 18) {return "beet farmer";}
+          else if (txt == 19) {return "potato farmer";}
+          else if (txt == 10) {return "pumpkin farmer";}
+          else if (txt == 21) {return "carrot farmer";}
         }
 
         function getmcdesert() {
-            document.getElementById("mcdesertgot").innerHTML = mcdesert()
+            document.getElementById("insp").innerHTML = mcdesert()
         }
         function getmcbiomes() {
-            document.getElementById("mcbiomesgot").innerHTML=mcbiomes()
+            document.getElementById("insp").innerHTML = mcbiomes()
         }
         function getrggrassland() {
-            document.getElementById("rggrasslandgot").innerHTML=rggrassland()
+            document.getElementById("insp").innerHTML = rggrassland()
         }
         function getmccanyon() {
-            document.getElementById("mccanyongot").innerHTML=mccanyon()
+            document.getElementById("insp").innerHTML = mccanyon()
         }
         function getmcfirs() {
-            document.getElementById("mcfirsgot").innerHTML=mcfirs()
+            document.getElementById("insp").innerHTML = mcfirs()
         }
         function getmcnight() {
-            document.getElementById("mcnightgot").innerHTML=mcnight()
+            document.getElementById("insp").innerHTML = mcnight()
         }
         function getmccave() {
-            document.getElementById("mccavegot").innerHTML=mccave()
+            document.getElementById("insp").innerHTML = mccave()
         }
         function getmcandes() {
-            document.getElementById("mcandesgot").innerHTML=mcandes()
+            document.getElementById("insp").innerHTML = mcandes()
         }
         function getmcjungle() {
-            document.getElementById("mcjunglegot").innerHTML=mcjungle()
+            document.getElementById("insp").innerHTML = mcjungle()
         }
         function getmcpeaks() {
-            document.getElementById("mcpeaksgot").innerHTML=mcpeaks()
+            document.getElementById("insp").innerHTML = mcpeaks()
         }
         function getmcocean() {
-            document.getElementById("mcoceangot").innerHTML=mcocean()
+            document.getElementById("insp").innerHTML = mcocean()
         }
         function getmcswamp() {
-            document.getElementById("mcswampgot").innerHTML=mcswamp()
+            document.getElementById("insp").innerHTML = mcswamp()
         }
         function getmcdarks() {
-            document.getElementById("mcdarksgot").innerHTML=mcdarks()
+            document.getElementById("insp").innerHTML = mcdarks()
         }
         function getmcfirs() {
-            document.getElementById("mcfirsgot").innerHTML=mcfirs()
+            document.getElementById("insp").innerHTML = mcfirs()
         }
         function getmcwoods() {
-            document.getElementById("mcwoodsgot").innerHTML=mcwoods()
+            document.getElementById("insp").innerHTML = mcwoods()
         }
         function getmcvillage() {
-            document.getElementById("mcvillagegot").innerHTML=mcvillage()
+            document.getElementById("insp").innerHTML = mcvillage()
         }
         function getrgdesert() {
-            document.getElementById("rgdesertgot").innerHTML=rgdesert()
+            document.getElementById("insp").innerHTML = rgdesert()
         }
         function getrglakeland() {
-            document.getElementById("rglakelandgot").innerHTML=rglakeland()
+            document.getElementById("insp").innerHTML = rglakeland()
         }
-        function getrgbiomes() {
-            document.getElementById("rgbiomesgot").innerHTML=rgbiomes()
+        function getrgbiome() {
+            document.getElementById("insp").innerHTML = rgbiomes()
         }
         function getrgforest() {
-            document.getElementById("rgforestgot").innerHTML=rgforest()
+            document.getElementById("insp").innerHTML = rgforest()
         }
         function getrgbirchforest() {
-            document.getElementById("rgbirchforestgot").innerHTML=rgbirchforest()
+            document.getElementById("insp").innerHTML = rgbirchforest()
         }
         function getrgmountain() {
-            document.getElementById("rgmountaingot").innerHTML=rgmountain()
+            document.getElementById("insp").innerHTML = rgmountain()
         }
         function getrgpigvillage() {
-            document.getElementById("rgpigvillagegot").innerHTML=rgpigvillage()
+            document.getElementById("insp").innerHTML = rgpigvillage()
         }
 
 /*function getmcvillage*/
 
 function getintro(){
-    introsv = document.createTextNode(" " + intros());
-    document.getElementById("mlt").appendChild(introsv) 
+    document.getElementById("insp").innerHTML = intros() 
 }function getprefix(){
-    prefixv = document.createTextNode(" " + prefixes());
-    document.getElementById("mlt").appendChild(prefixv);
+    document.getElementById("insp").innerHTML = prefixes()
   }function getsuffix(){
-    suffixv = document.createTextNode(" " + suffixes());
-    document.getElementById("mlt").appendChild(suffixv);
+    document.getElementById("insp").innerHTML = suffixes()
   }function gettownname(){
-    townsv = document.createTextNode(" " + townnames());
-    document.getElementById("mlt").appendChild(townsv); 
+    document.getElementById("insp").innerHTML = townnames() 
   }function getnation(){
-    thatsmyland = nations();
-    document.getElementById("locationdisplay").innerHTML = thatsmyland;
-    natsv = document.createTextNode(" in " + thatsmyland);
-    document.getElementById("mlt").appendChild(natsv);
+    document.getElementById("insp").innerHTML = nations()
   }function gettravel(){
-    thatsmyland = nations();
-    document.getElementById("locationdisplay").innerHTML = thatsmyland;
-    natsv = document.createTextNode(" You travel to " + thatsmyland);
-    document.getElementById("mlt").appendChild(natsv);
+    document.getElementById("insp").innerHTML = nations()
   }function getroad(){
-    roadsv = document.createTextNode(" " + roads());
-    document.getElementById("mlt").appendChild(roadsv); 
+    document.getElementById("insp").innerHTML = roads()
   }function getweapon(){
-    wepsv = document.createTextNode(" " + weapons());
-    document.getElementById("mlt").appendChild(wepsv); 
+    document.getElementById("insp").innerHTML = weapons() 
   }function getroom(){
-    roomsv = document.createTextNode(" " + rooms());
-    document.getElementById("mlt").appendChild(roomsv); 
+    document.getElementById("insp").innerHTML = rooms()
   }function getstructure(){
-    strusv = document.createTextNode(" " + structures());
-    document.getElementById("mlt").appendChild(strusv); 
+    document.getElementById("insp").innerHTML = structures()
   }function getcharacter(){
-    charsy = characters();
-    charsv = document.createTextNode("You are a(n) " + charsy);
-    document.getElementById("mlt").appendChild(charsv); 
+    document.getElementById("insp").innerHTML = characters()
   }
     function getlooks(){
-    looksy = document.createTextNode(looks());
-    document.getElementById("mlt").appendChild(looksy);
-    document.getElementById("lookslevel").innerHTML = levels();  
+        document.getElementById("insp").innerHTML = looks();  
   }function getpartyjob(){
-    jobsv = document.createTextNode(" " + partyjobs());
-    document.getElementById("mlt").appendChild(jobsv); 
+    document.getElementById("insp").innerHTML = partyjobs()
   }function getinteraction(){
-    intersv = document.createTextNode(" " +interactions());
-    document.getElementById("mlt").appendChild(intersv); 
+    document.getElementById("insp").innerHTML = interactions()
   }function getactivity(){
-    actsv = document.createTextNode(" " + activities());
-    document.getElementById("mlt").appendChild(actsv); 
+    document.getElementById("insp").innerHTML = activities()
   }function getquestitem(){
-    quesv = document.createTextNode(" " + questitems());
-    document.getElementById("mlt").appendChild(quesv); 
+    document.getElementById("insp").innerHTML = questitems()
    }function getmysteriousitem(){
-    mysv = document.createTextNode(" " + mysteriousitems());
-    document.getElementById("mlt").appendChild(mysv); 
+    document.getElementById("insp").innerHTML = mysteriousitems()
   }function getlootitem(){
-    lootsv = document.createTextNode(" " + lootitems());
-    document.getElementById("mlt").appendChild(lootsv); 
+    document.getElementById("insp").innerHTML = lootitems()
   }function getmonster(){
-    monsv = document.createTextNode(" " + monsters());
-    document.getElementById("mlt").appendChild(monsv); 
+    document.getElementById("insp").innerHTML = monsters()
   }function getnews(){
-    newsv = document.createTextNode(" " + news());
-    document.getElementById("mlt").appendChild(newsv); 
+    document.getElementById("insp").innerHTML = news()
   }function getplot(){
-    plotsv = document.createTextNode(" " + plots());
-    document.getElementById("mlt").appendChild(plotsv); 
+    document.getElementById("insp").innerHTML = plots()
   }function getsong(){
-    songsv = document.createTextNode(" " + songs());
-    document.getElementById("mlt").appendChild(songsv); 
+    document.getElementById("insp").innerHTML = songs()
   }function getcatchphrase(){
-    catchsv = document.createTextNode(" " + catchprases());
-    document.getElementById("mlt").appendChild(catchsv);
-  }
-  function getpreps(){
-    prepsv = document.createTextNode(" " + preps());
-    document.getElementById("mlt").appendChild(prepsv); 
+    document.getElementById("insp").innerHTML = catchprases()
   }
   function getbirthd(){
-    gettingchar = document.createTextNode("You were born as a healthy " + characters());
-    document.getElementById("mlt").appendChild(gettingchar);
-    getgender = document.createTextNode(" " + genders());
-    document.getElementById("mlt").appendChild(getgender);
-    thatsmyland = nations();
-    document.getElementById("locationdisplay").innerHTML = thatsmyland; 
-    natsv = document.createTextNode(" in " + thatsmyland + ".");
-    document.getElementById("mlt").appendChild(natsv);
-    document.getElementById("lookslevel").innerHTML = levels();  
-    document.getElementById("strengthlevel").innerHTML = levels();  
-    document.getElementById("ethicslevel").innerHTML = levels();  
-    document.getElementById("smartlevel").innerHTML = levels();      
-    namee = regnames();
-    named = document.createTextNode(" Your name is " + namee);
-    document.getElementById("mlt").appendChild(named); 
-    document.getElementById("namedisplay").innerHTML = namee; 
-    endit = document.createTextNode(".");
-    document.getElementById("mlt").appendChild(endit);
-    /*
-    birthed = document.createTextNode(" " + births());
-    */
+    gettingchar = characters();
+    getgender = genders();
+    getregname = regnames();
+    document.getElementById("insp").innerHTML = gettingchar + getgender + getregname
   }
   function getearlies(){
-    adjsv = document.createTextNode(" " + earlies());
-    document.getElementById("mlt").appendChild(adjsv); 
+    document.getElementById("insp").innerHTML = earlies() 
   }
   function getdevs(){
-    devies = document.createTextNode(" " + devs());
-    document.getElementById("mlt").appendChild(devies); 
+    document.getElementById("insp").innerHTML = devs() 
   }
-  function getpuncs(){
-    puncsv = document.createTextNode(" " + puncs());
-    document.getElementById("mlt").appendChild(puncsv);
-    document.getElementById("lookslevel").appendChild("l"); 
-  }
-  function preps() {var txt = getRndInteger(1,18);
-if (txt == 1) {return "in";}
-else if (txt == 2) {return "about";}
-else if (txt == 3) {return "to";}
-else if (txt == 4) {return "from";}
-else if (txt == 5) {return "at";}
-else if (txt == 6) {return "of";}
-else if (txt == 7) {return "towards";}
-else if (txt == 8) {return "around";}
-else if (txt == 9) {return "left of";}
-else if (txt == 10) {return "beside";}
-else if (txt == 11) {return "away from";}
-else if (txt == 12) {return "right of";}
-else if (txt == 13) {return "behind";}
-else if (txt == 14) {return "above";}
-else if (txt == 15) {return "alongside";}
-else if (txt == 16) {return "with";}
-else if (txt == 17) {return "through";}
-else if (txt == 18) {return "in";}
-  }
-  function levels() {var txt = getRndInteger(1,3);
-if (txt == 1) {return "ll";}
-else if (txt == 2) {return "lllllll";}
-else if (txt == 3) {return "lll";}
-  }
-  function dets() {var txt = getRndInteger(1,30);
-if (txt == 1) {return "the";}
-else if (txt == 2) {return "one";}
-else if (txt == 3) {return "two";}
-else if (txt == 4) {return "three";}
-else if (txt == 5) {return "many";}
-else if (txt == 6) {return "a hundred";}
-else if (txt == 7) {return "a thousand";}
-else if (txt == 8) {return "multiple";}
-else if (txt == 9) {return "few";}
-else if (txt == 10) {return "some";}
-else if (txt == 11) {return "those";}
-else if (txt == 12) {return "these";}
-else if (txt == 13) {return "this";}
-else if (txt == 14) {return "that";}
-else if (txt == 15) {return "his";}
-else if (txt == 16) {return "her";}
-else if (txt == 17) {return "all";}
-else if (txt == 18) {return "every";}
-else if (txt == 19) {return "each";}
-else if (txt == 20) {return "different";}
-else if (txt == 21) {return "every";}
-else if (txt == 22) {return "a";}
-else if (txt == 23) {return "what";}
-else if (txt == 24) {return "which";}
-else if (txt == 25) {return "their";}
-else if (txt == 26) {return "whatever";}
-else if (txt == 27) {return "any";}
-else if (txt == 28) {return "most of the";}
-else if (txt == 29) {return "all of the";}
-else if (txt == 30) {return "half of the";}
-else if (txt == 31) {return "";}
-
-  }
-
-  function adjs() {var txt = getRndInteger(1,3);
+  function adjs() {var txt = getRndInteger(1,24);
 if (txt == 1) {return "You are very popular at school.";}
 else if (txt == 2) {return "You made a best friend.";}
 else if (txt == 3) {return "Your school is actually terrible.";}
@@ -960,11 +906,6 @@ else if (txt == 22) {return "purple";}
 else if (txt == 23) {return "good";}
 else if (txt == 24) {return "evil";}
 
-  }
-  function puncs() {var txt = getRndInteger(1,20);
-if (txt == 1) {return "You become popular in school.";}
-else if (txt == 2) {return "You ran away from home.";}
-else if (txt == 3) {return "You sink into the prickly, cold, but welcoming arms of heavy metal.";}
   }
   function titles() {var txt = getRndInteger(1,97);
 if (txt == 1) {return "Judge";}
@@ -1078,7 +1019,7 @@ else if (txt == 5) {return "Queen";}
           else if (txt == 100) {return "";}
 
         }
-function epithets() {var txt = getRndInteger(1,25);
+function epithets() {var txt = getRndInteger(1,26);
 if (txt == 1) {return "Old";}
 else if (txt == 2) {return "Young";}
 else if (txt == 3) {return "Older";}
@@ -1106,7 +1047,7 @@ else if (txt == 24) {return "Prototype";}
 else if (txt == 25) {return "Wise";}
 else if (txt == 26) {return "Fool";}
 }
-function epithets1() {var txt = getRndInteger(1,21);
+function epithets1() {var txt = getRndInteger(1,40);
 if (txt == 1) {return "Witch-King";}
 else if (txt == 2) {return "Farmer";}
 else if (txt == 3) {return "King";}
@@ -1160,7 +1101,7 @@ else if (txt == 40) {return "";}
 else if (txt == 40) {return "";}
 
 }
-function epithets2() {var txt = getRndInteger(1,25);
+function epithets2() {var txt = getRndInteger(1,28);
 if (txt == 1) {return "Giants";}
 else if (txt == 2) {return "Dragons";}
 else if (txt == 3) {return "Men";}
@@ -1186,9 +1127,9 @@ else if (txt == 22) {return "the Scrolls";}
 else if (txt == 23) {return "Secrets";}
 else if (txt == 24) {return "Oaths";}
 else if (txt == 25) {return "Seinfeld";}
-else if (txt == 25) {return "the Throne";}
-else if (txt == 25) {return "the World";}
-else if (txt == 25) {return "the Land";}
+else if (txt == 26) {return "the Throne";}
+else if (txt == 27) {return "the World";}
+else if (txt == 28) {return "the Land";}
 else if (txt == 25) {return "";}
 else if (txt == 25) {return "";}
 
@@ -1659,7 +1600,7 @@ else if (txt == 30) {return "Toprak";}
 
       }
       function jobs() { /*occupations*/
-          var txt = getRndInteger(1,61);
+          var txt = getRndInteger(1,68);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "Toolsmith";}
           else if (txt == 2) {return "Historian";}
@@ -1824,7 +1765,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 0) {return "";}
       }
           function lastnames() {
-          var txt = getRndInteger(1,431);
+          var txt = getRndInteger(1,423);
           if (txt == 0) {return "Nothing";}
           else if (txt == 1) {return "Abrams";}
           else if (txt == 2) {return "Abraham";}
@@ -2253,7 +2194,7 @@ else if (txt == 30) {return "Toprak";}
         }
 
         function regnames() {
-          var txt = getRndInteger(1,431);
+          var txt = getRndInteger(1,497);
           if (txt == 0) {return "Nothing";}
           else if (txt == 1) {return "Abel";}
           else if (txt == 2) {return "Abner";}
@@ -3995,134 +3936,216 @@ function landmarks() {
             else if (txt == 4) {return "";}
             else if (txt == 5) {return "";}
             else if (txt == 6) {return "";}
+        }function tharsis() {
+          var txt = getRndInteger(1,6);
+          if (txt == 0) {
+            return "the Red Dragon Headquarters"; }
+            else if (txt == 1) {return "Julia";}
+            else if (txt == 2) {return "heavy sandstorm";}
+            else if (txt == 3) {return "cold (-86C)";}
+            else if (txt == 4) {return "light sandstorm";}
+            else if (txt == 5) {return "Red Dragon member";}
+            else if (txt == 6) {return "clothing store";}
+            else if (txt == 6) {return "furniture store";}
+            else if (txt == 6) {return "jewelry store";}
+            else if (txt == 6) {return "eyewear store";}
+            else if (txt == 6) {return "computer hardware store";}
+            else if (txt == 6) {return "hardware store";}
+            else if (txt == 6) {return "restaurant";}
+            else if (txt == 6) {return "mall";}
+            else if (txt == 6) {return "police station";}
+            else if (txt == 6) {return "office building";}
+            else if (txt == 6) {return "Red Eye dealer";}
+            else if (txt == 6) {return "shoe store";}
+            else if (txt == 6) {return "bank";}
+            else if (txt == 6) {return "cleaning supplies store";}
+            else if (txt == 6) {return "dry cleaners";}
+            else if (txt == 6) {return "terraform maintenance industry";}
+            else if (txt == 6) {return "city hall";}
+            else if (txt == 6) {return "park";}
+            else if (txt == 6) {return "school";}
+            else if (txt == 6) {return "academy";}
+            else if (txt == 6) {return "university";}
+            else if (txt == 6) {return "museum";}
+            else if (txt == 6) {return "art gallery";}
+            else if (txt == 6) {return "barber shop";}
+            else if (txt == 6) {return "hair salon";}
+            else if (txt == 6) {return "weapon dealer";}
+            else if (txt == 6) {return "food vendor";}
+            else if (txt == 6) {return "jewelry vendor";}
+            else if (txt == 6) {return "smoke shop";}
+            else if (txt == 6) {return "vendor vendor";}
+            else if (txt == 6) {return "hospital";}
+            else if (txt == 6) {return "pharmacy";}
+            else if (txt == 6) {return "travel agency";}
+            else if (txt == 6) {return "resort";}
+            else if (txt == 6) {return "shuttle facility";}
+
+        }function alba() {
+          var txt = getRndInteger(1,6);
+          if (txt == 0) {
+            return "the White Tiger Headquarters"; }
+            else if (txt == 1) {return "White Tiger member";}
+            else if (txt == 2) {return "heavy sandstorm";}
+            else if (txt == 3) {return "cold (-86C)";}
+            else if (txt == 4) {return "light sandstorm";}
+            else if (txt == 5) {return "Red Dragon member";}
+            else if (txt == 6) {return "clothing store";}
+            else if (txt == 6) {return "furniture store";}
+            else if (txt == 6) {return "jewelry store";}
+            else if (txt == 6) {return "eyewear store";}
+            else if (txt == 6) {return "computer hardware store";}
+            else if (txt == 6) {return "hardware store";}
+            else if (txt == 6) {return "restaurant";}
+            else if (txt == 6) {return "mall";}
+            else if (txt == 6) {return "police station";}
+            else if (txt == 6) {return "office building";}
+            else if (txt == 6) {return "Red Eye dealer";}
+            else if (txt == 6) {return "shoe store";}
+            else if (txt == 6) {return "bank";}
+            else if (txt == 6) {return "cleaning supplies store";}
+            else if (txt == 6) {return "dry cleaners";}
+            else if (txt == 6) {return "terraform maintenance industry";}
+            else if (txt == 6) {return "city hall";}
+            else if (txt == 6) {return "park";}
+            else if (txt == 6) {return "school";}
+            else if (txt == 6) {return "academy";}
+            else if (txt == 6) {return "university";}
+            else if (txt == 6) {return "museum";}
+            else if (txt == 6) {return "art gallery";}
+            else if (txt == 6) {return "barber shop";}
+            else if (txt == 6) {return "hair salon";}
+            else if (txt == 6) {return "weapon dealer";}
+            else if (txt == 6) {return "food vendor";}
+            else if (txt == 6) {return "jewelry vendor";}
+            else if (txt == 6) {return "smoke shop";}
+            else if (txt == 6) {return "vendor vendor";}
+            else if (txt == 6) {return "hospital";}
+            else if (txt == 6) {return "pharmacy";}
+            else if (txt == 6) {return "travel agency";}
+            else if (txt == 6) {return "resort";}
+            else if (txt == 6) {return "shuttle facility";}
+        }function tijuana() {
+          var txt = getRndInteger(1,6);
+          if (txt == 0) {
+            return "thief"; }
+            else if (txt == 1) {return "saloon";}
+            else if (txt == 2) {return "smoke shop";}
+            else if (txt == 3) {return "Laughing Bull";}
+            else if (txt == 4) {return "grocery vending machine";}
+            else if (txt == 5) {return "ship repair shop";}
+            else if (txt == 6) {return "tow ship service";}
+            else if (txt == 6) {return "Madelin tea house";}
+            else if (txt == 6) {return "fueling station";}
         }
 
         function getterrain(){
-    document.getElementById("terraingot").innerHTML = terrain();
+            document.getElementById("insp").innerHTML = terrain();
 }  
 function getroad() {
-  document.getElementById("roadgot").innerHTML = roads();
+    document.getElementById("insp").innerHTML = roads();
 }
   function getweather(){
-    document.getElementById("weathergot").innerHTML = weather();
+    document.getElementById("insp").innerHTML = weather();
 }function getflora(){
-    document.getElementById("floragot").innerHTML = flora();
+    document.getElementById("insp").innerHTML = flora();
 }function gettrees(){
-    document.getElementById("treesgot").innerHTML = trees();
+    document.getElementById("insp").innerHTML = trees();
 }function getfauna(){
-    document.getElementById("faunagot").innerHTML = fauna();
+    document.getElementById("insp").innerHTML = fauna();
 }function getaquafauna(){
-    document.getElementById("aquafaunagot").innerHTML = aquaticfauna();
+    document.getElementById("insp").innerHTML = aquaticfauna();
 }function getoceanfauna(){
-    document.getElementById("oceanfaunagot").innerHTML = oceanfauna();
+    document.getElementById("insp").innerHTML = oceanfauna();
 }function getrarecrop(){
-    document.getElementById("rarecropgot").innerHTML = rarecrop();
+    document.getElementById("insp").innerHTML = rarecrop();
 }function inspect(){
-    document.getElementById("inspectioned").innerHTML = inspection();
+    document.getElementById("insp").innerHTML = inspection();
 }function getlandmark(){
-    document.getElementById("landmarkgot").innerHTML = landmarks();
+    document.getElementById("insp").innerHTML = landmarks();
 }
 function getdecay(){
-    document.getElementById("decaygot").innerHTML = decay();
+    document.getElementById("insp").innerHTML = decay();
 }
 function getneeuro(){
-    document.getElementById("neeurogot").innerHTML = neeuro();
+    document.getElementById("insp").innerHTML = neeuro();
 }
 function getseeuro(){
-    document.getElementById("seeurogot").innerHTML = seeuro();
+    document.getElementById("insp").innerHTML = seeuro();
 }
 function getnweuro(){
-    document.getElementById("nweurogot").innerHTML = nweuro();
+    document.getElementById("insp").innerHTML = nweuro();
 }
 function getsweuro(){
-    document.getElementById("sweurogot").innerHTML = sweuro();
+    document.getElementById("insp").innerHTML = sweuro();
 }
 function getwestasia(){
-    document.getElementById("westasiagot").innerHTML = westasia();
+    document.getElementById("insp").innerHTML = westasia();
 }
 function getsouthasia(){
-    document.getElementById("southasiagot").innerHTML = southasia();
+    document.getElementById("insp").innerHTML = southasia();
 }
 function geteastasia(){
-    document.getElementById("eastasiagot").innerHTML = eastasia();
+    document.getElementById("insp").innerHTML = eastasia();
 }
 function getcentroam(){
-    document.getElementById("centroamgot").innerHTML = centroam();
+    document.getElementById("insp").innerHTML = centroam();
 }
 function getwestafrica(){
-    document.getElementById("westafricagot").innerHTML = westafrica();
+    document.getElementById("insp").innerHTML = westafrica();
 }
 function getandes(){
-    document.getElementById("andesgot").innerHTML = andes();
+    document.getElementById("insp").innerHTML = andes();
 }
 function getnortham(){
-    document.getElementById("northamgot").innerHTML = northam();
+    document.getElementById("insp").innerHTML = northam();
 }
 function getjunglestuff(){
-    document.getElementById("junglestuffgot").innerHTML = junglestuff();
+    document.getElementById("insp").innerHTML = junglestuff();
 }
 function getbeachstuff(){
-    document.getElementById("beachstuffgot").innerHTML = beachstuff();
+    document.getElementById("insp").innerHTML = beachstuff();
 }
 function getmountainstuff(){
-    document.getElementById("mountainstuffgot").innerHTML = mountainstuff();
+    document.getElementById("insp").innerHTML = mountainstuff();
 }
 function getswampstuff(){
-    document.getElementById("swampstuffgot").innerHTML = swampstuff();
+    document.getElementById("insp").innerHTML = swampstuff();
 }
 function getdesertstuff(){
-    document.getElementById("desertstuffgot").innerHTML = desertstuff();
+    document.getElementById("insp").innerHTML = desertstuff();
 }
 function gettundrastuff(){
-    document.getElementById("tundrastuffgot").innerHTML = tundrastuff();
+    document.getElementById("insp").innerHTML = tundrastuff();
 }
 function getforeststuff(){
-    document.getElementById("foreststuffgot").innerHTML = foreststuff();
+    document.getElementById("insp").innerHTML = foreststuff();
 }
-function getname(){
-    titley = titles();
-    titlegot = document.createTextNode(" You now go by the name: "+ titley);
-    document.getElementById("namegot").appendChild(titlegot);
-    nameo = regnames();
-    namee = namee + nameo;
-    named = document.createTextNode(" " + nameo);
-    document.getElementById("namegot").appendChild(named);  
-    document.getElementById("namedisplay").innerHTML = namee;  
-    middx = middlenames();
-    middxx = document.createTextNode(" " + middx);
-    document.getElementById("namegot").appendChild(middxx); 
-    lastsx = lastnames();
-    lastx = document.createTextNode(" " + lastsx);
-    document.getElementById("namegot").appendChild(lastx);
-    episa = epithets();
-    episgot = document.createTextNode(" the " + episa + ",");
-    document.getElementById("namegot").appendChild(episgot);
-  episa1 = epithets1();
-  episgot1 = document.createTextNode(" " + episa1);
-    document.getElementById("namegot").appendChild(episgot1);
-  episa2 = epithets2();
-    episgot2 = document.createTextNode(" of " + episa2);
-    document.getElementById("namegot").appendChild(episgot2);
-    endit = document.createTextNode(".");
-    document.getElementById("namegot").appendChild(endit);
-  }
+function gettharsis(){
+    document.getElementById("insp").innerHTML = tharsis();
+}function getalba(){
+    document.getElementById("insp").innerHTML = alba();
+}
 </script>
 <div id="mlt" style="position:fixed; background:darkslateblue; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 Name: <input id="nameds"></input><br>
-Health: <input id="healthds"></input><br>
-Items: <input id="itemds"></input>
+Health: <input id="healthds" value="llllllllll"></input><br>
+Items: <input id="itemds"></input><br>
+Inspect: <span id="insp"></span>
 </div>
 <br><br>
 <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
   <br><br>
-    Don't Starve Together: Reign of Giants
+<br>Don't Starve Together: Reign of Giants
   <br><button id="getrgbiome" onclick="getrgbiome()">Biome</button><span id="rgbiomegot"></span>
   <br><button id="getrgdesert" onclick="getrgdesert()">Desert</button><span id="rgdesertgot"></span>
-  <br><button id="getrgforest" onclick="getrgforest()">Forest</button><span id="rgforestgot"></span>
+  <br><button id="getrgforest" onclick="getrgforest()">Woods</button><span id="rgforestgot"></span>
   <br><button id="getrgvillage" onclick="getrgvillage()">Village</button><span id="rgvillagegot"></span>
   <br><button id="getrgmountain" onclick="getrgmountain()">Mountain</button><span id="rgmountaingot"></span>
-  <br><button id="getrglakeland" onclick="getrglakeland()">Lake Land</button><span id="rglakelandgot"></span>
+  <br><button id="getrglakeland" onclick="getrglakeland()">Plain</button><span id="rglakelandgot"></span>
   <br><button id="getrgbirches" onclick="getrgbirches()">Birch Forest</button><span id="rgbirchesgot"></span>
+<br>Adventure Quest
+  <br><button id="getrgbiome" onclick="getrgbiome()">???</button><span id="rgbiomegot"></span>
   <br>Minecraft
   <br><button id="getmcbiome" onclick="getmcbiome()">Biome</button><span id="mcbiomegot"></span>
   <br><button id="getmcwoods" onclick="getmcwoods()">Woods</button><span id="mcwoodsgot"></span>
@@ -4130,10 +4153,12 @@ Items: <input id="itemds"></input>
   <br><button id="getmccanyon" onclick="getmccanyon()">Canyon</button><span id="mccanyongot"></span>
   <br><button id="getmcswamp" onclick="getmcswamp()">Swamp</button><span id="mcswampgot"></span>
   <br><button id="getmcocean" onclick="getmcocean()">Ocean</button><span id="mcoceangot"></span>
-  <br><button id="getmcdesert" onclick="getmcdesert()">Desert</button><span id="mcdesertgot"></span>
+  <br><button id="getmcdesert" onclick="getmcdesert()">Cactus</button><span id="mcdesertgot"></span>
   <br><button id="getmcplain" onclick="getmcplain()">Plain</button><span id="mcplaingot"></span>
+  <br><button id="getmcmountain" onclick="getmcmountain()">Mountain</button><span id="mcmountaingot"></span>
   <br><button id="getmcvillage" onclick="getmcvillage()">Village</button><span id="mcvillagegot"></span>
   <br><button id="getmcnight" onclick="getmcnight()">Night</button><span id="mcnightgot"></span>
+  <br><button id="getmcfirs" onclick="getmcfirs()">Alpine Forest</button><span id="mcfirsgot"></span>
   <br>Stardew Valley
   <br><button id="get1fg" onclick="get1fg()">Spring Foraging</button><span id="1fgd"></span>
   <br><button id="get2fg" onclick="get2fg()">Summer Foraging</button><span id="2fgd"></span>
@@ -4142,21 +4167,22 @@ Items: <input id="itemds"></input>
   <br><button id="get1harv" onclick="get1harv()">Spring Harvest</button><span id="get1harvgot"></span>
   <br><button id="get2harv" onclick="get2harv()">Summer Harvest</button><span id="get2harvgot"></span>
   <br><button id="get3harv" onclick="get3harv()">Fall Harvest</button><span id="get3harvgot"></span>
-  <br><button id="getgreenh" onclick="getgreenh()">Greenhouse</button><span id="getgreenhgot"></span>
+  <br><button id="getgreenh" onclick="getgreenh()">Winter Harvest</button><span id="getgreenhgot"></span>
   <br><button id="getsdbeach" onclick="getsdbeach()">Beach</button><span id="getsdbeachgot"></span>
+  <br><button id="getmcdesert" onclick="getmcdesert()">Desert</button><span id="mcdesertgot"></span>
   <br><button id="getsdtown" onclick="getsdtown()">Town</button><span id="getsdtowngot"></span>
-  <br><button id="getsdforest" onclick="getsdforest()">Forest</button><span id="getsdforestgot"></span>
-  <br><button id="getsdcave" onclick="getsdcave()">Cave</button><span id="getsdcavegot"></span>
+  <br><button id="getsdcave" onclick="getsdcave()">Mine</button><span id="getsdcavegot"></span>
   <br><button id="get1fish" onclick="get1fish()">Spring Fishing</button><span id="1fishgot"></span>
   <br><button id="get2fish" onclick="get2fish()">Summer Fishing</button><span id="2fishgot"></span>
   <br><button id="get3fish" onclick="get3fish()">Fall Fishing</button><span id="3fishgot"></span>
   <br><button id="get4fish" onclick="get4fish()">Winter Fishing</button><span id="4fishgot"></span>
   <br>Overcooked + :Recipes
-  <br><button id="getrgbiome" onclick="omelette()">Omelette</button><span id="omegot"></span>
-  <br><button id="getrgbiome" onclick="meatballs()">Meatballs</button><span id="meatbgot"></span>
+  <br><button id="getome" onclick="omelette()">Omelette</button><span id="omegot"></span>
+  <br><button id="getmeatb" onclick="meatballs()">Meatballs</button><span id="meatbgot"></span>
   <br>Final Fantasy
-  <br><button id="getrgbiome" onclick="getmidgard()">Midgard</button><span id="got"></span>
-  <br><button id="getrgbiome" onclick="getzanarkand()">Zanarkand</button><span id="got"></span>
+  <br><button id="getterrain" onclick="getterrain()">Landscape</button><span id="terraingot"></span>
+  <br><button id="getmidgard" onclick="getmidgard()">Midgard</button><span id="midgardgot"></span>
+  <br><button id="getzanarkand" onclick="getzanarkand()">Zanarkand</button><span id="zanarkandgot"></span>
   <br><button id="getrgbiome" onclick="()">Encounter</button><span id=""></span>
   <br><button id="getrgbiome" onclick="()">Besaid</button><span id=""></span>
   <br><button id="getrgbiome" onclick="()">Gagazet</button><span id=""></span>
@@ -4171,22 +4197,28 @@ Items: <input id="itemds"></input>
   <br><button id="getrgbiome" onclick="()">Tomb of Raithwall</button><span id=""></span>
   <br><button id="getrgbiome" onclick="()">Stillshrine of Miriam</button><span id=""></span>
   <br><button id="getrgbiome" onclick="()">Sandsea</button><span id=""></span>
+  <br><button id="getrgbiome" onclick="()">Ritardando</button><span id=""></span>
   <br><button id="getrgbiome" onclick="()">Borderlands</button><span id=""></span>
   <br>Factorio
+  <br><button id="getterrain" onclick="getterrain()">Landscape</button><span id="terraingot"></span>
   <br><button id="getrgbiome" onclick="getmidgard()">Minerals</button><span id=""></span>
   <br><button id="getrgbiome" onclick="getzanarkand()">Minerals</button><span id=""></span>
   <br>Cisco Packet Tracer
+  <br><button id="getterrain" onclick="getterrain()">Landscape</button><span id="terraingot"></span>
   <br><button id="getrgbiome" onclick="getmidgard()">Parts</button><span id=""></span>
   <br><button id="getrgbiome" onclick="getzanarkand()">Parts</button><span id=""></span>
   <br>Kerbal Space Program
+  <br><button id="getterrain" onclick="getterrain()">Landscape</button><span id="terraingot"></span>
   <br><button id="getrgbiome" onclick="getmidgard()">Parts</button><span id=""></span>
   <br><button id="getrgbiome" onclick="getzanarkand()">Parts</button><span id=""></span>
   <br>Oxygen Not Included
-  <br><button id="getrgbiome" onclick="getmidgard()">???</button><span id=""></span>
-  <br><button id="getrgbiome" onclick="getzanarkand()">???</button><span id=""></span>
-  <br>Cowboy Bebop
-  <br><button id="getrgbiome" onclick="getmidgard()">Tharsis</button><span id=""></span>
-  <br><button id="getrgbiome" onclick="getzanarkand()">Alba</button><span id=""></span>  
+  <br><button id="getterrain" onclick="getterrain()">Landscape</button><span id="terraingot"></span>
+  <br><button id="getmidgard" onclick="getmidgard()">???</button><span id=""></span>
+  <br><button id="getzanarkand" onclick="getzanarkand()">???</button><span id=""></span>
+  <br>Cowboy Bebop (2060)
+  <br><button id="getterrain" onclick="getterrain()">Landscape</button><span id="terraingot"></span>
+  <br><button id="gettharsis" onclick="gettharsis()">Tharsis</button><span id="tharsisd"></span>
+  <br><button id="getalba" onclick="getalba()">Alba</button><span id="albad"></span>  
   <br><br>
 </div>  
 <br><br>
@@ -4218,7 +4250,7 @@ Items: <input id="itemds"></input>
     <br><br><br><br>
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Villager Occupation:<br>
-    <button id="getjob" onclick="getjob()">Select</button><span id="jobgot"></span>
+    <button id="getjob" onclick="getjob()">Job</button><span id="jobgot"></span>
       <br><br>
   </div>
   <br><br>
@@ -4392,10 +4424,6 @@ Items: <input id="itemds"></input>
     Jungle:
     <button id="getjunglestuff" onclick="getjunglestuff()">Select</button>  
     <span id="junglestuffgot"></span>
-    <br><br>
-    Landscape:
-    <button id="getterrain" onclick="getterrain()">Select</button>  
-    <span id="terraingot"></span>
     <br>
     <br>
     Terrain:
@@ -4457,97 +4485,6 @@ Items: <input id="itemds"></input>
     <button id="fish" onclick="fish()">Select</button>  
     <span id="fished"></span>
     <br>
-    <br>
-    Decay:
-    <button id="getdecay" onclick="getdecay()">Select</button>  
-    <span id="decaygot"></span>
-    <br>
-    <br>
-    <span>--------</span>
-    <br>
-    <br>
-    NE European Box:
-    <button id="getneeuro" onclick="getneeuro()">Select</button>  
-    <span id="neeurogot"></span>
-    <br>
-    <br>
-    SE European Box:
-    <button id="getseeuro" onclick="getseeuro()">Select</button>  
-    <span id="seeurogot"></span>
-    <br>
-    <br>
-    SW European Box:
-    <button id="getsweuro" onclick="getsweuro()">Select</button>  
-    <span id="sweurogot"></span>
-    <br>
-    <br>
-    NW European Box:
-    <button id="getnweuro" onclick="getnweuro()">Select</button>  
-    <span id="nweurogot"></span>
-    <br>
-    <br>
-    West Asian Box:
-    <button id="getwestasia" onclick="getwestasia()">Select</button>  
-    <span id="westasiagot"></span>
-    <br>
-    <br>
-    East Asian Box:
-    <button id="geteastasia" onclick="geteastasia()">Select</button>  
-    <span id="eastasiagot"></span>
-    <br>
-    <br>
-    South Asian Box:
-    <button id="getsouthasia" onclick="getsouthasia()">Select</button>  
-    <span id="southasiagot"></span>
-    <br>
-    <br>
-    North American Box:
-    <button id="getnortham" onclick="getnortham()">Select</button>  
-    <span id="northamgot"></span>
-    <br>
-    <br>
-    Central American Box:
-    <button id="getcentroam" onclick="getcentroam()">Select</button>  
-    <span id="centroamgot"></span>
-    <br>
-    <br>
-    West Africa Box:
-    <button id="getcentroam" onclick="getwestafrica()">Select</button>  
-    <span id="westafricagot"></span>
-    <br>
-    <br>
-    Andes Box:
-    <button id="getcentroam" onclick="getandes()">Select</button>  
-    <span id="andesgot"></span>
-    <br>
-    <br>
-    Beach:
-    <button id="getbeachstuff" onclick="getbeachstuff()">Select</button>  
-    <span id="beachstuffgot"></span>
-    <br>
-    Mountain:
-    <button id="getmountainstuff" onclick="getmountainstuff()">Select</button>  
-    <span id="mountainstuffgot"></span>
-    <br>
-    Swamp:
-    <button id="getswampstuff" onclick="getswampstuff()">Select</button>  
-    <span id="swampstuffgot"></span>
-    <br>
-    Desert:
-    <button id="getdesertstuff" onclick="getdesertstuff()">Select</button>  
-    <span id="desertstuffgot"></span>
-    <br>
-    Forest:
-    <button id="getforeststuff" onclick="getforeststuff()">Select</button>  
-    <span id="foreststuffgot"></span>
-    <br>
-    Tundra:
-    <button id="gettundrastuff" onclick="gettundrastuff()">Select</button>  
-    <span id="tundrastuffgot"></span>
-    <br>
-    Jungle:
-    <button id="getjunglestuff" onclick="getjunglestuff()">Select</button>  
-    <span id="junglestuffgot"></span>
     <br>
     <div id="smeltingbox" style="border: solid 1px black; width:500px; position:relative;">
       <span style="padding-right:145px">Smelting:</span><span>Crafting:</span><br>
