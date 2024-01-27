@@ -729,31 +729,31 @@ function getrarity(){
     River Bed:
     <button id="getriverrocks" onclick="getriverrocks()">Mine!</button>  
     <span id="rivercollection"></span>
-    <br>
+    <br><br>
     Cliffside:
     <button id="getcliffrocks" onclick="getcliffrocks()">Mine!</button>  
     <span id="cliffcollection"></span>
-    <br>
+    <br><br>
     Beach:
     <button id="getbeachrocks" onclick="getbeachrocks()">Mine!</button>  
     <span id="beachrockcollection"></span>
-    <br>
+    <br><br>
     Earth Crust:
     <button id="getcrustrocks" onclick="getcrustrocks()">Mine!</button>  
     <span id="crustcollection"></span>
-    <br>
+    <br><br>
     Gold Vein:
     <button id="getgoldvein" onclick="getgoldvein()">Mine!</button>  
     <span id="veincollection"></span>
-    <br>
+    <br><br>
     Natural Resources:
     <button id="getnatresources" onclick="getnatresources()">Mine!</button>  
     <span id="natresourcescollection"></span>
-    <br>
+    <br><br>
     Rare Stones:
     <button id="getrarity" onclick="getrarity()">Mine!</button>  
     <span id="raritycollection"></span>
-    <br>
+    <br><br>
 </p>
 <!--
     Mountains: gneiss, gabbro, labradorite, diorite, rhyolite, granite, and chert.
@@ -1058,6 +1058,41 @@ window.onclick = function(event) {
 uic_r_e()
 </script>
 <p>Inventory:</p>
+<br><br>
+<input value="Quartz" onclick="count()" style="width: 60px">
+<p id="result">0</p>
+<script>
+var add = (function () {
+  var counter = 0;
+  return function () {return counter += 1;}
+})();
+function count(){
+  document.getElementById("result").innerHTML = add();
+}
+</script>
+<input value="Ore 2" onclick="count2()" style="width: 60px">
+<p id="result2">0</p>
+<script>
+var add = (function () {
+  var counter = 0;
+  return function () {return counter += 1;}
+})();
+function count2(){
+  document.getElementById("result2").innerHTML = add();
+}
+</script>
+<input value="Ore 3" onclick="count3()" style="width: 60px">
+<p id="result3">0</p>
+<script>
+var add = (function () {
+  var counter = 0;
+  return function () {return counter += 1;}
+})();
+function count3(){
+  document.getElementById("result3").innerHTML = add();
+}
+</script>
+<br><br>
 <input value="Space to take notes...">
 </body>
 </html>
