@@ -665,7 +665,43 @@ function dragElement(elmnt) {
   }
 }
 </script>
-  
+<div id="drag2" style="position: absolute;">
+  <div id="drag2header" style="background-color: yellow; text-align: center; cursor: move; font-size: 36px;">M</div>
+</div>
+<script>
+dragElement2(document.getElementById("drag2"));
+function dragElement2(elmnt2) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt2.id + "header")) {
+    document.getElementById(elmnt2.id + "header").ontouchstart = dragTouchStart2;
+  } else {
+    elmnt.ontouchstart = dragTouchStart2;
+  }
+  function dragTouchStart2(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.ontouchend = closeDragElement2;
+    document.ontouchmove = elementDrag2;
+  }
+  function elementDrag2(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+  function closeDragElement2() {
+    document.ontouchend = null;
+    document.ontouchmove = null;
+  }
+}
+</script>
+
 </p>
 </body>
 </html>
