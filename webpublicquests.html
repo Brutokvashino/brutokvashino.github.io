@@ -1045,6 +1045,25 @@ function getRndInteger(min, max) {
           else if (txt == 14) {return "";}
           else if (txt == 15) {return "";}
           else if (txt == 0) {return "";}
+        }function eights() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Yes";}
+          else if (txt == 2) {return "No";}
+          else if (txt == 3) {return "Maybe";}
+          else if (txt == 4) {return "Probably";}
+          else if (txt == 5) {return "Most likely";}
+          else if (txt == 6) {return "I guess so";}
+          else if (txt == 7) {return "Doesn't look like it";}
+          else if (txt == 8) {return "Unlikely";}
+          else if (txt == 9) {return "Impossible";}
+          else if (txt == 10) {return "Not realistically";}
+          else if (txt == 11) {return "Improbable";}
+          else if (txt == 12) {return "If you believe";}
+          else if (txt == 13) {return "Try harder";}
+          else if (txt == 14) {return "Absolutely not";}
+          else if (txt == 15) {return "Of course!";}
+          else if (txt == 0) {return "I dunno";}
         }
 function runmadlib(){
   document.getElementById("introgot2").innerHTML = intros();
@@ -1103,8 +1122,8 @@ function runmadlib(){
     document.getElementById("newsgot").innerHTML = news();
   }function getplot(){
     document.getElementById("plotgot").innerHTML = plots();
-  }function getsong(){
-    document.getElementById("songgot").innerHTML = songs();
+  }function get8(){
+    document.getElementById("8got").innerHTML = eights();
   }
 
 function copyintro() {
@@ -1208,9 +1227,9 @@ function copyprefix() {
     <button id="getnews" onclick="getnews()">Select</button>
     <span id="newsgot"></span>
     <br><br>
-    Soundtrack:
-    <button id="getsong" onclick="getsong()">Select</button>
-    <span id="songgot"></span>
+    8 Ball:
+    <button id="get8" onclick="get8()">Select</button>
+    <span id="8got"></span>
     <div style="border: 3px">
 <h2>Map</h2>
 <p>Click a square to place land</p>
