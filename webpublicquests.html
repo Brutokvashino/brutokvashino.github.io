@@ -1046,7 +1046,7 @@ function getRndInteger(min, max) {
           else if (txt == 15) {return "";}
           else if (txt == 0) {return "";}
         }function eights() {
-          var txt = getRndInteger(1,15);
+          var txt = getRndInteger(1,24);
           if (txt == 0) {return ""}
           else if (txt == 1) {return "Yes";}
           else if (txt == 2) {return "No";}
@@ -1063,7 +1063,15 @@ function getRndInteger(min, max) {
           else if (txt == 13) {return "Try harder";}
           else if (txt == 14) {return "Absolutely not";}
           else if (txt == 15) {return "Of course!";}
-          else if (txt == 0) {return "I dunno";}
+          else if (txt == 16) {return "I dunno";}
+          else if (txt == 17) {return "Check again later";}
+          else if (txt == 18) {return "If all goes well";}
+          else if (txt == 19) {return "If the planets align";}
+          else if (txt == 20) {return "Sort of";}
+          else if (txt == 21) {return "In a way";}
+          else if (txt == 22) {return "A little bit";}
+          else if (txt == 23) {return "Partially";}
+          else if (txt == 24) {return "Barely";}
         }
 function runmadlib(){
   document.getElementById("introgot2").innerHTML = intros();
