@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Things</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color:#000000;
+  background-color: slategray;
+  margin:10px;
+  font-size:100%;
+}
+.trytopnav {
+  height:100%;
+  overflow:hidden;
+  min-width:380px;
+  position:absolute;
+  width:100%;
+  top:99px;
+  background-color:#1b548e;
+}
+.topnav-icons {
+  margin-right:8px;
+}
+.trytopnav a,.trytopnav button {
+  color:#999999;
+}
+.w3-bar .w3-bar-item:hover {
+  color:#757575 !important;
+}
+a.w3schoolslink {
+  padding:0 !important;
+  display:inline !important;
+}
+a.w3schoolslink:hover,a.w3schoolslink:active {
+  text-decoration:underline !important;
+  background-color:transparent !important;
+}
+#dragbar{
+  position:absolute;
+  cursor: col-resize;
+  z-index:3;
+  padding:5px;
+}
+#shield {
+  display:none;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+  height:100%;
+  z-index:4;
+}
+#framesize span {
+  font-family:Consolas, monospace;
+}
+#container {
+  background-color:slategray;
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:0px;
+  bottom:0;
+  height:100%;
+}
+#textareacontainer, #iframecontainer {
+  height:50%;
+  width:100%;
+}
+#textarea, #iframe {
+  height:100%;
+  width:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+}
+#textarea {
+  padding-left:10px;
+  padding-right:5px;  
+}
+#iframe {
+  padding-left:5px;
+  padding-right:10px;
+  color:#ffffff;
+  font-family: "Times New Roman";    
+}
+#textareawrapper {
+  width:100%;
+  height:100%;
+  background-color: #ffffff;
+  position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#iframewrapper {
+  width:100%;
+  height:100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#ffffff;
+  font-family: "Times New Roman";
+  font-size: 16px;
+}
+#textareaCode {
+  background-color: black;
+  color:white;
+  font-family: consolas,"courier new",monospace;
+  font-size:15px;
+  height:100%;
+  width:100%;
+  padding:8px;
+  resize: none;
+  border:none;
+  line-height:normal;    
+}
+.CodeMirror.cm-s-default {
+  line-height:normal;
+  padding: 4px;
+  height:100%;
+  width:100%;
+}
+#iframeResult, #iframeSource {
+  background-color:lightsteelblue;
+  color:white;
+  font-family: "Times New Roman";    
+  height:100%;
+  width:100%;  
+  padding:20px;
+  border: 2px solid black;
+}
+#iframeResult * {
+  font-family: "Times New Roman"!important;
+}
+#iframeResult h1,#iframeResult h2,#iframeResult h3,#iframeResult h4,#iframeResult h5,#iframeResult h6 {
+  font-weight: bold;
+}
+
+#stackV {background-color:#999999;}
+#stackV:hover {background-color:#BBBBBB !important;}
+#stackV.horizontal {background-color:transparent;}
+#stackV.horizontal:hover {background-color:#BBBBBB !important;}
+#stackH.horizontal {background-color:#999999;}
+#stackH.horizontal:hover {background-color:#999999 !important;}
+#textareacontainer.horizontal,#iframecontainer.horizontal{
+  height:50%;
+  float:none;
+  width:100%;
+}
+#textarea.horizontal{
+  height:100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+#iframe.horizontal{
+  height:100%;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;  
+}
+#container.horizontal{
+  min-height:200px;
+  margin-left:0;
+}
+#tryitLeaderboard {
+  background-color:#ffffff;
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:0px;
+}
+.w3-dropdown-content {width:350px}
+body.darktheme {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35; 
+}
+body.darktheme #tryitLeaderboard{
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+}
+body.darktheme .trytopnav{
+  background-color:#616161;
+  background-color:#38444d;    
+  color:#dddddd;
+}
+body.darktheme #container {
+  background-color:#616161;
+  background-color:#38444d;    
+}
+body.darktheme #textareaCode {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+  color:#fff;
+}
+body.darktheme .trytopnav a,body.darktheme .trytopnav button {
+  color:#dddddd;
+}
+
+#runbtn {
+  background-color: dodgerblue;
+  color:white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:18px;
+  padding:6px 25px;
+  margin-top:4px;
+  border-radius:5px;
+  word-spacing:10px;
+}
+#runbtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+  
+@media screen and (max-width: 727px) {
+  .trytopnav {top:70px;}
+  #container {top:116px;}
+}
+@media screen and (max-width: 467px) {
+  .trytopnav {top:60px;}
+  #container {top:106px;}
+  .w3-dropdown-content {width:100%}
+}
+@media only screen and (max-device-width: 768px) {
+  #iframewrapper {overflow: auto;}
+  #container     {min-width:320px;}
+  .stack         {display:none;}
+  #tryhome       {display:block;}
+}
+
+@font-face {
+font-family: 'fontawesome';
+src:url('../lib/fonts/fontawesome.eot?14663396');
+src:url('../lib/fonts/fontawesome.eot?14663396#iefix') format('embedded-opentype'),
+    url('../lib/fonts/fontawesome.woff?14663396') format('woff'),
+    url('../lib/fonts/fontawesome.ttf?14663396') format('truetype'),
+    url('../lib/fonts/fontawesome.svg?14663396#fontawesome') format('svg');
+font-weight:normal;
+font-style:normal;
+}
+.fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transform:translate(0,0);
+}
+.fa-2x {
+  font-size:2em;
+}
+.fa-home:before {content: '\e800'; }
+.fa-save:before {content: '\e804'; }
+.fa-rotate:before {content: '\e813'; }
+.fa-adjust:before { content: '\e80b'; }
+.fa-menu:before { content: '\f0c9'; }
+.loader {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+#saveLoader {
+    margin:20px;
+}
+#runloadercontainer{
+  display:none;
+  position:absolute;
+  z-index:9;
+}
+#runloader{
+  margin:auto;
+  border: 10px solid #F1F1F1;
+  border-top: 10px solid #04AA6D;
+  border-radius: 50%;
+  max-width: 150px;
+  max-height: 150px;
+  animation: spin 2s linear infinite;
+  position:relative;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
+    font-size: 28px!important;
+}
+
+</style>
+<!--[if lt IE 8]>
+<style>
+#textareacontainer, #iframecontainer {width:48%;}
+#container {height:500px;}
+#textarea, #iframe {width:90%;height:450px;}
+#textareaCode, #iframeResult {height:450px;}
+.stack {display:none;}
+</style>
+<![endif]-->
+</head>
+<body>
+
+  <h1>Things</h1>
+  <div class="navbar">
+    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
+    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+    <a href="webnamegen.html" title="A naming game" class="templateLink">Name Generator</a>   
+  </div>
+
+<a href="javascript:void(0)" id="dragbar"></a>
+<p>
+
+<div id="drag" style="position: absolute;">
+<div id="dragheader" style="background-color: yellow; text-align: center; cursor: move; font-size: 25px; width:38px; height: 38px; text-align: center; border-radius: 45px;">☺</div>
+</div>
+<script>
+dragElement(document.getElementById("drag"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+
+</p>
+</body>
+</html>
