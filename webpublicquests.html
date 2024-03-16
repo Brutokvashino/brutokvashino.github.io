@@ -1208,7 +1208,7 @@ function runmadlib(){
   }function getboss(){
     document.getElementById("bossgot").innerHTML = boss();
   }function getspoiler(){
-    document.getElementById("spoilergot").innerHTML = spoiler();
+    document.getElementById("spoilergot").innerHTML = spoilers();
   }
 
 function copyintro() {
@@ -1253,18 +1253,26 @@ function copyprefix() {
     <button id="getnation" onclick="getnation()">Select</button>
     <span id="nationgot"></span>
     <br><br>
-    Rooms:
-    <button id="getroom" onclick="getroom()">Select</button>
-    <span id="roomgot"></span>
-    <br><br>
-    Structures:
-    <button id="getstructure" onclick="getstructure()">Select</button>
-    <span id="structuregot"></span>
-    <br><br>
     Roads are:
     <button id="getroad" onclick="getroad()">Select</button>
     <span id="roadgot"></span>
     <br><br>
+<div style= "border: 5px;">
+<h2>Generate Character:</h2>
+<button id="getallcharacter" onclick="getweapon()", onclick="getcharacter()", onclick="getpartyjob()">Select</button>
+   	Name: <input>
+	Appearance: <input><span id="charactergot"></span>
+	Role: <input><span id="partyjobgot"></span>
+	Default weapon: <input><span id="weapongot"></span>
+	Alignment: <input><span id="aligngot"></span>
+	Language: <input><span id="langgot"></span>
+	Constitution: <input><span id="constgot"></span>
+	Strength: <input><span id="strengthgot"></span>
+	Dexterity: <input><span id="dextgot"></span>
+	Intelligence: <input><span id="intelgot"></span>
+	Wisdom: <input><span id="wisegot"></span>
+	Charisma: <input><span id="charismagot"></span>
+</div><br><br>
     Weapons:
     <button id="getweapon" onclick="getweapon()">Select</button>
     <span id="weapongot"></span>
@@ -1277,6 +1285,7 @@ function copyprefix() {
     <button id="getpartyjob" onclick="getpartyjob()">Select</button>
     <span id="partyjobgot"></span>
     <br><br>
+	    <br><br><h2>Story:</h2><br><br>
     Dialogue:
     <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
     <span id="catchphrasegot"></span>
@@ -1321,6 +1330,7 @@ function copyprefix() {
     <button id="getnews" onclick="getnews()">Select</button>
     <span id="newsgot"></span>
     <br><br>
+<br><br><h2>Extra</h2><br><br>
     8 Ball:
     <button id="get8" onclick="get8()">Select</button>
     <span id="8got"></span>
@@ -1462,20 +1472,73 @@ function copyprefix() {
 <input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
 </div>
 <br>
-	    <h2>Rooms</h2>
+	    <h2>Buildings / Rooms</h2>
 <p>Click a square to build</p>
 <br>
 <div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
 <br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br><br>
+ Structures:
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+	Rooms:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
+
 </div>
     <br><br><br><br>
     Noteworthy People:
