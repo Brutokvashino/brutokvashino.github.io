@@ -1229,11 +1229,13 @@ function copyprefix() {
   document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
 }
 </script>
+<h2>What is your quest?</h2>
 <div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
   In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
   </div>  
   <button id="runmadlib" onclick="runmadlib()">Start</button>
   <br><br><br>
+	<h2>Setting:</h2>
     Town Description:
     <button id="getintro" onclick="getintro()">Select</button>
     <span id="introgot"></span>
@@ -1258,10 +1260,10 @@ function copyprefix() {
     <button id="getroad" onclick="getroad()">Select</button>
     <span id="roadgot"></span>
     <br><br>
-<div style= "border: 5px;">
+<div id="chargenarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 <h2>Generate Character:</h2> 
-	<button id="getallcharacter" onclick="getweapon()", onclick="getcharacter()", onclick="getpartyjob()">Select</button><br><br>
-   	Name: <input>     <a href="webnamegen.html" title="Generates random names" class="templateLink">Not sure?</a><br><br> 
+	<button id="getallcharacter" onclick="getweapon2()", onclick="getcharacter()", onclick="getpartyjob2()">Select</button><br><br>
+   	Name: <input>     <a href="webnamegen.html" target="_blank" title="Generates random names" class="templateLink">Not sure?</a><br><br> 
 	Appearance: <input><span id="charactergot2"></span><br><br>
 	Default weapon: <input><span id="weapongot2"></span>
 	Role: <input><span id="partyjobgot2"></span><br><br>
