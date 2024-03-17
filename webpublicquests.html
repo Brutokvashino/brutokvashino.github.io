@@ -943,15 +943,14 @@ function getRndInteger(min, max) {
 
       }
       function phrases() {
-          var txt = getRndInteger(1,15);
+          var txt = getRndInteger(1,6);
           if (txt == 0) {return ", ";}
           else if (txt == 1) {return "bread";}
-          else if (txt == 1) {return "If so-and-so were still alive...";}
-          else if (txt == 1) {return "Chimp!";}
-          else if (txt == 1) {return "Kittycat";}
-          else if (txt == 1) {return "Airslosh!";}
-          else if (txt == 1) {return "";}
-
+          else if (txt == 2) {return "If so-and-so were still alive...";}
+          else if (txt == 3) {return "Chimp!";}
+          else if (txt == 4) {return "Kittycat";}
+          else if (txt == 5) {return "Airslosh!";}
+          else if (txt == 6) {return "You've got your sheep, and you've got your black sheep. I'm not a sheep, I'm on the friggin' moon!";}
       }
 
       function lootitems() {
@@ -1211,7 +1210,10 @@ function runmadlib(){
     document.getElementById("bossgot").innerHTML = boss();
   }function getspoiler(){
     document.getElementById("spoilergot").innerHTML = spoilers();
+  }function getcatchphrase(){
+    document.getElementById("catchphrasegot").innerHTML = phrases();
   }
+
 
 function copyintro() {
   var copyText = document.getElementById("town-intro");
