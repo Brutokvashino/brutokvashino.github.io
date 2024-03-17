@@ -431,7 +431,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 </head>
 <body>
 
-  <h1>Build Your Own Quest</h1>
+  <h1>Doctor Quackov</h1>
   <div class="navbar">
     <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
     <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
@@ -449,132 +449,22 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
-        function intros() {
-          var txt = getRndInteger(1,13);
-          if (txt == 1) {return "Scenic";}
-          else if (txt == 0) {return ", Scary, Rural, The_City_of, Blessed, Cursed, Lost, The_Lost_City_of, Bath, Far, Near, Abandoned, Burnt, Salty, Bright, Deserted, Haunted, Filthy, Smoggy, Snowy, Boozy, Free, Utopian, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,";}
-          else if (txt == 2) {return "Historic";}
-          else if (txt == 3) {return "Remote";}
-          else if (txt == 4) {return "Colonial";}
-          else if (txt == 5) {return "The Sun-Drenched";}
-          else if (txt == 6) {return "Tropical";}
-          else if (txt == 7) {return "The Sun-Drenched Tropical Paradise";}
-          else if (txt == 8) {return "Quaint";}
-          else if (txt == 9) {return "Foggy";}
-          else if (txt == 10) {return "Beautiful";}
-          else if (txt == 11) {return "Wet";}
-          else if (txt == 12) {return "Infested";}
-          else if (txt == 13) {return "Cultural";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-
-        }
-        function prefixes() {
-          var txt = getRndInteger(1,19);
-          if (txt == 0) {return "Upper, Lower,Pink, Yellow, Orange, Broken, Dry,, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall,, Winter, Summer, Tierra, Wandering,, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,";}
-          else if (txt == 1) {return "North";}
-          else if (txt == 2) {return "Mount";}
-          else if (txt == 3) {return "Greater";}
-          else if (txt == 4) {return "New";}
-          else if (txt == 5) {return "Port";}
-          else if (txt == 6) {return "Black";}
-          else if (txt == 7) {return "Road of ";}
-          else if (txt == 8) {return "Winding";}
-          else if (txt == 9) {return "Lost";}
-          else if (txt == 10) {return "Spring";}
-          else if (txt == 11) {return "West";}
-          else if (txt == 12) {return "East";}
-          else if (txt == 13) {return "South";}
-          else if (txt == 14) {return "Old";}
-          else if (txt == 15) {return "Red";}
-          else if (txt == 16) {return "White";}
-          else if (txt == 17) {return "Green";}
-          else if (txt == 18) {return "Dead";}
-          else if (txt == 19) {return "Monte";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-
-
-      }
-      
-      function townnames() {
-          var txt = getRndInteger(1,23);
-          if (txt == 0) {return "Dog, Rose, Sunflower, Petunia, Lily, Deer, Fox, Tulip, Lions, Skull, Devils, Sand, Wine, Placido, San,, Turtle, Robin, Toten, Kreuz, Lichten, Briar, Thorn, Flower, Daisy, Peach, Hound, Cedar, Bear, Wolf, Apple, Butter, Mine, Mountain, Man's, Smuggler's, Rattlesnake, Winter, Summer, Tierra, Summoner's, Glacier, Ocean, Palm, Hinter, Nether, Heather, Danger, Aguas, Isla, Crocodile, Vogel, Diamond, Emerald, Berstein, Amber, Crystal, Pearl, Hawthorn, Blackthorn, Thorn, Bayberry, Belle, Redwood, Sequoia, Lenape, Cherokee, Cerulean, Cree, Cherry, Orange, Sky, Glass, Silver, Gold, Spruce, Hemlock, Hope, Harmony, Cinder, Crane, Dove, Palo, Saddle, Leaf, Mist, Drift, Spine, Bell, Myth, Ever, Arbor, Fall, Autumn, Dark, Black, White, Grey, Argentine, Venice, Flood, Fire, Frontier, Fox, Racoon, Goldenrod, Ember,";}
-          else if (txt == 1) {return "River";}
-          else if (txt == 2) {return "Oak";}
-          else if (txt == 3) {return "Spring";}
-          else if (txt == 4) {return "Willow";}
-          else if (txt == 5) {return "Stone";}
-          else if (txt == 6) {return "Paradise";}
-          else if (txt == 7) {return "Pine";}
-          else if (txt == 8) {return "Birken";}
-          else if (txt == 9) {return "Horse";}
-          else if (txt == 10) {return "Weiden";}
-          else if (txt == 11) {return "Linden";}
-          else if (txt == 12) {return "Eichen";}
-          else if (txt == 13) {return "Bone";}
-          else if (txt == 14) {return "Redwood";}
-          else if (txt == 15) {return "Cactus";}
-          else if (txt == 16) {return "Mill";}
-          else if (txt == 17) {return "Forge";}
-          else if (txt == 18) {return "Rock";}
-          else if (txt == 19) {return "Snake";}
-          else if (txt == 20) {return "Dogwood";}
-          else if (txt == 21) {return "Pumpkin";}
-          else if (txt == 22) {return "Edge";}
-          else if (txt == 23) {return "Rose";}
-          else if (txt == 24) {return "Gerudo";}
-          else if (txt == 25) {return "Faron";}
-          else if (txt == 26) {return "Hyrule";}
-          else if (txt == 27) {return "Holodrum";}
-          else if (txt == 28) {return "Tarm";}
-          else if (txt == 29) {return "Zora";}
-          else if (txt == 30) {return "Kakariko";}
-          else if (txt == 31) {return "Onett";}
-          else if (txt == 32) {return "Twoson";}
-          else if (txt == 33) {return "Threed";}
-          else if (txt == 34) {return "Dalaam";}
-          else if (txt == 35) {return "Fourside";}
-          else if (txt == 36) {return "Star";}
-          else if (txt == 37) {return "Stardew";}
-          else if (txt == 38) {return "Fairy";}
-
-      }
-      function suffixes() {
+      function questions() {
           var txt = getRndInteger(1,17);
           if (txt == 0) {return "Byr,, Meadow, , by_the_Water, Water, Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
-          else if (txt == 1) {return "Berg";}
-          else if (txt == 2) {return "Valley";}
-          else if (txt == 3) {return "Towne";}
-          else if (txt == 4) {return "Flower";}
-          else if (txt == 5) {return "Hausen";}
-          else if (txt == 6) {return "Burg";}
-          else if (txt == 7) {return "Del";}
-          else if (txt == 8) {return "Meade";}
-          else if (txt == 9) {return "Field";}
-          else if (txt == 10) {return "Stadt";}
-          else if (txt == 11) {return "Port";}
-          else if (txt == 12) {return "Ville";}
-          else if (txt == 13) {return "Falls";}
-          else if (txt == 14) {return "Dorf";}
-          else if (txt == 15) {return "Bridge";}
-          else if (txt == 16) {return "Land";}
-          else if (txt == 17) {return "Ford";}
-          else if (txt == 18) {return "Dew";}
-          else if (txt == 19) {return "Fountain";}
-
-
-
+          else if (txt == 1) {return "Are you seeing someone?";}
+          else if (txt == 2) {return "How many partners have you had?";}
+          else if (txt == 3) {return "Do you have a drinking problem?";}
+          else if (txt == 4) {return "You have an addiction, and you need help.";}
+          else if (txt == 5) {return "You need therapy.";}
+          else if (txt == 6) {return "Have you been exposed to toxic fumes?";}
+          else if (txt == 6) {return "Has someone tried to poison you?";}
+          else if (txt == 6) {return "Have you kissed a frog recently?";}
+          else if (txt == 6) {return "Would you describe your lifestyle as sedentary?";}
+          else if (txt == 6) {return "At this rate, you have 8 months to live.";}
+          else if (txt == 6) {return "I'd say you have about a year left to live.";}
+          else if (txt == 6) {return "I'd give you about a week left. Try to enjoy it.";}
+          else if (txt == 6) {return "You seem perfectly healthy to me!";}
       }
      
       function talents() {
@@ -629,15 +519,105 @@ function getRndInteger(min, max) {
           else if (txt == 4) {return "pain killers";}
           else if (txt == 5) {return "anti-emetic";}
           else if (txt == 128) {return "pepto-bismol";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
-          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "vitamin C";}
+          else if (txt == 128) {return "vitamin D";}
+          else if (txt == 128) {return "potassium";}
+          else if (txt == 128) {return "probiotics";}
+          else if (txt == 128) {return "antibiotics";}
+          else if (txt == 128) {return "emetic";}
+          else if (txt == 128) {return "lobelia root extract";}
+          else if (txt == 128) {return "dandelion root tea";}
+          else if (txt == 128) {return "pine needle tea";}
+          else if (txt == 128) {return "get out more";}
+          else if (txt == 128) {return "go on a walk";}
+          else if (txt == 128) {return "diuretic";}
+          else if (txt == 128) {return "pet a cat";}
+          else if (txt == 128) {return "get a dog";}
+          else if (txt == 128) {return "prayer";}
+          else if (txt == 128) {return "see a priest";}
+          else if (txt == 128) {return "exorcism";}
+          else if (txt == 128) {return "bloodletting";}
+          else if (txt == 128) {return "leeches";}
+          else if (txt == 128) {return "massage";}
+          else if (txt == 128) {return "see a chiropracter";}
+          else if (txt == 128) {return "go to the spa";}
+          else if (txt == 128) {return "go to the sauna";}
+          else if (txt == 128) {return "hot water bath";}
+          else if (txt == 128) {return "cold water bath";}
+          else if (txt == 128) {return "take a bath";}
+          else if (txt == 128) {return "practice better hygiene";}
+          else if (txt == 128) {return "use deoderant";}
+          else if (txt == 128) {return "ice bath";}
+          else if (txt == 128) {return "holy water";}
+          else if (txt == 128) {return "eat a warm meal";}
+          else if (txt == 128) {return "eat a healthy meal";}
+          else if (txt == 128) {return "fast for a day";}
+          else if (txt == 128) {return "rest 9 days";}
+          else if (txt == 128) {return "get some rest";}
+          else if (txt == 128) {return "walk it off";}
+          else if (txt == 128) {return "sleep it off";}
+          else if (txt == 128) {return "a spoonful of sugar";}
+          else if (txt == 128) {return "a spoonful of honey";}
+          else if (txt == 128) {return "a spoonful of lemon juice";}
+          else if (txt == 128) {return "a spoonful of maple syrup";}
+          else if (txt == 128) {return "wear a mask";}
+          else if (txt == 128) {return "cough drop";}
+          else if (txt == 128) {return "cough syrup";}
+          else if (txt == 128) {return "antihistamine";}
+          else if (txt == 128) {return "acetaminophen";}
+          else if (txt == 128) {return "drink a smoothie";}
+          else if (txt == 128) {return "eat more fruit";}
+          else if (txt == 128) {return "eat more vegetables";}
+          else if (txt == 128) {return "get more iron";}
+          else if (txt == 128) {return "get more protein";}
+          else if (txt == 128) {return "get more calcium";}
+          else if (txt == 128) {return "breath mint";}
+          else if (txt == 128) {return "surgery";}
+          else if (txt == 128) {return "laser surgery";}
+          else if (txt == 128) {return "stent";}
+          else if (txt == 128) {return "organ replacement";}
+          else if (txt == 128) {return "extraction";}
+          else if (txt == 128) {return "bionic enhancement";}
+          else if (txt == 128) {return "blood transfusion";}
+          else if (txt == 128) {return "irrigation";}
+          else if (txt == 128) {return "saline";}
+          else if (txt == 128) {return "placebo pills";}
+          else if (txt == 128) {return "mystery pills";}
+          else if (txt == 128) {return "magic beans";}
+          else if (txt == 128) {return "a big bowl of chili";}
+          else if (txt == 128) {return "cough it up";}
+          else if (txt == 128) {return "disinfect it";}
+          else if (txt == 128) {return "burn it";}
+          else if (txt == 128) {return "a slap in the face";}
+          else if (txt == 128) {return "change your environment";}
+          else if (txt == 128) {return "there is no cure";}
+          else if (txt == 128) {return "the iron lung";}
+          else if (txt == 128) {return "the iron butt";}
+          else if (txt == 128) {return "blood thinner";}
+          else if (txt == 128) {return "coagulant";}
+          else if (txt == 128) {return "herbal tea";}
+          else if (txt == 128) {return "sea water";}
+          else if (txt == 128) {return "maggots";}
+          else if (txt == 128) {return "drink more water";}
+          else if (txt == 128) {return "remove salt from your diet";}
+          else if (txt == 128) {return "remove sugar from your diet";}
+          else if (txt == 128) {return "you should smoke more";}
+          else if (txt == 128) {return "stop smoking";}
+          else if (txt == 128) {return "quit drinking";}
+          else if (txt == 128) {return "a shot of hard liquor";}
+          else if (txt == 128) {return "eldeberry juice";}
+          else if (txt == 128) {return "get a hobby";}
+          else if (txt == 128) {return "worry less";}
+          else if (txt == 128) {return "exercise";}
+          else if (txt == 128) {return "meditate";}
+          else if (txt == 128) {return "meditate with a gemstone";}
+          else if (txt == 128) {return "true love's kiss";}
+          else if (txt == 128) {return "find true love";}
+          else if (txt == 128) {return "forgive your enemy";}
+          else if (txt == 128) {return "receive forgiveness";}
+          else if (txt == 128) {return "recite a chant";}
+          else if (txt == 128) {return "get some sun";}
+          else if (txt == 128) {return "garlic";}
 
       }
    
@@ -684,6 +664,24 @@ function getRndInteger(min, max) {
           else if (txt == 8) {return "fungus on the";}
           else if (txt == 8) {return "toxins in the";}
           else if (txt == 8) {return "poison in the";}
+          else if (txt == 8) {return "demon in the";}
+          else if (txt == 8) {return "faries in the";}
+          else if (txt == 8) {return "fleas in the";}
+          else if (txt == 8) {return "tick on the";}
+          else if (txt == 8) {return "leeches on the";}
+          else if (txt == 8) {return "lizard in the";}
+          else if (txt == 8) {return "bees in the";}
+          else if (txt == 8) {return "nargles in the";}
+          else if (txt == 8) {return "hallucinations in the";}
+          else if (txt == 8) {return "hyperextension of the";}
+          else if (txt == 8) {return "wandering of the";}
+          else if (txt == 8) {return "detachment of the";}
+          else if (txt == 8) {return "tear in the";}
+	  else if (txt == 8) {return "rupture of the";}
+	  else if (txt == 8) {return "spontaneous combustion of the";}
+	  else if (txt == 8) {return "bad humours of the";}
+	  else if (txt == 8) {return "enzymes in the";}
+
       }
   
       function organs() {
@@ -693,7 +691,67 @@ function getRndInteger(min, max) {
           else if (txt == 2) {return "nerve";}
           else if (txt == 2) {return "synapse";}
           else if (txt == 2) {return "nose";}
-          else if (txt == 2) {return "nose";}
+          else if (txt == 2) {return "butt";}
+          else if (txt == 2) {return "skin";}
+          else if (txt == 2) {return "mind";}
+          else if (txt == 2) {return "imagination";}
+          else if (txt == 2) {return "ankle";}
+          else if (txt == 2) {return "brain";}
+          else if (txt == 2) {return "foot";}
+          else if (txt == 2) {return "stomach";}
+          else if (txt == 2) {return "liver";}
+          else if (txt == 2) {return "spleen";}
+          else if (txt == 2) {return "thyroid";}
+          else if (txt == 2) {return "gall bladder";}
+          else if (txt == 2) {return "cranium";}
+          else if (txt == 2) {return "pelvis";}
+          else if (txt == 2) {return "rectum";}
+          else if (txt == 2) {return "tooth";}
+	                else if (txt == 2) {return "tongue";}
+          else if (txt == 2) {return "throat";}
+          else if (txt == 2) {return "eyelashes";}
+          else if (txt == 2) {return "palms";}
+          else if (txt == 2) {return "eye";}
+          else if (txt == 2) {return "mouth";}
+          else if (txt == 2) {return "lips";}
+          else if (txt == 2) {return "ear";}
+          else if (txt == 2) {return "ear canal";}
+          else if (txt == 2) {return "hair";}
+          else if (txt == 2) {return "scalp";}
+          else if (txt == 2) {return "elbow";}
+          else if (txt == 2) {return "heel";}
+          else if (txt == 2) {return "sternum";}
+          else if (txt == 2) {return "lung";}
+          else if (txt == 2) {return "heart";}
+          else if (txt == 2) {return "back";}
+          else if (txt == 2) {return "spine";}
+          else if (txt == 2) {return "brain stem";}
+          else if (txt == 2) {return "bladder";}
+          else if (txt == 2) {return "large intestine";}
+          else if (txt == 2) {return "jejunum";}
+          else if (txt == 2) {return "duodenum";}
+          else if (txt == 2) {return "appendix";}
+          else if (txt == 2) {return "ulna";}
+          else if (txt == 2) {return "radius";}
+          else if (txt == 2) {return "femur";}
+          else if (txt == 2) {return "jaw";}
+          else if (txt == 2) {return "cheekbone";}
+          else if (txt == 2) {return "orbit";}
+          else if (txt == 2) {return "temporal cortex";}
+          else if (txt == 2) {return "prefrontal cortex";}
+          else if (txt == 2) {return "occipital cortex";}
+          else if (txt == 2) {return "parietal lobe";}
+          else if (txt == 2) {return "vessels";}
+          else if (txt == 2) {return "muscle";}
+          else if (txt == 2) {return "bicep";}
+          else if (txt == 2) {return "tricep";}
+          else if (txt == 2) {return "shoulder blade";}
+          else if (txt == 2) {return "dermis";}
+          else if (txt == 2) {return "achilles tendon";}
+          else if (txt == 2) {return "iris";}
+          else if (txt == 2) {return "crystalline lens";}
+          else if (txt == 2) {return "anterior cruciate ligament";}
+
       }
 
       function motivations() {
@@ -726,7 +784,12 @@ function getRndInteger(min, max) {
           else if (txt == 1) {return "freedom";}
           else if (txt == 1) {return "pain";}
           else if (txt == 1) {return "code";}
-      }
+      } 
+	function inventions() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return "the Kolojala sword, Philosopher's Stone,";}
+          else if (txt == 1) {return "food";}
+	}
 
 function getsick(){
     document.getElementById("sickgot").innerHTML = malady();
@@ -738,413 +801,28 @@ function getsick(){
     document.getElementById("organgot").innerHTML = organs();
   }function getcure(){
     document.getElementById("curegot").innerHTML = "of " + cures();
-  }function getroad(){
-    document.getElementById("roadgot").innerHTML = roads();
-  }function getweapon(){
-    document.getElementById("weapongot").innerHTML = weapons();
-  }function getroom(){
-    document.getElementById("roomgot").innerHTML = rooms();
-  }function getstructure(){
-    document.getElementById("structuregot").innerHTML = structures();
-  }function getcharacter(){
-    document.getElementById("charactergot").innerHTML = characters();
-  }function getpartyjob(){
-    document.getElementById("partyjobgot").innerHTML = partyjobs();
-  }function getinteraction(){
-    document.getElementById("interactiongot").innerHTML = interactions();
-  }function getactivity(){
-    document.getElementById("activitygot").innerHTML = activities();
-  }function getquestitem(){
-    document.getElementById("questitemgot").innerHTML = questitems();
-   }function getmysteriousitem(){
-    document.getElementById("mysteriousitemgot").innerHTML = mysteriousitems();
-  }function getlootitem(){
-    document.getElementById("lootitemgot").innerHTML = lootitems();
-  }function getmonster(){
-    document.getElementById("monstergot").innerHTML = monsters();
-  }function getnews(){
-    document.getElementById("newsgot").innerHTML = news();
-  }function getplot(){
-    document.getElementById("plotgot").innerHTML = plots();
-  }function get8(){
-    document.getElementById("8got").innerHTML = eights();
-  }function getboss(){
-    document.getElementById("bossgot").innerHTML = boss();
-  }function getspoiler(){
-    document.getElementById("spoilergot").innerHTML = spoilers();
-  }function getcatchphrase(){
-    document.getElementById("catchphrasegot").innerHTML = phrases();
   }
-
-
-function copyintro() {
-  var copyText = document.getElementById("town-intro");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-  alert("Copied the list");
-  document.getElementById("surroundingtext").innerHTML = "..."
-}
-function copyprefix() {
-  var copyText = document.getElementById("town-prefix");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-  alert("Copied the list");
-  document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
-}
 </script>
-<br><br><h2>What is your quest?</h2>
+<br><br><h2>Doctor Quackov's physical assessment:</h2>
 <div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-  In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
-  </div>  
-  <button id="runmadlib" onclick="runmadlib()">Start</button>
+	Your special talent is: <span id="talengot"></span>
+</div>  
+  <button id="runphysical" onclick="getphysical()">Assess</button>
+
+	<br><br><h2>Doctor Quackov's consultation:</h2>
+<div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+  I diagnose you with <span id="sickgot"></span> <span id="organgot"></span> <span id="questiongot"></span>
+</div>  
+  <button id="runconsult" onclick="getseen()">Consult</button>
   <br><br><br>
-	<h2>Setting:</h2>
+	<h2>Pharmacy:</h2>
     Town Description:
-    <button id="getintro" onclick="getintro()">Select</button>
-    <span id="introgot"></span>
+    <button id="getcure" onclick="getcure()">Select</button>
+    <span id="curegot"></span>
     <br><br>
-    Town Prefixes:
-    <button id="getprefix" onclick="getprefix()">Select</button>
-    <span id="prefixgot"></span>
-    <br><br>
-    Town Name:
-    <button id="gettownname" onclick="gettownname()">Select</button>
-    <span id="townnamegot"></span>
-    <br><br>
-    Town Suffixes:
-    <button id="getsuffix" onclick="getsuffix()">Select</button>
-    <span id="suffixgot"></span>
-    <br><br>
-    Nations:
-    <button id="getnation" onclick="getnation()">Select</button>
-    <span id="nationgot"></span>
-    <br><br>
-    Roads are:
-    <button id="getroad" onclick="getroad()">Select</button>
-    <span id="roadgot"></span>
-<div id="chargenarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-<h2>Generate Character:</h2> 
-	<button id="getallcharacter" onclick="getweapon2()", onclick="getcharacter()", onclick="getpartyjob2()">Select</button><br><br>
-   	Name: <input>     <a href="webnamegen.html" target="_blank" title="Generates random names" class="templateLink">Not sure?</a><br><br> 
-	Appearance: <input><span id="charactergot2"></span><br><br>
-	Default weapon: <input><span id="weapongot2"></span>
-	Role: <input><span id="partyjobgot2"></span><br><br>
-	Alignment: <input><span id="aligngot"></span>
-	Language: <input><span id="langgot"></span><br><br>
-	Constitution: <input><span id="constgot"></span>
-	Strength: <input><span id="strengthgot"></span><br><br>
-	Dexterity: <input><span id="dextgot"></span>
-	Intelligence: <input><span id="intelgot"></span><br><br>
-	Wisdom: <input><span id="wisegot"></span>
-	Charisma: <input><span id="charismagot"></span>
-</div><br><br>
-    Weapons:
-    <button id="getweapon" onclick="getweapon()">Select</button>
-    <span id="weapongot"></span>
-    <br><br>
-    Appearance:
-    <button id="getcharacter" onclick="getcharacter()">Select</button>
-    <span id="charactergot"></span>
-    <br><br>
-    Party Job:
-    <button id="getpartyjob" onclick="getpartyjob()">Select</button>
-    <span id="partyjobgot"></span>
-    <br><br>
-	    <br><br><h2>Story:</h2>
-    Dialogue:
-    <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
-    <span id="catchphrasegot"></span>
-    <br><br>
-    Interactions:
-    <button id="getinteraction" onclick="getinteraction()">Select</button>
-    <span id="interactiongot"></span>
-    <br><br>
-    Activities:
-    <button id="getactivity" onclick="getactivity()">Select</button>
-    <span id="activitygot"></span>
-    <br><br>
-    Quest Item:
-    <button id="getquestitem" onclick="getquestitem()">Select</button>
-    <span id="questitemgot"></span>
-    <br><br>
-    Mysterious Item:
-    <button id="getmysteriousitem" onclick="getmysteriousitem()">Select</button>
-    <span id="mysteriousitemgot"></span>
-    <br><br>
-    Loot Item:
-    <button id="getlootitem" onclick="getlootitem()">Select</button>
-    <span id="lootitemgot"></span>
-    <br><br>
-    Random Encounter:
-    <button id="getmonster" onclick="getmonster()">Select</button>
-    <span id="monstergot"></span>
-	<br><br>
- Boss Fight:
-    <button id="getboss" onclick="getboss()">Select</button>
-    <span id="bossgot"></span>
-    <br><br>
-    Plot Device:
-    <button id="getplot" onclick="getplot()">Select</button>
-    <span id="plotgot"></span>
-    <br><br>
-	Spoilers:
-    <button id="getspoiler" onclick="getspoiler()">Select</button>
-    <span id="spoilergot"></span>
-    <br><br>
-    Headlines:
-    <button id="getnews" onclick="getnews()">Select</button>
-    <span id="newsgot"></span>
-    <br><br>
-    <div style="border: 3px">
-<h2>Map</h2>
-<p>Click a square to place land</p>
-<br>
-<div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-</div>
-<br>
-	    <h2>Buildings / Rooms</h2>
-<p>Click a square to build</p>
-<br>
-<div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-</div><br>
-	    Structures:
-    <button id="getstructure" onclick="getstructure()">Select</button>
-    <span id="structuregot"></span>
-    <br><br>
-	Rooms:
-    <button id="getroom" onclick="getroom()">Select</button>
-    <span id="roomgot"></span>
-    <br><br>
-    <br><br>
-	    <h2>Extra</h2>
-	    8 Ball:
-    <button id="get8" onclick="get8()">Select</button>
-    <span id="8got"></span>
-	<br><br>
-	D20:
-    <button id="getroom" onclick="getd20()">Select</button>
-    <span id="roomgot"></span>
-	    <br><br>
-	    D6:
-    <button id="getroom" onclick="getd6()">Select</button>
-    <span id="roomgot"></span>
-	    <br><br>
-Drag this icon:
-	    <br>
-	    <div id="drag" style="position: absolute;">
-<div id="dragheader" style="background-color: yellow; text-align: center; cursor: move; font-size: 25px; width:38px; height: 38px; text-align: center; border-radius: 45px;">☺</div>
-</div>
-<script>
-dragElement(document.getElementById("drag"));
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    elmnt.onmousedown = dragMouseDown;
-  }
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
-  }
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
-  function closeDragElement() {
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-</script>
-	    <br><br>
-    Previous Campaigns:
-    <br>
-    <input value="Space to take notes...">
+   
+    <input value="Space to scribe...">
+    <input value="Prescriptions...">
     <br><br>
 </p>
 
