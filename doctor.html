@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Quest Randomizer</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:image" content="">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<script src="/lib/codemirror.js"></script>
+<script src="/lib/codemirror_htmlmixed.js"></script>
+<script src="/lib/codemirror_javascript.js"></script>
+<script src="/lib/codemirror_css.js"></script>
+<script src="/lib/codemirror_clike.js"></script>
+<script src="/lib/codemirror_php.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-3855518-1', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'GTM-WJ88MZ5');
+ga('send', 'pageview');
+</script>
+
+<script src="/lib/uic.js?v=1.0.5"></script>
+<script data-cfasync="false" type="text/javascript">
+var k42 = false;
+
+// GPT slots
+var gptAdSlots = [];
+window.googletag = window.googletag || { cmd: [] };
+googletag.cmd.push(function() {
+  var leaderMapping = googletag.sizeMapping().
+  // Mobile ad
+  addSize([0, 0], [320, 50]). 
+  // Vertical Tablet ad
+  addSize([468, 0], [468, 60]). 
+  // Horizontal Tablet
+  addSize([728, 0], [728, 90]).
+  // Desktop and bigger ad
+  addSize([970, 0], [[728, 90], [970, 90]]).build();
+  // addSize([970, 0], [728, 90]).build();
+  gptAdSlots[0] = googletag.defineSlot('/16833175/TryitLeaderboard', [[728, 90], [970, 90]], 'div-gpt-ad-1428407818244-0').
+  // gptAdSlots[0] = googletag.defineSlot('/16833175/TryitLeaderboard', [728, 90], 'div-gpt-ad-1428407818244-0').
+  defineSizeMapping(leaderMapping).addService(googletag.pubads());
+  googletag.pubads().setTargeting("content","try" + (function () {
+    var folder = location.pathname;
+    folder = folder.replace("/", "");
+    folder = folder.substr(0, folder.indexOf("/"));
+    return folder;
+  })());
+});  
+
+</script>
+<script data-cfasync="false" type="text/javascript">
+    window.snigelPubConf = {
+    "adengine": {
+
+      "activeAdUnits": [],
+      "additionalGptAdSlotIds": ["div-gpt-ad-1428407818244-0"]
+
+  }
+}
+uic_r_a()
+</script>
+<script async data-cfasync="false" src="https://cdn.snigelweb.com/adengine/w3schools.com/loader.js" type="text/javascript"></script>
+<script>
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+              
+        uic_r_m();
+         
+    }
+    if (window.screen.availWidth <= 768) {
+      restack(window.innerHeight > window.innerWidth);
+    }
+    fixDragBtn();
+    showFrameSize();    
+}
+var fileID = "";
+var loadSave = false;
+function getSavedFile() {
+    loadSave = true;
+    var htmlCode;
+    var paramObj = {};
+    paramObj.fileid = "";
+    fileID = paramObj.fileid;
+    var paramA = JSON.stringify(paramObj);
+    var httpA = new XMLHttpRequest();
+    httpA.open("POST", globalURL, true);
+    httpA.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpA.onreadystatechange = function() {
+        if(httpA.readyState == 4 && httpA.status == 200) {
+            document.getElementById("textareaCode").value = httpA.responseText;
+            window.editor.getDoc().setValue(httpA.responseText);
+            loadSave = false;
+        }
+    }
+    httpA.send(paramA);   
+}
+</script>
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color:#000000;
+  background-color: slategray;
+  margin:10px;
+  font-size:100%;
+}
+.trytopnav {
+  height:100%;
+  overflow:hidden;
+  min-width:380px;
+  position:absolute;
+  width:100%;
+  top:99px;
+  background-color:#1b548e;
+}
+.topnav-icons {
+  margin-right:8px;
+}
+.trytopnav a,.trytopnav button {
+  color:#999999;
+}
+.w3-bar .w3-bar-item:hover {
+  color:#757575 !important;
+}
+a.w3schoolslink {
+  padding:0 !important;
+  display:inline !important;
+}
+a.w3schoolslink:hover,a.w3schoolslink:active {
+  text-decoration:underline !important;
+  background-color:transparent !important;
+}
+#dragbar{
+  position:absolute;
+  cursor: col-resize;
+  z-index:3;
+  padding:5px;
+}
+#shield {
+  display:none;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+  height:100%;
+  z-index:4;
+}
+#framesize span {
+  font-family:Consolas, monospace;
+}
+#container {
+  background-color:slategray;
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:0px;
+  bottom:0;
+  height:100%;
+}
+#textareacontainer, #iframecontainer {
+  height:50%;
+  width:100%;
+}
+#textarea, #iframe {
+  height:100%;
+  width:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+}
+#textarea {
+  padding-left:10px;
+  padding-right:5px;  
+}
+#iframe {
+  padding-left:5px;
+  padding-right:10px;
+  color:#ffffff;
+  font-family: "Times New Roman";    
+}
+#textareawrapper {
+  width:100%;
+  height:100%;
+  background-color: #ffffff;
+  position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#iframewrapper {
+  width:100%;
+  height:100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#ffffff;
+  font-family: "Times New Roman";
+  font-size: 16px;
+}
+#textareaCode {
+  background-color: black;
+  color:white;
+  font-family: consolas,"courier new",monospace;
+  font-size:15px;
+  height:100%;
+  width:100%;
+  padding:8px;
+  resize: none;
+  border:none;
+  line-height:normal;    
+}
+.CodeMirror.cm-s-default {
+  line-height:normal;
+  padding: 4px;
+  height:100%;
+  width:100%;
+}
+#iframeResult, #iframeSource {
+  background-color:lightsteelblue;
+  color:white;
+  font-family: "Times New Roman";    
+  height:100%;
+  width:100%;  
+  padding:20px;
+  border: 2px solid black;
+}
+#iframeResult * {
+  font-family: "Times New Roman"!important;
+}
+#iframeResult h1,#iframeResult h2,#iframeResult h3,#iframeResult h4,#iframeResult h5,#iframeResult h6 {
+  font-weight: bold;
+}
+
+#stackV {background-color:#999999;}
+#stackV:hover {background-color:#BBBBBB !important;}
+#stackV.horizontal {background-color:transparent;}
+#stackV.horizontal:hover {background-color:#BBBBBB !important;}
+#stackH.horizontal {background-color:#999999;}
+#stackH.horizontal:hover {background-color:#999999 !important;}
+#textareacontainer.horizontal,#iframecontainer.horizontal{
+  height:50%;
+  float:none;
+  width:100%;
+}
+#textarea.horizontal{
+  height:100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+#iframe.horizontal{
+  height:100%;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;  
+}
+#container.horizontal{
+  min-height:200px;
+  margin-left:0;
+}
+#tryitLeaderboard {
+  background-color:#ffffff;
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:0px;
+}
+.w3-dropdown-content {width:350px}
+body.darktheme {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35; 
+}
+body.darktheme #tryitLeaderboard{
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+}
+body.darktheme .trytopnav{
+  background-color:#616161;
+  background-color:#38444d;    
+  color:#dddddd;
+}
+body.darktheme #container {
+  background-color:#616161;
+  background-color:#38444d;    
+}
+body.darktheme #textareaCode {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+  color:#fff;
+}
+body.darktheme .trytopnav a,body.darktheme .trytopnav button {
+  color:#dddddd;
+}
+
+#runbtn {
+  background-color: dodgerblue;
+  color:white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:18px;
+  padding:6px 25px;
+  margin-top:4px;
+  border-radius:5px;
+  word-spacing:10px;
+}
+#runbtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+  
+@media screen and (max-width: 727px) {
+  .trytopnav {top:70px;}
+  #container {top:116px;}
+}
+@media screen and (max-width: 467px) {
+  .trytopnav {top:60px;}
+  #container {top:106px;}
+  .w3-dropdown-content {width:100%}
+}
+@media only screen and (max-device-width: 768px) {
+  #iframewrapper {overflow: auto;}
+  #container     {min-width:320px;}
+  .stack         {display:none;}
+  #tryhome       {display:block;}
+}
+
+@font-face {
+font-family: 'fontawesome';
+src:url('../lib/fonts/fontawesome.eot?14663396');
+src:url('../lib/fonts/fontawesome.eot?14663396#iefix') format('embedded-opentype'),
+    url('../lib/fonts/fontawesome.woff?14663396') format('woff'),
+    url('../lib/fonts/fontawesome.ttf?14663396') format('truetype'),
+    url('../lib/fonts/fontawesome.svg?14663396#fontawesome') format('svg');
+font-weight:normal;
+font-style:normal;
+}
+.fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transform:translate(0,0);
+}
+.fa-2x {
+  font-size:2em;
+}
+.fa-home:before {content: '\e800'; }
+.fa-save:before {content: '\e804'; }
+.fa-rotate:before {content: '\e813'; }
+.fa-adjust:before { content: '\e80b'; }
+.fa-menu:before { content: '\f0c9'; }
+.loader {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+#saveLoader {
+    margin:20px;
+}
+#runloadercontainer{
+  display:none;
+  position:absolute;
+  z-index:9;
+}
+#runloader{
+  margin:auto;
+  border: 10px solid #F1F1F1;
+  border-top: 10px solid #04AA6D;
+  border-radius: 50%;
+  max-width: 150px;
+  max-height: 150px;
+  animation: spin 2s linear infinite;
+  position:relative;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
+    font-size: 28px!important;
+}
+
+</style>
+<!--[if lt IE 8]>
+<style>
+#textareacontainer, #iframecontainer {width:48%;}
+#container {height:500px;}
+#textarea, #iframe {width:90%;height:450px;}
+#textareaCode, #iframeResult {height:450px;}
+.stack {display:none;}
+</style>
+<![endif]-->
+</head>
+<body>
+
+  <h1>Build Your Own Quest</h1>
+  <div class="navbar">
+    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
+    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+    <a href="webnamegen.html" title="Generates random names" class="templateLink">Name Generator</a>   
+    <a href="minesweeper.html" title="Click around and find out" class="templateLink">Minesweeper</a>   
+  </div>
+
+<a href="javascript:void(0)" id="dragbar"></a>
+<p>
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+        function intros() {
+          var txt = getRndInteger(1,13);
+          if (txt == 1) {return "Scenic";}
+          else if (txt == 0) {return ", Scary, Rural, The_City_of, Blessed, Cursed, Lost, The_Lost_City_of, Bath, Far, Near, Abandoned, Burnt, Salty, Bright, Deserted, Haunted, Filthy, Smoggy, Snowy, Boozy, Free, Utopian, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,";}
+          else if (txt == 2) {return "Historic";}
+          else if (txt == 3) {return "Remote";}
+          else if (txt == 4) {return "Colonial";}
+          else if (txt == 5) {return "The Sun-Drenched";}
+          else if (txt == 6) {return "Tropical";}
+          else if (txt == 7) {return "The Sun-Drenched Tropical Paradise";}
+          else if (txt == 8) {return "Quaint";}
+          else if (txt == 9) {return "Foggy";}
+          else if (txt == 10) {return "Beautiful";}
+          else if (txt == 11) {return "Wet";}
+          else if (txt == 12) {return "Infested";}
+          else if (txt == 13) {return "Cultural";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+        }
+        function prefixes() {
+          var txt = getRndInteger(1,19);
+          if (txt == 0) {return "Upper, Lower,Pink, Yellow, Orange, Broken, Dry,, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall,, Winter, Summer, Tierra, Wandering,, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,";}
+          else if (txt == 1) {return "North";}
+          else if (txt == 2) {return "Mount";}
+          else if (txt == 3) {return "Greater";}
+          else if (txt == 4) {return "New";}
+          else if (txt == 5) {return "Port";}
+          else if (txt == 6) {return "Black";}
+          else if (txt == 7) {return "Road of ";}
+          else if (txt == 8) {return "Winding";}
+          else if (txt == 9) {return "Lost";}
+          else if (txt == 10) {return "Spring";}
+          else if (txt == 11) {return "West";}
+          else if (txt == 12) {return "East";}
+          else if (txt == 13) {return "South";}
+          else if (txt == 14) {return "Old";}
+          else if (txt == 15) {return "Red";}
+          else if (txt == 16) {return "White";}
+          else if (txt == 17) {return "Green";}
+          else if (txt == 18) {return "Dead";}
+          else if (txt == 19) {return "Monte";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+
+      }
+      
+      function townnames() {
+          var txt = getRndInteger(1,23);
+          if (txt == 0) {return "Dog, Rose, Sunflower, Petunia, Lily, Deer, Fox, Tulip, Lions, Skull, Devils, Sand, Wine, Placido, San,, Turtle, Robin, Toten, Kreuz, Lichten, Briar, Thorn, Flower, Daisy, Peach, Hound, Cedar, Bear, Wolf, Apple, Butter, Mine, Mountain, Man's, Smuggler's, Rattlesnake, Winter, Summer, Tierra, Summoner's, Glacier, Ocean, Palm, Hinter, Nether, Heather, Danger, Aguas, Isla, Crocodile, Vogel, Diamond, Emerald, Berstein, Amber, Crystal, Pearl, Hawthorn, Blackthorn, Thorn, Bayberry, Belle, Redwood, Sequoia, Lenape, Cherokee, Cerulean, Cree, Cherry, Orange, Sky, Glass, Silver, Gold, Spruce, Hemlock, Hope, Harmony, Cinder, Crane, Dove, Palo, Saddle, Leaf, Mist, Drift, Spine, Bell, Myth, Ever, Arbor, Fall, Autumn, Dark, Black, White, Grey, Argentine, Venice, Flood, Fire, Frontier, Fox, Racoon, Goldenrod, Ember,";}
+          else if (txt == 1) {return "River";}
+          else if (txt == 2) {return "Oak";}
+          else if (txt == 3) {return "Spring";}
+          else if (txt == 4) {return "Willow";}
+          else if (txt == 5) {return "Stone";}
+          else if (txt == 6) {return "Paradise";}
+          else if (txt == 7) {return "Pine";}
+          else if (txt == 8) {return "Birken";}
+          else if (txt == 9) {return "Horse";}
+          else if (txt == 10) {return "Weiden";}
+          else if (txt == 11) {return "Linden";}
+          else if (txt == 12) {return "Eichen";}
+          else if (txt == 13) {return "Bone";}
+          else if (txt == 14) {return "Redwood";}
+          else if (txt == 15) {return "Cactus";}
+          else if (txt == 16) {return "Mill";}
+          else if (txt == 17) {return "Forge";}
+          else if (txt == 18) {return "Rock";}
+          else if (txt == 19) {return "Snake";}
+          else if (txt == 20) {return "Dogwood";}
+          else if (txt == 21) {return "Pumpkin";}
+          else if (txt == 22) {return "Edge";}
+          else if (txt == 23) {return "Rose";}
+          else if (txt == 24) {return "Gerudo";}
+          else if (txt == 25) {return "Faron";}
+          else if (txt == 26) {return "Hyrule";}
+          else if (txt == 27) {return "Holodrum";}
+          else if (txt == 28) {return "Tarm";}
+          else if (txt == 29) {return "Zora";}
+          else if (txt == 30) {return "Kakariko";}
+          else if (txt == 31) {return "Onett";}
+          else if (txt == 32) {return "Twoson";}
+          else if (txt == 33) {return "Threed";}
+          else if (txt == 34) {return "Dalaam";}
+          else if (txt == 35) {return "Fourside";}
+          else if (txt == 36) {return "Star";}
+          else if (txt == 37) {return "Stardew";}
+          else if (txt == 38) {return "Fairy";}
+
+      }
+      function suffixes() {
+          var txt = getRndInteger(1,17);
+          if (txt == 0) {return "Byr,, Meadow, , by_the_Water, Water, Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
+          else if (txt == 1) {return "Berg";}
+          else if (txt == 2) {return "Valley";}
+          else if (txt == 3) {return "Towne";}
+          else if (txt == 4) {return "Flower";}
+          else if (txt == 5) {return "Hausen";}
+          else if (txt == 6) {return "Burg";}
+          else if (txt == 7) {return "Del";}
+          else if (txt == 8) {return "Meade";}
+          else if (txt == 9) {return "Field";}
+          else if (txt == 10) {return "Stadt";}
+          else if (txt == 11) {return "Port";}
+          else if (txt == 12) {return "Ville";}
+          else if (txt == 13) {return "Falls";}
+          else if (txt == 14) {return "Dorf";}
+          else if (txt == 15) {return "Bridge";}
+          else if (txt == 16) {return "Land";}
+          else if (txt == 17) {return "Ford";}
+          else if (txt == 18) {return "Dew";}
+          else if (txt == 19) {return "Fountain";}
+
+
+
+      }
+     
+      function talents() {
+          var txt = getRndInteger(1,13);
+          if (txt == 0) {return""}
+          else if (txt == 1) {return "flight";}
+          else if (txt == 2) {return "talking to animals";}
+          else if (txt == 3) {return "cat-whisperer";}
+          else if (txt == 4) {return "dog-whisperer";}
+          else if (txt == 5) {return "alcohol resistance";}
+          else if (txt == 6) {return "can process lactose";}
+          else if (txt == 7) {return "can process sugar";}
+          else if (txt == 8) {return "can process gluten";}
+          else if (txt == 9) {return "perfect vision";}
+          else if (txt == 10) {return "perfect health";}
+          else if (txt == 11) {return "jumping high";}
+          else if (txt == 12) {return "running fast";}
+          else if (txt == 13) {return "super-speed";}
+          else if (txt == 13) {return "mathmatical talent";}
+          else if (txt == 13) {return "adept reader";}
+          else if (txt == 13) {return "avid reader";}
+          else if (txt == 13) {return "super-strength";}
+          else if (txt == 13) {return "very tall";}
+          else if (txt == 13) {return "large stature";}
+          else if (txt == 13) {return "very flexible";}
+          else if (txt == 13) {return "oh, my mistake! You are perfectly average!";}
+          else if (txt == 13) {return "dark power within";}
+          else if (txt == 13) {return "whistling really loudly";}
+          else if (txt == 13) {return "loud voice";}
+          else if (txt == 13) {return "stealth";}
+          else if (txt == 13) {return "great singing voice";}
+          else if (txt == 13) {return "musically gifted";}
+          else if (txt == 13) {return "perfect pitch";}
+          else if (txt == 13) {return "artistic talent";}
+          else if (txt == 13) {return "learning quickly";}
+          else if (txt == 13) {return "polyglot";}
+          else if (txt == 13) {return "ambidexterous";}
+          else if (txt == 13) {return "multitasking";}
+          else if (txt == 13) {return "hand-eye coordination";}
+          else if (txt == 13) {return "food coordination";}
+          else if (txt == 13) {return "strong arms";}
+          else if (txt == 13) {return "strong legs";}
+          else if (txt == 13) {return "strong abdomen";}          
+      }
+   
+      function cures() { /*appearance*/
+          var txt = getRndInteger(1,10);
+          if (txt == 0) {return "";}
+          else if (txt == 1) {return "potion";}
+          else if (txt == 2) {return "golden needle";}
+          else if (txt == 3) {return "phoenix down";}
+          else if (txt == 4) {return "pain killers";}
+          else if (txt == 5) {return "anti-emetic";}
+          else if (txt == 128) {return "pepto-bismol";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+          else if (txt == 128) {return "pep";}
+
+      }
+   
+      function malady() {
+          var txt = getRndInteger(1,31);
+          if (txt == 0) {return "directions, sell to, trade with, slap, harass, run, follow, beckon, flirt, threaten, curse, invite, inform, give, beg, stare, laugh, joke, overshare, introduce, smalltalk, listen, overhear, mispeak, propose, befriend, fall in love with, frown, cry, yawn, disgust, repulse, attract, enchant, preach, handshake, trust, mistrust, convince, pillage, defeat,";}
+          else if (txt == 1) {return "cancer of the";}
+          else if (txt == 2) {return "necrosis of the";}
+          else if (txt == 3) {return "tapeworms in the";}
+          else if (txt == 4) {return "rabies in the";}
+          else if (txt == 5) {return "infection of the";}
+          else if (txt == 6) {return "laceration of the";}
+          else if (txt == 7) {return "torsion of the";}
+          else if (txt == 8) {return "gluten allergy in the";}
+          else if (txt == 8) {return "peanut allergy in the";}
+          else if (txt == 8) {return "latex allergy in the";}
+          else if (txt == 8) {return "penicillin allergy in the";}
+          else if (txt == 8) {return "arrythmia in the";}
+          else if (txt == 8) {return "clumsiness of the";}
+          else if (txt == 8) {return "trauma to the";}
+          else if (txt == 8) {return "fracture of the";}
+          else if (txt == 8) {return "lack of circulation in the";}
+          else if (txt == 8) {return "inactivity of the";}
+          else if (txt == 8) {return "malformation of the";}
+          else if (txt == 8) {return "cat has your";}
+          else if (txt == 8) {return "water on the";}
+          else if (txt == 8) {return "copper accumulation in the";}
+          else if (txt == 8) {return "hyperkalemia of the";}
+          else if (txt == 8) {return "hypernatremia of the";}
+          else if (txt == 8) {return "excess sugar in the";}
+                  else if (txt == 8) {return "overactivity of the";}
+          else if (txt == 8) {return "clogging of the";}
+          else if (txt == 8) {return "cavitation of the";}
+          else if (txt == 8) {return "pedunculation of the";}
+          else if (txt == 8) {return "disease of the";}
+          else if (txt == 8) {return "spaghettification of the";}
+          else if (txt == 8) {return "calcification of the";}
+          else if (txt == 8) {return "atrophy of the";}
+          else if (txt == 8) {return "hypertrophy of the";}
+          else if (txt == 8) {return "missing";}
+          else if (txt == 8) {return "insects in the";}
+          else if (txt == 8) {return "mites in the";}
+          else if (txt == 8) {return "vitamin defficiency of the";}
+          else if (txt == 8) {return "fungus on the";}
+          else if (txt == 8) {return "toxins in the";}
+          else if (txt == 8) {return "poison in the";}
+      }
+  
+      function organs() {
+          var txt = getRndInteger(1,30);
+          if (txt == 0) {return "pull, push, lift, , walk, fall,";}
+          else if (txt == 1) {return "genitalia";}
+          else if (txt == 2) {return "nerve";}
+          else if (txt == 2) {return "synapse";}
+          else if (txt == 2) {return "nose";}
+          else if (txt == 2) {return "nose";}
+      }
+
+      function motivations() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return "the Kolojala sword, Philosopher's Stone,";}
+          else if (txt == 1) {return "food";}
+          else if (txt == 1) {return "approval";}
+          else if (txt == 1) {return "peer pressure";}
+          else if (txt == 1) {return "fame";}
+          else if (txt == 1) {return "honor";}
+          else if (txt == 1) {return "duty";}
+          else if (txt == 1) {return "friendship";}
+          else if (txt == 1) {return "love";}
+          else if (txt == 1) {return "popularity";}
+          else if (txt == 1) {return "loyalty";}
+          else if (txt == 1) {return "family";}
+          else if (txt == 1) {return "information";}
+          else if (txt == 1) {return "challenge";}
+          else if (txt == 1) {return "patriotism";}
+          else if (txt == 1) {return "self-improvement";}
+          else if (txt == 1) {return "fun";}
+          else if (txt == 1) {return "adventure";}
+          else if (txt == 1) {return "instinct";}
+          else if (txt == 1) {return "tradition";}
+          else if (txt == 1) {return "prophecy";}
+          else if (txt == 1) {return "religion";}
+          else if (txt == 1) {return "FOMO";}
+          else if (txt == 1) {return "fear";}
+          else if (txt == 1) {return "money";}
+          else if (txt == 1) {return "freedom";}
+          else if (txt == 1) {return "pain";}
+          else if (txt == 1) {return "code";}
+      }
+
+function getsick(){
+    document.getElementById("sickgot").innerHTML = malady();
+}function getquestioned(){
+    document.getElementById("questiongot").innerHTML = questions();
+  }function gettalent(){
+    document.getElementById("talentgot").innerHTML = talents();
+  }function getorgan(){
+    document.getElementById("organgot").innerHTML = organs();
+  }function getcure(){
+    document.getElementById("curegot").innerHTML = "of " + cures();
+  }function getroad(){
+    document.getElementById("roadgot").innerHTML = roads();
+  }function getweapon(){
+    document.getElementById("weapongot").innerHTML = weapons();
+  }function getroom(){
+    document.getElementById("roomgot").innerHTML = rooms();
+  }function getstructure(){
+    document.getElementById("structuregot").innerHTML = structures();
+  }function getcharacter(){
+    document.getElementById("charactergot").innerHTML = characters();
+  }function getpartyjob(){
+    document.getElementById("partyjobgot").innerHTML = partyjobs();
+  }function getinteraction(){
+    document.getElementById("interactiongot").innerHTML = interactions();
+  }function getactivity(){
+    document.getElementById("activitygot").innerHTML = activities();
+  }function getquestitem(){
+    document.getElementById("questitemgot").innerHTML = questitems();
+   }function getmysteriousitem(){
+    document.getElementById("mysteriousitemgot").innerHTML = mysteriousitems();
+  }function getlootitem(){
+    document.getElementById("lootitemgot").innerHTML = lootitems();
+  }function getmonster(){
+    document.getElementById("monstergot").innerHTML = monsters();
+  }function getnews(){
+    document.getElementById("newsgot").innerHTML = news();
+  }function getplot(){
+    document.getElementById("plotgot").innerHTML = plots();
+  }function get8(){
+    document.getElementById("8got").innerHTML = eights();
+  }function getboss(){
+    document.getElementById("bossgot").innerHTML = boss();
+  }function getspoiler(){
+    document.getElementById("spoilergot").innerHTML = spoilers();
+  }function getcatchphrase(){
+    document.getElementById("catchphrasegot").innerHTML = phrases();
+  }
+
+
+function copyintro() {
+  var copyText = document.getElementById("town-intro");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the list");
+  document.getElementById("surroundingtext").innerHTML = "..."
+}
+function copyprefix() {
+  var copyText = document.getElementById("town-prefix");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the list");
+  document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
+}
+</script>
+<br><br><h2>What is your quest?</h2>
+<div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+  In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
+  </div>  
+  <button id="runmadlib" onclick="runmadlib()">Start</button>
+  <br><br><br>
+	<h2>Setting:</h2>
+    Town Description:
+    <button id="getintro" onclick="getintro()">Select</button>
+    <span id="introgot"></span>
+    <br><br>
+    Town Prefixes:
+    <button id="getprefix" onclick="getprefix()">Select</button>
+    <span id="prefixgot"></span>
+    <br><br>
+    Town Name:
+    <button id="gettownname" onclick="gettownname()">Select</button>
+    <span id="townnamegot"></span>
+    <br><br>
+    Town Suffixes:
+    <button id="getsuffix" onclick="getsuffix()">Select</button>
+    <span id="suffixgot"></span>
+    <br><br>
+    Nations:
+    <button id="getnation" onclick="getnation()">Select</button>
+    <span id="nationgot"></span>
+    <br><br>
+    Roads are:
+    <button id="getroad" onclick="getroad()">Select</button>
+    <span id="roadgot"></span>
+<div id="chargenarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+<h2>Generate Character:</h2> 
+	<button id="getallcharacter" onclick="getweapon2()", onclick="getcharacter()", onclick="getpartyjob2()">Select</button><br><br>
+   	Name: <input>     <a href="webnamegen.html" target="_blank" title="Generates random names" class="templateLink">Not sure?</a><br><br> 
+	Appearance: <input><span id="charactergot2"></span><br><br>
+	Default weapon: <input><span id="weapongot2"></span>
+	Role: <input><span id="partyjobgot2"></span><br><br>
+	Alignment: <input><span id="aligngot"></span>
+	Language: <input><span id="langgot"></span><br><br>
+	Constitution: <input><span id="constgot"></span>
+	Strength: <input><span id="strengthgot"></span><br><br>
+	Dexterity: <input><span id="dextgot"></span>
+	Intelligence: <input><span id="intelgot"></span><br><br>
+	Wisdom: <input><span id="wisegot"></span>
+	Charisma: <input><span id="charismagot"></span>
+</div><br><br>
+    Weapons:
+    <button id="getweapon" onclick="getweapon()">Select</button>
+    <span id="weapongot"></span>
+    <br><br>
+    Appearance:
+    <button id="getcharacter" onclick="getcharacter()">Select</button>
+    <span id="charactergot"></span>
+    <br><br>
+    Party Job:
+    <button id="getpartyjob" onclick="getpartyjob()">Select</button>
+    <span id="partyjobgot"></span>
+    <br><br>
+	    <br><br><h2>Story:</h2>
+    Dialogue:
+    <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
+    <span id="catchphrasegot"></span>
+    <br><br>
+    Interactions:
+    <button id="getinteraction" onclick="getinteraction()">Select</button>
+    <span id="interactiongot"></span>
+    <br><br>
+    Activities:
+    <button id="getactivity" onclick="getactivity()">Select</button>
+    <span id="activitygot"></span>
+    <br><br>
+    Quest Item:
+    <button id="getquestitem" onclick="getquestitem()">Select</button>
+    <span id="questitemgot"></span>
+    <br><br>
+    Mysterious Item:
+    <button id="getmysteriousitem" onclick="getmysteriousitem()">Select</button>
+    <span id="mysteriousitemgot"></span>
+    <br><br>
+    Loot Item:
+    <button id="getlootitem" onclick="getlootitem()">Select</button>
+    <span id="lootitemgot"></span>
+    <br><br>
+    Random Encounter:
+    <button id="getmonster" onclick="getmonster()">Select</button>
+    <span id="monstergot"></span>
+	<br><br>
+ Boss Fight:
+    <button id="getboss" onclick="getboss()">Select</button>
+    <span id="bossgot"></span>
+    <br><br>
+    Plot Device:
+    <button id="getplot" onclick="getplot()">Select</button>
+    <span id="plotgot"></span>
+    <br><br>
+	Spoilers:
+    <button id="getspoiler" onclick="getspoiler()">Select</button>
+    <span id="spoilergot"></span>
+    <br><br>
+    Headlines:
+    <button id="getnews" onclick="getnews()">Select</button>
+    <span id="newsgot"></span>
+    <br><br>
+    <div style="border: 3px">
+<h2>Map</h2>
+<p>Click a square to place land</p>
+<br>
+<div style="border: 2px, solid, red; background-color: black; width: 338px;">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+</div>
+<br>
+	    <h2>Buildings / Rooms</h2>
+<p>Click a square to build</p>
+<br>
+<div style="border: 2px, solid, red; background-color: black; width: 338px;">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+</div><br>
+	    Structures:
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+	Rooms:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
+    <br><br>
+	    <h2>Extra</h2>
+	    8 Ball:
+    <button id="get8" onclick="get8()">Select</button>
+    <span id="8got"></span>
+	<br><br>
+	D20:
+    <button id="getroom" onclick="getd20()">Select</button>
+    <span id="roomgot"></span>
+	    <br><br>
+	    D6:
+    <button id="getroom" onclick="getd6()">Select</button>
+    <span id="roomgot"></span>
+	    <br><br>
+Drag this icon:
+	    <br>
+	    <div id="drag" style="position: absolute;">
+<div id="dragheader" style="background-color: yellow; text-align: center; cursor: move; font-size: 25px; width:38px; height: 38px; text-align: center; border-radius: 45px;">☺</div>
+</div>
+<script>
+dragElement(document.getElementById("drag"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+	    <br><br>
+    Previous Campaigns:
+    <br>
+    <input value="Space to take notes...">
+    <br><br>
+</p>
+
+<script>
+
+function submitTryit(n) {
+  if (window.editor) {
+    window.editor.save();
+  }
+  var text = document.getElementById("textareaCode").value;
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");
+  ifr.setAttribute("name", "iframeResult");  
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+  document.getElementById("iframeResult").addEventListener("load", hideSpinner);
+  if (loadSave == true ) {
+    ifr.setAttribute("src", "/code/opentext.htm");
+  } else if (loadSave == false) {
+    displaySpinner();
+    var t=text;
+    t=t.replace(/=/gi,"w3equalsign");
+    t=t.replace(/\+/gi,"w3plussign");    
+    var pos=t.search(/script/i)
+    while (pos>0) {
+      t=t.substring(0,pos) + "w3" + t.substr(pos,3) + "w3" + t.substr(pos+3,3) + "tag" + t.substr(pos+6);
+	    pos=t.search(/script/i);
+    }
+    document.getElementById("code").value=t;
+    document.getElementById("codeForm").action = "https://try.w3schools.com/try_php.php?x=" + Math.random();
+    document.getElementById('codeForm').method = "post";
+    document.getElementById('codeForm').acceptCharset = "utf-8";
+    document.getElementById('codeForm').target = "iframeResult";
+    document.getElementById("codeForm").submit();
+  } else {
+    var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+    ifrw.document.open();
+    ifrw.document.write(text);  
+    ifrw.document.close();
+    //23.02.2016: contentEditable is set to true, to fix text-selection (bug) in firefox.
+    //(and back to false to prevent the content from being editable)
+    //(To reproduce the error: Select text in the result window with, and without, the contentEditable statements below.)  
+    if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
+      ifrw.document.body.contentEditable = true;
+      ifrw.document.body.contentEditable = false;
+    }
+  }
+}
+
+function hideSpinner() {
+  document.getElementById("runloadercontainer").style.display = "none";
+}
+function displaySpinner() {
+  var i, c, w, h, r, top;
+  i = document.getElementById("iframeResult");
+  w = w3_getStyleValue(i, "width");
+  h = w3_getStyleValue(i, "height");
+  c = document.getElementById("runloadercontainer");
+  c.style.width = w;
+  c.style.height = h;
+  c.style.display = "block";
+  w = Number(w.replace("px", "")) / 5;
+  r = document.getElementById("runloader");
+  r.style.width = w + "px";
+  r.style.height = w + "px";
+  h = w3_getStyleValue(r, "height");
+  h = Number(h.replace("px", "")) / 2;
+  top = w3_getStyleValue(c, "height");
+  top = Number(top.replace("px", "")) / 2;
+  top = top - h
+  r.style.top = top + "px";
+}
+
+
+var currentStack=true;
+if ((window.screen.availWidth <= 768 && window.innerHeight > window.innerWidth) || "" == " horizontal") {restack(true);}
+function restack(horizontal) {
+    var tc, ic, t, i, c, f, sv, sh, d, height, flt, width;
+    tc = document.getElementById("textareacontainer");
+    ic = document.getElementById("iframecontainer");
+    t = document.getElementById("textarea");
+    i = document.getElementById("iframe");
+    c = document.getElementById("container");    
+    sv = document.getElementById("stackV");
+    sh = document.getElementById("stackH");
+    tc.className = tc.className.replace("horizontal", "");
+    ic.className = ic.className.replace("horizontal", "");        
+    t.className = t.className.replace("horizontal", "");        
+    i.className = i.className.replace("horizontal", "");        
+    c.className = c.className.replace("horizontal", "");                        
+    if (sv) {sv.className = sv.className.replace("horizontal", "")};
+    if (sv) {sh.className = sh.className.replace("horizontal", "")};
+    stack = "";
+    if (horizontal) {
+        tc.className = tc.className + " horizontal";
+        ic.className = ic.className + " horizontal";        
+        t.className = t.className + " horizontal";        
+        i.className = i.className + " horizontal";                
+        c.className = c.className + " horizontal";                
+        if (sv) {sv.className = sv.className + " horizontal"};
+        if (sv) {sh.className = sh.className + " horizontal"};
+        stack = " horizontal";
+        document.getElementById("textareacontainer").style.height = "50%";
+        document.getElementById("iframecontainer").style.height = "50%";
+        document.getElementById("textareacontainer").style.width = "100%";
+        document.getElementById("iframecontainer").style.width = "100%";
+        currentStack=false;
+    } else {
+        document.getElementById("textareacontainer").style.height = "100%";
+        document.getElementById("iframecontainer").style.height = "100%";
+        document.getElementById("textareacontainer").style.width = "50%";
+        document.getElementById("iframecontainer").style.width = "50%";
+        currentStack=true;        
+    }
+    fixDragBtn();
+    showFrameSize();
+}
+function retheme() {
+  var cc = document.body.className;
+  if (cc.indexOf("darktheme") > -1) {
+    document.body.className = cc.replace("darktheme", "");
+    if (opener) {opener.document.body.className = cc.replace("darktheme", "");}
+    localStorage.setItem("preferredmode", "light");
+  } else {
+    document.body.className += " darktheme";
+    if (opener) {opener.document.body.className += " darktheme";}
+    localStorage.setItem("preferredmode", "dark");
+  }
+}
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  if (x == "dark") {
+    document.body.className += " darktheme";
+  }
+})();
+function showFrameSize() {
+  var t;
+  var width, height;
+  width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
+  height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
+  document.getElementById("framesize").innerHTML = "Result Size: <span>" + width + " x " + height + "</span>";
+}
+var dragging = false;
+var stack;
+function fixDragBtn() {
+  var textareawidth, leftpadding, dragleft, containertop, buttonwidth
+  var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+  if (stack != " horizontal") {
+    document.getElementById("dragbar").style.width = "5px";    
+    textareasize = Number(w3_getStyleValue(document.getElementById("textareawrapper"), "width").replace("px", ""));
+    leftpadding = Number(w3_getStyleValue(document.getElementById("textarea"), "padding-left").replace("px", ""));
+    buttonwidth = Number(w3_getStyleValue(document.getElementById("dragbar"), "width").replace("px", ""));
+    textareaheight = w3_getStyleValue(document.getElementById("textareawrapper"), "height");
+    dragleft = textareasize + leftpadding + (leftpadding / 2) - (buttonwidth / 2);
+    document.getElementById("dragbar").style.top = containertop + "px";
+    document.getElementById("dragbar").style.left = dragleft + "px";
+    document.getElementById("dragbar").style.height = textareaheight;
+    document.getElementById("dragbar").style.cursor = "col-resize";
+    
+  } else {
+    document.getElementById("dragbar").style.height = "5px";
+    if (window.getComputedStyle) {
+        textareawidth = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height");
+        textareaheight = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width");
+        leftpadding = window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top");
+        buttonwidth = window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height");
+    } else {
+        dragleft = document.getElementById("textareawrapper").currentStyle["width"];
+    }
+    textareawidth = Number(textareawidth.replace("px", ""));
+    leftpadding = Number(leftpadding .replace("px", ""));
+    buttonwidth = Number(buttonwidth .replace("px", ""));
+    dragleft = containertop + textareawidth + leftpadding + (leftpadding / 2);
+    document.getElementById("dragbar").style.top = dragleft + "px";
+    document.getElementById("dragbar").style.left = "5px";
+    document.getElementById("dragbar").style.width = textareaheight;
+    document.getElementById("dragbar").style.cursor = "row-resize";        
+  }
+}
+function dragstart(e) {
+  e.preventDefault();
+  dragging = true;
+  var main = document.getElementById("iframecontainer");
+}
+function dragmove(e) {
+  if (dragging) 
+  {
+    document.getElementById("shield").style.display = "block";        
+    if (stack != " horizontal") {
+      var percentage = (e.pageX / window.innerWidth) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.width = percentage + "%";
+        document.getElementById("iframecontainer").style.width = mainPercentage + "%";
+        fixDragBtn();
+      }
+    } else {
+      var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+      var percentage = ((e.pageY - containertop + 20) / (window.innerHeight - containertop + 20)) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.height = percentage + "%";
+        document.getElementById("iframecontainer").style.height = mainPercentage + "%";
+        fixDragBtn();
+      }
+    }
+    showFrameSize();    
+  }
+}
+function dragend() {
+  document.getElementById("shield").style.display = "none";
+  dragging = false;
+  var vend = navigator.vendor;
+  if (window.editor && vend.indexOf("Apple") == -1) {
+      window.editor.refresh();
+  }
+}
+if (window.addEventListener) {              
+  document.getElementById("dragbar").addEventListener("mousedown", function(e) {dragstart(e);});
+  document.getElementById("dragbar").addEventListener("touchstart", function(e) {dragstart(e);});
+  window.addEventListener("mousemove", function(e) {dragmove(e);});
+  window.addEventListener("touchmove", function(e) {dragmove(e);});
+  window.addEventListener("mouseup", dragend);
+  window.addEventListener("touchend", dragend);
+  window.addEventListener("load", fixDragBtn);
+  window.addEventListener("load", showFrameSize);
+}
+
+
+function colorcoding() {
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+    mode: "application/x-httpd-php",
+    lineWrapping: true,
+    smartIndent: false
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+colorcoding();
+
+function w3_getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+
+function openMenu() {
+    var x = document.getElementById("navbarDropMenu");
+    var y = document.getElementById("menuOverlay");
+    var z = document.getElementById("menuButton");
+    if (z.className.indexOf("w3-text-gray") == -1) {
+        z.className += " w3-text-gray";
+    } else { 
+        z.className = z.className.replace(" w3-text-gray", "");
+    }
+    if (z.className.indexOf("w3-gray") == -1) {
+        z.className += " w3-gray";
+    } else { 
+        z.className = z.className.replace(" w3-gray", "");
+    }
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+    if (y.className.indexOf("w3-show") == -1) {
+        y.className += " w3-show";
+    } else { 
+        y.className = y.className.replace(" w3-show", "");
+    }
+
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("menuOverlay")) {
+        openMenu();
+    } 
+}
+uic_r_e()
+</script>
+<input value="Space to take notes...">
+<!--
+head: narrow, round, 
+mouth: mandibles, snout, 
+eyes: cat, ungulate, insect, spider, membrane, 
+wings: bat, bird, insect
+machine: screen, keys, ports, vent, fan, 
+vehicle: wings, turbine, propeller, engine, wheel, treads, 
+-->
+</body>
+</html>
