@@ -417,6 +417,11 @@ font-style:normal;
 a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
     font-size: 28px!important;
 }
+.button {
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
 .boxlets {
 	display:inline-flex;
 	background: white; 
@@ -465,19 +470,22 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <div class = "boxlets", id = "boxlet7"></div>
 <div class = "boxlets", id = "boxlet8"></div>
 <div class = "boxlets", id = "boxlet9"></div>
+</div>
+<br>
+<div class = "containboxlets", style="width:330px;height:30px;">
 <div class = "boxlets", id = "boxlet10"></div>
 <div class = "boxlets", id = "boxlet11"></div>
 <div class = "boxlets", id = "boxlet12"></div>
 <div class = "boxlets", id = "boxlet13"></div>
 <div class = "boxlets", id = "boxlet14"></div>
-	</div>
-		<br>
-	<div class = "containboxlets", style="width:330px;height:30px;">
 <div class = "boxlets", id = "boxlet15"></div>
 <div class = "boxlets", id = "boxlet16"></div>
 <div class = "boxlets", id = "boxlet17"></div>
 <div class = "boxlets", id = "boxlet18"></div>
 <div class = "boxlets", id = "boxlet19"></div>
+</div>
+	<br>
+<div class = "containboxlets", style="width:330px;height:30px;">
 <div class = "boxlets", id = "boxlet20"></div>
 <div class = "boxlets", id = "boxlet21"></div>
 <div class = "boxlets", id = "boxlet22"></div>
@@ -485,6 +493,21 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <div class = "boxlets", id = "boxlet24"></div>
 <div class = "boxlets", id = "boxlet25"></div>
 <div class = "boxlets", id = "boxlet26"></div>
+<div class = "boxlets", id = "boxlet27"></div>
+<div class = "boxlets", id = "boxlet28"></div>
+<div class = "boxlets", id = "boxlet29"></div>
+	<br>
+<div class = "containboxlets", style="width:330px;height:30px;">
+<div class = "boxlets", id = "boxlet30"></div>
+<div class = "boxlets", id = "boxlet31"></div>
+<div class = "boxlets", id = "boxlet32"></div>
+<div class = "boxlets", id = "boxlet33"></div>
+<div class = "boxlets", id = "boxlet34"></div>
+<div class = "boxlets", id = "boxlet35"></div>
+<div class = "boxlets", id = "boxlet36"></div>
+<div class = "boxlets", id = "boxlet37"></div>
+<div class = "boxlets", id = "boxlet38"></div>
+<div class = "boxlets", id = "boxlet39"></div>
 	</div>
 		<br>
 </div>
@@ -785,7 +808,9 @@ window.onclick = function(event) {
 }
 uic_r_e()
 	
-const boxes = document.querySelectorAll('.boxlets');
+</script>
+	<script>
+		const boxes = document.querySelectorAll('.boxlets');
         const redButton = document.getElementById('redButton');
         const blueButton = document.getElementById('blueButton');
         let colorMode = '';
@@ -811,8 +836,7 @@ const boxes = document.querySelectorAll('.boxlets');
                 }
             });
         });
-
-</script>
+	</script>
 <input value="Space to take notes...">
 <!--
 head: narrow, round, 
