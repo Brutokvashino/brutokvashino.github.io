@@ -456,9 +456,22 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 
 <!--<h2>Pixel Art</h2>-->
 <p>Click a square to color it</p>
-<button id="redButton">Red Button</button>
-<button id="greenButton">Green Button</button>
-<button id="blueButton">Blue Button</button>
+<button id="redButton" style="background-color: red">Red</button>
+<button id="orangeButton" style="background-color: orange">Orange</button>
+<button id="yellowButton" style="background-color: yellow">Yellow</button>
+<button id="greenButton" style="background-color: green">Green</button>
+<button id="cyanButton" style="background-color: cyan">Cyan</button>
+<button id="blueButton" style="background-color: blue">Blue</button>
+<button id="purpleButton" style="background-color: purple">Purple</button>
+<button id="pinkButton" style="background-color: pink">Pink</button>
+<button id="blackButton" style="color: white; background-color: black">Black</button>
+<button id="whiteButton" style="background-color: white">White</button>
+<button id="redgradButton" style="background-color: red">Gradient</button>
+<button id="greengradButton" style="background-color: green">Gradient</button>
+<button id="bluegradButton" style="background-color: blue">Gradient</button>
+<button id="rggradButton" style="background-color: yellow">Gradient</button>
+<button id="rbgradButton" style="background-color: purple">Gradient</button>
+<button id="gbgradButton" style="background-color: cyan">Gradient</button>
 <br>
 <div style="background-color: black; width: 450px; height:300px;">
 <div class = "containboxlets", style="width:450px;height:30px;">
@@ -956,19 +969,67 @@ uic_r_e()
 	
 </script>
 	<script>
-		const boxes = document.querySelectorAll('.boxlets');
+	const boxes = document.querySelectorAll('.boxlets');
         const redButton = document.getElementById('redButton');
+        const orangeButton = document.getElementById('orangeButton');
+        const yellowButton = document.getElementById('yellowButton');
         const greenButton = document.getElementById('greenButton');
+        const cyanButton = document.getElementById('cyanButton');
         const blueButton = document.getElementById('blueButton');
+        const purpleButton = document.getElementById('purpleButton');
+        const pinkButton = document.getElementById('pinkButton');
+        const blackButton = document.getElementById('blackButton');
+        const whiteButton = document.getElementById('whiteButton');
+        const redgradButton = document.getElementById('redgradButton');
+        const greengradButton = document.getElementById('greengradButton');
+        const bluegradButton = document.getElementById('bluegradButton');
+        const rggradButton = document.getElementById('rggradButton');
+        const rbgradButton = document.getElementById('rbgradButton');
+        const gbgradButton = document.getElementById('gbgradButton');
         let colorMode = '';
         redButton.addEventListener('click', () => {
             colorMode = 'red';
+        });orangeButton.addEventListener('click', () => {
+            colorMode = 'orange';
+        });yellowButton.addEventListener('click', () => {
+            colorMode = 'yellow';
         });
 	greenButton.addEventListener('click', () => {
             colorMode = 'green';
         });
+        cyanButton.addEventListener('click', () => {
+            colorMode = 'cyan';
+        });
         blueButton.addEventListener('click', () => {
             colorMode = 'blue';
+        });purpleButton.addEventListener('click', () => {
+            colorMode = 'purple';
+        });pinkButton.addEventListener('click', () => {
+            colorMode = 'pink';
+        });
+        blackButton.addEventListener('click', () => {
+            colorMode = 'black';
+        });
+        whiteButton.addEventListener('click', () => {
+            colorMode = 'white';
+        });
+        redgradButton.addEventListener('click', () => {
+            colorMode = 'redgrad';
+        });
+        greengradButton.addEventListener('click', () => {
+            colorMode = 'greengrad';
+        });
+        bluegradButton.addEventListener('click', () => {
+            colorMode = 'bluegrad';
+        });
+        rggradButton.addEventListener('click', () => {
+            colorMode = 'rggrad';
+        });
+        rbgradButton.addEventListener('click', () => {
+            colorMode = 'rbgrad';
+        });
+        gbgradButton.addEventListener('click', () => {
+            colorMode = 'gbgrad';
         });
         boxes.forEach(box => {
             let red = 0;
@@ -976,21 +1037,97 @@ uic_r_e()
             let blue = 0;
             let darkness = 255;
             box.addEventListener('click', () => {
-                if (colorMode === 'red' && red < 255) {
-                    red += 20;
-                    darkness -= 20;
+                if (colorMode === 'red') {
+                    red = 255;
+                    green = 0;
+                    blue = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                    }
+                       else if (colorMode === 'orange') {
+                    red = 255;
+                    green = 100;
+                    blue = 30;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+                   else if (colorMode === 'yellow') {
+                    red = 255;
+                    green = 255;
+                    blue = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+		    else if (colorMode === 'green') {
+                    red = 0;
+                    green = 255;
+                    blue = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+		    else if (colorMode === 'cyan') {
+                    red = 0;
+                    green = 255;
+                    blue = 255;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+                   else if (colorMode === 'blue') {
+                    red = 0;
+                    green = 0;
+                    blue = 255;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+                                 else if (colorMode === 'purple') {
+                    red = 100
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${red})`;
+                } 
+                                 else if (colorMode === 'pink') {
+                    red = 255;
+                    darkness = 200;
                     box.style.backgroundColor = `rgb(${red}, ${darkness}, ${darkness})`;
                 } 
-		    else if (colorMode === 'green' && green < 255) {
-                    green += 20;
-                    darkness -= 20;
-                    box.style.backgroundColor = `rgb(${darkness}, ${green}, ${darkness})`;
+                   else if (colorMode === 'black') {
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${darkness})`;
+                } 
+                   else if (colorMode === 'white') {
+                    darkness = 255;
+                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${darkness})`;
                 }
-		    else if (colorMode === 'blue' && blue < 255) {
-                    blue += 20;
-                    darkness -= 20;
-                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${blue})`;
-                }
+                
+                                 else if (colorMode === 'redgrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${darkness})`;
+                } 
+                
+                                 else if (colorMode === 'greengrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${red}, ${darkness})`;
+                } 
+                
+                                 else if (colorMode === 'bluegrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${red})`;
+                } 
+                
+                                 else if (colorMode === 'rggrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${red}, ${darkness})`;
+                } 
+                
+                                 else if (colorMode === 'rbgrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${red})`;
+                } 
+                
+                                 else if (colorMode === 'gbgrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${red}, ${red})`;
+                } 
+           
             });
         });
 	</script>
