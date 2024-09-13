@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<title>Pixel Art</title>
+<title>Pixel Map</title>
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:image" content="">
@@ -431,6 +431,22 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 	padding: 0px; 
 	margin: 0px;
 }
+	#dragzone {
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  background-color: #d3d3d3;
+  border: none;
+  color: black;
+  padding:10px;
+  max-width:100px;
+}
+#labelscontainer {
+	display:inline-flex;
+}
+#labeltext {
+	padding:10px;
+}
 </style>
 <!--[if lt IE 8]>
 <style>
@@ -455,19 +471,15 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
   </div>
 <section> 
                     <div class = "rightMargin">
-                        <div class="sidebar" style="color: black"> 
+                        <div class="sidebar" style="color: black; position:fixed;"> 
                             <aside role="complementary"> 
                                 <h2 class="fact">Labels</h2> 
-                                <nav role="navigation" class="textBody"> 
-                                    <ol> 
-                                        <li>
-                                            <a href="" class="rlink">Drag Zone</a>
-                                        </li> 
-                                        <li style="padding-top:5px;">
-                                            <a href="#" class="rlink2">Reset</a>
-                                        </li> 
-                                    </ol> 
-                                </nav> 
+                                <div id = "labelscontainer">
+					<button onclick="createDiv()">Create label</button>
+					<div id="labeltext" contenteditable="true">Label Text</div>
+				</div>
+<br><br>
+<div id="dragzone">Drag new labels from here</div>
                             </aside> 
                         </div>
                     </div>
@@ -491,7 +503,6 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <button id="rbgradButton" style="background-color: purple">Marshes</button>
 <button id="gbgradButton" style="background-color: cyan">Shallows</button>
 <br>
-<div style="background-color: black; width: 450px; height:300px;">
 <div class = "containboxlets", style="width:450px;height:30px;">
 <div class="boxlets",id="boxlet1"></div><!--
 --><div class="boxlets",id="boxlet2">A</div><!--
@@ -509,6 +520,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 --><div class="boxlets",id="boxlet9">M</div><!--
 --><div class="boxlets",id="boxlet10">N</div>
 </div>
+<div style="background-color: black; width: 450px; height:300px;">
 <div class = "containboxlets", style="width:450px;height:30px;">
 <div class="boxlets",id="boxlet1">1</div><!--
 --><div class="boxlets",id="boxlet2" contenteditable="true"></div><!--
@@ -1166,6 +1178,50 @@ uic_r_e()
             });
         });
 	</script>
+	<script>
+function createDiv() {
+           const newDiv = document.createElement("div");
+           newDiv.id = "dragzone";
+           newDiv.innerText = (document.getElementById("labeltext")).innerHTML;
+            newDiv.contenteditable = "true";
+           document.body.appendChild(newDiv);
+           dragElement(newDiv);
+       }
+</script>
+<script>
+dragElement(document.getElementById("dragzone"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id)) {
+    document.getElementById(elmnt.id).onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+ 
 <!--
 head: narrow, round, 
 mouth: mandibles, snout, 
