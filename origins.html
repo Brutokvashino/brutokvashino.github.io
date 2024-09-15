@@ -452,9 +452,12 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
         // Initialize the map and set its view to a chosen geographical coordinates and zoom level
-        var map = L.map('map').setView([0.505, 0.09], 4);
+        var map = L.map('map').setView([0.505, 0.09], 3);
  L.marker([-30.420256, 24.623657]).addTo(map).bindPopup("Felis family, wild rosemary, taaibos plant, sand olive, 8dayhealingbush");
-			L.marker([5.0, 30.0]).addTo(map).bindPopup("B");
+L.marker([48.618385, -99.475339]).addTo(map).bindPopup("Vinland grapes, North American cranberries, crabapples, wild strawberries, blueberries, raspberries...");
+ L.marker([46.7248, -76.05989]).addTo(map).bindPopup("Lynx");
+ L.marker([57.437559, -153.279372]).addTo(map).bindPopup("Kodiak Bear");
+	
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
