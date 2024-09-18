@@ -451,9 +451,8 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function intros() {
-          var txt = getRndInteger(1,13);
+          var txt = getRndInteger(1,64);
           if (txt == 1) {return "Scenic";}
-          else if (txt == 0) {return ", Scary, Rural, The_City_of, Blessed, Cursed, Lost, The_Lost_City_of, Bath, Far, Near, Abandoned, Burnt, Salty, Bright, Deserted, Haunted, Filthy, Smoggy, Snowy, Boozy, Free, Utopian, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,";}
           else if (txt == 2) {return "Historic";}
           else if (txt == 3) {return "Remote";}
           else if (txt == 4) {return "Colonial";}
@@ -466,13 +465,57 @@ function getRndInteger(min, max) {
           else if (txt == 11) {return "Wet";}
           else if (txt == 12) {return "Infested";}
           else if (txt == 13) {return "Cultural";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
+          else if (txt == 14) {return "Crime-ridden";}
+          else if (txt == 15) {return "Rich";}
+          else if (txt == 16) {return "Dodgy";}
+          else if (txt == 17) {return "Seedy";}
+          else if (txt == 18) {return "Wealthy";}
+          else if (txt == 19) {return "Affluent";}
+          else if (txt == 20) {return "Cozy";}
+          else if (txt == 21) {return "Boring";}
+          else if (txt == 22) {return "Quiet";}
+          else if (txt == 23) {return "Bustling";}
+          else if (txt == 24) {return "Hip";}
+          else if (txt == 25) {return "Exciting";}
+          else if (txt == 26) {return "Filthy";}
+          else if (txt == 27) {return "Poor";}
+          else if (txt == 28) {return "Scary";}
+          else if (txt == 29) {return "Rural";}
+          else if (txt == 30) {return "The City of";}
+          else if (txt == 31) {return "Blessed";}
+          else if (txt == 32) {return "Cursed";}
+          else if (txt == 33) {return "Lost";}
+          else if (txt == 34) {return "The Lost City of";}
+          else if (txt == 35) {return "Far";}
+          else if (txt == 36) {return "Near";}
+          else if (txt == 37) {return "Abandoned";}
+          else if (txt == 38) {return "Burnt";}
+          else if (txt == 39) {return "Salty";}
+          else if (txt == 40) {return "Bright";}
+          else if (txt == 41) {return "Deserted";}
+          else if (txt == 42) {return "Haunted";}
+          else if (txt == 43) {return "Smoggy";}
+          else if (txt == 44) {return "Snowy";}
+          else if (txt == 45) {return "Boozy";}
+          else if (txt == 46) {return "Free";}
+          else if (txt == 47) {return "Utopian";}
+          else if (txt == 48) {return "Icy";}
+          else if (txt == 49) {return "Terrible";}
+          else if (txt == 40) {return "Wild";}
+          else if (txt == 51) {return "Timeless";}
+          else if (txt == 52) {return "Revolutionary";}
+          else if (txt == 53) {return "Whimsical";}
+          else if (txt == 54) {return "Mythical";}
+          else if (txt == 55) {return "Rainy";}
+          else if (txt == 56) {return "Dank";}
+          else if (txt == 57) {return "Bleak";}
+          else if (txt == 58) {return "Sacred";}
+          else if (txt == 59) {return "Windy";}
+          else if (txt == 60) {return "Harmonious";}
+          else if (txt == 61) {return "Picturesque";}
+          else if (txt == 62) {return "Freezing";}
+          else if (txt == 63) {return "Sweltering";}
+          else if (txt == 64) {return "Rustic";}
           else if (txt == 0) {return "";}
           else if (txt == 0) {return "";}
           else if (txt == 0) {return "";}
@@ -481,7 +524,7 @@ function getRndInteger(min, max) {
         }
         function prefixes() {
           var txt = getRndInteger(1,19);
-          if (txt == 0) {return "Upper, Lower,Pink, Yellow, Orange, Broken, Dry,, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall,, Winter, Summer, Tierra, Wandering,, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,";}
+          if (txt == 0) {return "Lower,Pink, Yellow, Orange, Broken, Dry,, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall,, Winter, Summer, Tierra, Wandering,, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,";}
           else if (txt == 1) {return "North";}
           else if (txt == 2) {return "Mount";}
           else if (txt == 3) {return "Greater";}
@@ -501,9 +544,9 @@ function getRndInteger(min, max) {
           else if (txt == 17) {return "Green";}
           else if (txt == 18) {return "Dead";}
           else if (txt == 19) {return "Monte";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "Bath";}
+          else if (txt == 0) {return "Key";}
+          else if (txt == 0) {return "Upper";}
 
 
       }
@@ -549,10 +592,13 @@ function getRndInteger(min, max) {
           else if (txt == 36) {return "Star";}
           else if (txt == 37) {return "Stardew";}
           else if (txt == 38) {return "Fairy";}
+          else if (txt == 38) {return "Key";}
+          else if (txt == 38) {return "Crest";}
+          else if (txt == 38) {return "Bath";}
 
       }
       function suffixes() {
-          var txt = getRndInteger(1,17);
+          var txt = getRndInteger(1,22);
           if (txt == 0) {return "Byr,, Meadow, , by_the_Water, Water, Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
           else if (txt == 1) {return "Berg";}
           else if (txt == 2) {return "Valley";}
@@ -573,8 +619,9 @@ function getRndInteger(min, max) {
           else if (txt == 17) {return "Ford";}
           else if (txt == 18) {return "Dew";}
           else if (txt == 19) {return "Fountain";}
-
-
+          else if (txt == 20) {return "Pulcher";}
+          else if (txt == 21) {return "Foedus";}
+          else if (txt == 22) {return "-let";}
 
       }
       function nations() {
