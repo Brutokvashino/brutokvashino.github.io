@@ -1315,7 +1315,29 @@ function getRndInteger(min, max) {
           else if (txt == 18) {return "18";}
           else if (txt == 19) {return "19";}
           else if (txt == 20) {return "20";}
-        }function sixes() {
+        }
+	function bios(){
+		var txt = getRndInteger(1,4);
+		if (txt == 1) {return "enrolled in the mathematics and physics teaching diploma program at the federal polytechnic school"}/*[1]*/
+		else if (txt == 2) {return ""}
+		else if (txt == 3) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+	}
+	function sixes() {
           var txt = getRndInteger(1,6);
           if (txt == 0) {return ""}
           else if (txt == 1) {return "1";}
@@ -1535,6 +1557,9 @@ function copyprefix() {
     <span id="partyjobgot"></span>
     <br><br>
 	    <br><br><h2>Story:</h2>
+    Bio:
+    <button id="getbio" onclick="getbio()">Select</button>
+    <span id="biogot"></span>
     Dialogue:
     <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
     <span id="catchphrasegot"></span>
@@ -1575,7 +1600,7 @@ function copyprefix() {
     <button id="getspoiler" onclick="getspoiler()">Select</button>
     <span id="spoilergot"></span>
     <br><br>
-    Headlines:
+    Headlines (from Wikipedia):
     <button id="getnews" onclick="getnews()">Select</button>
     <span id="newsgot"></span>
     <br><br>
@@ -2102,6 +2127,12 @@ function dragElement(elmnt) {
     document.ontouchmove = null;
   }
 }
+
+[1] Albert Einstein
+[2] Elvis Presley
+[3] Cleopatra
+[4] 
+
 
 */
 
