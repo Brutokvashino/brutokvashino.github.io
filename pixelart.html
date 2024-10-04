@@ -987,7 +987,6 @@ uic_r_e()
         const rbgradButton = document.getElementById('rbgradButton');
         const gbgradButton = document.getElementById('gbgradButton');
         let colorMode = '';
-	let isDragging = false;
         redButton.addEventListener('click', () => {
             colorMode = 'red';
         });orangeButton.addEventListener('click', () => {
@@ -1131,111 +1130,6 @@ uic_r_e()
            
             });
         });
-		
-// For touch devices
-      box.addEventListener('touchstart', () => isDragging = true);
-      box.addEventListener('touchend', () => isDragging = false);
-      box.addEventListener('touchmove', (e) => {
-	      if (element && element.classList.contains('boxlets')) {
-                if (isDragging && colorMode === 'red') {
-		const touch = e.touches[0];
-          	const element = document.elementFromPoint(touch.clientX, touch.clientY);
-                    red = 255;
-                    green = 0;
-                    blue = 0;
-                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-                    }
-                       else if (isDragging && colorMode === 'orange') {
-                    red = 255;
-                    green = 100;
-                    blue = 30;
-                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-                }
-                   else if (isDragging && colorMode === 'yellow') {
-                    red = 255;
-                    green = 255;
-                    blue = 0;
-                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-                }
-		    else if (isDragging && colorMode === 'green') {
-                    red = 0;
-                    green = 255;
-                    blue = 0;
-                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-                }
-		    else if (isDragging && colorMode === 'cyan') {
-                    red = 0;
-                    green = 255;
-                    blue = 255;
-                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-                }
-                   else if (isDragging && colorMode === 'blue') {
-                    red = 0;
-                    green = 0;
-                    blue = 255;
-                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-                }
-                                 else if (isDragging && colorMode === 'purple') {
-                    red = 100
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${red})`;
-                } 
-                                 else if (isDragging && colorMode === 'pink') {
-                    red = 255;
-                    darkness = 200;
-                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${darkness})`;
-                } 
-                   else if (isDragging && colorMode === 'black') {
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${darkness})`;
-                } 
-                   else if (isDragging && colorMode === 'white') {
-                    darkness = 255;
-                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${darkness})`;
-                }
-                
-                                 else if (isDragging && colorMode === 'redgrad') {
-                    red +=20;
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${darkness})`;
-                } 
-                
-                                 else if (isDragging && colorMode === 'greengrad') {
-                    red +=20;
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${darkness}, ${red}, ${darkness})`;
-                } 
-                
-                                 else if (isDragging && colorMode === 'bluegrad') {
-                    red +=20;
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${red})`;
-                } 
-                
-                                 else if (isDragging && colorMode === 'rggrad') {
-                    red +=20;
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${red}, ${red}, ${darkness})`;
-                } 
-                
-                                 else if (isDragging && colorMode === 'rbgrad') {
-                    red +=20;
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${red})`;
-                } 
-                
-                                 else if (isDragging && colorMode === 'gbgrad') {
-                    red +=20;
-                    darkness = 0;
-                    box.style.backgroundColor = `rgb(${darkness}, ${red}, ${red})`;
-                } 
-           
-            });
-        });
-		  
-	  }
-	}};
-		
 	</script>
 <!--
 head: narrow, round, 
