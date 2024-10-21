@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<title>Pixel Art</title>
+<title>Random Points</title>
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:image" content="">
@@ -435,7 +435,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 </head>
 <body style="width:8000px, height:8000px">
 
-  <h1>Big Map</h1>
+  <h1>Random Points</h1>
   <div class="navbar">
     <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
     <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
@@ -445,7 +445,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
     <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
   </div>
 
-<h2>Big Map</h2>
+<h2>Random Points</h2>
 <p></p>
 <br>
 <button id="randptgen" onclick="randptgen()">Generate</button>
@@ -453,7 +453,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
         // Initialize the map and set its view to a chosen geographical coordinates and zoom level
-        var map = L.map('map').setView([0.505, 0.09], 1);
+        var map = L.map('map').setView([0.505, 0.09], 0);
 	
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
