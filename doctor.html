@@ -840,14 +840,31 @@ function getRndInteger(min, max) {
           if (txt == 0) {return "the Kolojala sword, Philosopher's Stone,";}
           else if (txt == 1) {return "food";}
 	}
+	function psychtip() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return "";}
+          else if (txt == 1) {return "You seem impaired.";}
+	}
+	function psychstory() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return "";}
+          else if (txt == 1) {return "It started in your childhood.";}
+	}
   function getcure(){
     document.getElementById("curegot").innerHTML = cures();
   }function getseen(){
     document.getElementById("sickgot").innerHTML = malady();
     document.getElementById("organgot").innerHTML = organs();
     document.getElementById("questiongot").innerHTML = questions();
-}function getphysical(){
+}
+	function getphysical(){
     document.getElementById("talentgot").innerHTML = talents();
+}
+function getpsychtip(){
+    document.getElementById("psychtipgot").innerHTML = psychtip();
+}
+	function getpsychstory(){
+    document.getElementById("psychstorygot").innerHTML = psychstory();
 }
 	
 </script>
@@ -866,6 +883,18 @@ function getRndInteger(min, max) {
 	<h2>Pharmacy:</h2>
     Medication:
     <button id="getcure" onclick="getcure()" style="background: red; color:white;">Select</button>
+    <span id="curegot"></span>
+    <br><br>
+   
+    <input value="Space to scribe...">
+    <input value="Prescriptions...">
+    <br><br>
+	<h2>Psychiatrist:</h2>
+    Assessment:
+    <button id="getcure" onclick="getcure()" style="background: red; color:white;">Select</button>
+    <span id="curegot"></span>
+	The root of the problem:
+	<button id="getcure" onclick="getcure()" style="background: red; color:white;">Select</button>
     <span id="curegot"></span>
     <br><br>
    
