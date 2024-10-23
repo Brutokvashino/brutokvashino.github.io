@@ -2,10 +2,6 @@
 <html lang="en-US">
 <head>
 <title>Chess</title>
-<p>Anti-Caro 1.e4,c6 2.Nc3,d5 3.Qe2, xe4 4.Nxe4,... Nd7? Nd6!</p>
-<br>
-<p></p>
-<!--
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:image" content="">
@@ -450,7 +446,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
-<script>
+<!--<script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -1501,324 +1497,91 @@ function copyprefix() {
   alert("Copied the list");
   document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
 }
-</script>
-<br><br><h2>What is your quest?</h2>
-<div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-  In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
-  </div>  
-  <button id="runmadlib" onclick="runmadlib()">Start</button>
-  <br><br><br>
-	<h2>Setting:</h2>
-    Town Description:
-    <button id="getintro" onclick="getintro()">Select</button>
-    <span id="introgot"></span>
-    <br><br>
-    Town Prefixes:
-    <button id="getprefix" onclick="getprefix()">Select</button>
-    <span id="prefixgot"></span>
-    <br><br>
-    Town Name:
-    <button id="gettownname" onclick="gettownname()">Select</button>
-    <span id="townnamegot"></span>
-    <br><br>
-    Town Suffixes:
-    <button id="getsuffix" onclick="getsuffix()">Select</button>
-    <span id="suffixgot"></span>
-    <br><br>
-    Nations:
-    <button id="getnation" onclick="getnation()">Select</button>
-    <span id="nationgot"></span>
-    <br><br>
-    Roads are:
-    <button id="getroad" onclick="getroad()">Select</button>
-    <span id="roadgot"></span>
-<div id="chargenarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-<h2>Generate Character:</h2> 
-	<button id="getallcharacter" onclick="getweapon2()", onclick="getcharacter()", onclick="getpartyjob2()">Select</button><br><br>
-   	Name: <input>     <a href="webnamegen.html" target="_blank" title="Generates random names" class="templateLink">Not sure?</a><br><br> 
-	Appearance: <input><span id="charactergot2"></span><br><br>
-	Default weapon: <input><span id="weapongot2"></span>
-	Role: <input><span id="partyjobgot2"></span><br><br>
-	Alignment: <input><span id="aligngot"></span>
-	Language: <input><span id="langgot"></span><br><br>
-	Constitution: <input><span id="constgot"></span>
-	Strength: <input><span id="strengthgot"></span><br><br>
-	Dexterity: <input><span id="dextgot"></span>
-	Intelligence: <input><span id="intelgot"></span><br><br>
-	Wisdom: <input><span id="wisegot"></span>
-	Charisma: <input><span id="charismagot"></span>
-</div><br><br>
-    Weapons:
-    <button id="getweapon" onclick="getweapon()">Select</button>
-    <span id="weapongot"></span>
-    <br><br>
-    Appearance:
-    <button id="getcharacter" onclick="getcharacter()">Select</button>
-    <span id="charactergot"></span>
-    <br><br>
-    Party Job:
-    <button id="getpartyjob" onclick="getpartyjob()">Select</button>
-    <span id="partyjobgot"></span>
-    <br><br>
-	    <br><br><h2>Story:</h2>
-    Bio:
-    <button id="getbio" onclick="getbio()">Select</button>
-    <span id="biogot"></span>
-    Dialogue:
-    <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
-    <span id="catchphrasegot"></span>
-    <br><br>
-    Interactions:
-    <button id="getinteraction" onclick="getinteraction()">Select</button>
-    <span id="interactiongot"></span>
-    <br><br>
-    Activities:
-    <button id="getactivity" onclick="getactivity()">Select</button>
-    <span id="activitygot"></span>
-    <br><br>
-    Quest Item:
-    <button id="getquestitem" onclick="getquestitem()">Select</button>
-    <span id="questitemgot"></span>
-    <br><br>
-    Mysterious Item:
-    <button id="getmysteriousitem" onclick="getmysteriousitem()">Select</button>
-    <span id="mysteriousitemgot"></span>
-    <br><br>
-    Loot Item:
-    <button id="getlootitem" onclick="getlootitem()">Select</button>
-    <span id="lootitemgot"></span>
-    <br><br>
-    Random Encounter:
-    <button id="getmonster" onclick="getmonster()">Select</button>
-    <span id="monstergot"></span>
-	<br><br>
- Boss Fight:
-    <button id="getboss" onclick="getboss()">Select</button>
-    <span id="bossgot"></span>
-    <br><br>
-    Plot Device:
-    <button id="getplot" onclick="getplot()">Select</button>
-    <span id="plotgot"></span>
-    <br><br>
-	Spoilers:
-    <button id="getspoiler" onclick="getspoiler()">Select</button>
-    <span id="spoilergot"></span>
-    <br><br>
-    Headlines (from Wikipedia):
-    <button id="getnews" onclick="getnews()">Select</button>
-    <span id="newsgot"></span>
-    <br><br>
-    <div style="border: 3px">
-<h2>Map</h2>
-<p>Click a square to place land</p>
+--></script>
+<br><br><h2>Chess</h2>
+<div style="border: 2px, solid, red; background-color: black; width: 438px;">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
 <br>
-<div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
 <br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
 <br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
 <br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
 <br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
 <br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
 <br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<br>
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
-</div>
-<br>
-	    <h2>Buildings / Rooms</h2>
-<p>Click a square to build</p>
-<br>
-<div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-</div><br>
-	    Structures:
-    <button id="getstructure" onclick="getstructure()">Select</button>
-    <span id="structuregot"></span>
-    <br><br>
-	Rooms:
-    <button id="getroom" onclick="getroom()">Select</button>
-    <span id="roomgot"></span>
-    <br><br>
-    <br><br>
-	    <h2>Extra</h2>
-	    8 Ball:
-    <button id="get8" onclick="get8()">Select</button>
-    <span id="8got"></span>
-	<br><br>
-	D20:
-    <button id="gettwenties" onclick="gettwenties()">Select</button>
-    <span id="twentiesgot"></span>
-	    <br><br>
-	    D6:
-    <button id="getsixes" onclick="getsixes()">Select</button>
-    <span id="sixesgot"></span>
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: white; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px">
+<br></div><br>
 	    <br><br>
 Drag this icon:
 	    <br>
 	    <div id="drag" style="position: absolute;">
-<div id="dragheader" style="background-color: yellow; text-align: center; cursor: move; font-size: 25px; width:38px; height: 38px; text-align: center; border-radius: 45px;">☺</div>
+<div id="dragheader" style="background-color: white; text-align: center; cursor: move; font-size: 25px; width:38px; height: 38px; text-align: center; border-radius: 45px;">K</div>
 </div>
+<br><br>
+<p>Anti-Caro 1.e4,c6 2.Nc3,d5 3.Qe2, xe4 4.Nxe4,... Nd7? Nd6!</p>
+<br>
+<p></p>
 <script>
 dragElement(document.getElementById("drag"));
 function dragElement(elmnt) {
