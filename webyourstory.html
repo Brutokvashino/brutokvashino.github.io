@@ -4438,22 +4438,17 @@ function getlys(){
 	document.getElementById("year4".style.display = "block";
 }
 </script>
-   
-	
-	<div id="mlt" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-Your Story: 
-  </div> 
 	
 	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         Years 0-3:<br><br>
-        <button id="determiners" onclick="getdets()">Determiners</button>
-        <button id="adjectives" onclick="getadjs()">Prepositions</button>
-        <button id="adjectives" onclick="getadjs()">Adjectives</button>
-        <button id="punctuation" onclick="getpuncs()">Transitions</button>
-        <button id="ss" onclick="getss()">-s</button>
-        <button id="eds" onclick="geteds()">-ed</button>
-        <button id="ings" onclick="getings()">-ing</button>
-        <button id="lys" onclick="getlys()">-ly</button>
+   <button id="getregnames" onclick="getregnames()">Name</button>
+    <span id="regnamegot"></span>
+    <br><br>
+    <button id="getmiddlenames" onclick="getmiddlenames()">Middle Name</button>
+    <span id="middlenamegot"></span>
+    <br><br>
+    <button id="getlastnames" onclick="getlastnames()">Last Name</button>
+    <span id="lastnamegot"></span>
 	<button id="lys" onclick="closeyear0()">Next</button>
     <br></div>
 	 <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
@@ -4503,6 +4498,9 @@ Your Story:
             });
         }
 </script>
+	<div id="mlt" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+Your Story: 
+  </div> 
     <br>
    
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
