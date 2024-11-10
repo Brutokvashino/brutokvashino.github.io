@@ -4432,13 +4432,20 @@ function getlys(){
     foreststuffv = document.createTextNode("ly");
     document.getElementById("mlt").appendChild(foreststuffv); 
 }
+	function closeyear0(){
+    foreststuffv = document.createTextNode("ly");
+    document.getElementById("year0").style.display = "none"; 
+	document.getElementById("year4".style.display = "block";
+}
 </script>
-<div id="mlt" style="position:fixed; background:darkslateblue; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+   
+	
+	<div id="mlt" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 Your Story: 
   </div> 
-  <br><br><br>
-    <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-        Grammatical Phrases:<br><br>
+	
+	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+        Years 0-3:<br><br>
         <button id="determiners" onclick="getdets()">Determiners</button>
         <button id="adjectives" onclick="getadjs()">Prepositions</button>
         <button id="adjectives" onclick="getadjs()">Adjectives</button>
@@ -4447,15 +4454,57 @@ Your Story:
         <button id="eds" onclick="geteds()">-ed</button>
         <button id="ings" onclick="getings()">-ing</button>
         <button id="lys" onclick="getlys()">-ly</button>
+	<button id="lys" onclick="closeyear0()">Next</button>
     <br></div>
-    <br>
-    <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+	 <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         In Town:<br><br>
     <button id="getintro" onclick="getintro()"> Town Description</button>
     <button id="getprefix" onclick="getprefix()">Town Prefixes</button>
     <button id="gettownname" onclick="gettownname()">Town Name</button>
     <button id="getsuffix" onclick="getsuffix()">Town Suffixes</button>
     <br></div>
+	<div id="maparead">
+	<button id="randptgen" onclick="randptgen()">Generate</button>
+<div id="map"></div>
+	</div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+        // Initialize the map and set its view to a chosen geographical coordinates and zoom level
+        var map = L.map('map').setView([0.505, 0.09], 0);
+	
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+ 
+        // Function to add a marker on the map at the clicked location
+        function onMapClick(e) {
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You clicked the map at " + e.latlng.toString())
+                .openPopup();
+        }
+ 
+        // Add the click event listener to the map
+        map.on('click', onMapClick);
+
+  //rand points generation
+  function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randptgen() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "You were born here:";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
+            });
+        }
+</script>
+    <br>
+   
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     <button id="getnation" onclick="getnation()">Nations</button>
     <button id="getroom" onclick="getroom()">  Rooms:</button>
