@@ -1190,6 +1190,21 @@ function getintro(){
     puncsv = document.createTextNode(" " + puncs());
     document.getElementById("mlt").appendChild(puncsv); 
   }
+	
+	  function getstarted(){
+    birthname = document.createTextNode(regnames() + middlenames() + lastnames());
+    document.getElementById("mlt").appendChild(birthname); 
+	document.getElementById("birthnamegot").innerHTML(birthname); 
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "You were born here:";
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
+            });
+        }
+	  
+	  }
   function preps() {var txt = getRndInteger(1,18);
 if (txt == 1) {return "in";}
 else if (txt == 2) {return "about";}
@@ -4442,27 +4457,21 @@ function getlys(){
 	document.getElementById("year4".style.display = "block";
 }
 </script>
-	
+		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+			Your profile: <span id="birthnamegot">
+		</div>
 	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         Years 0-3:<br><br>
-   <button id="getregnames" onclick="getregnames()">Name</button>
-    <span id="regnamegot"></span>
-    <br><br>
-    <button id="getmiddlenames" onclick="getmiddlenames()">Middle Name</button>
-    <span id="middlenamegot"></span>
-    <br><br>
-    <button id="getlastnames" onclick="getlastnames()">Last Name</button>
-    <span id="lastnamegot"></span>
+   <button id="getstarted" onclick="getstarted()";>Start</button>
 	<button id="lys" onclick="closeyear0()">Next</button>
     <br></div>
-	 <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-        In Town:<br><br>
+	 <div id="year4" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 4-5:<br><br>
     <button id="getintro" onclick="getintro()"> Town Description</button>
     <button id="getprefix" onclick="getprefix()">Town Prefixes</button>
     <button id="gettownname" onclick="gettownname()">Town Name</button>
     <button id="getsuffix" onclick="getsuffix()">Town Suffixes</button>
     <br></div>
-	<button id="randptgen" onclick="randptgen()">Generate</button>
 	<div id="maparead">
 <div id="map"></div>
 	</div>
@@ -4479,7 +4488,7 @@ function getlys(){
         // Function to add a marker on the map at the clicked location
         function onMapClick(e) {
             L.marker(e.latlng).addTo(map)
-                .bindPopup("You clicked the map at " + e.latlng.toString())
+                .bindPopup("You traveled to " + e.latlng.toString())
                 .openPopup();
         }
  
@@ -4495,7 +4504,52 @@ function getlys(){
             var randlat = getRndInteger(-90, 90);
             var randlong = getRndInteger(-180, 180);
             var points = [{lat: randlat, long: randlong}];
-            var txt = "You were born here:";
+            var txt = "Hello from";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
+            });
+        }
+
+
+	function randptlover() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "Your lover is from here:";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
+            });
+        }
+
+		function randptschool() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "You attended school here:";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
+            });
+        }
+
+		function randpthouse() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "You live here:";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
+            });
+        }
+
+		function randptvacay() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "You traveled to:";
 
             points.forEach(point => {
                 L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
@@ -4544,9 +4598,6 @@ Your Story:
     <div style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
     Names:<br>
     <button id="gettitles" onclick="gettitles()">Title</button>
-    <button id="getregnames" onclick="getregnames()">Average Name</button>
-    <button id="getmiddlenames" onclick="getmiddlenames()">Middle Name</button>
-    <button id="getlastnames" onclick="getlastnames()">Family Name</button>
     <button id="getsuffix" onclick="getsuffix()">Suffix</button>
     <button id="getepithets" onclick="getepithets()">Reputation</button>
     <button id="getepithets1" onclick="getepithets1()">+</button>
