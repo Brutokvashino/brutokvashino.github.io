@@ -1194,14 +1194,14 @@ function getintro(){
 	  function getstarted(){
     birthname = document.createTextNode(regnames() + middlenames() + lastnames());
     document.getElementById("mlt").appendChild(birthname); 
-	document.getElementById("birthnamegot").innerHTML(birthname); 
+/*	document.getElementById("birthnamegot").innerHTML(birthname); 
             var randlat = getRndInteger(-90, 90);
             var randlong = getRndInteger(-180, 180);
             var points = [{lat: randlat, long: randlong}];
             var txt = "You were born here:";
             points.forEach(point => {
                 L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
-            });
+            }); */
         }
 	  
 	  }
