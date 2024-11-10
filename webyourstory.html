@@ -456,6 +456,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
 <script>
+	
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -488,6 +489,7 @@ function getRndInteger(min, max) {
           else if (txt == 0) {return "";}
 
         }
+	/*
         function prefixes() {
           var txt = getRndInteger(1,22);
           if (txt == 0) {return "Yellow, Orange, Broken, Dry,, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall,, Winter, Summer, Tierra, Wandering,, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,";}
@@ -854,7 +856,8 @@ function getRndInteger(min, max) {
 
       }
    
-      function characters() { /*appearance*/
+      function characters() { //appearance
+	
           var txt = getRndInteger(1,127);
           if (txt == 0) {return "";}
           else if (txt == 1) {return"Human"}else if (txt == 2) {return "Dwarf";}   else if (txt == 3) {return "Dark Elf";}  else if (txt == 4) {return "Angel";} else if (txt == 5) {return "Demon";}else if (txt == 6) {return "Tiefling";}else if (txt == 7) {return "Dragon";}else if (txt == 8) {return "Elf";}else if (txt == 9) {return "Paladin";}else if (txt == 10) {return "Gnome";}else if (txt == 11) {return "Animal";}else if (txt == 12) {return "Half-Elf";}else if (txt == 13) {return "Halfling";} else if (txt == 14) {return "Orc";} else if (txt == 15) {return "Goblin";} else if (txt == 16) {return "Troll";} else if (txt == 17) {return "Half-Orc";}else if (txt == 18) {return "Wizard";} else if (txt == 19) {return "Yokai";}else if (txt == 20) {return "Immortal";}else if (txt == 21) {return "Bangaa";}else if (txt == 22) {return "Sprite";}else if (txt == 23) {return "Nymph";}else if (txt == 24) {return "Fairy";}else if (txt == 25) {return "Mermaid";}else if (txt == 26) {return "Fishfolk";}else if (txt == 27) {return "Undead";}else if (txt == 28) {return "Zombie";}else if (txt == 29) {return "Skeleton";}else if (txt == 30) {return "Shade";}else if (txt == 31) {return "Ghost";}else if (txt == 32) {return "Vampire";}else if (txt == 33) {return "Werewolf";}else if (txt == 34) {return "Satyr";}else if (txt == 35) {return "Leonin";}else if (txt == 36) {return "Ronso";}else if (txt == 37) {return "Mousefolk";}else if (txt == 38) {return "Birdfolk";}else if (txt == 39) {return "Fox";}else if (txt == 40) {return "Toadfolk";}else if (txt == 41) {return "Harefolk";}else if (txt == 42) {return "Turtlefolk";}else if (txt == 43) {return "Giant";}else if (txt == 44) {return "Elemental";}else if (txt == 45) {return "Bugbear";}else if (txt == 46) {return "Cherub";}
@@ -1110,10 +1113,13 @@ function getRndInteger(min, max) {
           else if (txt == 0) {return "";}
         }
 
+*/
 function getintro(){
-    introsv = document.createTextNode(" " + intros());
-    document.getElementById("mlt").appendChild(introsv) 
-}function getprefix(){
+    introsv = document.createTextNode(intros());
+    document.getElementById("mlt"+"introsgot").appendChild(introsv) 
+}
+	/*
+	function getprefix(){
     prefixv = document.createTextNode(" " + prefixes());
     document.getElementById("mlt").appendChild(prefixv);
   }function getsuffix(){
@@ -1191,9 +1197,9 @@ function getintro(){
     document.getElementById("mlt").appendChild(puncsv); 
   }
 	  function getstarted(){
-  /*  birthname = document.createTextNode(regnames() + middlenames() + lastnames());
+    birthname = document.createTextNode(regnames() + middlenames() + lastnames());
     document.getElementById("mlt").appendChild(birthname); 
-	document.getElementById("birthnamegot").innerHTML = regnames() + middlenames() + lastnames(); */
+	document.getElementById("birthnamegot").innerHTML = regnames() + middlenames() + lastnames(); 
             var randlat = getRndInteger(-90, 90);
             var randlong = getRndInteger(-180, 180);
             var points = [{lat: randlat, long: randlong}];
@@ -1535,7 +1541,7 @@ else if (txt == 25) {return "";}
 else if (txt == 25) {return "";}
 
 }
-function prefixes() { /*ancients*/
+function prefixes() { //ancients
 var txt = getRndInteger(1,30);
 if (txt == 0) {return " ";}
 else if (txt == 1) {return "Chad";}
@@ -1613,7 +1619,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 39) {return "Lynn";}
           else if (txt == 40) {return "Rose";}
       }
-      function noblenames() { /*noblenames*/
+      function noblenames() { //noblenames
           var txt = getRndInteger(1,40);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "Ninsun";}
@@ -1700,7 +1706,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 0) {return "";}
 
       }
-            function suffixes() { /*suffixes*/
+            function suffixes() { //suffixes
           var txt = getRndInteger(1,40);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "-mack";}
@@ -1745,7 +1751,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 40) {return "-bart";}
 
       }
-      function structures() { /*biblenames*/
+      function structures() { //biblenames
           var txt = getRndInteger(1,40);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "Michael";}
@@ -2000,7 +2006,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 207) {return "Keithtopher";}
 
       }
-      function jobs() { /*occupations*/
+      function jobs() { //occupations
           var txt = getRndInteger(1,61);
           if (txt == 0) {return " ";}
           else if (txt == 1) {return "Toolsmith";}
@@ -2076,7 +2082,7 @@ else if (txt == 30) {return "Toprak";}
         }
       
         
-            function characters() { /*appearance*/
+            function characters() { //appearance
           var txt = getRndInteger(1,127);
           if (txt == 0) {return "";}
           else if (txt == 1) {return"Human"}else if (txt == 2) {return "Dwarf";}   else if (txt == 3) {return "Dark Elf";}  else if (txt == 4) {return "Angel";} else if (txt == 5) {return "Demon";}else if (txt == 6) {return "Tiefling";}else if (txt == 7) {return "Dragon";}else if (txt == 8) {return "Elf";}else if (txt == 9) {return "Paladin";}else if (txt == 10) {return "Gnome";}else if (txt == 11) {return "Animal";}else if (txt == 12) {return "Half-Elf";}else if (txt == 13) {return "Halfling";} else if (txt == 14) {return "Orc";} else if (txt == 15) {return "Goblin";} else if (txt == 16) {return "Troll";} else if (txt == 17) {return "Half-Orc";}else if (txt == 18) {return "Wizard";} else if (txt == 19) {return "Yokai";}else if (txt == 20) {return "Immortal";}else if (txt == 21) {return "Bangaa";}else if (txt == 22) {return "Sprite";}else if (txt == 23) {return "Nymph";}else if (txt == 24) {return "Fairy";}else if (txt == 25) {return "Mermaid";}else if (txt == 26) {return "Fishfolk";}else if (txt == 27) {return "Undead";}else if (txt == 28) {return "Zombie";}else if (txt == 29) {return "Skeleton";}else if (txt == 30) {return "Shade";}else if (txt == 31) {return "Ghost";}else if (txt == 32) {return "Vampire";}else if (txt == 33) {return "Werewolf";}else if (txt == 34) {return "Satyr";}else if (txt == 35) {return "Leonin";}else if (txt == 36) {return "Ronso";}else if (txt == 37) {return "Mousefolk";}else if (txt == 38) {return "Birdfolk";}else if (txt == 39) {return "Fox";}else if (txt == 40) {return "Toadfolk";}else if (txt == 41) {return "Harefolk";}else if (txt == 42) {return "Turtlefolk";}else if (txt == 43) {return "Giant";}else if (txt == 44) {return "Elemental";}else if (txt == 45) {return "Bugbear";}else if (txt == 46) {return "Cherub";}
@@ -2097,7 +2103,7 @@ else if (txt == 30) {return "Toprak";}
       }
 
 
-      function partyjobs() { /*role*/
+      function partyjobs() { //role
           var txt = getRndInteger(1,13);
           if (txt == 0) {return""}
           else if (txt == 1) {return "Healer";}
@@ -3046,7 +3052,7 @@ else if (txt == 30) {return "Toprak";}
           else if (txt == 474) {return "Pam";}
           else if (txt == 475) {return "Patrick";}
           else if (txt == 476) {return "Patricia";}
-          /* S */
+          // S 
           else if (txt == 349) {return "Sean";}
           else if (txt == 350) {return "Seamus";}
           else if (txt == 351) {return "Santa";}
@@ -4452,14 +4458,15 @@ function getlys(){
     foreststuffv = document.createTextNode("ly");
     document.getElementById("year0").style.display = "none"; 
 	document.getElementById("year4".style.display = "block";
-}
+} 
+*/
 </script>
 		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-			Your profile: <span id="birthnamegot">
+			Your profile: <span id="introsgot">
 		</div>
 	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         Years 0-3:<br><br>
-   <button id="getstarted" onclick="getstarted()";>Start</button>
+   <button id="getstarted" onclick="getintro()";>Start</button>
 	<button id="lys" onclick="closeyear0()">Next</button>
     <br></div>
 	 <div id="year4" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
