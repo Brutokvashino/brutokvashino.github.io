@@ -1319,19 +1319,25 @@ fullname = regnames() + middlenames() + lastnames();
 document.getElementById("fullnamegot").innerHTML = fullname; 
 }
 
+	function getlover(){
+fullname = regnames() + middlenames() + lastnames();
+document.getElementById("lovergot").innerHTML = "In a relationship with: " + fullname; 
+}
+
 	function closeyear0(){
 document.getElementById("lys").style.display = "none"; 
 }
 	
 </script>
 		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-			Your profile: <span id="fullnamegot">
+			Your profile: <span id="fullnamegot"><span id="lovergot">
 		</div>
 	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         Years 0-3:<br><br>
    <button id="getstarted" onclick="randptbirth()">Start</button>
 	<button id="getfullname" onclick="getfullname()">Name</button>
 		   <button id="randptstudy" onclick="randptstudy()">School</button>
+			<button id="getlover" onclick="getlover()">Relationship</button>
 			<button id="lys" onclick="closeyear0()">Next</button>
     <br></div>
 	 <div id="year4" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
