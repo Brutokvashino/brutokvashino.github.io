@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Story Randomizer</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color:#000000;
+  background-color: slategray;
+  margin:10px;
+  font-size:150%;
+}
+button {
+    font-size:80%;
+    color:#000000;
+}
+.trytopnav {
+  height:100%;
+  overflow:hidden;
+  min-width:380px;
+  position:absolute;
+  width:100%;
+  top:99px;
+  background-color:#1b548e;
+}
+.topnav-icons {
+  margin-right:8px;
+}
+.trytopnav a,.trytopnav button {
+  color:#999999;
+}
+.w3-bar .w3-bar-item:hover {
+  color:#757575 !important;
+}
+a.w3schoolslink {
+  padding:0 !important;
+  display:inline !important;
+}
+a.w3schoolslink:hover,a.w3schoolslink:active {
+  text-decoration:underline !important;
+  background-color:transparent !important;
+}
+#dragbar{
+  position:absolute;
+  cursor: col-resize;
+  z-index:3;
+  padding:5px;
+}
+#shield {
+  display:none;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+  height:100%;
+  z-index:4;
+}
+#framesize span {
+  font-family:Consolas, monospace;
+}
+#container {
+  background-color:slategray;
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:0px;
+  bottom:0;
+  height:100%;
+}
+#textareacontainer, #iframecontainer {
+  height:50%;
+  width:100%;
+}
+#textarea, #iframe {
+  height:100%;
+  width:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+}
+#textarea {
+  padding-left:10px;
+  padding-right:5px;  
+}
+#iframe {
+  padding-left:5px;
+  padding-right:10px;
+  color:#ffffff;
+  font-family: "Times New Roman";    
+}
+#textareawrapper {
+  width:100%;
+  height:100%;
+  background-color: #ffffff;
+  position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#iframewrapper {
+  width:100%;
+  height:100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#ffffff;
+  font-family: "Times New Roman";
+  font-size: 16px;
+}
+#textareaCode {
+  background-color: black;
+  color:white;
+  font-family: consolas,"courier new",monospace;
+  font-size:15px;
+  height:100%;
+  width:100%;
+  padding:8px;
+  resize: none;
+  border:none;
+  line-height:normal;    
+}
+.CodeMirror.cm-s-default {
+  line-height:normal;
+  padding: 4px;
+  height:100%;
+  width:100%;
+}
+#iframeResult, #iframeSource {
+  background-color:lightsteelblue;
+  color:white;
+  font-family: "Times New Roman";    
+  height:100%;
+  width:100%;  
+  padding:20px;
+  border: 2px solid black;
+}
+#iframeResult * {
+  font-family: "Times New Roman"!important;
+}
+#iframeResult h1,#iframeResult h2,#iframeResult h3,#iframeResult h4,#iframeResult h5,#iframeResult h6 {
+  font-weight: bold;
+}
+
+#stackV {background-color:#999999;}
+#stackV:hover {background-color:#BBBBBB !important;}
+#stackV.horizontal {background-color:transparent;}
+#stackV.horizontal:hover {background-color:#BBBBBB !important;}
+#stackH.horizontal {background-color:#999999;}
+#stackH.horizontal:hover {background-color:#999999 !important;}
+#textareacontainer.horizontal,#iframecontainer.horizontal{
+  height:50%;
+  float:none;
+  width:100%;
+}
+#textarea.horizontal{
+  height:100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+#iframe.horizontal{
+  height:100%;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;  
+}
+#container.horizontal{
+  min-height:200px;
+  margin-left:0;
+}
+#tryitLeaderboard {
+  background-color:#ffffff;
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:0px;
+}
+.w3-dropdown-content {width:350px}
+body.darktheme {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35; 
+}
+body.darktheme #tryitLeaderboard{
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+}
+body.darktheme .trytopnav{
+  background-color:#616161;
+  background-color:#38444d;    
+  color:#dddddd;
+}
+body.darktheme #container {
+  background-color:#616161;
+  background-color:#38444d;    
+}
+body.darktheme #textareaCode {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+  color:#fff;
+}
+body.darktheme .trytopnav a,body.darktheme .trytopnav button {
+  color:#dddddd;
+}
+
+#runbtn {
+  background-color: dodgerblue;
+  color:white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:18px;
+  padding:6px 25px;
+  margin-top:4px;
+  border-radius:5px;
+  word-spacing:10px;
+}
+#runbtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+  
+@media screen and (max-width: 727px) {
+  .trytopnav {top:70px;}
+  #container {top:116px;}
+}
+@media screen and (max-width: 467px) {
+  .trytopnav {top:60px;}
+  #container {top:106px;}
+  .w3-dropdown-content {width:100%}
+}
+@media only screen and (max-device-width: 768px) {
+  #iframewrapper {overflow: auto;}
+  #container     {min-width:320px;}
+  .stack         {display:none;}
+  #tryhome       {display:block;}
+}
+
+@font-face {
+font-family: 'fontawesome';
+src:url('../lib/fonts/fontawesome.eot?14663396');
+src:url('../lib/fonts/fontawesome.eot?14663396#iefix') format('embedded-opentype'),
+    url('../lib/fonts/fontawesome.woff?14663396') format('woff'),
+    url('../lib/fonts/fontawesome.ttf?14663396') format('truetype'),
+    url('../lib/fonts/fontawesome.svg?14663396#fontawesome') format('svg');
+font-weight:normal;
+font-style:normal;
+}
+.fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transform:translate(0,0);
+}
+.fa-2x {
+  font-size:2em;
+}
+.fa-home:before {content: '\e800'; }
+.fa-save:before {content: '\e804'; }
+.fa-rotate:before {content: '\e813'; }
+.fa-adjust:before { content: '\e80b'; }
+.fa-menu:before { content: '\f0c9'; }
+.loader {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+#saveLoader {
+    margin:20px;
+}
+#runloadercontainer{
+  display:none;
+  position:absolute;
+  z-index:9;
+}
+#runloader{
+  margin:auto;
+  border: 10px solid #F1F1F1;
+  border-top: 10px solid #04AA6D;
+  border-radius: 50%;
+  max-width: 150px;
+  max-height: 150px;
+  animation: spin 2s linear infinite;
+  position:relative;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
+    font-size: 28px!important;
+}
+   #map {
+            height: 600px;
+            width: 100%;
+        }
+</style>
+<!--[if lt IE 8]>
+<style>
+#textareacontainer, #iframecontainer {width:48%;}
+#container {height:500px;}
+#textarea, #iframe {width:90%;height:450px;}
+#textareaCode, #iframeResult {height:450px;}
+.stack {display:none;}
+</style>
+<![endif]-->
+</head>
+<body>
+
+  <h1>Quick Life B</h1>
+  <div class="navbar">
+    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
+    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+  </div>
+
+<a href="javascript:void(0)" id="dragbar"></a>
+<p>
+<script>
+	
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+        function intros() {
+          var txt = getRndInteger(1,20);
+          if (txt == 1) {return "Scenic";}
+          else if (txt == 0) {return "Far, Near, Abandoned, Burnt, Salty, Bright, Deserted, Haunted, Filthy, Smoggy, Snowy, Boozy, Free, Utopian, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,";}
+          else if (txt == 2) {return "Historic";}
+          else if (txt == 3) {return "Remote";}
+          else if (txt == 4) {return "Colonial";}
+          else if (txt == 5) {return "The Sun-Drenched";}
+          else if (txt == 6) {return "Tropical";}
+          else if (txt == 7) {return "The Sun-Drenched Tropical Paradise";}
+          else if (txt == 8) {return "Quaint";}
+          else if (txt == 9) {return "Foggy";}
+          else if (txt == 10) {return "Beautiful";}
+          else if (txt == 11) {return "Wet";}
+          else if (txt == 12) {return "Infested";}
+          else if (txt == 13) {return "Cultural";}
+          else if (txt == 14) {return "Scary";}
+          else if (txt == 15) {return "Rural";}
+          else if (txt == 16) {return "The City of";}
+          else if (txt == 17) {return "Blessed";}
+          else if (txt == 18) {return "Cursed";}
+          else if (txt == 19) {return "The Lost City of";}
+          else if (txt == 20) {return "Steamy";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+        }
+	
+function getintro(){
+    document.getElementById("mlt").innerHTML = intros(); 
+}
+
+</script>
+		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+			Your profile: <span id="introsgot">
+		</div>
+	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+        Years 0-3:<br><br>
+   <button id="getstarted" onclick="getintro()";>Start</button>
+	<button id="lys" onclick="getintro()">Next</button>
+    <br></div>
+	 <div id="year4" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 4-5:<br><br>
+    <button id="getintro" onclick="getintro()"> Town Description</button>
+    <button id="getprefix" onclick="getprefix()">Town Prefixes</button>
+    <button id="gettownname" onclick="gettownname()">Town Name</button>
+    <button id="getsuffix" onclick="getsuffix()">Town Suffixes</button>
+    <br></div>
+	<div id="maparead">
+<div id="map"></div>
+	</div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+        // Initialize the map and set its view to a chosen geographical coordinates and zoom level
+        var map = L.map('map').setView([0.505, 0.09], 0);
+	
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+ 
+        // Function to add a marker on the map at the clicked location
+        function onMapClick(e) {
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You traveled to " + e.latlng.toString())
+                .openPopup();
+        }
+ 
+        // Add the click event listener to the map
+        map.on('click', onMapClick);
+
+  //rand points generation
+  function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randptbırth() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "You were born here:";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt + e.latlng.toString());
+            });
+        }
+
+</script>
+	<div id="mlt" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+Your Story: 
+  </div> 
+    <br>
+</p>
+</body>
+</html>
