@@ -328,7 +328,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 </head>
 <body>
 
-  <h1>Quick Life F</h1>
+  <h1>Quick Life G</h1>
   <div class="navbar">
     <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
     <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
@@ -1315,17 +1315,18 @@ function getRndInteger(min, max) {
         }
 	
 function getfullname(){
-fullname = regnames() + middlenames() + lastnames();
+fullname = regnames() + " " + middlenames() + " " + lastnames();
 document.getElementById("fullnamegot").innerHTML = fullname; 
 }
 
 	function getlover(){
-fullname = regnames() + middlenames() + lastnames();
-document.getElementById("lovergot").innerHTML = "In a relationship with: " + fullname; 
+lovername = "In a relationship with " + regnames() + " " + middlenames() + " " + lastnames();
+document.getElementById("lovergot").innerHTML = lovername; 
 }
 
 	function closeyear0(){
-document.getElementById("lys").style.display = "none"; 
+document.getElementById("year0").style.display = "none"; 
+document.getElementById("year4").style.display = "block"; 
 }
 	
 </script>
@@ -1346,6 +1347,7 @@ document.getElementById("lys").style.display = "none";
     <button id="getprefix" onclick="getprefix()">Town Prefixes</button>
     <button id="gettownname" onclick="gettownname()">Town Name</button>
     <button id="getsuffix" onclick="getsuffix()">Town Suffixes</button>
+		 			<button id="lys1" onclick="closeyear4()">Next</button>
     <br></div>
 	<div id="maparead">
 <div id="map"></div>
@@ -1353,7 +1355,7 @@ document.getElementById("lys").style.display = "none";
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
         // Initialize the map and set its view to a chosen geographical coordinates and zoom level
-        var map = L.map('map').setView([0.505, 0.09], 2);
+        var map = L.map('map').setView([0.505, 0.09], 1);
 	
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
