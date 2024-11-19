@@ -544,10 +544,10 @@ function getRndInteger(min, max) {
           else if (txt == 17) {return "Green";}
           else if (txt == 18) {return "Dead";}
           else if (txt == 19) {return "Monte";}
-          else if (txt == 0) {return "Bath";}
-          else if (txt == 0) {return "Key";}
-          else if (txt == 0) {return "Upper";}
-
+          else if (txt == 20) {return "Bath";}
+          else if (txt == 21) {return "Key";}
+          else if (txt == 22) {return "Upper";}
+else if (txt == 23) {return "Ros";}
 
       }
       
@@ -598,8 +598,8 @@ function getRndInteger(min, max) {
 
       }
       function suffixes() {
-          var txt = getRndInteger(1,22);
-          if (txt == 0) {return "Byr,, Meadow, , by_the_Water, Water, Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
+          var txt = getRndInteger(1,27);
+          if (txt == 0) {return "Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
           else if (txt == 1) {return "Berg";}
           else if (txt == 2) {return "Valley";}
           else if (txt == 3) {return "Towne";}
@@ -622,7 +622,15 @@ function getRndInteger(min, max) {
           else if (txt == 20) {return "Pulcher";}
           else if (txt == 21) {return "Foedus";}
           else if (txt == 22) {return "-let";}
-
+else if (txt == 22) {return "Byr";}
+else if (txt == 21) {return "Meadow";}
+          else if (txt == 22) {return "by the Water";}
+else if (txt == 23) {return "Water";}
+else if (txt == 24) {return "-sylvania";}
+else if (txt == 25) {return "-istan";}
+else if (txt == 26) {return "-abad";}
+else if (txt == 27) {return "Land";}
+	      
       }
       function nations() {
           var txt = getRndInteger(1,36);
@@ -669,7 +677,7 @@ function getRndInteger(min, max) {
       }
       function rooms() {
           var txt = getRndInteger(1,37);
-          if (txt == 0) {return "coatroom, garden, greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
+          if (txt == 0) {return "greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
           else if (txt == 1) {return "courtroom";}
           else if (txt == 2) {return "shower";}
           else if (txt == 3) {return "gallery";}
@@ -707,13 +715,13 @@ function getRndInteger(min, max) {
           else if (txt == 35) {return "theater";}
           else if (txt == 36) {return "cinema";}
           else if (txt == 37) {return "temple";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
+          else if (txt == 38) {return "coatroom";}
+          else if (txt == 39) {return "garden";}
 
       }
       function structures() {
           var txt = getRndInteger(1,41);
-          if (txt == 0) {return "foodstore, fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
+          if (txt == 0) {return "fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
           else if (txt == 1) {return "enclosure";}
           else if (txt == 2) {return "tower";}
           else if (txt == 3) {return "altar";}
@@ -756,7 +764,7 @@ function getRndInteger(min, max) {
           else if (txt == 40) {return "racetrack";}
           else if (txt == 41) {return "arena";}
           else if (txt == 42) {return "castle";}
-          else if (txt == 0) {return "";}
+          else if (txt == 43) {return "foodstore";}
           else if (txt == 0) {return "";}
           else if (txt == 0) {return "";}
           else if (txt == 0) {return "";}
