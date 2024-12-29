@@ -2062,26 +2062,178 @@ document.getElementById("year16").style.display = "block";
 document.getElementById("year16").style.display = "none"; 
 document.getElementById("year19").style.display = "block"; 
 } 
+	function getyear(){
+    document.getElementById("yeargot").innerHTML = year();
+}
+	function getemoji(){
+    document.getElementById("emojigot").innerHTML = emojis();
+}
+	function year() {
+          var txt = getRndInteger(-3000,3000);
+          if (txt < 3001) {return txt;}
+	else if (txt == 3001) {return "5kya";}
+	else if (txt == 3002) {return "10kya";}
+	else if (txt == 3003) {return "50kya";}
+	else if (txt == 3004) {return "100kya";}
+	else if (txt == 3005) {return "1mya";}
+	else if (txt == 3006) {return "2mya";}
+	else if (txt == 3007) {return "3mya";}
+	else if (txt == 3008) {return "4mya";}
+	else if (txt == 3009) {return "5mya";}
+	else if (txt == 3010) {return "10mya";}
+	else if (txt == 3011) {return "50mya";}
+	else if (txt == 3012) {return "100mya";}
+	else if (txt == 3013) {return "150mya";}
+	else if (txt == 3014) {return "500mya";}
+	else if (txt == 3015) {return "1bya";}
+	else if (txt == 3016) {return "5bya";}
+	else if (txt == 3017) {return "10bya";}
+	else if (txt == 3018) {return "11bya";}
+	else if (txt == 3019) {return "12bya";}
+	else if (txt == 3020) {return "13bya";}
+	else if (txt == 3021) {return "14bya";}
+	}
+ function emojis() {
+          var txt = getRndInteger(1,110);
+          if (txt == 0) {return "👺💀☠️👻👽👾🤖💩😺😸😹😻😼😽🙀😿😾🙈🙉🙊🐵🐶🐺🐱🦁🐯🦊🦝🐮🐷🐗🐭🐹🐰🐻🐻‍❄️🐨🐼🐸🐴🫎🦄🐔🐲🦒🦓🫏🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐈‍⬛🐅🐆🐎🦌🦬🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🦣🐁🐀🦔🐇🐿️🦫🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🦭🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🪼🦆🐓🦃🦅🕊️🦢🦜🐦‍⬛🪿🐦‍🔥🦩🦚🦉🦤🐦🐧🐥🐤🐣🦇🐌🐛🪱🐜🦗🪳🐝🪲🐞🦂🕷️🦠🧞‍♀️🧞‍♂️🧞🧟‍♀️🧟‍♂️🧟🧌🤺⛷️👩👨🧑👧👦🧒👶👵👴🧓👩‍🦰👨‍🦰🧑‍🦰👩‍🦱👨‍🦱🧑‍🦱👩‍🦲👨‍🦲🧑‍🦲👩‍🦳👨‍🦳🧑‍🦳👱‍♀️👱‍♂️👱👸🤴🫅👳‍♀️👳‍♂️👳👲🧔🧔‍♂️🧔‍♀️👼🤶🎅🧑‍🎄👮‍♀️👮‍♂️👮🕵️‍♀️🕵️‍♂️🕵️💂‍♀️💂‍♂️💂🥷👷‍♀️👷‍♂️👷👩‍⚕️👨‍⚕️🧑‍⚕️👩‍🎓👨‍🎓🧑‍🎓👩‍🏫👨‍🏫🧑‍🏫👩‍⚖️👨‍⚖️🧑‍⚖️👩‍🌾👨‍🌾🧑‍🌾👩‍🍳👨‍🍳🧑‍🍳👩‍🔧👨‍🔧🧑‍🔧👩‍🏭👨‍🏭🧑‍🏭👩‍💼👨‍💼🧑‍💼👩‍🔬👨‍🔬🧑‍🔬👩‍💻👨‍💻🧑‍💻👩‍🎤👨‍🎤🧑‍🎤👩‍🎨👨‍🎨🧑‍🎨👩‍✈️👨‍✈️🧑‍✈️👩‍🚀👨‍🚀🧑‍🚀👩‍🚒👨‍🚒🧑‍🚒🧕👰‍♀️👰‍♂️👰🤵‍♀️🤵‍♂️🤵🤱👩‍🍼👨‍🍼🧑‍🍼🤰🫃🫄🦸‍♀️🦸‍♂️🦸🦹‍♀️🦹‍♂️🦹🧙‍♀️🧙‍♂️🧙🧚‍♀️🧚‍♂️🧚🧛‍♀️🧛‍♂️🧛🧜‍♀️🧜‍♂️🧜🧝‍♀️🧝‍♂️🧝🙍‍♀️🙍‍♂️🙍🙎‍♀️🙎‍♂️🙎🙅‍♀️🙅‍♂️🙅🙆‍♀️🙆‍♂️🙆🧏‍♀️🧏‍♂️🧏💁‍♀️💁‍♂️💁🙋‍♀️🙋‍♂️🙋🙇‍♀️🙇‍♂️🙇🤦‍♀️🤦‍♂️🤦🤷‍♀️🤷‍♂️🤷💆‍♀️💆‍♂️💆💇‍♀️💇‍♂️💇🧖‍♀️🧖‍♂️🧖🤹‍♀️🤹‍♂️🤹👩‍🦽👨‍🦽🧑‍🦽👩‍🦽‍➡️👨‍🦽‍➡️🧑‍🦽‍➡️👩‍🦼👨‍🦼🧑‍🦼👩‍🦼‍➡️👨‍🦼‍➡️🧑‍🦼‍➡️👩‍🦯👨‍🦯🧑‍🦯👩‍🦯‍➡️👨‍🦯‍➡️🧑‍🦯‍➡️🧎‍♀️🧎‍♂️🧎🧎‍♀️‍➡️🧎‍♂️‍➡️🧎‍➡️🧍‍♀️🧍‍♂️🧍🚶‍♀️‍➡️🚶‍♂️‍➡️🚶‍➡️🚶‍♀️🚶‍♂️🚶🏃‍♀️🏃‍♂️🏃🏃‍♀️‍➡️🏃‍♂️‍➡️🏃‍➡️💃🕺🧗‍♀️🧗‍♂️🧗🧘‍♀️🧘‍♂️🧘🛀🛌🕴️🏇🏂🏌️‍♀️🏌️‍♂️🏌️🏄‍♀️🏄‍♂️🏄🚣‍♀️🚣‍♂️🚣🏊‍♀️🏊‍♂️🏊🤽‍♀️🤽‍♂️🤽🤾‍♀️🤾‍♂️🤾⛹️‍♀️⛹️‍♂️⛹️🏋️‍♀️🏋️‍♂️🏋️🚴‍♀️🚴‍♂️🚴🚵‍♀️🚵‍♂️🚵🤸‍♀️🤸‍♂️🤸👯‍♀️👯‍♂️👯🩻🗿🌱🪴🌳🌵🏔️🌋🪐🗽🌝🌛🌞⭐🌠☄️🌬️🌀⚡🔥⛄💧🌊💥☢️☣️🔴🟠🟡🟢🔵🟣🟤⚫⚪💭💬 Filthy, Smoggy, Snowy, Boozy, Free, Utopian, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,";}
+		else if (txt == 1) {return "😊";}
+          else if (txt == 2) {return "😂";}
+          else if (txt == 3) {return "🤣";}
+          else if (txt == 4) {return "😍";}
+          else if (txt == 5) {return "😒";}
+          else if (txt == 6) {return "😁";}
+          else if (txt == 7) {return "🤦‍♀️";}
+          else if (txt == 8) {return "🤦‍♂️";}
+          else if (txt == 9) {return "🤷‍♀️";}
+          else if (txt == 10) {return "🤷‍♂️";}
+          else if (txt == 11) {return "😉";}
+          else if (txt == 12) {return "😘";}
+          else if (txt == 13) {return "😎";}
+          else if (txt == 14) {return "😢";}
+          else if (txt == 15) {return "😜";}
+          else if (txt == 16) {return "🥰";}
+          else if (txt == 17) {return "😗";}
+          else if (txt == 18) {return "😙";}
+          else if (txt == 19) {return "🥲";}
+          else if (txt == 20) {return "🥲";}
+          else if (txt == 21) {return "🙂";}
+          else if (txt == 22) {return "🤗";}
+          else if (txt == 23) {return "🤩";}
+          else if (txt == 24) {return "🤔";}  
+	  else if (txt == 25) {return "🫡";}
+          else if (txt == 26) {return "🤨";}  
+	  else if (txt == 27) {return "😐";}
+          else if (txt == 28) {return "😑";}  
+	  else if (txt == 29) {return "😶";}
+          else if (txt == 30) {return "🫥";}  
+	  else if (txt == 31) {return "😶‍🌫️";}
+          else if (txt == 32) {return "🙄";}  
+	  else if (txt == 33) {return "😏";}
+          else if (txt == 34) {return "😣";}  
+	  else if (txt == 35) {return "😥";}
+          else if (txt == 36) {return "😯";}  
+	  else if (txt == 37) {return "😕";}
+          else if (txt == 38) {return "😮";}
+          else if (txt == 39) {return "🤐";}  
+	  else if (txt == 40) {return "🫤";}
+          else if (txt == 41) {return "😪";}  
+	  else if (txt == 42) {return "🙃";}
+          else if (txt == 43) {return "🙃";}  
+	  else if (txt == 44) {return "🫠";}
+          else if (txt == 45) {return "🤑";}  
+	  else if (txt == 46) {return "😲";}
+          else if (txt == 47) {return "☹️";}  
+	  else if (txt == 48) {return "🙁";}
+          else if (txt == 49) {return "😫";}
+          else if (txt == 50) {return "🥱";}  
+	  else if (txt == 51) {return "😴";}
+          else if (txt == 52) {return "😌";}  
+	  else if (txt == 53) {return "😛";}
+          else if (txt == 54) {return "😜";}  
+	  else if (txt == 55) {return "😔";}
+          else if (txt == 56) {return "😝";}  
+	  else if (txt == 57) {return "🤤";}
+          else if (txt == 58) {return "😒";}  
+	  else if (txt == 59) {return "😓";}
+          else if (txt == 60) {return "😖";}
+          else if (txt == 61) {return "😞";}  
+	  else if (txt == 62) {return "😟";}
+          else if (txt == 63) {return "😤";}  
+	  else if (txt == 64) {return "😢";}
+          else if (txt == 65) {return "😭";}  
+	  else if (txt == 66) {return "😦";}
+          else if (txt == 67) {return "😧";}  
+	  else if (txt == 68) {return "😨";}
+          else if (txt == 69) {return "😮‍💨";}  
+	  else if (txt == 70) {return "😩";}
+	  else if (txt == 71) {return "🤯";}
+	  else if (txt == 72) {return "😬";}
+	  else if (txt == 73) {return "😰";}
+	  else if (txt == 74) {return "😱";}
+	  else if (txt == 75) {return "🥵";}
+	  else if (txt == 76) {return "🥶";}
+	  else if (txt == 77) {return "😵";}
+	  else if (txt == 78) {return "😵‍💫";}
+	  else if (txt == 79) {return "🥴";}
+	  else if (txt == 80) {return "🤪";}
+	  else if (txt == 81) {return "😳";}
+	  else if (txt == 82) {return "😠";}
+	  else if (txt == 83) {return "😡";}
+	  else if (txt == 84) {return "🤬";}
+	  else if (txt == 85) {return "😷";}
+	  else if (txt == 86) {return "🤒";}
+	  else if (txt == 87) {return "🤕";}
+	  else if (txt == 88) {return "🤢";}
+	  else if (txt == 89) {return "🤮";}
+	  else if (txt == 90) {return "🤧";}
+	  else if (txt == 91) {return "😇";}
+	  else if (txt == 92) {return "🥳";}
+	  else if (txt == 93) {return "🥸";}
+	  else if (txt == 94) {return "🥹";}
+	  else if (txt == 95) {return "🥺";}
+	  else if (txt == 96) {return "🤠";}
+	  else if (txt == 97) {return "🤡";}
+	  else if (txt == 98) {return "🤥";}
+	  else if (txt == 99) {return "🫨";}
+	  else if (txt == 100) {return "🙂‍↔️";}
+	  else if (txt == 101) {return "🙂‍↕️";}
+	  else if (txt == 102) {return "🤫";}
+	  else if (txt == 103) {return "🤭";}
+	  else if (txt == 104) {return "🫢";}
+	  else if (txt == 105) {return "🫣";}
+	  else if (txt == 106) {return "🧐";}
+	  else if (txt == 107) {return "🤓";}
+	  else if (txt == 108) {return "😈";}
+	  else if (txt == 109) {return "👿";}
+	  else if (txt == 110) {return "👹";}
+	  else if (txt == 0) {return "";}
+        }
+		
 </script>
 		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 			Your profile: <span id="titlegot"><span id="fullnamegot"></span>
-			<br>Relationship: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
+			<br>Spouse: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
 			<br>Occupation: <span id="jobgot"></span>
-			<br>Family: <span id="parentsgot"></span><span id="kidgot"></span>
+			<br>Team: <span id="parentsgot"></span><span id="kidgot"></span>
 			</div>
-	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-        Years 0-3:<br><br>
-        <button id="getstarted" onclick="randptbirth()">Start</button>
-	<br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
+	<div id="choosemapscreen" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+        Choose your map:<br><br>
+        <button id="goearth" onclick="goearth()">Earth</button>
+   <br></div>
+	<div id="startbutton" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+        What year is it?:<br><br>
+	<button id="year" onclick="year()">Year</button>
+	<br><button id="getstarted" onclick="randptbirth()">Start</button>
+   <br></div>
+ 	<div id="choosenamescreen" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Your profile:<br><br>
+	<button id="emojis" onclick="getemoji()">Appearance</button><span id="emojigot"></span>
 	<br><button id="getfullname" onclick="getfullname()">Name</button>
 	<br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
 	<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
 	<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
 	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
 	<br><button id="lys" onclick="closeyear0()">Next</button>
-   <br></div>
- 	<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-       Years 6-10:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<br><button id="getlover" onclick="getlover()">Relationship</button> 
 		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
@@ -2123,7 +2275,7 @@ document.getElementById("year19").style.display = "block";
        Years 19-25:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="randptmove" onclick="randptmove()">Move</button>
 		<button id="lys19" onclick="closeyear19()">Next</button>
     </div>
@@ -2131,105 +2283,105 @@ document.getElementById("year19").style.display = "block";
        Years 26-32:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt)">Vacation</button>
 		<button id="lys26" onclick="closeyear26()">Next</button>
     </div>
 	<div id="year33" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 33-39:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys33" onclick="closeyear33()">Next</button>
     </div>
 	<div id="year40" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 40-50:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys40" onclick="closeyear40()">Next</button>
     </div>
 	<div id="year51" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 51-65:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys51" onclick="closeyear51()">Next</button>
     </div>
 	<div id="year66" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 66-75:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys66" onclick="closeyear66()">Next</button>
     </div>
 	<div id="year76" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 76-85:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys76" onclick="closeyear76()">Next</button>
     </div>
 	<div id="year86" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 86-89:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys86" onclick="closeyear86()">Next</button>
     </div>
 	<div id="year90" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 90-92:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys90" onclick="closeyear90()">Next</button>
     </div>
 	<div id="year93" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 93-95:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys93" onclick="closeyear93()">Next</button>
     </div>
 	<div id="year96" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 96-98:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys96" onclick="closeyear96()">Next</button>
     </div>
 	<div id="year99" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 	Year 99:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys99" onclick="closeyear99()">Next</button>
     </div>
 	<div id="year100" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 100:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys100" onclick="closeyear100()">Next</button>
     </div>
 	<div id="year101" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        				Year 101:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys101" onclick="closeyear101()">Next</button>
     </div>
 <div id="year102" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 				  Year 102:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys102" onclick="closeyear102()">Next</button>
     </div>
 <div id="year103" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 				  Year 103:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys103" onclick="getdeath()">Next</button>
     </div>
 	<div id="maparead">
@@ -2261,12 +2413,19 @@ document.getElementById("year19").style.display = "block";
   function getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
+	    function goearth() {
+	    document.getElementById("choosemapscreen").style.display = "none"; 
+	    document.getElementById("startbutton").style.display = "block"; 
+        }
 
         function randptbirth() {
-            var randlat = getRndInteger(-90, 90);
-            var randlong = getRndInteger(-180, 180);
+            var randlat = getRndInteger(-90, 90); /*except oceans*/
+            var randlong = getRndInteger(-180, 180); /*except oceans*/
             var points = [{lat: randlat, long: randlong}];
+	    /*if specific lat long, you were born in COUNTRY*/
             var txtborn = "You were born here.";
+	    document.getElementById("startbutton").style.display = "none"; 
+	    document.getElementById("choosenamescreen").style.display = "block"; 
 
             points.forEach(point => {
                 L.marker([point.lat, point.long]).addTo(map).bindPopup(txtborn);
