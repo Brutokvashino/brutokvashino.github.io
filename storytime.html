@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Story Randomizer</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  color:#000000;
+  background-color: slategray;
+  margin:10px;
+  font-size:150%;
+}
+button {
+    font-size:80%;
+    color:#000000;
+}
+.trytopnav {
+  height:100%;
+  overflow:hidden;
+  min-width:380px;
+  position:absolute;
+  width:100%;
+  top:99px;
+  background-color:#1b548e;
+}
+.topnav-icons {
+  margin-right:8px;
+}
+.trytopnav a,.trytopnav button {
+  color:#999999;
+}
+.w3-bar .w3-bar-item:hover {
+  color:#757575 !important;
+}
+a.w3schoolslink {
+  padding:0 !important;
+  display:inline !important;
+}
+a.w3schoolslink:hover,a.w3schoolslink:active {
+  text-decoration:underline !important;
+  background-color:transparent !important;
+}
+#dragbar{
+  position:absolute;
+  cursor: col-resize;
+  z-index:3;
+  padding:5px;
+}
+#shield {
+  display:none;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+  height:100%;
+  z-index:4;
+}
+#framesize span {
+  font-family:Consolas, monospace;
+}
+#container {
+  background-color:slategray;
+  width:100%;
+  overflow:auto;
+  position:absolute;
+  top:0px;
+  bottom:0;
+  height:100%;
+}
+#textareacontainer, #iframecontainer {
+  height:50%;
+  width:100%;
+}
+#textarea, #iframe {
+  height:100%;
+  width:100%;
+  padding-bottom:10px;
+  padding-top:1px;
+}
+#textarea {
+  padding-left:10px;
+  padding-right:5px;  
+}
+#iframe {
+  padding-left:5px;
+  padding-right:10px;
+  color:#ffffff;
+  font-family: "Times New Roman";    
+}
+#textareawrapper {
+  width:100%;
+  height:100%;
+  background-color: #ffffff;
+  position:relative;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#iframewrapper {
+  width:100%;
+  height:100%;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#ffffff;
+  font-family: "Times New Roman";
+  font-size: 16px;
+}
+#textareaCode {
+  background-color: black;
+  color:white;
+  font-family: consolas,"courier new",monospace;
+  font-size:15px;
+  height:100%;
+  width:100%;
+  padding:8px;
+  resize: none;
+  border:none;
+  line-height:normal;    
+}
+.CodeMirror.cm-s-default {
+  line-height:normal;
+  padding: 4px;
+  height:100%;
+  width:100%;
+}
+#iframeResult, #iframeSource {
+  background-color:lightsteelblue;
+  color:white;
+  font-family: "Times New Roman";    
+  height:100%;
+  width:100%;  
+  padding:20px;
+  border: 2px solid black;
+}
+#iframeResult * {
+  font-family: "Times New Roman"!important;
+}
+#iframeResult h1,#iframeResult h2,#iframeResult h3,#iframeResult h4,#iframeResult h5,#iframeResult h6 {
+  font-weight: bold;
+}
+
+#stackV {background-color:#999999;}
+#stackV:hover {background-color:#BBBBBB !important;}
+#stackV.horizontal {background-color:transparent;}
+#stackV.horizontal:hover {background-color:#BBBBBB !important;}
+#stackH.horizontal {background-color:#999999;}
+#stackH.horizontal:hover {background-color:#999999 !important;}
+#textareacontainer.horizontal,#iframecontainer.horizontal{
+  height:50%;
+  float:none;
+  width:100%;
+}
+#textarea.horizontal{
+  height:100%;
+  padding-left:10px;
+  padding-right:10px;
+}
+#iframe.horizontal{
+  height:100%;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;  
+}
+#container.horizontal{
+  min-height:200px;
+  margin-left:0;
+}
+#tryitLeaderboard {
+  background-color:#ffffff;
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:0px;
+}
+.w3-dropdown-content {width:350px}
+body.darktheme {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35; 
+}
+body.darktheme #tryitLeaderboard{
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+}
+body.darktheme .trytopnav{
+  background-color:#616161;
+  background-color:#38444d;    
+  color:#dddddd;
+}
+body.darktheme #container {
+  background-color:#616161;
+  background-color:#38444d;    
+}
+body.darktheme #textareaCode {
+  background-color:rgb(40, 44, 52);
+  background-color:#1d2a35;  
+  color:#fff;
+}
+body.darktheme .trytopnav a,body.darktheme .trytopnav button {
+  color:#dddddd;
+}
+
+#runbtn {
+  background-color: dodgerblue;
+  color:white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:18px;
+  padding:6px 25px;
+  margin-top:4px;
+  border-radius:5px;
+  word-spacing:10px;
+}
+#runbtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+  
+@media screen and (max-width: 727px) {
+  .trytopnav {top:70px;}
+  #container {top:116px;}
+}
+@media screen and (max-width: 467px) {
+  .trytopnav {top:60px;}
+  #container {top:106px;}
+  .w3-dropdown-content {width:100%}
+}
+@media only screen and (max-device-width: 768px) {
+  #iframewrapper {overflow: auto;}
+  #container     {min-width:320px;}
+  .stack         {display:none;}
+  #tryhome       {display:block;}
+}
+
+@font-face {
+font-family: 'fontawesome';
+src:url('../lib/fonts/fontawesome.eot?14663396');
+src:url('../lib/fonts/fontawesome.eot?14663396#iefix') format('embedded-opentype'),
+    url('../lib/fonts/fontawesome.woff?14663396') format('woff'),
+    url('../lib/fonts/fontawesome.ttf?14663396') format('truetype'),
+    url('../lib/fonts/fontawesome.svg?14663396#fontawesome') format('svg');
+font-weight:normal;
+font-style:normal;
+}
+.fa {
+  display:inline-block;
+  font:normal normal normal 14px/1 FontAwesome;
+  font-size:inherit;
+  text-rendering:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transform:translate(0,0);
+}
+.fa-2x {
+  font-size:2em;
+}
+.fa-home:before {content: '\e800'; }
+.fa-save:before {content: '\e804'; }
+.fa-rotate:before {content: '\e813'; }
+.fa-adjust:before { content: '\e80b'; }
+.fa-menu:before { content: '\f0c9'; }
+.loader {
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+#saveLoader {
+    margin:20px;
+}
+#runloadercontainer{
+  display:none;
+  position:absolute;
+  z-index:9;
+}
+#runloader{
+  margin:auto;
+  border: 10px solid #F1F1F1;
+  border-top: 10px solid #04AA6D;
+  border-radius: 50%;
+  max-width: 150px;
+  max-height: 150px;
+  animation: spin 2s linear infinite;
+  position:relative;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-icons.fa-adjust {
+    font-size: 28px!important;
+}
+   #map {
+            height: 600px;
+            width: 100%;
+        }
+</style>
+<!--[if lt IE 8]>
+<style>
+#textareacontainer, #iframecontainer {width:48%;}
+#container {height:500px;}
+#textarea, #iframe {width:90%;height:450px;}
+#textareaCode, #iframeResult {height:450px;}
+.stack {display:none;}
+</style>
+<![endif]-->
+</head>
+<body>
+
+  <h1>Quick Life G</h1>
+  <div class="navbar">
+    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
+    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+  </div>
+
+<a href="javascript:void(0)" id="dragbar"></a>
+<p>
+<script>
+	
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+        function regnames() {
+          var txt = getRndInteger(1,431);
+          if (txt == 0) {return "Nothing";}
+          else if (txt == 1) {return "Abel";}
+          else if (txt == 2) {return "Abner";}
+          else if (txt == 3) {return "Abby";}
+          else if (txt == 4) {return "Abigail";}
+          else if (txt == 5) {return "Aaron";}
+          else if (txt == 6) {return "Addison";}
+          else if (txt == 7) {return "Adelaide";}
+          else if (txt == 8) {return "Aeris";}
+          else if (txt == 9) {return "Aerith";}
+          else if (txt == 10) {return "Aguirre";}
+          else if (txt == 11) {return "Agnes";}
+          else if (txt == 12) {return "Ahmed";}
+          else if (txt == 13) {return "Ahmad";}
+          else if (txt == 14) {return "Ai";}
+          else if (txt == 15) {return "Akmed";}
+          else if (txt == 16) {return "Ally";}
+          else if (txt == 17) {return "Allison";}
+          else if (txt == 18) {return "Al";}
+          else if (txt == 19) {return "Albert";}
+          else if (txt == 20) {return "Adalbert";}
+          else if (txt == 21) {return "Alfred";}
+          else if (txt == 22) {return "Amon";}
+          else if (txt == 23) {return "Amy";}
+          else if (txt == 24) {return "Amelia";}
+          else if (txt == 25) {return "Aethelred";}
+          else if (txt == 26) {return "Alonso";}
+          else if (txt == 27) {return "Anna";}
+          else if (txt == 28) {return "Anne";}
+          else if (txt == 29) {return "Aquila";}
+          else if (txt == 30) {return "Arnold";}
+          else if (txt == 31) {return "Aretha";}
+          else if (txt == 32) {return "Artim";}
+          else if (txt == 33) {return "Arthur";}
+          else if (txt == 34) {return "Aragorn";}
+          else if (txt == 35) {return "Arathorn";}
+          else if (txt == 36) {return "Arwen";}
+          else if (txt == 37) {return "Astrid";}
+          else if (txt == 38) {return "Aslan";}
+          else if (txt == 39) {return "Asa";}
+          else if (txt == 40) {return "Authumbla";}
+          else if (txt == 41) {return "August";}
+          else if (txt == 42) {return "April";}
+          else if (txt == 43) {return "Amber";}
+          else if (txt == 44) {return "Aziz";}
+          else if (txt == 45) {return "Barry";}
+          else if (txt == 46) {return "Beatrice";}
+          else if (txt == 47) {return "Baba";}
+          else if (txt == 48) {return "Babu";}
+          else if (txt == 49) {return "Bapu";}
+          else if (txt == 50) {return "Baal";}
+          else if (txt == 51) {return "Baldur";}
+          else if (txt == 52) {return "Bard";}
+          else if (txt == 53) {return "Bart";}
+          else if (txt == 54) {return "Babe";}
+          else if (txt == 55) {return "Benjamin";}
+          else if (txt == 56) {return "Beth";}
+          else if (txt == 57) {return "Bellatrix";}
+          else if (txt == 58) {return "Bella";}
+          else if (txt == 59) {return "Belle";}
+          else if (txt == 60) {return "Balin";}
+          else if (txt == 61) {return "Barbara";}
+          else if (txt == 62) {return "Barney";}
+          else if (txt == 63) {return "Bernard";}
+          else if (txt == 64) {return "Bernhard";}
+          else if (txt == 65) {return "Bernie";}
+          else if (txt == 66) {return "Bivth";}
+          else if (txt == 67) {return "Bill";}
+          else if (txt == 68) {return "Bigby";}
+          else if (txt == 69) {return "Bixby";}
+          else if (txt == 70) {return "Bingo";}
+          else if (txt == 71) {return "Biff";}
+          else if (txt == 72) {return "Bilbo";}
+          else if (txt == 73) {return "Biff";}
+          else if (txt == 74) {return "Bear";}
+          else if (txt == 75) {return "Bindi";}
+          else if (txt == 76) {return "Bim";}
+          else if (txt == 77) {return "Björn";}
+          else if (txt == 78) {return "Blondie";}
+          else if (txt == 79) {return "Blanche";}
+          else if (txt == 80) {return "Blanca";}
+          else if (txt == 81) {return "Blair";}
+          else if (txt == 82) {return "Blue";}
+          else if (txt == 83) {return "Burdock";}
+          else if (txt == 84) {return "Bombur";}
+          else if (txt == 85) {return "Bonnie";}
+          else if (txt == 86) {return "Boniface";}
+          else if (txt == 87) {return "Bartholomew";}
+          else if (txt == 88) {return "Bartolomeo";}
+          else if (txt == 89) {return "Bartock";}
+          else if (txt == 90) {return "Buri";}
+          else if (txt == 91) {return "Bob";}
+          else if (txt == 92) {return "Borris";}
+          else if (txt == 93) {return "Burnadette";}
+          else if (txt == 94) {return "Brunhilde";}
+          else if (txt == 95) {return "Bron";}
+          else if (txt == 96) {return "Broly";}
+          else if (txt == 97) {return "Brock";}
+          else if (txt == 98) {return "Brandon";}
+          else if (txt == 99) {return "Brett";}
+          else if (txt == 100) {return "Brent";}
+          else if (txt == 101) {return "Brendan";}
+          else if (txt == 102) {return "Brandy";}
+          else if (txt == 103) {return "Brandt";}
+          else if (txt == 104) {return "Bert";}
+          else if (txt == 105) {return "Bernd";}
+          else if (txt == 106) {return "Barla";}
+          else if (txt == 107) {return "Barbie";}
+          else if (txt == 108) {return "Barnes";}
+          else if (txt == 109) {return "Baloo";}
+          else if (txt == 110) {return "Baghera";}
+          else if (txt == 111) {return "Bugsy";}
+          else if (txt == 112) {return "Bugs";}
+          else if (txt == 113) {return "Beetlejuice";}
+          else if (txt == 114) {return "Betelgeuse";}
+          else if (txt == 115) {return "Abed";}
+          else if (txt == 116) {return "Abednego";}
+          else if (txt == 117) {return "Angel";}
+          else if (txt == 118) {return "Aniel";}
+          else if (txt == 119) {return "Angelo";}
+          else if (txt == 120) {return "Angela";}
+          else if (txt == 121) {return "Ang";}
+          else if (txt == 122) {return "Agatha";}
+          else if (txt == 123) {return "Aldo";}
+          else if (txt == 124) {return "Boromir";}
+          else if (txt == 125) {return "Bono";}
+          else if (txt == 126) {return "Benjin";}
+          else if (txt == 127) {return "Banjo";}
+          else if (txt == 128) {return "Beethoven";}
+          else if (txt == 129) {return "Bach";}
+          else if (txt == 130) {return "Buford";}
+          else if (txt == 131) {return "Balto";}
+          else if (txt == 132) {return "Billy-Bob";}
+          else if (txt == 133) {return "Billy-Joe";}
+          else if (txt == 134) {return "Bunky";}
+          else if (txt == 135) {return "Belladona";}
+          else if (txt == 136) {return "Banksy";}
+          else if (txt == 137) {return "Bunny";}
+          else if (txt == 138) {return "Benson";}
+          else if (txt == 139) {return "Bennie";}
+          else if (txt == 140) {return "Buzz";}
+          else if (txt == 141) {return "Bartelby";}
+          else if (txt == 142) {return "Bongo";}
+          else if (txt == 143) {return "Bowser";}
+          else if (txt == 144) {return "Boo";}
+          else if (txt == 145) {return "Bowie";}
+          else if (txt == 146) {return "Ao";}
+          else if (txt == 147) {return "Anton";}
+          else if (txt == 148) {return "Anthony";}
+          else if (txt == 149) {return "Antonio";}
+          else if (txt == 150) {return "Annamaria";}
+          else if (txt == 151) {return "Andrea";}
+          else if (txt == 152) {return "Andrew";}
+          else if (txt == 153) {return "Abraham";}
+          else if (txt == 154) {return "Annie";}
+          else if (txt == 155) {return "Aloise";}
+          else if (txt == 156) {return "Alexander";}
+          else if (txt == 157) {return "Alexa";}
+          else if (txt == 158) {return "Alexandria";}
+          else if (txt == 159) {return "Aleksei";}
+          else if (txt == 160) {return "Ariel";}
+          else if (txt == 161) {return "Amanda";}
+          else if (txt == 162) {return "Amor";}
+          else if (txt == 163) {return "Amelia";}
+          else if (txt == 164) {return "Amalia";}
+          else if (txt == 165) {return "Andy";}
+          else if (txt == 166) {return "Arno";}
+          else if (txt == 167) {return "Angelina";}
+          else if (txt == 168) {return "Adonis";}
+          else if (txt == 169) {return "Amy";}
+          else if (txt == 170) {return "Bastian";}
+          else if (txt == 171) {return "Alistair";}
+          else if (txt == 172) {return "Armando";}
+          else if (txt == 173) {return "Carter";}
+          else if (txt == 174) {return "Calypso";}
+          else if (txt == 175) {return "Cao";}
+          else if (txt == 176) {return "Cloud";}
+          else if (txt == 177) {return "Carlyle";}
+          else if (txt == 178) {return "Carly";}
+          else if (txt == 179) {return "Carl";}
+          else if (txt == 180) {return "Aki";}
+          else if (txt == 181) {return "Akiko";}
+          else if (txt == 182) {return "Aoi";}
+          else if (txt == 183) {return "Ai";}
+          else if (txt == 184) {return "Aoba";}
+          else if (txt == 185) {return "Arihide";}
+          else if (txt == 186) {return "Carla";}
+          else if (txt == 187) {return "Carlotta";}
+          else if (txt == 188) {return "Charlemagne";}
+          else if (txt == 189) {return "Charles";}
+          else if (txt == 190) {return "Charlie";}
+          else if (txt == 191) {return "Candy";}
+          else if (txt == 192) {return "Charlotte";}
+          else if (txt == 193) {return "Candice";}
+          else if (txt == 194) {return "Catherine";}
+          else if (txt == 195) {return "Camila";}
+          else if (txt == 196) {return "Cameron";}
+          else if (txt == 197) {return "Caleb";}
+          else if (txt == 198) {return "Courtney";}
+          else if (txt == 199) {return "Carlos";}
+          else if (txt == 201) {return "Carlito";}
+          else if (txt == 202) {return "Carmela";}
+          else if (txt == 203) {return "Coco";}
+          else if (txt == 204) {return "Colette";}
+          else if (txt == 205) {return "Celeste";}
+          else if (txt == 206) {return "Ciana";}
+          else if (txt == 207) {return "Dany";}
+          else if (txt == 208) {return "Dani";}
+          else if (txt == 209) {return "Danny";}
+          else if (txt == 210) {return "Dan";}
+          else if (txt == 211) {return "Daniel";}
+          else if (txt == 212) {return "Dave";}
+          else if (txt == 213) {return "Darren";}
+          else if (txt == 214) {return "Darrel";}
+          else if (txt == 215) {return "Dorothy";}
+          else if (txt == 216) {return "Dolores";}
+          else if (txt == 217) {return "Damon";}
+          else if (txt == 218) {return "Dallas";}
+          else if (txt == 219) {return "Dick";}
+          else if (txt == 220) {return "Delilah";}
+          else if (txt == 221) {return "Drake";}
+          else if (txt == 222) {return "Dolly";}
+          else if (txt == 223) {return "Donald";}
+          else if (txt == 224) {return "Donnie";}
+          else if (txt == 225) {return "Don";}
+          else if (txt == 226) {return "Donna";}
+          else if (txt == 227) {return "Danju";}
+          else if (txt == 228) {return "Daxter";}
+          else if (txt == 229) {return "Dexter";}
+          else if (txt == 230) {return "Darby";}
+          else if (txt == 231) {return "Dot";}
+          else if (txt == 232) {return "Demeter";}
+          else if (txt == 233) {return "Devon";}
+          else if (txt == 234) {return "Denis";}
+          else if (txt == 235) {return "Denise";}
+          else if (txt == 236) {return "Dwayne";}
+          else if (txt == 237) {return "Earnest";}
+          else if (txt == 238) {return "Ernesta";}
+          else if (txt == 239) {return "Ernesto";}
+          else if (txt == 240) {return "Eve";}
+          else if (txt == 241) {return "Eva";}
+          else if (txt == 242) {return "Eustace";}
+          else if (txt == 243) {return "Ernie";}
+          else if (txt == 244) {return "Emilia";}
+          else if (txt == 245) {return "Emily";}
+          else if (txt == 246) {return "Esther";}
+          else if (txt == 247) {return "Emelina";}
+          else if (txt == 248) {return "Eliza";}
+          else if (txt == 249) {return "Eleazar";}
+          else if (txt == 250) {return "Eammond";}
+          else if (txt == 251) {return "Emanuel";}
+          else if (txt == 252) {return "Emanuela";}
+          else if (txt == 253) {return "Frank";}
+          else if (txt == 254) {return "Francisco";}
+          else if (txt == 255) {return "Frankie";}
+          else if (txt == 256) {return "Fran";}
+          else if (txt == 257) {return "Fannie";}
+          else if (txt == 258) {return "Fred";}
+          else if (txt == 259) {return "Freddie";}
+          else if (txt == 274) {return "Fido";}
+          else if (txt == 275) {return "Fidel";}
+          else if (txt == 260) {return "Gary";}
+          else if (txt == 261) {return "Garfield";}
+          else if (txt == 262) {return "Gertrude";}
+          else if (txt == 263) {return "Gretta";}
+          else if (txt == 277) {return "Gunther";}
+          else if (txt == 264) {return "Grettir";}
+          else if (txt == 265) {return "Gudrun";}
+          else if (txt == 266) {return "Gudrun";}
+          else if (txt == 288) {return "Heloise";}
+          else if (txt == 289) {return "Helen";}
+          else if (txt == 290) {return "Hilda";}
+          else if (txt == 291) {return "Hildegard";}
+          else if (txt == 292) {return "Hartmut";}
+          else if (txt == 293) {return "Hildebrand";}
+          else if (txt == 294) {return "Hagrid";}
+          else if (txt == 267) {return "Helga";}
+          else if (txt == 268) {return "Harold";}
+          else if (txt == 478) {return "Hillary";}
+          else if (txt == 269) {return "Harry";}
+          else if (txt == 270) {return "Hank";}
+          else if (txt == 271) {return "Hunter";}
+          else if (txt == 272) {return "Hans";}
+          else if (txt == 273) {return "Hideru";}
+          else if (txt == 276) {return "Humphrey";}
+          else if (txt == 278) {return "Ichika";}
+          else if (txt == 279) {return "Iori";}
+          else if (txt == 280) {return "Imani";}
+          else if (txt == 281) {return "Ivan";}
+          else if (txt == 282) {return "Desmond";}
+          else if (txt == 283) {return "Desiree";}
+          else if (txt == 284) {return "Isaac";}
+          else if (txt == 285) {return "Itzak";}
+          else if (txt == 286) {return "Immanuel";}
+          else if (txt == 287) {return "Isaac";}
+          else if (txt == 295) {return "Arbaz";}
+          else if (txt == 296) {return "Aladdin";}
+          else if (txt == 297) {return "Jasmine";}
+          else if (txt == 298) {return "Isha";}
+          else if (txt == 299) {return "Ishita";}
+          else if (txt == 300) {return "Inca";}
+          else if (txt == 301) {return "Illuvatar";}
+          else if (txt == 302) {return "Loki";}
+          else if (txt == 303) {return "Freydis";}
+          else if (txt == 304) {return "Frekki";}
+          else if (txt == 305) {return "Frikka";}
+          else if (txt == 306) {return "James";}
+          else if (txt == 307) {return "June";}
+          else if (txt == 308) {return "Johnny";}
+          else if (txt == 309) {return "Jude";}
+          else if (txt == 310) {return "Jacob";}
+          else if (txt == 311) {return "Jhovany";}
+          else if (txt == 312) {return "Javan";}
+          else if (txt == 313) {return "Ruto";}
+          else if (txt == 314) {return "Ruta";}
+          else if (txt == 315) {return "Jimmy";}
+          else if (txt == 316) {return "Chad";}
+          else if (txt == 317) {return "Chester";}
+          else if (txt == 318) {return "Jamie";}
+          else if (txt == 319) {return "Jennifer";}
+          else if (txt == 320) {return "Jenny";}
+          else if (txt == 321) {return "Jezel";}
+          else if (txt == 322) {return "Jezebel";}
+          else if (txt == 323) {return "Katie";}
+          else if (txt == 324) {return "Kate";}
+          else if (txt == 325) {return "Katherine";}
+          else if (txt == 326) {return "Karl";}
+          else if (txt == 327) {return "Kim";}
+          else if (txt == 328) {return "Kimberly";}
+          else if (txt == 329) {return "Jethro";}
+          else if (txt == 330) {return "Heathcoat";}
+          else if (txt == 331) {return "Belga";}
+          else if (txt == 332) {return "Briana";}
+          else if (txt == 333) {return "Brian";}
+          else if (txt == 334) {return "Janet";}
+          else if (txt == 335) {return "Jane";}
+          else if (txt == 336) {return "Elizabeth";}
+          else if (txt == 337) {return "Liz";}
+          else if (txt == 338) {return "Ginger";}
+          else if (txt == 339) {return "Graham";}
+          else if (txt == 340) {return "Derek";}
+          else if (txt == 341) {return "Savannah";}
+          else if (txt == 342) {return "Adam";}
+          else if (txt == 343) {return "Seth";}
+          else if (txt == 344) {return "Cain";}
+          else if (txt == 345) {return "Lando";}
+          else if (txt == 346) {return "Han";}
+          else if (txt == 347) {return "Anakin";}
+          else if (txt == 348) {return "Keanu";}
+          else if (txt == 357) {return "Rodney";}
+          else if (txt == 358) {return "Roger";}
+          else if (txt == 359) {return "Rob";}
+          else if (txt == 360) {return "Robert";}
+          else if (txt == 361) {return "Richard";}
+          else if (txt == 362) {return "Mona";}
+          else if (txt == 363) {return "Laman";}
+          else if (txt == 364) {return "Lany";}
+          else if (txt == 365) {return "Kairu";}
+          else if (txt == 366) {return "Pence";}
+          else if (txt == 367) {return "Hayner";}
+          else if (txt == 368) {return "Sion";}
+          else if (txt == 369) {return "Volt";}
+          else if (txt == 370) {return "Olette";}
+          else if (txt == 371) {return "Olivia";}
+          else if (txt == 372) {return "Volt";}
+          else if (txt == 373) {return "Ko";}
+          else if (txt == 374) {return "Makoto";}
+          else if (txt == 375) {return "Yamamoto";}
+          else if (txt == 376) {return "Yamato";}
+          else if (txt == 377) {return "Ryuta";}
+          else if (txt == 378) {return "Ryu";}
+          else if (txt == 379) {return "Lady";}
+          else if (txt == 380) {return "Luke";}
+          else if (txt == 381) {return "Luka";}
+          else if (txt == 382) {return "Lawrence";}
+          else if (txt == 383) {return "Larry";}
+          else if (txt == 384) {return "Linda";}
+          else if (txt == 385) {return "Leah";}
+          else if (txt == 386) {return "Luciana";}
+          else if (txt == 387) {return "Lucy";}
+          else if (txt == 388) {return "Link";}
+          else if (txt == 389) {return "Lilly";}
+          else if (txt == 390) {return "Liliana";}
+          else if (txt == 391) {return "Lourdes";}
+          else if (txt == 392) {return "Louis";}
+          else if (txt == 393) {return "Luisa";}
+          else if (txt == 394) {return "Manuel";}
+          else if (txt == 395) {return "Manolo";}
+          else if (txt == 396) {return "Mao";}
+          else if (txt == 397) {return "Ma";}
+          else if (txt == 398) {return "Yang";}
+          else if (txt == 399) {return "Sammy";}
+          else if (txt == 400) {return "Sora";}
+          else if (txt == 401) {return "Ruby";}
+          else if (txt == 402) {return "Fergie";}
+          else if (txt == 403) {return "Rooni";}
+          else if (txt == 404) {return "Tidus";}
+          else if (txt == 405) {return "Seymour";}
+          else if (txt == 406) {return "Yuna";}
+          else if (txt == 407) {return "Wakka";}
+          else if (txt == 408) {return "Lamar";}
+          else if (txt == 409) {return "Lebron";}
+          else if (txt == 410) {return "Lulu";}
+          else if (txt == 411) {return "Rikku";}
+          else if (txt == 412) {return "Jeht";}
+          else if (txt == 413) {return "Spike";}
+          else if (txt == 414) {return "Mai";}
+          else if (txt == 415) {return "May";}
+          else if (txt == 416) {return "Nayru";}
+          else if (txt == 417) {return "Rumi";}
+          else if (txt == 418) {return "Usman";}
+          else if (txt == 419) {return "Muhammed";}
+          else if (txt == 420) {return "Mahnoor";}
+          else if (txt == 421) {return "Prisha";}
+          else if (txt == 422) {return "Heloise";}
+          else if (txt == 423) {return "Yvette";}
+          else if (txt == 424) {return "Yvonne";}
+          else if (txt == 425) {return "Zachary";}
+          else if (txt == 426) {return "Zelda";}
+          else if (txt == 427) {return "Zora";}
+          else if (txt == 428) {return "Zadok";}
+          else if (txt == 429) {return "Zhang";}
+          else if (txt == 430) {return "Zao";}
+          else if (txt == 431) {return "Zhao";}
+          else if (txt == 432) {return "Willow";}
+          else if (txt == 433) {return "Woody";}
+          else if (txt == 434) {return "Mallory";}
+          else if (txt == 435) {return "Madison";}
+          else if (txt == 436) {return "Mavis";}
+          else if (txt == 437) {return "Magnus";}
+          else if (txt == 438) {return "Wilfred";}
+          else if (txt == 439) {return "Winston";}
+          else if (txt == 440) {return "Wendy";}
+          else if (txt == 441) {return "Spitz";}
+          else if (txt == 442) {return "Wario";}
+          else if (txt == 443) {return "Waluigi";}
+          else if (txt == 444) {return "Waldo";}
+          else if (txt == 445) {return "Martin";}
+          else if (txt == 446) {return "Martina";}
+          else if (txt == 447) {return "Marie";}
+          else if (txt == 448) {return "Maria";}
+          else if (txt == 449) {return "Daria";}
+          else if (txt == 450) {return "Bridget";}
+          else if (txt == 451) {return "Cassandra";}
+          else if (txt == 452) {return "Cassidy";}
+          else if (txt == 453) {return "Melanie";}
+          else if (txt == 454) {return "Melody";}
+          else if (txt == 455) {return "Snowball";}
+          else if (txt == 457) {return "Larissa";}
+          else if (txt == 458) {return "Colton";}
+          else if (txt == 459) {return "Morton";}
+          else if (txt == 460) {return "Marty";}
+          else if (txt == 461) {return "Morty";}
+          else if (txt == 462) {return "Monty";}
+          else if (txt == 463) {return "Douglas";}
+          else if (txt == 464) {return "Doug";}
+          else if (txt == 465) {return "Veronica";}
+          else if (txt == 466) {return "Phoenix";}
+          else if (txt == 467) {return "Paige";}
+          else if (txt == 468) {return "Jan";}
+          else if (txt == 469) {return "Janine";}
+          else if (txt == 470) {return "Jim";}
+          else if (txt == 471) {return "James";}
+          else if (txt == 472) {return "Dwight";}
+          else if (txt == 473) {return "Pamela";}
+          else if (txt == 474) {return "Pam";}
+          else if (txt == 475) {return "Patrick";}
+          else if (txt == 476) {return "Patricia";}
+          /* S */
+          else if (txt == 349) {return "Sean";}
+          else if (txt == 350) {return "Seamus";}
+          else if (txt == 351) {return "Santa";}
+          else if (txt == 352) {return "Samus";}
+          else if (txt == 353) {return "Siobhan";}
+          else if (txt == 354) {return "Siana";}
+          else if (txt == 355) {return "Simon";}
+          else if (txt == 356) {return "Simone";}
+          else if (txt == 495) {return "Sabine";}
+          else if (txt == 477) {return "Samantha";}
+          else if (txt == 479) {return "Stephanie";}
+          else if (txt == 480) {return "Stephan";}
+          else if (txt == 481) {return "Stewart";}
+          else if (txt == 482) {return "Stew";}
+          else if (txt == 483) {return "Donatello";}
+          else if (txt == 484) {return "Michelangelo";}
+          else if (txt == 485) {return "Leonardo";}
+          else if (txt == 486) {return "Raphael";}
+          else if (txt == 487) {return "Quinn";}
+          else if (txt == 488) {return "Quincy";}
+          else if (txt == 489) {return "Quentin";}
+          else if (txt == 490) {return "Schorsch";}
+          else if (txt == 491) {return "Minuet";}
+          else if (txt == 492) {return "Allegra";}
+          else if (txt == 493) {return "Werner";}
+          else if (txt == 494) {return "Volker";}
+          else if (txt == 495) {return "Monty";}
+          else if (txt == 496) {return "Morty";}
+          else if (txt == 497) {return "Mordecai";}
+        }
+	function middlenames() { 
+          var txt = getRndInteger(1,40);
+          if (txt == 0) {return "";}
+          else if (txt == 1) {return "ibn";}
+          else if (txt == 2) {return "bar";}
+          else if (txt == 3) {return "bat";}
+          else if (txt == 4) {return "ben";}
+          else if (txt == 5) {return "Cor-";}
+          else if (txt == 6) {return "van";}
+          else if (txt == 7) {return "von";}
+          else if (txt == 8) {return "ahi";}
+          else if (txt == 9) {return "son of";}
+          else if (txt == 10) {return "daughter of";}
+          else if (txt == 11) {return "O'";}
+          else if (txt == 12) {return "Banana";}
+          else if (txt == 13) {return "the Bat";}
+          else if (txt == 14) {return "the Hedgehog";}
+          else if (txt == 15) {return "Eggman";}
+          else if (txt == 16) {return "the Echidna";}
+          else if (txt == 17) {return "Mc-";}
+          else if (txt == 18) {return "Big";}
+          else if (txt == 19) {return "Little";}
+          else if (txt == 20) {return "Lil'";}
+          else if (txt == 21) {return "Da'";}
+          else if (txt == 22) {return "the";}
+          else if (txt == 23) {return "MC";}
+          else if (txt == 24) {return "that Boy";}
+          else if (txt == 25) {return "that Gurl";}
+          else if (txt == 26) {return "Big Baby";}
+          else if (txt == 27) {return "Ya Boi";}
+          else if (txt == 28) {return "-ward";}
+          else if (txt == 29) {return "Monique";}
+          else if (txt == 30) {return "Beatrice";}
+          else if (txt == 31) {return "Jennifer";}
+          else if (txt == 32) {return "Rachel";}
+          else if (txt == 33) {return "Maria";}
+          else if (txt == 34) {return "Johnathan";}
+          else if (txt == 35) {return "Guiseppe";}
+          else if (txt == 36) {return "Ronald";}
+          else if (txt == 37) {return "John";}
+          else if (txt == 38) {return "Christopher";}
+          else if (txt == 39) {return "Lynn";}
+          else if (txt == 40) {return "Rose";}
+      }
+	 function lastnames() {
+          var txt = getRndInteger(1,431);
+          if (txt == 0) {return "Nothing";}
+          else if (txt == 1) {return "Abrams";}
+          else if (txt == 2) {return "Abraham";}
+          else if (txt == 3) {return "Aberdeen";}
+          else if (txt == 4) {return "Abramovich";}
+          else if (txt == 5) {return "Ableton";}
+          else if (txt == 6) {return "Addison";}
+          else if (txt == 7) {return "Anandale";}
+          else if (txt == 8) {return "Adalbert";}
+          else if (txt == 9) {return "Aguirre";}
+          else if (txt == 10) {return "Aguilar";}
+          else if (txt == 11) {return "Agnes";}
+          else if (txt == 12) {return "Ahmed";}
+          else if (txt == 13) {return "Ahmad";}
+          else if (txt == 14) {return "Akmed";}
+          else if (txt == 15) {return "Ali";}
+          else if (txt == 16) {return "Alberts";}
+          else if (txt == 17) {return "Armando";}
+          else if (txt == 18) {return "Arroyo";}
+          else if (txt == 19) {return "Arnolds";}
+          else if (txt == 20) {return "Arturo";}
+          else if (txt == 21) {return "Barrymore";}
+          else if (txt == 22) {return "Bartholomew";}
+          else if (txt == 23) {return "Benjamin";}
+          else if (txt == 24) {return "Barnes";}
+          else if (txt == 25) {return "Bernard";}
+          else if (txt == 26) {return "Bigby";}
+          else if (txt == 27) {return "Baggins";}
+          else if (txt == 28) {return "Björnson";}
+          else if (txt == 29) {return "Blanco";}
+          else if (txt == 30) {return "Blair";}
+          else if (txt == 31) {return "Blue";}
+          else if (txt == 32) {return "Birk";}
+          else if (txt == 33) {return "Bombal";}
+          else if (txt == 34) {return "Bonn";}
+          else if (txt == 35) {return "Bonifacio";}
+          else if (txt == 36) {return "Bartholomew";}
+          else if (txt == 37) {return "Bartolomeo";}
+          else if (txt == 38) {return "Burr";}
+          else if (txt == 39) {return "Bobson";}
+          else if (txt == 40) {return "Borisovich";}
+          else if (txt == 41) {return "Burnadette";}
+          else if (txt == 42) {return "Bracegirdle";}
+          else if (txt == 43) {return "Bronzino";}
+          else if (txt == 44) {return "Brock";}
+          else if (txt == 45) {return "Brandenburg";}
+          else if (txt == 46) {return "Brendan";}
+          else if (txt == 47) {return "Abed";}
+          else if (txt == 48) {return "Nielson";}
+          else if (txt == 49) {return "Angelo";}
+          else if (txt == 50) {return "Akhum";}
+          else if (txt == 51) {return "Borodin";}
+          else if (txt == 52) {return "Bondarenko";}
+          else if (txt == 53) {return "Beethoven";}
+          else if (txt == 54) {return "Bach";}
+          else if (txt == 55) {return "Buford";}
+          else if (txt == 56) {return "Baretto";}
+          else if (txt == 57) {return "Belladona";}
+          else if (txt == 58) {return "Banksy";}
+          else if (txt == 59) {return "Benson";}
+          else if (txt == 60) {return "Bartelby";}
+          else if (txt == 61) {return "Bongo";}
+          else if (txt == 62) {return "Bowser";}
+          else if (txt == 63) {return "Bowie";}
+          else if (txt == 64) {return "Antonov";}
+          else if (txt == 65) {return "Andrews";}
+          else if (txt == 66) {return "Alexander";}
+          else if (txt == 67) {return "Alekseyev";}
+          else if (txt == 68) {return "Angelina";}
+          else if (txt == 69) {return "Blackstone";}
+          else if (txt == 70) {return "Armando";}
+          else if (txt == 71) {return "Carter";}
+          else if (txt == 72) {return "Cao";}
+          else if (txt == 73) {return "Carlyle";}
+          else if (txt == 74) {return "Carlin";}
+          else if (txt == 75) {return "Carlton";}
+          else if (txt == 76) {return "Azuna";}
+          else if (txt == 77) {return "Yamashita";}
+          else if (txt == 78) {return "Yamamoto";}
+          else if (txt == 79) {return "Suzuki";}
+          else if (txt == 80) {return "Nagano";}
+          else if (txt == 81) {return "Watanabe";}
+          else if (txt == 82) {return "Carlotta";}
+          else if (txt == 83) {return "Charlemagne";}
+          else if (txt == 84) {return "Sato";}
+          else if (txt == 85) {return "Tanaka";}
+          else if (txt == 86) {return "Nakamura";}
+          else if (txt == 87) {return "Kobayashi";}
+          else if (txt == 88) {return "Yoshita";}
+          else if (txt == 89) {return "Kawashima";}
+          else if (txt == 90) {return "Yamada";}
+          else if (txt == 91) {return "Cameron";}
+          else if (txt == 92) {return "Yamaguchi";}
+          else if (txt == 93) {return "Courtney";}
+          else if (txt == 94) {return "Inoue";}
+          else if (txt == 95) {return "Kimura";}
+          else if (txt == 96) {return "Shimizu";}
+          else if (txt == 97) {return "Mori";}
+          else if (txt == 98) {return "Abe";}
+          else if (txt == 99) {return "Ogawa";}
+          else if (txt == 100) {return "Aoki";}
+          else if (txt == 101) {return "Ota";}
+          else if (txt == 102) {return "Okamoto";}
+          else if (txt == 103) {return "Matsuda";}
+          else if (txt == 104) {return "Ono";}
+          else if (txt == 105) {return "Sakai";}
+          else if (txt == 106) {return "Murasaki";}
+          else if (txt == 107) {return "Nomura";}
+          else if (txt == 108) {return "Kinoshita";}
+          else if (txt == 109) {return "Danielson";}
+          else if (txt == 110) {return "Davies";}
+          else if (txt == 111) {return "Denisov";}
+          else if (txt == 112) {return "Dallas";}
+          else if (txt == 113) {return "Dickson";}
+          else if (txt == 114) {return "Drake";}
+          else if (txt == 115) {return "Baxter";}
+          else if (txt == 116) {return "Frank";}
+          else if (txt == 117) {return "Bacon";}
+          else if (txt == 118) {return "Castro";}
+          else if (txt == 119) {return "Friedrich";}
+          else if (txt == 120) {return "Gudrunsdottir";}
+          else if (txt == 121) {return "Helens";}
+          else if (txt == 122) {return "Hildegard";}
+          else if (txt == 123) {return "Hildebrand";}
+          else if (txt == 124) {return "Haroldson";}
+          else if (txt == 125) {return "Hillary";}
+          else if (txt == 126) {return "Harrison";}
+          else if (txt == 127) {return "Hanks";}
+          else if (txt == 128) {return "Hunter";}
+          else if (txt == 129) {return "Hansson";}
+          else if (txt == 130) {return "Humphreys";}
+          else if (txt == 131) {return "Ivans";}
+          else if (txt == 132) {return "Isaacs";}
+          else if (txt == 133) {return "Fitzpatrick";}
+          else if (txt == 134) {return "Freydisdottir";}
+          else if (txt == 135) {return "Jamesson";}
+          else if (txt == 136) {return "Jacobs";}
+          else if (txt == 137) {return "Ruto";}
+          else if (txt == 138) {return "Jimmies";}
+          else if (txt == 139) {return "Chesterson";}
+          else if (txt == 140) {return "Chesterfield";}
+          else if (txt == 141) {return "Karlson";}
+          else if (txt == 142) {return "Kimberly";}
+          else if (txt == 143) {return "Belga";}
+          else if (txt == 144) {return "Elizabeth";}
+          else if (txt == 145) {return "Graham";}
+          else if (txt == 146) {return "Adams";}
+          else if (txt == 147) {return "Rogers";}
+          else if (txt == 148) {return "Robson";}
+          else if (txt == 149) {return "Roberts";}
+          else if (txt == 150) {return "Richards";}
+          else if (txt == 151) {return "Pence";}
+          else if (txt == 152) {return "Ko";}
+          else if (txt == 153) {return "Clinton";}
+          else if (txt == 154) {return "Reed";}
+          else if (txt == 155) {return "Luke";}
+          else if (txt == 156) {return "Lucas";}
+          else if (txt == 157) {return "Lawrence";}
+          else if (txt == 158) {return "Linda";}
+          else if (txt == 159) {return "Lucy";}
+          else if (txt == 160) {return "Lourdes";}
+          else if (txt == 161) {return "Louis";}
+          else if (txt == 162) {return "Manolo";}
+          else if (txt == 163) {return "Mao";}
+          else if (txt == 164) {return "Ma";}
+          else if (txt == 165) {return "Yang";}
+          else if (txt == 166) {return "Sung";}
+          else if (txt == 167) {return "Wong";}
+          else if (txt == 168) {return "Seymour";}
+          else if (txt == 169) {return "Lamar";}
+          else if (txt == 170) {return "May";}
+          else if (txt == 171) {return "Muhammed";}
+          else if (txt == 172) {return "Zacharies";}
+          else if (txt == 173) {return "Zhang";}
+          else if (txt == 174) {return "Zao";}
+          else if (txt == 175) {return "Zhao";}
+          else if (txt == 176) {return "Willows";}
+          else if (txt == 177) {return "Mallory";}
+          else if (txt == 178) {return "Madison";}
+          else if (txt == 179) {return "Mavis";}
+          else if (txt == 180) {return "Magnus";}
+          else if (txt == 181) {return "Washington";}
+          else if (txt == 182) {return "Wallace";}
+          else if (txt == 183) {return "Spitz";}
+          else if (txt == 184) {return "Martins";}
+          else if (txt == 185) {return "Cassidy";}
+          else if (txt == 186) {return "Montgomery";}
+          else if (txt == 187) {return "Morton";}
+          else if (txt == 188) {return "Montague";}
+          else if (txt == 189) {return "Douglass";}
+          else if (txt == 190) {return "Phoenix";}
+          else if (txt == 191) {return "Hawkins";}
+          else if (txt == 192) {return "Dwight";}
+          else if (txt == 193) {return "Patrick";}
+          else if (txt == 194) {return "Santa";}
+          else if (txt == 195) {return "Simon";}
+          else if (txt == 196) {return "Simons";}
+          else if (txt == 197) {return "Stewart";}
+          else if (txt == 198) {return "Quinn";}
+          else if (txt == 199) {return "Quincy";}
+          else if (txt == 200) {return "Miller";}
+          else if (txt == 201) {return "Mueller";}
+          else if (txt == 202) {return "Baker";}
+          else if (txt == 203) {return "Volk";}
+          else if (txt == 204) {return "Heidelberg";}
+          else if (txt == 205) {return "Bombadil";}
+          else if (txt == 206) {return "Rubble";}
+          else if (txt == 207) {return "Flintstone";}
+          else if (txt == 208) {return "Veene";}
+          else if (txt == 209) {return "Roxanne";}
+          else if (txt == 210) {return "Sparr";}
+          else if (txt == 211) {return "Caspar";}
+          else if (txt == 212) {return "Hait";}
+          else if (txt == 213) {return "Sum";}
+          else if (txt == 214) {return "Naspar";}
+          else if (txt == 215) {return "Clays";}
+          else if (txt == 216) {return "Knight";}
+          else if (txt == 217) {return "Parr";}
+          else if (txt == 218) {return "Taight";}
+          else if (txt == 219) {return "Puttanesca";}
+          else if (txt == 220) {return "Flonase";}
+          else if (txt == 221) {return "duRobitussin";}
+          else if (txt == 222) {return "Gabelbart";}
+          else if (txt == 223) {return "Musa";}
+          else if (txt == 224) {return "Lightyear";}
+          else if (txt == 225) {return "Robotnik";}
+          else if (txt == 226) {return "Zurg";}
+          else if (txt == 227) {return "Puff";}
+          else if (txt == 228) {return "Cheeks";}
+          else if (txt == 229) {return "Krabbs";}
+          else if (txt == 230) {return "Starr";}
+          else if (txt == 231) {return "Tentacles";}
+          else if (txt == 232) {return "Squarepants";}
+          else if (txt == 233) {return "Fancyson";}
+          else if (txt == 234) {return "Avocado";}
+          else if (txt == 235) {return "Bicicleta";}
+          else if (txt == 236) {return "Patines";}
+          else if (txt == 237) {return "Lalilulelo";}
+          else if (txt == 238) {return "Schmidt";}
+          else if (txt == 239) {return "Smith";}
+          else if (txt == 240) {return "Schuhmacher";}
+          else if (txt == 241) {return "Baker";}
+          else if (txt == 242) {return "Vight";}
+          else if (txt == 243) {return "Hare";}
+          else if (txt == 244) {return "Sunblaze";}
+          else if (txt == 245) {return "Gatherwind";}
+          else if (txt == 246) {return "Witherleaf";}
+          else if (txt == 247) {return "Starfall";}
+          else if (txt == 248) {return "Starr";}
+          else if (txt == 249) {return "Bell";}
+          else if (txt == 250) {return "Bellsong";}
+          else if (txt == 251) {return "Evertail";}
+          else if (txt == 252) {return "Long";}
+          else if (txt == 253) {return "Teach";}
+          else if (txt == 254) {return "Morgan";}
+          else if (txt == 255) {return "Longbottom";}
+          else if (txt == 256) {return "Lovegood";}
+          else if (txt == 257) {return "Gildin";}
+          else if (txt == 258) {return "Stormwillow";}
+          else if (txt == 259) {return "Snow";}
+          else if (txt == 260) {return "Crowe";}
+          else if (txt == 261) {return "Poe";}
+          else if (txt == 262) {return "Auden";}
+          else if (txt == 263) {return "Tolkien";}
+          else if (txt == 264) {return "Dragonsbane";}
+          else if (txt == 265) {return "Iceman";}
+          else if (txt == 266) {return "Bogman";}
+          else if (txt == 267) {return "Dickens";}
+          else if (txt == 268) {return "Ababua";}
+          else if (txt == 269) {return "Robotnik";}
+          else if (txt == 270) {return "McCourt";}
+          else if (txt == 271) {return "Hait";}
+          else if (txt == 272) {return "Sahid";}
+          else if (txt == 273) {return "Mortensen";}
+          else if (txt == 274) {return "Bloom";}
+          else if (txt == 275) {return "Sparrow";}
+          else if (txt == 276) {return "Holm";}
+          else if (txt == 277) {return "Wood";}
+          else if (txt == 278) {return "McKellen";}
+          else if (txt == 279) {return "Serkis";}
+          else if (txt == 280) {return "Bean";}
+          else if (txt == 281) {return "Tyler";}
+          else if (txt == 282) {return "Blanchett";}
+          else if (txt == 283) {return "Rhys";}
+          else if (txt == 284) {return "Boyd";}
+          else if (txt == 285) {return "Brandybuck";}
+          else if (txt == 286) {return "Monaghan";}
+          else if (txt == 287) {return "Finnegan";}
+          else if (txt == 288) {return "Lee";}
+          else if (txt == 289) {return "Weaver";}
+          else if (txt == 290) {return "Weaving";}
+          else if (txt == 291) {return "Fuller";}
+          else if (txt == 292) {return "Took";}
+          else if (txt == 293) {return "Maggot";}
+          else if (txt == 294) {return "Gil-Galad";}
+          else if (txt == 295) {return "Lurtz";}
+          else if (txt == 296) {return "Wormtongue";}
+          else if (txt == 297) {return "Cotton";}
+          else if (txt == 298) {return "Redcorn";}
+          else if (txt == 299) {return "Proudfoot";}
+          else if (txt == 300) {return "Gamgee";}
+          else if (txt == 301) {return "Noakes";}
+          else if (txt == 302) {return "Dreary";}
+          else if (txt == 303) {return "Sackville";}
+          else if (txt == 304) {return "Butterburr";}
+          else if (txt == 305) {return "Everard";}
+          else if (txt == 306) {return "Stark";}
+          else if (txt == 307) {return "Sandyman";}
+          else if (txt == 308) {return "Goatleaf";}
+          else if (txt == 309) {return "Toad";}
+          else if (txt == 310) {return "Wright";}
+          else if (txt == 311) {return "Edgeworth";}
+          else if (txt == 312) {return "Baskin";}
+          else if (txt == 313) {return "Dawson";}
+          else if (txt == 314) {return "DeLaCruz";}
+          else if (txt == 315) {return "Cruz";}
+          else if (txt == 316) {return "Fey";}
+          else if (txt == 317) {return "Jackson";}
+          else if (txt == 318) {return "Jeffreys";}
+          else if (txt == 319) {return "Jefferson";}
+          else if (txt == 320) {return "Rutgers";}
+          else if (txt == 321) {return "McAfee";}
+          else if (txt == 322) {return "McPhee";}
+          else if (txt == 323) {return "McPherson";}
+          else if (txt == 324) {return "McDougall";}
+          else if (txt == 325) {return "McClusky";}
+          else if (txt == 326) {return "Macleod";}
+          else if (txt == 327) {return "McCain";}
+          else if (txt == 328) {return "McDowd";}
+          else if (txt == 329) {return "McKenzie";}
+          else if (txt == 330) {return "McDonald";}
+          else if (txt == 331) {return "McGregor";}
+          else if (txt == 332) {return "McGee";}
+          else if (txt == 333) {return "McGraw";}
+          else if (txt == 334) {return "McGuire";}
+          else if (txt == 335) {return "McGinnis";}
+          else if (txt == 336) {return "McGinley";}
+          else if (txt == 337) {return "McKinney";}
+          else if (txt == 338) {return "McGill";}
+          else if (txt == 339) {return "Stevens";}
+          else if (txt == 340) {return "Stevenson";}
+          else if (txt == 341) {return "Paulsen";}
+          else if (txt == 342) {return "Park";}
+          else if (txt == 343) {return "Ross";}
+          else if (txt == 344) {return "McLein";}
+          else if (txt == 345) {return "Klein";}
+          else if (txt == 346) {return "Totenkopf";}
+          else if (txt == 347) {return "McDowell";}
+          else if (txt == 348) {return "Phillips";}
+          else if (txt == 349) {return "McCormick";}
+          else if (txt == 350) {return "McCullough";}
+          else if (txt == 351) {return "McMullen";}
+          else if (txt == 352) {return "McMahon";}
+          else if (txt == 353) {return "Cockfield";}
+          else if (txt == 354) {return "Smiley";}
+          else if (txt == 355) {return "McCoy";}
+          else if (txt == 356) {return "McMaster";}
+          else if (txt == 357) {return "McMurray";}
+          else if (txt == 358) {return "McDonagh";}
+          else if (txt == 359) {return "McClain";}
+          else if (txt == 360) {return "McConnell";}
+          else if (txt == 361) {return "McLaughlin";}
+          else if (txt == 362) {return "McLaren";}
+          else if (txt == 363) {return "Fitzpatrick";}
+          else if (txt == 364) {return "Masters";}
+          else if (txt == 365) {return "McLean";}
+          else if (txt == 366) {return "Goopygills-Carbo";}
+          else if (txt == 367) {return "Walker";}
+          else if (txt == 368) {return "Moist";}
+          else if (txt == 369) {return "Wayne";}
+          else if (txt == 370) {return "Seko";}
+          else if (txt == 371) {return "Eisenhower";}
+          else if (txt == 372) {return "Lloyd";}
+          else if (txt == 373) {return "Copperfield";}
+          else if (txt == 374) {return "Stefanovich";}
+          else if (txt == 375) {return "Balboa";}
+          else if (txt == 376) {return "Felt";}
+          else if (txt == 377) {return "Smelley";}
+          else if (txt == 378) {return "Smalley";}
+          else if (txt == 379) {return "Hunt";}
+          else if (txt == 380) {return "Hill";}
+          else if (txt == 381) {return "Elroy";}
+          else if (txt == 382) {return "Presley";}
+          else if (txt == 383) {return "Prescott";}
+          else if (txt == 384) {return "Brown";}
+          else if (txt == 385) {return "Juarez";}
+          else if (txt == 386) {return "Garcia";}
+          else if (txt == 387) {return "Gomez";}
+          else if (txt == 388) {return "Santiago";}
+          else if (txt == 389) {return "Dominguez";}
+          else if (txt == 390) {return "Olsen";}
+          else if (txt == 391) {return "Cash";}
+          else if (txt == 392) {return "Rich";}
+          else if (txt == 393) {return "Johnson";}
+          else if (txt == 394) {return "Richards";}
+          else if (txt == 395) {return "Darwin";}
+          else if (txt == 396) {return "Lincoln";}
+          else if (txt == 397) {return "Brewster";}
+          else if (txt == 398) {return "Gamgee";}
+          else if (txt == 399) {return "Halfelven";}
+          else if (txt == 400) {return "Bell";}
+          else if (txt == 401) {return "Edison";}
+          else if (txt == 402) {return "Tesla";}
+          else if (txt == 403) {return "London";}
+          else if (txt == 404) {return "Wigglesworth";}
+          else if (txt == 405) {return "Toadsworth";}
+          else if (txt == 406) {return "Sandoval";}
+          else if (txt == 407) {return "Ho";}
+          else if (txt == 408) {return "Bullock";}
+          else if (txt == 409) {return "Espinoza";}
+          else if (txt == 410) {return "Dorkis";}
+          else if (txt == 411) {return "Grump";}
+          else if (txt == 412) {return "Pistof";}       
+          else if (txt == 413) {return "Grullon";}
+          else if (txt == 414) {return "Letin";}
+          else if (txt == 415) {return "Herculon";}
+          else if (txt == 416) {return "Sharp";}
+          else if (txt == 417) {return "Crunch";}
+          else if (txt == 418) {return "Tiger";}
+          else if (txt == 419) {return "Kellogg";}
+        }
+	 function questions() {
+          var txt = getRndInteger(1,13);
+          if (txt == 0) {return "Byr,, Meadow, , by_the_Water, Water, Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
+          else if (txt == 1) {return "Are you seeing someone?";}
+          else if (txt == 2) {return "How many partners have you had?";}
+          else if (txt == 3) {return "Do you have a drinking problem?";}
+          else if (txt == 4) {return "You have an addiction, and you need help.";}
+          else if (txt == 5) {return "You need therapy.";}
+          else if (txt == 6) {return "Have you been exposed to toxic fumes?";}
+          else if (txt == 7) {return "Has someone tried to poison you?";}
+          else if (txt == 8) {return "Have you kissed a frog recently?";}
+          else if (txt == 9) {return "Would you describe your lifestyle as sedentary?";}
+          else if (txt == 10) {return "At this rate, you have 8 months to live.";}
+          else if (txt == 11) {return "I'd say you have about a year left to live.";}
+          else if (txt == 12) {return "I'd give you about a week left. Try to enjoy it.";}
+          else if (txt == 13) {return "You seem perfectly healthy to me!";}
+      }
+	 function talents() {
+          var txt = getRndInteger(1,38);
+          if (txt == 0) {return""}
+          else if (txt == 1) {return "flight";}
+          else if (txt == 2) {return "talking to animals";}
+          else if (txt == 3) {return "cat-whisperer";}
+          else if (txt == 4) {return "dog-whisperer";}
+          else if (txt == 5) {return "alcohol resistance";}
+          else if (txt == 6) {return "can process lactose";}
+          else if (txt == 7) {return "can process sugar";}
+          else if (txt == 8) {return "can process gluten";}
+          else if (txt == 9) {return "perfect vision";}
+          else if (txt == 10) {return "perfect health";}
+          else if (txt == 11) {return "jumping high";}
+          else if (txt == 12) {return "running fast";}
+          else if (txt == 13) {return "super-speed";}
+          else if (txt == 14) {return "mathmatical talent";}
+          else if (txt == 15) {return "adept reader";}
+          else if (txt == 16) {return "avid reader";}
+          else if (txt == 17) {return "super-strength";}
+          else if (txt == 18) {return "very tall";}
+          else if (txt == 19) {return "large stature";}
+          else if (txt == 20) {return "very flexible";}
+          else if (txt == 21) {return "oh, my mistake! You are perfectly average!";}
+          else if (txt == 22) {return "dark power within";}
+          else if (txt == 23) {return "whistling really loudly";}
+          else if (txt == 24) {return "loud voice";}
+          else if (txt == 25) {return "stealth";}
+          else if (txt == 26) {return "great singing voice";}
+          else if (txt == 27) {return "musically gifted";}
+          else if (txt == 28) {return "perfect pitch";}
+          else if (txt == 29) {return "artistic talent";}
+          else if (txt == 30) {return "learning quickly";}
+          else if (txt == 31) {return "polyglot";}
+          else if (txt == 32) {return "ambidexterous";}
+          else if (txt == 33) {return "multitasking";}
+          else if (txt == 34) {return "hand-eye coordination";}
+          else if (txt == 35) {return "food coordination";}
+          else if (txt == 36) {return "strong arms";}
+          else if (txt == 37) {return "strong legs";}
+          else if (txt == 38) {return "strong abdomen";}          
+      }
+	function cures() { 
+          var txt = getRndInteger(1,106);
+          if (txt == 0) {return "";}
+          else if (txt == 1) {return "potion";}
+          else if (txt == 2) {return "golden needle";}
+          else if (txt == 3) {return "phoenix down";}
+          else if (txt == 4) {return "pain killers";}
+          else if (txt == 5) {return "anti-emetic";}
+          else if (txt == 6) {return "pepto-bismol";}
+          else if (txt == 7) {return "vitamin C";}
+          else if (txt == 8) {return "vitamin D";}
+          else if (txt == 9) {return "potassium";}
+          else if (txt == 10) {return "probiotics";}
+          else if (txt == 11) {return "antibiotics";}
+          else if (txt == 12) {return "emetic";}
+          else if (txt == 13) {return "lobelia root extract";}
+          else if (txt == 14) {return "dandelion root tea";}
+          else if (txt == 15) {return "pine needle tea";}
+          else if (txt == 16) {return "get out more";}
+          else if (txt == 17) {return "go on a walk";}
+          else if (txt == 18) {return "diuretic";}
+          else if (txt == 19) {return "pet a cat";}
+          else if (txt == 20) {return "get a dog";}
+          else if (txt == 21) {return "prayer";}
+          else if (txt == 22) {return "see a priest";}
+          else if (txt == 23) {return "exorcism";}
+          else if (txt == 24) {return "bloodletting";}
+          else if (txt == 25) {return "leeches";}
+          else if (txt == 26) {return "massage";}
+          else if (txt == 27) {return "see a chiropracter";}
+          else if (txt == 28) {return "go to the spa";}
+          else if (txt == 29) {return "go to the sauna";}
+          else if (txt == 30) {return "hot water bath";}
+          else if (txt == 31) {return "cold water bath";}
+          else if (txt == 32) {return "take a bath";}
+          else if (txt == 33) {return "practice better hygiene";}
+          else if (txt == 34) {return "use deoderant";}
+          else if (txt == 35) {return "ice bath";}
+          else if (txt == 36) {return "holy water";}
+          else if (txt == 37) {return "eat a warm meal";}
+          else if (txt == 38) {return "eat a healthy meal";}
+          else if (txt == 39) {return "fast for a day";}
+          else if (txt == 40) {return "rest 9 days";}
+          else if (txt == 41) {return "get some rest";}
+          else if (txt == 42) {return "walk it off";}
+          else if (txt == 43) {return "sleep it off";}
+          else if (txt == 44) {return "a spoonful of sugar";}
+          else if (txt == 45) {return "a spoonful of honey";}
+          else if (txt == 46) {return "a spoonful of lemon juice";}
+          else if (txt == 47) {return "a spoonful of maple syrup";}
+          else if (txt == 48) {return "wear a mask";}
+          else if (txt == 49) {return "cough drop";}
+          else if (txt == 50) {return "cough syrup";}
+          else if (txt == 51) {return "antihistamine";}
+          else if (txt == 52) {return "acetaminophen";}
+          else if (txt == 53) {return "drink a smoothie";}
+          else if (txt == 54) {return "eat more fruit";}
+          else if (txt == 55) {return "eat more vegetables";}
+          else if (txt == 56) {return "get more iron";}
+          else if (txt == 57) {return "get more protein";}
+          else if (txt == 58) {return "get more calcium";}
+          else if (txt == 59) {return "breath mint";}
+          else if (txt == 60) {return "surgery";}
+          else if (txt == 61) {return "laser surgery";}
+          else if (txt == 62) {return "stent";}
+          else if (txt == 63) {return "organ replacement";}
+          else if (txt == 64) {return "extraction";}
+          else if (txt == 65) {return "bionic enhancement";}
+          else if (txt == 66) {return "blood transfusion";}
+          else if (txt == 67) {return "irrigation";}
+          else if (txt == 68) {return "saline";}
+          else if (txt == 69) {return "placebo pills";}
+          else if (txt == 70) {return "mystery pills";}
+          else if (txt == 71) {return "magic beans";}
+          else if (txt == 72) {return "a big bowl of chili";}
+          else if (txt == 73) {return "cough it up";}
+          else if (txt == 74) {return "disinfect it";}
+          else if (txt == 75) {return "burn it";}
+          else if (txt == 76) {return "a slap in the face";}
+          else if (txt == 77) {return "change your environment";}
+          else if (txt == 78) {return "there is no cure";}
+          else if (txt == 79) {return "the iron lung";}
+          else if (txt == 80) {return "the iron butt";}
+          else if (txt == 81) {return "blood thinner";}
+          else if (txt == 82) {return "coagulant";}
+          else if (txt == 83) {return "herbal tea";}
+          else if (txt == 84) {return "sea water";}
+          else if (txt == 85) {return "maggots";}
+          else if (txt == 86) {return "drink more water";}
+          else if (txt == 87) {return "remove salt from your diet";}
+          else if (txt == 88) {return "remove sugar from your diet";}
+          else if (txt == 89) {return "you should smoke more";}
+          else if (txt == 90) {return "stop smoking";}
+          else if (txt == 91) {return "quit drinking";}
+          else if (txt == 92) {return "a shot of hard liquor";}
+          else if (txt == 93) {return "eldeberry juice";}
+          else if (txt == 94) {return "get a hobby";}
+          else if (txt == 95) {return "worry less";}
+          else if (txt == 96) {return "exercise";}
+          else if (txt == 97) {return "meditate";}
+          else if (txt == 98) {return "meditate with a gemstone";}
+          else if (txt == 99) {return "true love's kiss";}
+          else if (txt == 100) {return "find true love";}
+          else if (txt == 101) {return "forgive your enemy";}
+          else if (txt == 102) {return "receive forgiveness";}
+          else if (txt == 103) {return "recite a chant";}
+          else if (txt == 104) {return "get some sun";}
+          else if (txt == 105) {return "garlic";}
+          else if (txt == 106) {return "electric shock";}
+      }
+   
+      function malady() {
+          var txt = getRndInteger(1,82);
+          if (txt == 0) {return "directions, sell to, trade with, slap, harass, run, follow, beckon, flirt, threaten, curse, invite, inform, give, beg, stare, laugh, joke, overshare, introduce, smalltalk, listen, overhear, mispeak, propose, befriend, fall in love with, frown, cry, yawn, disgust, repulse, attract, enchant, preach, handshake, trust, mistrust, convince, pillage, defeat,";}
+          else if (txt == 1) {return "cancer of the";}
+          else if (txt == 2) {return "necrosis of the";}
+          else if (txt == 3) {return "tapeworms in the";}
+          else if (txt == 4) {return "rabies in the";}
+          else if (txt == 5) {return "infection of the";}
+          else if (txt == 6) {return "laceration of the";}
+          else if (txt == 7) {return "torsion of the";}
+          else if (txt == 9) {return "gluten allergy in the";}
+          else if (txt == 10) {return "peanut allergy in the";}
+          else if (txt == 11) {return "latex allergy in the";}
+          else if (txt == 12) {return "penicillin allergy in the";}
+          else if (txt == 13) {return "arrythmia in the";}
+          else if (txt == 14) {return "clumsiness of the";}
+          else if (txt == 15) {return "trauma to the";}
+          else if (txt == 16) {return "fracture of the";}
+          else if (txt == 17) {return "lack of circulation in the";}
+          else if (txt == 18) {return "inactivity of the";}
+          else if (txt == 19) {return "malformation of the";}
+          else if (txt == 20) {return "cat has your";}
+          else if (txt == 21) {return "water on the";}
+          else if (txt == 22) {return "copper accumulation in the";}
+          else if (txt == 23) {return "hyperkalemia of the";}
+          else if (txt == 24) {return "hypernatremia of the";}
+          else if (txt == 25) {return "excess sugar in the";}
+          else if (txt == 26) {return "overactivity of the";}
+          else if (txt == 27) {return "clogging of the";}
+          else if (txt == 28) {return "cavitation of the";}
+          else if (txt == 29) {return "pedunculation of the";}
+          else if (txt == 30) {return "disease of the";}
+          else if (txt == 31) {return "spaghettification of the";}
+          else if (txt == 32) {return "calcification of the";}
+          else if (txt == 33) {return "atrophy of the";}
+          else if (txt == 34) {return "hypertrophy of the";}
+          else if (txt == 35) {return "missing";}
+          else if (txt == 36) {return "insects in the";}
+          else if (txt == 37) {return "mites in the";}
+          else if (txt == 38) {return "vitamin defficiency of the";}
+          else if (txt == 39) {return "fungus on the";}
+          else if (txt == 40) {return "toxins in the";}
+          else if (txt == 41) {return "poison in the";}
+          else if (txt == 42) {return "demon in the";}
+          else if (txt == 43) {return "faries in the";}
+          else if (txt == 44) {return "fleas in the";}
+          else if (txt == 45) {return "tick on the";}
+          else if (txt == 46) {return "leeches on the";}
+          else if (txt == 47) {return "lizard in the";}
+          else if (txt == 48) {return "bees in the";}
+          else if (txt == 49) {return "nargles in the";}
+          else if (txt == 50) {return "hallucinations in the";}
+          else if (txt == 51) {return "hyperextension of the";}
+          else if (txt == 52) {return "wandering of the";}
+          else if (txt == 53) {return "detachment of the";}
+          else if (txt == 54) {return "tear in the";}
+	  else if (txt == 55) {return "rupture of the";}
+	  else if (txt == 56) {return "spontaneous combustion of the";}
+	  else if (txt == 57) {return "bad humours of the";}
+	  else if (txt == 58) {return "enzymes in the";}
+	  else if (txt == 59) {return "bubonic plague in the";}
+	  else if (txt == 60) {return "ebola in the";}
+	  else if (txt == 61) {return "fever in the";}
+	  else if (txt == 62) {return "a cold in the";}
+	  else if (txt == 63) {return "leprosy in the";}
+	  else if (txt == 64) {return "yellow fever in the";}
+	  else if (txt == 65) {return "malaria in the";}
+	  else if (txt == 66) {return "heartworm in the";}
+	  else if (txt == 67) {return "tuberculosis in the";}
+	  else if (txt == 68) {return "sickle cell anemia in the";}
+	  else if (txt == 69) {return "anemia in the";}
+	  else if (txt == 70) {return "parasites in the";}
+	  else if (txt == 71) {return "antrax in the";}
+	  else if (txt == 72) {return "spores in the";}
+	  else if (txt == 73) {return "venom in the";}
+	  else if (txt == 74) {return "a spider in the";}
+	  else if (txt == 75) {return "polio in the";}
+	  else if (txt == 76) {return "measles in the";}
+	  else if (txt == 77) {return "cholera in the";}
+	  else if (txt == 78) {return "stiffness of the";}
+	  else if (txt == 79) {return "chicken pox in the";}
+	  else if (txt == 80) {return "tetanus in the";}
+	  else if (txt == 81) {return "a baby in the";}
+	  else if (txt == 82) {return "a foreign body in the";}
+      }
+  
+      function organs() {
+          var txt = getRndInteger(1,89);
+          if (txt == 0) {return "pull, push, lift, , walk, fall,";}
+          else if (txt == 1) {return "genitalia";}
+          else if (txt == 2) {return "nerve";}
+          else if (txt == 3) {return "synapse";}
+          else if (txt == 4) {return "nose";}
+          else if (txt == 5) {return "butt";}
+          else if (txt == 6) {return "skin";}
+          else if (txt == 7) {return "mind";}
+          else if (txt == 8) {return "imagination";}
+          else if (txt == 9) {return "ankle";}
+          else if (txt == 10) {return "brain";}
+          else if (txt == 11) {return "foot";}
+          else if (txt == 12) {return "stomach";}
+          else if (txt == 13) {return "liver";}
+          else if (txt == 14) {return "spleen";}
+          else if (txt == 15) {return "thyroid";}
+          else if (txt == 16) {return "gall bladder";}
+          else if (txt == 17) {return "cranium";}
+          else if (txt == 18) {return "pelvis";}
+          else if (txt == 19) {return "rectum";}
+          else if (txt == 20) {return "tooth";}
+	  else if (txt == 21) {return "tongue";}
+          else if (txt == 22) {return "throat";}
+          else if (txt == 23) {return "eyelashes";}
+          else if (txt == 24) {return "palms";}
+          else if (txt == 25) {return "eye";}
+          else if (txt == 26) {return "mouth";}
+          else if (txt == 27) {return "lips";}
+          else if (txt == 28) {return "ear";}
+          else if (txt == 29) {return "ear canal";}
+          else if (txt == 30) {return "hair";}
+          else if (txt == 31) {return "scalp";}
+          else if (txt == 32) {return "elbow";}
+          else if (txt == 33) {return "heel";}
+          else if (txt == 34) {return "sternum";}
+          else if (txt == 35) {return "lung";}
+          else if (txt == 36) {return "heart";}
+          else if (txt == 37) {return "back";}
+          else if (txt == 38) {return "spine";}
+          else if (txt == 39) {return "brain stem";}
+          else if (txt == 40) {return "bladder";}
+          else if (txt == 41) {return "large intestine";}
+          else if (txt == 42) {return "jejunum";}
+          else if (txt == 43) {return "duodenum";}
+          else if (txt == 44) {return "appendix";}
+          else if (txt == 45) {return "ulna";}
+          else if (txt == 46) {return "radius";}
+          else if (txt == 47) {return "femur";}
+          else if (txt == 48) {return "jaw";}
+          else if (txt == 49) {return "cheekbone";}
+          else if (txt == 50) {return "orbit";}
+          else if (txt == 51) {return "temporal cortex";}
+          else if (txt == 52) {return "prefrontal cortex";}
+          else if (txt == 53) {return "occipital cortex";}
+          else if (txt == 54) {return "parietal lobe";}
+          else if (txt == 55) {return "vessels";}
+          else if (txt == 56) {return "muscle";}
+          else if (txt == 57) {return "bicep";}
+          else if (txt == 58) {return "tricep";}
+          else if (txt == 59) {return "shoulder blade";}
+          else if (txt == 60) {return "dermis";}
+          else if (txt == 61) {return "achilles tendon";}
+          else if (txt == 62) {return "iris";}
+          else if (txt == 63) {return "crystalline lens";}
+          else if (txt == 64) {return "anterior cruciate ligament";}
+          else if (txt == 65) {return "pouch";}
+          else if (txt == 66) {return "primordial pouch";}
+          else if (txt == 67) {return "vestigial organ";}
+          else if (txt == 68) {return "pores";}
+          else if (txt == 69) {return "palm";}
+          else if (txt == 70) {return "bones";}
+          else if (txt == 71) {return "marrow";}
+          else if (txt == 72) {return "chest";}
+          else if (txt == 73) {return "chest cavity";}
+          else if (txt == 74) {return "wound";}
+          else if (txt == 75) {return "toes";}
+          else if (txt == 76) {return "small intestine";}
+          else if (txt == 77) {return "cough";}
+          else if (txt == 78) {return "spit";}
+          else if (txt == 79) {return "urine";}
+          else if (txt == 80) {return "pants";}
+          else if (txt == 81) {return "fingernails";}
+          else if (txt == 82) {return "fingers";}
+          else if (txt == 83) {return "arms";}
+          else if (txt == 84) {return "legs";}
+          else if (txt == 85) {return "joints";}
+          else if (txt == 86) {return "legs";}
+          else if (txt == 87) {return "wrist";}
+          else if (txt == 88) {return "neck";}
+          else if (txt == 89) {return "armpits";}
+      }
+	function rooms() {
+          var txt = getRndInteger(1,37);
+          if (txt == 0) {return "coatroom, garden, greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
+          else if (txt == 1) {return "courtroom";}
+          else if (txt == 2) {return "shower";}
+          else if (txt == 3) {return "gallery";}
+          else if (txt == 4) {return "kitchen";}
+          else if (txt == 5) {return "meeting room";}
+          else if (txt == 6) {return "computer room";}
+          else if (txt == 7) {return "office";}
+          else if (txt == 8) {return "studio";}
+          else if (txt == 9) {return "toilet";}
+          else if (txt == 10) {return "full_bath";}
+          else if (txt == 11) {return "stalls";}
+          else if (txt == 12) {return "windows";}
+          else if (txt == 13) {return "conservatory";}
+          else if (txt == 14) {return "storeroom";}
+          else if (txt == 15) {return "hallway";}
+          else if (txt == 16) {return "gameroom";}
+          else if (txt == 17) {return "foyer";}
+          else if (txt == 18) {return "lab";}
+          else if (txt == 19) {return "terrace";}
+          else if (txt == 20) {return "balcony";}
+          else if (txt == 21) {return "watch";}
+          else if (txt == 22) {return "library";}
+          else if (txt == 23) {return "cellar";}
+          else if (txt == 24) {return "attic";}
+          else if (txt == 25) {return "pantry";}
+          else if (txt == 26) {return "dining room";}
+          else if (txt == 27) {return "bedroom";}
+          else if (txt == 28) {return "stairs";}
+          else if (txt == 29) {return "cafeteria";}
+          else if (txt == 30) {return "living room";}
+          else if (txt == 31) {return "music room";}
+          else if (txt == 32) {return "ballroom";}
+          else if (txt == 33) {return "banquet hall";}
+          else if (txt == 34) {return "throneroom";}
+          else if (txt == 35) {return "theater";}
+          else if (txt == 36) {return "cinema";}
+          else if (txt == 37) {return "temple";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+	function structures() {
+          var txt = getRndInteger(1,41);
+          if (txt == 0) {return "foodstore, fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
+          else if (txt == 1) {return "enclosure";}
+          else if (txt == 2) {return "tower";}
+          else if (txt == 3) {return "altar";}
+          else if (txt == 4) {return "zoo";}
+          else if (txt == 5) {return "monument";}
+          else if (txt == 6) {return "bank";}
+          else if (txt == 7) {return "town hall";}
+          else if (txt == 8) {return "courthouse";}
+          else if (txt == 9) {return "museum";}
+          else if (txt == 10) {return "hospital";}
+          else if (txt == 11) {return "residence";}
+          else if (txt == 12) {return "café";}
+          else if (txt == 13) {return "apartment";}
+          else if (txt == 14) {return "theater";}
+          else if (txt == 15) {return "warehouse";}
+          else if (txt == 16) {return "general store";}
+          else if (txt == 17) {return "prison";}
+          else if (txt == 18) {return "restaurant";}
+          else if (txt == 19) {return "inn";}
+          else if (txt == 20) {return "hotel";}
+          else if (txt == 21) {return "motel";}
+          else if (txt == 22) {return "windmill";}
+          else if (txt == 23) {return "police_station";}
+          else if (txt == 24) {return "saloon";}
+          else if (txt == 25) {return "bar";}
+          else if (txt == 26) {return "factory";}
+          else if (txt == 27) {return "office";}
+          else if (txt == 28) {return "restrooms";}
+          else if (txt == 29) {return "bakery";}
+          else if (txt == 30) {return "marketplace";}
+          else if (txt == 31) {return "plaza";}
+          else if (txt == 32) {return "fountain";}
+          else if (txt == 33) {return "well";}
+          else if (txt == 34) {return "outhouse";}
+          else if (txt == 35) {return "threshing_floor";}
+          else if (txt == 36) {return "barracks";}
+          else if (txt == 37) {return "training ground";}
+          else if (txt == 38) {return "park";}
+          else if (txt == 39) {return "festival field";}
+          else if (txt == 40) {return "racetrack";}
+          else if (txt == 41) {return "arena";}
+          else if (txt == 42) {return "castle";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+	 function plots() {
+          var txt = getRndInteger(1,108);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "You find an abandoned baby!";}
+          else if (txt == 2) {return "A mysterious animal follows you!";}
+          else if (txt == 3) {return "You are accused of a crime you didn't commit!";}
+          else if (txt == 4) {return "You witness a crime!";}
+          else if (txt == 5) {return "You've been robbed!";}
+          else if (txt == 6) {return "Someone you love wants something very specific!";}
+          else if (txt == 7) {return "The city will be destroyed if you do not act quickly!";}
+          else if (txt == 8) {return "The town was invaded by barbarians!";}
+          else if (txt == 9) {return "You find a large sum of money!";}
+          else if (txt == 10) {return "Everyone has turned against you!";}
+          else if (txt == 11) {return "A deadly virus makes everyone go insane!";}
+          else if (txt == 12) {return "The robots have become self-aware!";}
+          else if (txt == 13) {return "The aliens have landed!";}
+          else if (txt == 14) {return "You've been replaced!";}
+          else if (txt == 15) {return "The devil makes you an offer you can't refuse!";}
+          else if (txt == 16) {return "You have lost something very precious to you";}
+          else if (txt == 17) {return "You want to impress someone";}
+          else if (txt == 18) {return "You lost your mentor";}
+          else if (txt == 19) {return "Someone important has died";}
+          else if (txt == 20) {return "The people have revolted!";}
+          else if (txt == 21) {return "A sudden, unfortunate accident has occurred.";}
+          else if (txt == 22) {return "Nuclear apocalypse is upon us!";}
+          else if (txt == 23) {return "You find a treasure map!";}
+          else if (txt == 24) {return "You find a portal to another world!";}
+          else if (txt == 25) {return "You have to stay very late at work tonight.";}
+          else if (txt == 26) {return "The consequences of your actions have caught up with you.";}
+          else if (txt == 27) {return "You have taken a cursed item.";}
+          else if (txt == 28) {return "Someone is gunning for your job";}
+          else if (txt == 29) {return "You've been replaced!";}
+          else if (txt == 30) {return "You meet your doppelganger.";}
+          else if (txt == 31) {return "You meet your soul-mate!";}
+          else if (txt == 32) {return "Your life falls apart.";}
+          else if (txt == 33) {return "You are lost.";}
+          else if (txt == 34) {return "You need to rise to complete a challenge!";}
+          else if (txt == 35) {return "You are not the person you once were.";}
+          else if (txt == 36) {return "You lost your title.";}
+          else if (txt == 37) {return "You got a big promotion!";}
+          else if (txt == 38) {return "You've won a contest!";}
+          else if (txt == 39) {return "A mysterious message arrives.";}
+          else if (txt == 40) {return "You're being blackmailed!";}
+          else if (txt == 41) {return "You've gotten mixed up in the wrong crowd.";}
+          else if (txt == 42) {return "The economy collapsed!";}
+          else if (txt == 43) {return "You are bankrupt!";}
+          else if (txt == 44) {return "The auditors are here!";}
+          else if (txt == 45) {return "Your reality is flipped upside-down!";}
+          else if (txt == 46) {return "It was all a lie!";}
+          else if (txt == 47) {return "Things are more complicated than you thought.";}
+          else if (txt == 48) {return "You are being socially alienated.";}
+          else if (txt == 49) {return "Someone you trusted has turned on you.";}
+          else if (txt == 50) {return "Someone starts stalking you.";}
+          else if (txt == 51) {return "You publish one of the greatest works of our time!";}
+          else if (txt == 52) {return "You compose one of the greatest songs of our time!";}
+          else if (txt == 53) {return "You've created a masterpiece!";}
+          else if (txt == 54) {return "You've created a monster!";}
+          else if (txt == 55) {return "You're stuck!";}
+          else if (txt == 56) {return "A giant hole has opened up!";}
+          else if (txt == 57) {return "You discover a mysterious place.";}
+          else if (txt == 58) {return "You meet a mysterious person.";}
+          else if (txt == 59) {return "Your spirit animal has come to warn you about something.";}
+          else if (txt == 60) {return "You receive a cryptic warning from someone.";}
+          else if (txt == 61) {return "The government has collapsed!";}
+          else if (txt == 62) {return "A great storm is heading your way!";}
+          else if (txt == 63) {return "A great calamity approaches from space!";}
+          else if (txt == 64) {return "A solar flare has disrupted life on the planet!";}
+          else if (txt == 65) {return "The deadline is tomorrow!";}
+          else if (txt == 66) {return "You've overslept!";}
+          else if (txt == 67) {return "You have disappointed someone you love.";}
+          else if (txt == 68) {return "The deadline is tonight!";}
+          else if (txt == 69) {return "Opportunity strikes! Don't miss it!";}
+          else if (txt == 70) {return "You come across a strange device.";}
+          else if (txt == 71) {return "You feel like you've been here before.";}
+          else if (txt == 72) {return "The internet has collapsed!";}
+          else if (txt == 73) {return "Something has spoken to you, and now nothing will ever be the same.";}
+          else if (txt == 74) {return "You've switched bodies with someone!";}
+          else if (txt == 75) {return "You have been mistaken for someone else.";}
+          else if (txt == 76) {return "Nature is trying to reclaim your home!";}
+          else if (txt == 77) {return "You have upset an ancient diety!";}
+          else if (txt == 78) {return "You've been kidnapped!";}
+          else if (txt == 79) {return "War has broken out in your once peaceful home!";}
+          else if (txt == 80) {return "You've been arrested!";}
+          else if (txt == 81) {return "There is an imposter among us.";}
+          else if (txt == 82) {return "Something isn't right about all this.";}
+          else if (txt == 83) {return "You fall off a cliff!";}
+          else if (txt == 84) {return "You are being possessed!";}
+          else if (txt == 85) {return "You meet a mysterious creature.";}
+          else if (txt == 86) {return "You've been living in filth!";}
+          else if (txt == 87) {return "You really let yourself go...";}
+          else if (txt == 88) {return "You were wrong about this!";}
+          else if (txt == 89) {return "You need a career change.";}
+          else if (txt == 90) {return "You've passed out!";}
+          else if (txt == 91) {return "You've got to get out of here!";}
+          else if (txt == 92) {return "They're looking for you!";}
+          else if (txt == 93) {return "The volcano is erupting!";}
+          else if (txt == 94) {return "You've been hacked!";}
+          else if (txt == 95) {return "You are sick!";}
+          else if (txt == 96) {return "You have a child!";}
+          else if (txt == 97) {return "You find a long-lost family member.";}
+          else if (txt == 98) {return "You were right about it.";}
+          else if (txt == 99) {return "We don't do that here.";}
+          else if (txt == 100) {return "You've insulted someone.";}
+          else if (txt == 101) {return "You've made a friend.";}
+          else if (txt == 102) {return "It's not usually like this.";}
+          else if (txt == 103) {return "You forgot something!";}
+          else if (txt == 104) {return "It's all naturally caused.";}
+          else if (txt == 105) {return "It's supernatural.";}
+          else if (txt == 106) {return " It was right under your nose the whole time. ";}
+          else if (txt == 107) {return " It's man-made.";}
+          else if (txt == 108) {return "You're actually related. ";}
+          else if (txt == 109) {return "You are the killer.  ";}
+          else if (txt == 110) {return "Everyone has moved on without you. ";}
+          else if (txt == 111) {return "You've become the villain. ";}
+          else if (txt == 112) {return "You deleted something important. ";}
+          else if (txt == 113) {return "You really need to train more.";}
+          else if (txt == 114) {return "You're already dead. ";}
+          else if (txt == 115) {return "It was all a dream.  ";}
+          else if (txt == 116) {return "They died years ago. ";}
+          else if (txt == 117) {return "It was all a distraction. ";}
+          else if (txt == 118) {return "You missed the point. ";}
+          else if (txt == 119) {return " You disappointed them. ";}
+          else if (txt == 120) {return "You're all better now! ";}
+          else if (txt == 121) {return "You remember everything now! ";}
+          else if (txt == 122) {return "You've changed. ";}
+          else if (txt == 123) {return "You're on your own.";}
+          else if (txt == 124) {return "You can understand it now. ";}
+          else if (txt == 125) {return " ";}
+          else if (txt == 126) {return " ";}
+          else if (txt == 127) {return " ";}
+          else if (txt == 128) {return " ";}
+          else if (txt == 129) {return " ";}
+          else if (txt == 130) {return " ";}
+          else if (txt == 131) {return " ";}
+          else if (txt == 132) {return " ";}
+          else if (txt == 133) {return " ";}
+          else if (txt == 134) {return " ";}
+          else if (txt == 135) {return " ";}
+          else if (txt == 136) {return " It's gotten pretty dirty. ";}
+          else if (txt == 137) {return " You were betrayed.  You convinced everyone. Your money is all gone. You were mistaken. Everyone lived happily ever after. You've lost contact. You're in a recession. The economic bubble burst. Business is booming! The floor caved in! The ceiling comes crashing down! Someone bursts in! You are offered a deal with the devil. There's a price on your head! Everybody left. You have been summoned! Your people need you! You're popular! You're on the winning team! Somebody else gets the credit. It moves you to tears. You have a life-changing experience. You'll never forget this. You've seen this before. You've been here before. Help has arrived! It's too late! You're just in time! The stars all align. It all goes according to plan. The plan goes awry. You've been spotted! You arose suspicion. You've gained their trust. You've lost their trust. It didn't make you as happy as you thought it would. You are inexplicably happy. You are inexplicably sad. You think it's the funniest thing ever. Everyone laughs. Nobody was amused. You forgot what you were doing. Everyone forgot. They stood you up. It was an ambush! They weren't serious. They didn't think you were serious. There are too many distractions. The weather takes a turn for the worse. You find an old friend. You find a long-lost relative. Someone has been messing with your stuff! Sabotage! It's a disaster! There is quite a commotion! A powerful creature awakens. The system is corrupt. You've been lied to. Incompetence. You've got a bad feeling about this. A random encounter. A friendly encounter. Hospitality! It's all taken care of! You passed the test! You have proven yourself. There is a meteor strike. Lightning strikes. It's on fire! It's under water. They're swarming! It stinks in here! You've got to get out of here! You can't stand it anymore! That makes you mad! Everyone is furious! There's a festival! There's a sporting event! Time for some friendly competition! Now it's personal! You're gonna regret that! You get your wish! At least you tried. You were overshadowed. You're famous! You're notorious. You've built a reputation. You've blacked out. You find yourself somewhere new. You've been teleported! No one will believe you! It's not as easy as it seems! So hungry! Water... Food... water... atmosphere... It manages to surprise you. Famine has struck. A rebellion has ensued! War has broken out! Social injustice plagues the land. You're outnumbered. It's too easy! You have an admirer! You're in love! You just can't resist. You fixed it! It magically works now! You get another chance. There's still time! Time heals all wounds. Love heals all wounds. Laughter is the best medicine. Ownership has changed. They've been forced to close up shop. Moved to a new location. Fads come and go. Everything's frozen. It's like an oven in here! You need new clothes. You're dressed to impress. You're overdressed. You're underdressed. It was a lot more than you expected. There's a big storm coming. It's a tornado! A big wind blew. A piece has fallen off. Your equipment is damaged.";}
+          else if (txt == 138) {return " ";}
+          else if (txt == 139) {return " ";}
+          else if (txt == 140) {return " ";}
+          else if (txt == 141) {return " ";}
+          else if (txt == 142) {return " ";}
+          else if (txt == 143) {return " ";}
+          else if (txt == 144) {return " ";}
+          else if (txt == 145) {return " ";}
+          else if (txt == 146) {return " ";}
+          else if (txt == 147) {return " ";}
+          else if (txt == 148) {return " ";}
+          else if (txt == 149) {return " ";}
+          else if (txt == 150) {return " ";}
+          else if (txt == 151) {return " ";}
+
+      }
+
+	 function spoilers() {
+          var txt = getRndInteger(1,28);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Everyone lived happily ever after";}
+          else if (txt == 2) {return "It was the butler the whole time!";}
+          else if (txt == 3) {return "You have proven yourself!";}
+          else if (txt == 4) {return "Good prevails!";}
+          else if (txt == 5) {return "Evil prevails!";}
+          else if (txt == 6) {return "Love conquers all";}
+          else if (txt == 7) {return "Everything was destroyed!";}
+          else if (txt == 8) {return "The bad guy became good!";}
+          else if (txt == 9) {return "You get all the treasure!";}
+          else if (txt == 10) {return "The hero fails!";}
+          else if (txt == 11) {return "It all gets old eventually";}
+          else if (txt == 12) {return "Technology is bad!";}
+          else if (txt == 13) {return "The underdog wins!";}
+          else if (txt == 14) {return "You were right all along!";}
+          else if (txt == 15) {return "The villain dies!";}
+          else if (txt == 16) {return "Order has been restored!";}
+          else if (txt == 17) {return "The world descends into madness!";}
+          else if (txt == 18) {return "The world descends into chaos!";}
+          else if (txt == 19) {return "Someone important has died";}
+          else if (txt == 20) {return "We learned a valuable lesson";}
+          else if (txt == 21) {return "We became better people";}
+          else if (txt == 22) {return "We made friends along the way";}
+          else if (txt == 23) {return "The characters fell in love!";}
+          else if (txt == 24) {return "None of it mattered at all";}
+          else if (txt == 25) {return "Life went on as usual";}
+          else if (txt == 26) {return "Everybody died!";}
+          else if (txt == 27) {return "Cliffhanger";}
+          else if (txt == 28) {return "The cycle will repeat itself";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+        }
+		function eights() {
+          var txt = getRndInteger(1,28);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Yes";}
+          else if (txt == 2) {return "No";}
+          else if (txt == 3) {return "Maybe";}
+          else if (txt == 4) {return "Probably";}
+          else if (txt == 5) {return "Most likely";}
+          else if (txt == 6) {return "I guess so";}
+          else if (txt == 7) {return "Doesn't look like it";}
+          else if (txt == 8) {return "Unlikely";}
+          else if (txt == 9) {return "Impossible";}
+          else if (txt == 10) {return "Not realistically";}
+          else if (txt == 11) {return "Improbable";}
+          else if (txt == 12) {return "If you believe";}
+          else if (txt == 13) {return "Try harder";}
+          else if (txt == 14) {return "Absolutely not";}
+          else if (txt == 15) {return "Of course!";}
+          else if (txt == 16) {return "I dunno";}
+          else if (txt == 17) {return "Check again later";}
+          else if (txt == 18) {return "If all goes well";}
+          else if (txt == 19) {return "If the planets align";}
+          else if (txt == 20) {return "Sort of";}
+          else if (txt == 21) {return "In a way";}
+          else if (txt == 22) {return "A little bit";}
+          else if (txt == 23) {return "Partially";}
+          else if (txt == 24) {return "Barely";}
+          else if (txt == 25) {return "Definitely";}
+          else if (txt == 26) {return "For sure";}
+          else if (txt == 27) {return "Whatever";}
+          else if (txt == 28) {return "It doesn't matter";}
+        }
+
+function getfullname(){
+fullname = regnames() + " " + middlenames() + " " + lastnames();
+document.getElementById("fullnamegot").innerHTML = fullname; 
+}
+
+function getintro(){
+    document.getElementById("introgot").innerHTML = intros();
+}function getprefix(){
+    document.getElementById("prefixgot").innerHTML = prefixes();
+  }function getsuffix(){
+    document.getElementById("suffixgot").innerHTML = suffixes();
+  }function gettownname(){
+    document.getElementById("townnamegot").innerHTML = townnames();
+  }function getroom(){
+    document.getElementById("roomgot").innerHTML = rooms();
+  }function getstructure(){
+    document.getElementById("structuregot").innerHTML = structures();
+  }function getinteraction(){
+    document.getElementById("interactiongot").innerHTML = interactions();
+  }function getactivity(){
+    document.getElementById("activitygot").innerHTML = activities();
+  }function getnews(){
+    document.getElementById("newsgot").innerHTML = news();
+  }function getplot(){
+    document.getElementById("plotgot").innerHTML = plots();
+  }function get8(){
+    document.getElementById("8got").innerHTML = eights();
+  }function getspoiler(){
+    document.getElementById("spoilergot").innerHTML = spoilers();
+  }
+ function getcure(){
+    document.getElementById("curegot").innerHTML = cures();
+  }function getseen(){
+    document.getElementById("sickgot").innerHTML = malady();
+    document.getElementById("organgot").innerHTML = organs();
+    document.getElementById("questiongot").innerHTML = questions();
+}
+	function getphysical(){
+    document.getElementById("talentgot").innerHTML = talents();
+}
+function getpsychtip(){
+    document.getElementById("psychtipgot").innerHTML = psychtip();
+}
+	function getpsychstory(){
+    document.getElementById("psychstorygot").innerHTML = psychstory();
+}
+	function getjsentence(){
+    document.getElementById("jsentencegot").innerHTML = jsentences();
+}
+	function getcrime(){
+    document.getElementById("crimegot").innerHTML = crimes();
+}
+	function getlover(){
+lovername = "In a relationship with " + regnames() + " " + middlenames() + " " + lastnames();
+document.getElementById("lovergot").innerHTML = lovername; 
+}
+function closeyear0(){
+document.getElementById("year0").style.display = "none"; 
+document.getElementById("year6").style.display = "block"; 
+}
+function closeyear6(){
+document.getElementById("year6").style.display = "none"; 
+document.getElementById("year11").style.display = "block"; 
+} 
+	function closeyear11(){
+document.getElementById("year11").style.display = "none"; 
+document.getElementById("year16").style.display = "block"; 
+} 
+	function closeyear16(){
+document.getElementById("year16").style.display = "none"; 
+document.getElementById("year19").style.display = "block"; 
+} 
+</script>
+		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+			Your profile: <span id="titlegot"><span id="fullnamegot"></span>
+			<br>Relationship: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
+			<br>Occupation: <span id="jobgot"></span>
+			<br>Family: <span id="parentsgot"></span><span id="kidgot"></span>
+			</div>
+	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+        Years 0-3:<br><br>
+        <button id="getstarted" onclick="randptbirth()">Start</button>
+	<br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
+	<br><button id="getfullname" onclick="getfullname()">Name</button>
+	<br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
+	<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+	<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+	<br><button id="lys" onclick="closeyear0()">Next</button>
+   <br></div>
+ 	<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 6-10:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<br><button id="getlover" onclick="getlover()">Relationship</button> 
+		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
+		<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+		<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
+		<br><button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
+		<br><button id="randptmove" onclick="randptmove()">Move</button>
+		<br><button id="lys6" onclick="closeyear6()">Next</button>
+    </div>
+	<div id="year11" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 11-15:<br><br>
+<button id="randptstudy" onclick="randptstudy()">School</button>
+		<br><button id="getlover" onclick="getlover()">Relationship</button> 
+		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
+		<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+		<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
+		<br><button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
+		<br><button id="randptmove" onclick="randptmove()">Move</button>
+		<button id="lys11" onclick="closeyear11()">Next</button>
+    </div>
+	<div id="year16" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 16-18:<br><br>
+<button id="randptstudy" onclick="randptstudy()">School</button>
+		<br><button id="getlover" onclick="getlover()">Relationship</button> 
+		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
+		<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+		<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
+		<br><button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
+		<br><button id="randptmove" onclick="randptmove()">Move</button>
+		<button id="lys16" onclick="closeyear16()">Next</button>
+    </div>
+	<div id="year19" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 19-25:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="randptmove" onclick="randptmove()">Move</button>
+		<button id="lys19" onclick="closeyear19()">Next</button>
+    </div>
+	<div id="year26" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 26-32:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys26" onclick="closeyear26()">Next</button>
+    </div>
+	<div id="year33" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 33-39:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys33" onclick="closeyear33()">Next</button>
+    </div>
+	<div id="year40" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 40-50:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys40" onclick="closeyear40()">Next</button>
+    </div>
+	<div id="year51" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 51-65:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys51" onclick="closeyear51()">Next</button>
+    </div>
+	<div id="year66" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 66-75:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys66" onclick="closeyear66()">Next</button>
+    </div>
+	<div id="year76" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 76-85:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys76" onclick="closeyear76()">Next</button>
+    </div>
+	<div id="year86" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 86-89:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys86" onclick="closeyear86()">Next</button>
+    </div>
+	<div id="year90" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 90-92:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys90" onclick="closeyear90()">Next</button>
+    </div>
+	<div id="year93" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 93-95:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys93" onclick="closeyear93()">Next</button>
+    </div>
+	<div id="year96" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 96-98:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys96" onclick="closeyear96()">Next</button>
+    </div>
+	<div id="year99" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+	Year 99:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys99" onclick="closeyear99()">Next</button>
+    </div>
+	<div id="year100" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Years 100:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys100" onclick="closeyear100()">Next</button>
+    </div>
+	<div id="year101" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       				Year 101:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys101" onclick="closeyear101()">Next</button>
+    </div>
+<div id="year102" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+				  Year 102:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys102" onclick="closeyear102()">Next</button>
+    </div>
+<div id="year103" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+				  Year 103:<br><br>
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<button id="getlover" onclick="getlover()">Relationship</button> 
+		<button id="getstarted" onclick="randptbirth()">Vacation</button>
+		<button id="lys103" onclick="getdeath()">Next</button>
+    </div>
+	<div id="maparead">
+<div id="map"></div>
+	</div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+        // Initialize the map and set its view to a chosen geographical coordinates and zoom level
+        var map = L.map('map').setView([0.505, 0.09], 1);
+	
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+ 
+        
+	// Function to add a marker on the map at the clicked location
+        function onMapClick(e) {
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You traveled to " + e.latlng.toString())
+                .openPopup();
+        }
+ 
+        // Add the click event listener to the map
+        map.on('click', onMapClick);
+	
+
+  //rand points generation
+  function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randptbirth() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txtborn = "You were born here.";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txtborn);
+            });
+        }
+
+	  function randptstudy() {
+            var randlat = getRndInteger(-90, 90);
+            var randlong = getRndInteger(-180, 180);
+            var points = [{lat: randlat, long: randlong}];
+            var txtstudy = "You go to school here.";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txtstudy);
+            });
+        }
+
+
+</script>
+	 <h2>Buildings / Rooms</h2>
+<p>Click a square to build</p>
+<br>
+<div style="border: 2px, solid, red; background-color: black; width: 338px;">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+</div><br>
+	    Structures:
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+	Rooms:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
+    <br><br>
+				<div id="mlt" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+Your Story: 
+  </div> 
+    <br>
+				<!--/*Cameron and Barbara, Ascension isl.
+
+Tidus JB (Afghanistan) and Amon (Madagascar)
+
+vacation to Ukraine.
+
+landlord Buzz had a candlestick and was loitering in the gallery/fountain in Antarctica. He once robbed the victim. Maybe the price gouging?
+
+Aretha from Russia was taking it in her apartment. Rachel enters. blessing Rachel then hugged her with a knife when Rachel antagonized her with a hammer. Doctor finds her to be healthy
+
+all are healthy.
+apartment showed no signs of toxic chemicals.
+Rachel criminal history parking violation.
+
+Fred was shaving and dreaming about lemons and said bread. 8 months to live
+Fred was cooking and wanted to use lemons
+
+Rachel from China was. claims to have been in india (because of the spices used in the toxic fume cloud caused by neighbor Fred's cooking)
+greeted Aretha
+
+Rachel raised a hammer to bang the wall to express her disdain for the toxic fumes coming from the vent due to Fred's spicy cooking.
+
+Rachel is innocent. Will or will not press charges against Aretha for hugging her with a knife? Buzz will probably try to press charges for attempted vandalism? Rachel may be Raquel from Destinos. Deportation? There are no vets on the island?
+*/-->
+</p>
+</body>
+</html>
