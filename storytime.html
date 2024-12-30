@@ -328,16 +328,6 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 </head>
 <body>
 
-  <h1>Quick Life G</h1>
-  <div class="navbar">
-    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
-    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
-    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
-    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
-    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
-    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
-  </div>
-
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
 <script>
@@ -1958,36 +1948,54 @@ function getRndInteger(min, max) {
           else if (txt == 0) {return "";}
         }
 		function eights() {
-          var txt = getRndInteger(1,28);
+          var txt = getRndInteger(1,46);
           if (txt == 0) {return ""}
-          else if (txt == 1) {return "Yes";}
-          else if (txt == 2) {return "No";}
-          else if (txt == 3) {return "Maybe";}
-          else if (txt == 4) {return "Probably";}
-          else if (txt == 5) {return "Most likely";}
-          else if (txt == 6) {return "I guess so";}
-          else if (txt == 7) {return "Doesn't look like it";}
-          else if (txt == 8) {return "Unlikely";}
-          else if (txt == 9) {return "Impossible";}
-          else if (txt == 10) {return "Not realistically";}
-          else if (txt == 11) {return "Improbable";}
-          else if (txt == 12) {return "If you believe";}
-          else if (txt == 13) {return "Try harder";}
-          else if (txt == 14) {return "Absolutely not";}
-          else if (txt == 15) {return "Of course!";}
-          else if (txt == 16) {return "I dunno";}
-          else if (txt == 17) {return "Check again later";}
-          else if (txt == 18) {return "If all goes well";}
-          else if (txt == 19) {return "If the planets align";}
-          else if (txt == 20) {return "Sort of";}
-          else if (txt == 21) {return "In a way";}
-          else if (txt == 22) {return "A little bit";}
-          else if (txt == 23) {return "Partially";}
-          else if (txt == 24) {return "Barely";}
-          else if (txt == 25) {return "Definitely";}
-          else if (txt == 26) {return "For sure";}
-          else if (txt == 27) {return "Whatever";}
-          else if (txt == 28) {return "It doesn't matter";}
+          else if (txt == 1) {return "I'm so happy!";}
+          else if (txt == 2) {return "You are going to be great.";}
+          else if (txt == 3) {return "I don't know what I'm doing.";}
+          else if (txt == 4) {return "Life is great!";}
+          else if (txt == 5) {return "Everything will be okay.";}
+          else if (txt == 6) {return "Mommy and daddy love you.";}
+          else if (txt == 7) {return "Doesn't look like me.";}
+          else if (txt == 8) {return "You look like your mother.";}
+          else if (txt == 9) {return "You look like your father.";}
+          else if (txt == 10) {return "You have your mother's eyes.";}
+          else if (txt == 11) {return "You have your father's eyes.";}
+          else if (txt == 12) {return "What a fat baby!";}
+          else if (txt == 13) {return "What a tiny baby!";}
+          else if (txt == 14) {return "You were a pain!";}
+          else if (txt == 15) {return "You were a happy accident!";}
+          else if (txt == 16) {return "You were a mistake.";}
+          else if (txt == 17) {return "We're getting a divorce.";}
+          else if (txt == 18) {return "Mommy has to leave now.";}
+          else if (txt == 19) {return "Daddy has to leave now.";}
+          else if (txt == 20) {return "How are we going to feed you?";}
+          else if (txt == 21) {return "Better make yourself useful!";}
+          else if (txt == 22) {return "What do we do with you?";}
+          else if (txt == 23) {return "We're giving you up for adoption.";}
+          else if (txt == 24) {return "We're bringing you to the church.";}
+          else if (txt == 25) {return "Mom and dad just have a little disagreement sometimes.";}
+          else if (txt == 26) {return "That's not my baby.";}
+          else if (txt == 27) {return "Whatever.";}
+          else if (txt == 28) {return "Don't bother me.";}
+          else if (txt == 29) {return "We have to leave town.";}
+          else if (txt == 30) {return "We have to keep you hidden.";}
+          else if (txt == 31) {return "Stop crying!";}
+          else if (txt == 32) {return "Hush!";}
+          else if (txt == 33) {return "Go to sleep.";}
+          else if (txt == 34) {return "You're safe.";}
+          else if (txt == 35) {return "Will you fulfill the prophecy?";}
+          else if (txt == 36) {return "Someday, you will save us all.";}
+          else if (txt == 37) {return "Can you say 'ma-ma'?";}
+          else if (txt == 38) {return "Here, have a cigarette.";}
+          else if (txt == 39) {return "I need a cigarette.";}
+          else if (txt == 40) {return "I need a drink.";}
+          else if (txt == 41) {return "ZzzzzZZzzz";}
+          else if (txt == 42) {return "You look sick.";}
+          else if (txt == 43) {return "You look healthy.";}
+          else if (txt == 44) {return "You look evil.";}
+          else if (txt == 45) {return "You're beautiful.";}
+          else if (txt == 46) {return "You look like an alien.";}
         }
 
 function getfullname(){
@@ -2047,8 +2055,8 @@ lovername = "In a relationship with " + regnames() + " " + middlenames() + " " +
 document.getElementById("lovergot").innerHTML = lovername; 
 }
 function closeyear0(){
-document.getElementById("year0").style.display = "none"; 
-document.getElementById("year6").style.display = "block"; 
+document.getElementById("choosenamescreen").style.display = "none"; 
+document.getElementById("homescreen").style.display = "block"; 
 }
 function closeyear6(){
 document.getElementById("year6").style.display = "none"; 
@@ -2211,30 +2219,37 @@ document.getElementById("year19").style.display = "block";
 		
 </script>
 		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-			Your profile: <span id="titlegot"><span id="fullnamegot"></span>
+			Your profile: <span id="emojigot"></span><span id="titlegot"><span id="fullnamegot"></span>
 			<br>Spouse: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
 			<br>Occupation: <span id="jobgot"></span>
 			<br>Team: <span id="parentsgot"></span><span id="kidgot"></span>
 			</div>
-	<div id="choosemapscreen" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-        Choose your map:<br><br>
-        <button id="goearth" onclick="goearth()">Earth</button>
-   <br></div>
-	<div id="startbutton" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-        What year is it?:<br><br>
-	<button id="year" onclick="year()">Year</button>
-	<br><button id="getstarted" onclick="randptbirth()">Start</button>
-   <br></div>
- 	<div id="choosenamescreen" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-       Your profile:<br><br>
-	<button id="emojis" onclick="getemoji()">Appearance</button><span id="emojigot"></span>
-	<br><button id="getfullname" onclick="getfullname()">Name</button>
-	<br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
-	<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+
+<div id="overworldbuttons">
+<button id="talkButton">Talk</button>
+<button id="inspectButton">Inspect</button>
+	<button id="inspectButton">Marry</button>
+<button id="redButton" style="background-color: red">Attack</button>
+<br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
+<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+<button id="orangeButton" style="background-color: orange">Build</button>
+<button id="yellowButton" style="background-color: yellow">Potion</button>
+<button id="greenButton" style="background-color: green">Plant</button>
+<button id="cyanButton" style="background-color: cyan">Water</button>
+<button id="blueButton" style="background-color: blue">Flood</button>
+<button id="purpleButton" style="background-color: purple">Potion</button>
+<button id="pinkButton" style="background-color: pink">Potion</button>
+<button id="blackButton" style="color: white; background-color: black">Tunnel</button>
+<button id="whiteButton" style="background-color: white">Freeze</button>
+<button id="redgradButton" style="background-color: red">Dig</button>
+<button id="greengradButton" style="background-color: green">Dig</button>
+<button id="bluegradButton" style="background-color: blue">Dig</button>
+<button id="rggradButton" style="background-color: yellow">Dig</button>
+<button id="rbgradButton" style="background-color: purple">Dig</button>
+<button id="gbgradButton" style="background-color: cyan">Dig</button>
 	<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
 	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
-	<br><button id="lys" onclick="closeyear0()">Next</button>
-		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<br><button id="randptstudy" onclick="randptstudy()">School</button>
 		<br><button id="getlover" onclick="getlover()">Relationship</button> 
 		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
 		<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
@@ -2244,7 +2259,240 @@ document.getElementById("year19").style.display = "block";
 		<br><button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
 		<br><button id="randptmove" onclick="randptmove()">Move</button>
 		<br><button id="lys6" onclick="closeyear6()">Next</button>
+</div>
+	
+<div id="choosemapscreen" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+        Choose your map:<br><br>
+        <button id="goearth" onclick="goearth()">Earth</button>
+   <br></div>
+				
+	<div id="startbutton" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+        What year is it?:<br><br>
+	<button id="year" onclick="year()">Year</button>
+	<br><button id="getstarted" onclick="randptbirth()">Create Your Character</button>
+	<br><button id="getnamescreen" onclick="getnamescreen()">Continue</button>
+   <br></div>
+
+<div id="maparead">
+<div id="map"></div>
+	</div>
+ 	
+	<div id="choosenamescreen" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+       Your profile:<br><br>
+	<button id="emojis" onclick="getemoji()">Appearance</button><span id="emojigot"></span>
+	<br><button id="getfullname" onclick="getfullname()">Name</button>
+	<br><button id="gethomescreen" onclick="gethomescreen()">Next</button>
     </div>
+
+<div id ="homescreen" style="background-color: black; width: 450px; height:300px;">
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class="boxlets",id="boxlet1" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet2" style="background-color: green"></div><!--
+--><div title="Mom" class="boxlets",id="boxlet3" style="background-color: green; position:fixed;" onclick="get8()">😁</div><!--
+--><div class="boxlets",id="boxlet4" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet5" style="background-color: green"></div><!--
+--><div title="Dad" class="boxlets",id="boxlet6" style="background-color: green; position:fixed;" onclick="get8()">😁</div><!--
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet9" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet6" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet9" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet11"></div><!--
+--><div title="Pool" class="boxlets",id="boxlet3" style="background-color: blue; position:fixed;"></div><!--
+--><div class = "boxlets", id = "boxlet13" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet14" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet15" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet16" style="background-color: green"></div><!--
+--><div title= "Fountain" class = "boxlets", id = "boxlet17" style="background-color: blue"></div><!--
+--><div class = "boxlets", id = "boxlet18" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet19" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet20" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet6" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div title="House" class="boxlets",id="boxlet9" style="background-color: yellow"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet21"></div><!--
+--><div class = "boxlets", id = "boxlet22" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet23" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet24" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet25" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet26" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet27" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet28" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet29" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet30" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet6" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet9" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet31" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet32" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet33" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet34" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet35" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet36" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet37" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet38" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet39" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet40" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet6" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet9" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class="boxlets",id="boxlet1"></div><!--
+--><div class="boxlets",id="boxlet2"></div><!--
+--><div class="boxlets",id="boxlet3"></div><!--
+--><div class="boxlets",id="boxlet4"></div><!--
+--><div class="boxlets",id="boxlet5"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet11"></div><!--
+--><div class = "boxlets", id = "boxlet12"></div><!--
+--><div class = "boxlets", id = "boxlet13"></div><!--
+--><div class = "boxlets", id = "boxlet14"></div><!--
+--><div class = "boxlets", id = "boxlet15"></div><!--
+--><div class = "boxlets", id = "boxlet16"></div><!--
+--><div class = "boxlets", id = "boxlet17"></div><!--
+--><div class = "boxlets", id = "boxlet18"></div><!--
+--><div class = "boxlets", id = "boxlet19"></div><!--
+--><div class = "boxlets", id = "boxlet20"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet21"></div><!--
+--><div class = "boxlets", id = "boxlet22"></div><!--
+--><div class = "boxlets", id = "boxlet23"></div><!--
+--><div class = "boxlets", id = "boxlet24"></div><!--
+--><div class = "boxlets", id = "boxlet25"></div><!--
+--><div class = "boxlets", id = "boxlet26"></div><!--
+--><div class = "boxlets", id = "boxlet27"></div><!--
+--><div class = "boxlets", id = "boxlet28"></div><!--
+--><div class = "boxlets", id = "boxlet29"></div><!--
+--><div class = "boxlets", id = "boxlet30"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet31"></div><!--
+--><div class = "boxlets", id = "boxlet32"></div><!--
+--><div class = "boxlets", id = "boxlet33"></div><!--
+--><div class = "boxlets", id = "boxlet34"></div><!--
+--><div class = "boxlets", id = "boxlet35"></div><!--
+--><div class = "boxlets", id = "boxlet36"></div><!--
+--><div class = "boxlets", id = "boxlet37"></div><!--
+--><div class = "boxlets", id = "boxlet38"></div><!--
+--><div class = "boxlets", id = "boxlet39"></div><!--
+--><div class = "boxlets", id = "boxlet40"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class="boxlets",id="boxlet1"></div><!--
+--><div class="boxlets",id="boxlet2"></div><!--
+--><div class="boxlets",id="boxlet3"></div><!--
+--><div class="boxlets",id="boxlet4"></div><!--
+--><div class="boxlets",id="boxlet5"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet11"></div><!--
+--><div class = "boxlets", id = "boxlet12"></div><!--
+--><div class = "boxlets", id = "boxlet13"></div><!--
+--><div class = "boxlets", id = "boxlet14"></div><!--
+--><div class = "boxlets", id = "boxlet15"></div><!--
+--><div class = "boxlets", id = "boxlet16"></div><!--
+--><div class = "boxlets", id = "boxlet17"></div><!--
+--><div class = "boxlets", id = "boxlet18"></div><!--
+--><div class = "boxlets", id = "boxlet19"></div><!--
+--><div class = "boxlets", id = "boxlet20"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet21"></div><!--
+--><div class = "boxlets", id = "boxlet22"></div><!--
+--><div class = "boxlets", id = "boxlet23"></div><!--
+--><div class = "boxlets", id = "boxlet24"></div><!--
+--><div class = "boxlets", id = "boxlet25"></div><!--
+--><div class = "boxlets", id = "boxlet26"></div><!--
+--><div class = "boxlets", id = "boxlet27"></div><!--
+--><div class = "boxlets", id = "boxlet28"></div><!--
+--><div class = "boxlets", id = "boxlet29"></div><!--
+--><div class = "boxlets", id = "boxlet30"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+<div class = "containboxlets", style="width:450px;height:30px;">
+<div class = "boxlets", id = "boxlet31"></div><!--
+--><div class = "boxlets", id = "boxlet32"></div><!--
+--><div class = "boxlets", id = "boxlet33"></div><!--
+--><div class = "boxlets", id = "boxlet34"></div><!--
+--><div class = "boxlets", id = "boxlet35"></div><!--
+--><div class = "boxlets", id = "boxlet36"></div><!--
+--><div class = "boxlets", id = "boxlet37"></div><!--
+--><div class = "boxlets", id = "boxlet38"></div><!--
+--><div class = "boxlets", id = "boxlet39"></div><!--
+--><div class = "boxlets", id = "boxlet40"></div><!--
+--><div class="boxlets",id="boxlet6"></div><!--
+--><div class="boxlets",id="boxlet7"></div><!--
+--><div class="boxlets",id="boxlet8"></div><!--
+--><div class="boxlets",id="boxlet9"></div><!--
+--><div class="boxlets",id="boxlet10"></div>
+</div>
+</div>
+
+<p><span id="8got"></span></p>
+
 	<div id="year11" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 11-15:<br><br>
 <button id="randptstudy" onclick="randptstudy()">School</button>
@@ -2384,9 +2632,16 @@ document.getElementById("year19").style.display = "block";
 		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys103" onclick="getdeath()">Next</button>
     </div>
-	<div id="maparead">
-<div id="map"></div>
-	</div>
+	
+	 <h1></h1>
+  <div class="navbar">
+    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
+    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+  </div>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
         // Initialize the map and set its view to a chosen geographical coordinates and zoom level
@@ -2424,14 +2679,18 @@ document.getElementById("year19").style.display = "block";
             var points = [{lat: randlat, long: randlong}];
 	    /*if specific lat long, you were born in COUNTRY*/
             var txtborn = "You were born here.";
-	    document.getElementById("startbutton").style.display = "none"; 
-	    document.getElementById("choosenamescreen").style.display = "block"; 
-
+		
             points.forEach(point => {
                 L.marker([point.lat, point.long]).addTo(map).bindPopup(txtborn);
             });
         }
 
+function getnamescreen() {
+	    document.getElementById("startbutton").style.display = "none"; 
+	    document.getElementById("choosenamescreen").style.display = "block"; 
+
+}
+	
 	  function randptstudy() {
             var randlat = getRndInteger(-90, 90);
             var randlong = getRndInteger(-180, 180);
