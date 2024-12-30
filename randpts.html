@@ -9,6 +9,30 @@
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="800">
 <script src="/lib/codemirror.js"></script>
+<!--
+	//rand points generation TRY THIS NEXT TIME, avoid oceans
+  function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randptgen() {
+            var selector = getRndInteger(1, 2);
+            if (selector == 1) 
+		{var randlat = getRndInteger(11,68); 
+		var randlong = getRndInteger(11,121);}
+            else if (selector == 2){
+              {var randlat = getRndInteger(-18,7); 
+		var randlong = getRndInteger(281,309);}
+            }
+
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "Hello there";
+
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt);
+            });
+        }
+	-->
 <script src="/lib/codemirror_htmlmixed.js"></script>
 <script src="/lib/codemirror_javascript.js"></script>
 <script src="/lib/codemirror_css.js"></script>
