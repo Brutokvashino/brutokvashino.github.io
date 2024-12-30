@@ -2057,6 +2057,7 @@ document.getElementById("lovergot").innerHTML = lovername;
 function closeyear0(){
 document.getElementById("choosenamescreen").style.display = "none"; 
 document.getElementById("homescreen").style.display = "block"; 
+document.getElementById("overworldbuttons").style.display = "block"; 
 }
 function closeyear6(){
 document.getElementById("year6").style.display = "none"; 
@@ -2225,7 +2226,7 @@ document.getElementById("year19").style.display = "block";
 			<br>Team: <span id="parentsgot"></span><span id="kidgot"></span>
 			</div>
 
-<div id="overworldbuttons">
+<div id="overworldbuttons" style="display:none">
 <button id="talkButton">Talk</button>
 <button id="inspectButton">Inspect</button>
 	<button id="inspectButton">Marry</button>
@@ -2247,18 +2248,18 @@ document.getElementById("year19").style.display = "block";
 <button id="rggradButton" style="background-color: yellow">Dig</button>
 <button id="rbgradButton" style="background-color: purple">Dig</button>
 <button id="gbgradButton" style="background-color: cyan">Dig</button>
-	<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
-	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
-		<br><button id="randptstudy" onclick="randptstudy()">School</button>
-		<br><button id="getlover" onclick="getlover()">Relationship</button> 
-		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
-		<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
-		<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
-		<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
-		<br><button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
-		<br><button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
-		<br><button id="randptmove" onclick="randptmove()">Move</button>
-		<br><button id="lys6" onclick="closeyear6()">Next</button>
+	<button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+	<button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+	<button id="randptstudy" onclick="randptstudy()">School</button>
+	<button id="getlover" onclick="getlover()">Relationship</button> 
+	<button id="randptvacay" onclick="randptvacay()">Vacation</button>
+	<button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+	<button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+	<button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+	<button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
+	<button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
+	<button id="randptmove" onclick="randptmove()">Move</button>
+	<button id="lys6" onclick="closeyear6()">Next</button>
 </div>
 	
 <div id="choosemapscreen" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
@@ -2266,16 +2267,12 @@ document.getElementById("year19").style.display = "block";
         <button id="goearth" onclick="goearth()">Earth</button>
    <br></div>
 				
-	<div id="startbutton" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+	<div id="startbutton" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         What year is it?:<br><br>
 	<button id="year" onclick="year()">Year</button>
 	<br><button id="getstarted" onclick="randptbirth()">Create Your Character</button>
 	<br><button id="getnamescreen" onclick="getnamescreen()">Continue</button>
    <br></div>
-
-<div id="maparead">
-<div id="map"></div>
-	</div>
  	
 	<div id="choosenamescreen" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Your profile:<br><br>
@@ -2283,8 +2280,12 @@ document.getElementById("year19").style.display = "block";
 	<br><button id="getfullname" onclick="getfullname()">Name</button>
 	<br><button id="gethomescreen" onclick="gethomescreen()">Next</button>
     </div>
-
-<div id ="homescreen" style="background-color: black; width: 450px; height:300px;">
+				
+<div id="maparead" style="display:none">
+<div id="map"></div>
+	</div>
+				
+<div id ="homescreen" style="display:none; background-color: black; width: 450px; height:300px;">
 <div class = "containboxlets", style="width:450px;height:30px;">
 <div class="boxlets",id="boxlet1" style="background-color: green"></div><!--
 --><div class="boxlets",id="boxlet2" style="background-color: green"></div><!--
@@ -2671,6 +2672,7 @@ document.getElementById("year19").style.display = "block";
 	    function goearth() {
 	    document.getElementById("choosemapscreen").style.display = "none"; 
 	    document.getElementById("startbutton").style.display = "block"; 
+	    document.getElementById("maparead").style.display = "block"; 
         }
 
         function randptbirth() {
@@ -2688,6 +2690,12 @@ document.getElementById("year19").style.display = "block";
 function getnamescreen() {
 	    document.getElementById("startbutton").style.display = "none"; 
 	    document.getElementById("choosenamescreen").style.display = "block"; 
+	    document.getElementById("maparead").style.display = "none"; 
+
+}
+	function gethomescreen() {
+	    document.getElementById("choosenamescreen").style.display = "none"; 
+	    document.getElementById("homescreen").style.display = "block"; 
 
 }
 	
