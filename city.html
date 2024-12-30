@@ -432,6 +432,43 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 	margin: 0px;
 }
 </style>
+<script>
+	function get8(){
+    document.getElementById("8got").innerHTML = eights();
+  }
+	function eights() {
+          var txt = getRndInteger(1,28);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Greetings!";}
+          else if (txt == 2) {return "Hello!";}
+          else if (txt == 3) {return "What's up?";}
+          else if (txt == 4) {return "Que pasa?";}
+          else if (txt == 5) {return "How are you?";}
+          else if (txt == 6) {return "Yo!";}
+          else if (txt == 7) {return "Doesn't look like it";}
+          else if (txt == 8) {return "Unlikely";}
+          else if (txt == 9) {return "Impossible";}
+          else if (txt == 10) {return "Not realistically";}
+          else if (txt == 11) {return "Improbable";}
+          else if (txt == 12) {return "If you believe";}
+          else if (txt == 13) {return "Try harder";}
+          else if (txt == 14) {return "Absolutely not";}
+          else if (txt == 15) {return "Of course!";}
+          else if (txt == 16) {return "I dunno";}
+          else if (txt == 17) {return "Check again later";}
+          else if (txt == 18) {return "If all goes well";}
+          else if (txt == 19) {return "If the planets align";}
+          else if (txt == 20) {return "Sort of";}
+          else if (txt == 21) {return "In a way";}
+          else if (txt == 22) {return "A little bit";}
+          else if (txt == 23) {return "Partially";}
+          else if (txt == 24) {return "Barely";}
+          else if (txt == 25) {return "Definitely";}
+          else if (txt == 26) {return "For sure";}
+          else if (txt == 27) {return "Whatever";}
+          else if (txt == 28) {return "It doesn't matter";}
+        }
+</script>
 <!--[if lt IE 8]>
 <style>
 #textareacontainer, #iframecontainer {width:48%;}
@@ -455,7 +492,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
   </div>
 
 <!--<h2>Pixel Art</h2>-->
-<p>Click a square to color it</p>
+<p><span id="8got"></span></p>
 <button id="redButton" style="background-color: red">Red</button>
 <button id="orangeButton" style="background-color: orange">Orange</button>
 <button id="yellowButton" style="background-color: yellow">Yellow</button>
@@ -477,36 +514,36 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <div class = "containboxlets", style="width:450px;height:30px;">
 <div class="boxlets",id="boxlet1" style="background-color: green"></div><!--
 --><div class="boxlets",id="boxlet2" style="background-color: green"></div><!--
---><div class="boxlets",id="boxlet3" style="background-color: green; position:fixed;">😁</div><!--
+--><div title="Arno Zhaowulf" class="boxlets",id="boxlet3" style="background-color: green; position:fixed;" onclick="get8()">😁</div><!--
 --><div class="boxlets",id="boxlet4" style="background-color: green"></div><!--
 --><div class="boxlets",id="boxlet5" style="background-color: green"></div><!--
+--><div title="Pucho" class="boxlets",id="boxlet6" style="background-color: green; position:fixed;" onclick="get8()">🐱</div><!--
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet9" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div><!--
 --><div class="boxlets",id="boxlet6" style="background-color: green"></div><!--
---><div class="boxlets",id="boxlet7"></div><!--
---><div class="boxlets",id="boxlet8"></div><!--
---><div class="boxlets",id="boxlet9"></div><!--
---><div class="boxlets",id="boxlet10"></div><!--
---><div class="boxlets",id="boxlet6"></div><!--
---><div class="boxlets",id="boxlet7"></div><!--
---><div class="boxlets",id="boxlet8"></div><!--
---><div class="boxlets",id="boxlet9"></div><!--
---><div class="boxlets",id="boxlet10"></div>
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet9" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div>
 </div>
 <div class = "containboxlets", style="width:450px;height:30px;">
 <div class = "boxlets", id = "boxlet11"></div><!--
---><div class = "boxlets", id = "boxlet12"></div><!--
---><div class = "boxlets", id = "boxlet13"></div><!--
---><div class = "boxlets", id = "boxlet14"></div><!--
---><div class = "boxlets", id = "boxlet15"></div><!--
---><div class = "boxlets", id = "boxlet16"></div><!--
---><div class = "boxlets", id = "boxlet17"></div><!--
---><div class = "boxlets", id = "boxlet18"></div><!--
---><div class = "boxlets", id = "boxlet19"></div><!--
---><div class = "boxlets", id = "boxlet20"></div><!--
---><div class="boxlets",id="boxlet6"></div><!--
---><div class="boxlets",id="boxlet7"></div><!--
---><div class="boxlets",id="boxlet8"></div><!--
---><div class="boxlets",id="boxlet9"></div><!--
---><div class="boxlets",id="boxlet10"></div>
+--><div title="Pool" class="boxlets",id="boxlet3" style="background-color: blue; position:fixed;"></div><!--
+--><div class = "boxlets", id = "boxlet13" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet14" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet15" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet16" style="background-color: green"></div><!--
+--><div title= "Fountain" class = "boxlets", id = "boxlet17" style="background-color: blue"></div><!--
+--><div class = "boxlets", id = "boxlet18" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet19" style="background-color: green"></div><!--
+--><div class = "boxlets", id = "boxlet20" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet6" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet7" style="background-color: green"></div><!--
+--><div class="boxlets",id="boxlet8" style="background-color: green"></div><!--
+--><div title="House" class="boxlets",id="boxlet9" style="background-color: yellow"></div><!--
+--><div class="boxlets",id="boxlet10" style="background-color: green"></div>
 </div>
 <div class = "containboxlets", style="width:450px;height:30px;">
 <div class = "boxlets", id = "boxlet21"></div><!--
