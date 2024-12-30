@@ -2219,6 +2219,7 @@ document.getElementById("year19").style.display = "block";
         }
 		
 </script>
+	<span id="yeargot"></span> Life
 		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 			Your profile: <span id="emojigot"></span><span id="titlegot"><span id="fullnamegot"></span>
 			<br>Spouse: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
@@ -2229,7 +2230,8 @@ document.getElementById("year19").style.display = "block";
 <div id="overworldbuttons" style="display:none">
 <button id="talkButton">Talk</button>
 <button id="inspectButton">Inspect</button>
-	<button id="inspectButton">Marry</button>
+	<button id="inspectButton" onclick="getmap()">Marry</button>
+	<button id="getmapButton">Map</button>
 <button id="redButton" style="background-color: red">Attack</button>
 <br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
 <br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
@@ -2250,7 +2252,6 @@ document.getElementById("year19").style.display = "block";
 <button id="gbgradButton" style="background-color: cyan">Dig</button>
 	<button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
 	<button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
-	<button id="randptstudy" onclick="randptstudy()">School</button>
 	<button id="getlover" onclick="getlover()">Relationship</button> 
 	<button id="randptvacay" onclick="randptvacay()">Vacation</button>
 	<button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
@@ -2258,7 +2259,6 @@ document.getElementById("year19").style.display = "block";
 	<button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
 	<button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
 	<button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
-	<button id="randptmove" onclick="randptmove()">Move</button>
 	<button id="lys6" onclick="closeyear6()">Next</button>
 </div>
 	
@@ -2269,7 +2269,7 @@ document.getElementById("year19").style.display = "block";
 				
 	<div id="startbutton" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         What year is it?:<br><br>
-	<button id="year" onclick="year()">Year</button>
+	<button id="year" onclick="getyear()">Year</button><span id="yeargot"></span>
 	<br><button id="getstarted" onclick="randptbirth()">Create Your Character</button>
 	<br><button id="getnamescreen" onclick="getnamescreen()">Continue</button>
    <br></div>
@@ -2277,12 +2277,16 @@ document.getElementById("year19").style.display = "block";
 	<div id="choosenamescreen" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Your profile:<br><br>
 	<button id="emojis" onclick="getemoji()">Appearance</button><span id="emojigot"></span>
-	<br><button id="getfullname" onclick="getfullname()">Name</button>
+	<br><button id="getfullname" onclick="getfullname()">Name</button><span id="titlegot"><span id="fullnamegot"></span>
 	<br><button id="gethomescreen" onclick="gethomescreen()">Next</button>
     </div>
 				
 <div id="maparead" style="display:none">
 <div id="map"></div>
+	<button id="randptstudy" onclick="randptstudy()">Go to School</button>
+	<button id="randptmove" onclick="randptmove()">Move</button>
+	<button id="vacay" onclick="randpt()">Travel</button>
+		<button id="closemapButton" onclick="closemap()">Close</button>
 	</div>
 				
 <div id ="homescreen" style="display:none; background-color: black; width: 450px; height:300px;">
@@ -2532,7 +2536,7 @@ document.getElementById("year19").style.display = "block";
        Years 26-32:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<button id="getlover" onclick="getlover()">Relationship</button> 
-		<button id="getstarted" onclick="randpt)">Vacation</button>
+		<button id="getstarted" onclick="randpt()">Vacation</button>
 		<button id="lys26" onclick="closeyear26()">Next</button>
     </div>
 	<div id="year33" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
@@ -2696,7 +2700,7 @@ function getnamescreen() {
 	function gethomescreen() {
 	    document.getElementById("choosenamescreen").style.display = "none"; 
 	    document.getElementById("homescreen").style.display = "block"; 
-
+	    document.getElementById("overworldbuttons").style.display = "block"; 
 }
 	
 	  function randptstudy() {
@@ -2712,52 +2716,6 @@ function getnamescreen() {
 
 
 </script>
-	 <h2>Buildings / Rooms</h2>
-<p>Click a square to build</p>
-<br>
-<div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-</div><br>
 	    Structures:
     <button id="getstructure" onclick="getstructure()">Select</button>
     <span id="structuregot"></span>
