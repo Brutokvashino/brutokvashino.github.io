@@ -340,6 +340,168 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
 <script>
+
+const boxes = document.querySelectorAll('.boxlets');
+        const redButton = document.getElementById('redButton');
+        const orangeButton = document.getElementById('orangeButton');
+        const yellowButton = document.getElementById('yellowButton');
+        const greenButton = document.getElementById('greenButton');
+        const cyanButton = document.getElementById('cyanButton');
+        const blueButton = document.getElementById('blueButton');
+        const purpleButton = document.getElementById('purpleButton');
+        const pinkButton = document.getElementById('pinkButton');
+        const blackButton = document.getElementById('blackButton');
+        const whiteButton = document.getElementById('whiteButton');
+        const redgradButton = document.getElementById('redgradButton');
+        const greengradButton = document.getElementById('greengradButton');
+        const bluegradButton = document.getElementById('bluegradButton');
+        const rggradButton = document.getElementById('rggradButton');
+        const rbgradButton = document.getElementById('rbgradButton');
+        const gbgradButton = document.getElementById('gbgradButton');
+        let colorMode = '';
+        redButton.addEventListener('click', () => {
+            colorMode = 'red';
+        });orangeButton.addEventListener('click', () => {
+            colorMode = 'orange';
+        });yellowButton.addEventListener('click', () => {
+            colorMode = 'yellow';
+        });
+	greenButton.addEventListener('click', () => {
+            colorMode = 'green';
+        });
+        cyanButton.addEventListener('click', () => {
+            colorMode = 'cyan';
+        });
+        blueButton.addEventListener('click', () => {
+            colorMode = 'blue';
+        });purpleButton.addEventListener('click', () => {
+            colorMode = 'purple';
+        });pinkButton.addEventListener('click', () => {
+            colorMode = 'pink';
+        });
+        blackButton.addEventListener('click', () => {
+            colorMode = 'black';
+        });
+        whiteButton.addEventListener('click', () => {
+            colorMode = 'white';
+        });
+        redgradButton.addEventListener('click', () => {
+            colorMode = 'redgrad';
+        });
+        greengradButton.addEventListener('click', () => {
+            colorMode = 'greengrad';
+        });
+        bluegradButton.addEventListener('click', () => {
+            colorMode = 'bluegrad';
+        });
+        rggradButton.addEventListener('click', () => {
+            colorMode = 'rggrad';
+        });
+        rbgradButton.addEventListener('click', () => {
+            colorMode = 'rbgrad';
+        });
+        gbgradButton.addEventListener('click', () => {
+            colorMode = 'gbgrad';
+        });
+        boxes.forEach(box => {
+            let red = 0;
+            let green = 0;
+            let blue = 0;
+            let darkness = 255;
+            box.addEventListener('click', () => {
+                if (colorMode === 'red') {
+                    red = 255;
+                    green = 0;
+                    blue = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                    }
+                       else if (colorMode === 'orange') {
+                    red = 255;
+                    green = 100;
+                    blue = 30;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+                   else if (colorMode === 'yellow') {
+                    red = 255;
+                    green = 255;
+                    blue = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+		    else if (colorMode === 'green') {
+                    red = 0;
+                    green = 255;
+                    blue = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+		    else if (colorMode === 'cyan') {
+                    red = 0;
+                    green = 255;
+                    blue = 255;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+                   else if (colorMode === 'blue') {
+                    red = 0;
+                    green = 0;
+                    blue = 255;
+                    box.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                }
+                                 else if (colorMode === 'purple') {
+                    red = 100
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${red})`;
+                } 
+                                 else if (colorMode === 'pink') {
+                    red = 255;
+                    darkness = 200;
+                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${darkness})`;
+                } 
+                   else if (colorMode === 'black') {
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${darkness})`;
+                } 
+                   else if (colorMode === 'white') {
+                    darkness = 255;
+                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${darkness})`;
+                }
+                
+                                 else if (colorMode === 'redgrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${darkness})`;
+                } 
+                
+                                 else if (colorMode === 'greengrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${red}, ${darkness})`;
+                } 
+                
+                                 else if (colorMode === 'bluegrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${darkness}, ${red})`;
+                } 
+                
+                                 else if (colorMode === 'rggrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${red}, ${darkness})`;
+                } 
+                
+                                 else if (colorMode === 'rbgrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${red}, ${darkness}, ${red})`;
+                } 
+                
+                                 else if (colorMode === 'gbgrad') {
+                    red +=20;
+                    darkness = 0;
+                    box.style.backgroundColor = `rgb(${darkness}, ${red}, ${red})`;
+                } 
+           
+            });
+        });
 	
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
