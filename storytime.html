@@ -2010,6 +2010,7 @@ function getRndInteger(min, max) {
 function getfullname(){
 fullname = regnames() + " " + middlenames() + " " + lastnames();
 document.getElementById("fullnamegot").innerHTML = fullname; 
+document.getElementById("fullnamegot2").innerHTML = fullname; 
 }
 
 function getintro(){
@@ -2082,9 +2083,11 @@ document.getElementById("year19").style.display = "block";
 } 
 	function getyear(){
     document.getElementById("yeargot").innerHTML = year();
+    document.getElementById("yeargot2").innerHTML = year();
 }
 	function getemoji(){
     document.getElementById("emojigot").innerHTML = emojis();
+    document.getElementById("emojigot2").innerHTML = emojis();
 }
 	function year() {
           var txt = getRndInteger(-3000,3000);
@@ -2230,7 +2233,7 @@ document.getElementById("year19").style.display = "block";
 </script>
 	<span id="yeargot"></span> Life
 		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-			Your profile: <span id="emojigot"></span><span id="titlegot"><span id="fullnamegot"></span>
+			Your profile: <span id="emojigot"></span><span id="titlegot"><span id="fullnamegot"></span><span id="agegot">
 			<br>Spouse: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
 			<br>Occupation: <span id="jobgot"></span>
 			<br>Team: <span id="parentsgot"></span><span id="kidgot"></span>
@@ -2278,15 +2281,15 @@ document.getElementById("year19").style.display = "block";
 				
 	<div id="startbutton" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
         What year is it?:<br><br>
-	<button id="year" onclick="getyear()">Year</button><span id="yeargot"></span>
+	<button id="year" onclick="getyear()">Year</button><span id="yeargot2"></span>
 	<br><button id="getstarted" onclick="randptbirth()">Create Your Character</button>
 	<br><button id="getnamescreen" onclick="getnamescreen()">Continue</button>
    <br></div>
  	
 	<div id="choosenamescreen" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Your profile:<br><br>
-	<button id="emojis" onclick="getemoji()">Appearance</button><span id="emojigot"></span>
-	<br><button id="getfullname" onclick="getfullname()">Name</button><span id="titlegot"><span id="fullnamegot"></span>
+	<button id="emojis" onclick="getemoji()">Appearance</button><span id="emojigot2"></span>
+	<br><button id="getfullname" onclick="getfullname()">Name</button><span id="fullnamegot2"></span>
 	<br><button id="gethomescreen" onclick="gethomescreen()">Next</button>
     </div>
 				
@@ -2318,7 +2321,7 @@ document.getElementById("year19").style.display = "block";
 </div>
 <div class = "containboxlets", style="width:450px;height:30px;">
 <div class = "boxlets", id = "boxlet11"></div><!--
---><div title="Pool" class="boxlets",id="boxlet3" style="background-color: blue; position:fixed;"></div><!--
+--><div title="Pool" class="boxlets",id="boxlet3" style="background-color: blue;"></div><!--
 --><div class = "boxlets", id = "boxlet13" style="background-color: green"></div><!--
 --><div class = "boxlets", id = "boxlet14" style="background-color: green"></div><!--
 --><div class = "boxlets", id = "boxlet15" style="background-color: green"></div><!--
