@@ -67,6 +67,185 @@ C = pi*d, A=pi*r^2
 <p></p>
 <br>
 <p>Vet</p>
+<!-- CSS NOTES
+	Specificity weight:
+*, :is, :has add no weight
+1-0-0 #IDs
+0-1-0 .classes
+0-0-1 <types, elements> and ::pseudos 
+
+By default:
+Spans are inline, (just its content width)
+Divs are block (100% width)
+
+Inline behavior:
+width, height, margin-top, -bottom = no effect
+padding-top, -bottom = push element border?
+*to have block behavior, use inline-block
+
+Solve issues with unexpected spaces:
+eliminate white space or comment out line breaks
+
+No default borders:
+*{
+ margin: 0;
+    padding: 0;
+box-sizing: border-box; 
+//makes the border included when sizing height and width for more predictable sizes
+//you can use this to reset defaults
+}
+
+Eric Meyer reset:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Transitions</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: background-color 0.5s ease, transform 0.5s ease;
+        }
+
+        .box:hover {
+            background-color: red;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+
+Comeau reset:
+/* 1. Use a more-intuitive box-sizing model. */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+    margin: 0;
+}
+/* Typographic tweaks! 3. Add accessible line-height 4. Improve text rendering */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+/* 6. Remove built-in form typography styles */
+input, button, textarea, select {
+    font: inherit;
+}
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+
+Minimal reset:
+/* 1. Use a more-intuitive box-sizing model. */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+    margin: 0;
+}
+/* Typographic tweaks! 3. Add accessible line-height 4. Improve text rendering */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+/* 6. Remove built-in form typography styles */
+input, button, textarea, select {
+    font: inherit;
+}
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+
+HTML
+a href link target="_blank" opens externally
+
+//scrolls to top <a href="#top">
+//OR function scrollToTop() {
+      window.scrollTo(0, 0);
+    }
+//reload page
+location.reload(); //when argument is true, it will do it server side
+
+display:block takes up 100% given width
+display:inline will take only as much as it needs?
+display:block-inline behave like block but line up
+
+	-->
+<!--AI NOTES
+	Robots can learn to do new tasks, IoT devices can adapt machines to physical world with more information from human interactions with these devices in the physical world
+
+Weak AI: an AI expert system can excel at an area where there are rules and procedures 
+Strong AI: possesses human trains
+
+Machine Learning:
+Training Data, Test Data = larger set
+
+Ensembles: using multiple algorithms
+Bagging: using several versions of the same algorithm
+Stacking: using different kinds of algorithms stacked together
+
+Bias: gap between predicted value and actual outcome
+Variance: how scattered the predicted values are
+Underfitting the data to the model: was not prepared for variables, must make more predictors
+Overfitting the data to the model: too many variable
+
+Supervised learning: binary classification of the data requires large and labeled data for the training set to be meaningful. 
+Unsupervised learning works well for small data set, may identify unexpected connections
+The exact methods are unknown.
+
+Artificial Neural Networks: usually supervised learning and self-tuning based on giving each connection in the hidden layer a weight represented by W1 to Wn where n is however many neurons in that layer. Weights are randomly assigned at first but get reassigned after training data fed to tune itself for accuracy.
+feedforward neural network: input layer>hidden layer>output layer (features neurons with the binary classification each having a probability score).
+makes guesses based on recognized patterns then compares answer to correct answer expressed as percentage. Useful for breaking down a lot of data.
+Cost can be assigned to inform the network on how big an adjustment to make to increase accuracy after errors (measurement of wrongness).
+Backpropagation: Neural network adjusts the weights of the connections to lower the cost of the function
+The output layer has the probability score
+Activation bias: adjusting bias and variance
+Overfitting lots of complexity
+On the neuron, not the weighted connection. It can only correct after observing outcome
+Example:Image recognition used with neural netw, training set, supervised, self tuning weights of connections, 
+
+Data Classification: Cluster Data is an output category that can be grouped based on a pattern noted by analyzing the data
+KNN = K Nearest Neighbor: plots new data by comparing it with existing data
+K Means Clustering: unsupervised and creates clusters in the data over and over to increase accurate cluster based on finding the best centroids in the data. K value = how many clusters desired. Centroids are calculated for distance to all other points.
+
+Reinforcement Learning: using tokens to allow the machine to invent new predictions and solutions.
+
+Euclidean Distance: mathematical formula for distance between data points
+
+Regression Analysis: supervised machine learning algorithm using predictors and outcome. Usually XY diagram plotted to show a trendline at the center of data groupings. 
+Regressors can be also called independent variables. When to insert product or offer?
+
+Naive Bayes Algorithm: assumes all predictors are independent from one another. Uses predictors, some are autocorrelated but naive considers them all equal. Class predictor probability shows how likely it is to be in such a class. What other product to include?
+
+ComputeCloud: Instances,
+GCEngine
+Amazon EC2
+Microsoft Azure VMs
+
+Study human uncanny valley and robotics, AI: limits, perception, element of control, abilities of robots, scope, privacy, dependance, 
+analyze human comfort level and some user info
+
+lifestyle changes, health, 
+	-->
   <!--
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
