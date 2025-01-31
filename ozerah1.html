@@ -897,7 +897,45 @@ L.marker([6.814214, 158.288355]).addTo(map).bindPopup("Laki");
  
         // Add the click event listener to the map
         map.on('click', onMapClick);
+
+	function randptgen() {
+            var selector = getRndInteger(1, 9);
+            if (selector == 1) 
+		{var randlat = getRndInteger(0,55); 
+		var randlong = getRndInteger(32,139);}    
+            else if (selector == 2)
+              {var randlat = getRndInteger(-38,0); 
+		var randlong = getRndInteger(108,173);}
+		else if (selector == 3)
+              {var randlat = getRndInteger(-34,61); 
+		var randlong = getRndInteger(14,49);}
+		else if (selector == 4)
+              {var randlat = getRndInteger(0,32); 
+		var randlong = getRndInteger(-11,50);}
+		else if (selector == 5)
+              {var randlat = getRndInteger(6,55); 
+		var randlong = getRndInteger(-8,139);}
+		else if (selector == 6)
+              {var randlat = getRndInteger(59,66); 
+		var randlong = getRndInteger(-16,180);}
+		else if (selector == 7)
+              {var randlat = getRndInteger(-54,16); 
+		var randlong = getRndInteger(-87,-44);}
+		else if (selector == 8)
+              {var randlat = getRndInteger(18,61); 
+		var randlong = getRndInteger(-127,-69);}
+           	else if (selector == 9)
+              {var randlat = getRndInteger(57,70); 
+		var randlong = getRndInteger(-165,-16);}
+            var points = [{lat: randlat, long: randlong}];
+            var txt = "Hello there";
+            points.forEach(point => {
+                L.marker([point.lat, point.long]).addTo(map).bindPopup(txt);
+            });
+        }
 </script>
+</script>
+	<button id="randptgen" onclick="randptgen()">Generate</button>
 	<br><br>
 		    <h2>Weisshaupt</h2>
 <br>
