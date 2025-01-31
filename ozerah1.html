@@ -825,8 +825,116 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 
 <h2>Ozerah</h2>
 <p></p>
-<h2>Map</h2>
-<p>Weisshaupt</p>
+<div id="map"></div>
+	
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+        // Initialize the map and set its view to a chosen geographical coordinates and zoom level
+        var map = L.map('map').setView([6.879647, 158.233477], 10);
+ L.marker([6.887636, 158.23131]).addTo(map).bindPopup("Weisshaupt");
+ L.marker([6.886443, 158.244704]).addTo(map).bindPopup("Governia");
+L.marker([6.876324, 158.152548]).addTo(map).bindPopup("Aedek Homeland");
+L.marker([6.884242, 158.254306]).addTo(map).bindPopup("Bergschmiede");
+L.marker([6.878618, 158.26375]).addTo(map).bindPopup("Vogelsang");
+L.marker([6.914292, 158.301857]).addTo(map).bindPopup("Castle Albert");
+L.marker([6.931674, 158.316624]).addTo(map).bindPopup("Helman");
+L.marker([6.911566, 158.322462]).addTo(map).bindPopup("Lee");
+L.marker([6.911566, 158.322462]).addTo(map).bindPopup("Keke");
+L.marker([6.898955, 158.299282]).addTo(map).bindPopup("Lee");
+L.marker([6.931674, 158.248456]).addTo(map).bindPopup("Elenis");
+L.marker([6.947522, 158.15025]).addTo(map).bindPopup("Aurhe");
+	
+L.marker([6.940024, 158.142351]).addTo(map).bindPopup("Yrsen");
+L.marker([6.936275, 158.160037]).addTo(map).bindPopup("Haralaus");
+L.marker([6.927755, 158.165532]).addTo(map).bindPopup("Xera");
+L.marker([6.880379, 158.161068]).addTo(map).bindPopup("Roga");
+
+	L.marker([6.885321, 158.178411 ]).addTo(map).bindPopup("Kotir");
+L.marker([6.896398, 158.219449 ]).addTo(map).bindPopup("Schwarzgipfel");
+L.marker([6.905601, 158.207601]).addTo(map).bindPopup("Ghulheim");
+L.marker([6.902193, 158.194723]).addTo(map).bindPopup("Bad Bergfried");
+L.marker([6.908669, 158.215671]).addTo(map).bindPopup("Nordquelle");
+L.marker([6.917974, 158.215406]).addTo(map).bindPopup("Tierlager");
+L.marker([6.914395, 158.224764]).addTo(map).bindPopup("Waldhaus");
+L.marker([6.927091, 158.210941]).addTo(map).bindPopup("Lutsk");
+L.marker([6.932118, 158.20622]).addTo(map).bindPopup("Rektal");
+
+
+	L.marker([6.911054, 158.24384]).addTo(map).bindPopup("Jaegershagen");
+L.marker([6.917871, 158.256031]).addTo(map).bindPopup("Odstwache");
+L.marker([6.915144, 158.250708]).addTo(map).bindPopup("Waldaue");
+L.marker([6.837053, 158.312394]).addTo(map).bindPopup("Walawu");
+L.marker([6.832963, 158.156827]).addTo(map).bindPopup("Kitipon");
+L.marker([6.86705, 158.215894]).addTo(map).bindPopup("Taore");
+L.marker([6.855801, 158.230661]).addTo(map).bindPopup("Ekutapon");
+
+	L.marker([6.83569, 158.190138]).addTo(map).bindPopup("Argo");
+L.marker([6.821032, 158.233408]).addTo(map).bindPopup("Kulan");
+L.marker([6.814214, 158.288355]).addTo(map).bindPopup("Laki");
+	
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+ 
+        // Function to add a marker on the map at the clicked location
+        function onMapClick(e) {
+            L.marker(e.latlng).addTo(map)
+                .bindPopup("You clicked the map at " + e.latlng.toString())
+                .openPopup();
+        }
+ 
+        // Add the click event listener to the map
+        map.on('click', onMapClick);
+</script>
+	<br><br>
+		    <h2>Weisshaupt</h2>
+<br>
+<div style="border: 2px, solid, red; background-color: black; width: 338px;">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+</div><br>
+	<br>
+	<p>Weisshaupt</p>
 <br>
 <div style="border: 2px, solid, red; background-color: black; width: 338px;">
 <input value=" " style="background: green; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
@@ -950,123 +1058,11 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <input value=" " style="background: green; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
 </div>
 <br>
-	    <h2>Weisshaupt</h2>
-<br>
-<div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<br>
-	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
-</div><br>
-	<br>
-<div id="map"></div>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-        // Initialize the map and set its view to a chosen geographical coordinates and zoom level
-        var map = L.map('map').setView([6.879647, 158.233477], 10);
- L.marker([6.887636, 158.23131]).addTo(map).bindPopup("Weisshaupt");
- L.marker([6.886443, 158.244704]).addTo(map).bindPopup("Governia");
-L.marker([6.876324, 158.152548]).addTo(map).bindPopup("Aedek Homeland");
-L.marker([6.884242, 158.254306]).addTo(map).bindPopup("Bergschmiede");
-L.marker([6.878618, 158.26375]).addTo(map).bindPopup("Vogelsang");
-L.marker([6.914292, 158.301857]).addTo(map).bindPopup("Castle Albert");
-L.marker([6.931674, 158.316624]).addTo(map).bindPopup("Helman");
-L.marker([6.911566, 158.322462]).addTo(map).bindPopup("Lee");
-L.marker([6.911566, 158.322462]).addTo(map).bindPopup("Keke");
-L.marker([6.898955, 158.299282]).addTo(map).bindPopup("Lee");
-L.marker([6.931674, 158.248456]).addTo(map).bindPopup("Elenis");
-L.marker([6.947522, 158.15025]).addTo(map).bindPopup("Aurhe");
-	
-L.marker([6.940024, 158.142351]).addTo(map).bindPopup("Yrsen");
-L.marker([6.936275, 158.160037]).addTo(map).bindPopup("Haralaus");
-L.marker([6.927755, 158.165532]).addTo(map).bindPopup("Xera");
-L.marker([6.880379, 158.161068]).addTo(map).bindPopup("Roga");
-
-	L.marker([6.885321, 158.178411 ]).addTo(map).bindPopup("Kotir");
-L.marker([6.896398, 158.219449 ]).addTo(map).bindPopup("Schwarzgipfel");
-L.marker([6.905601, 158.207601]).addTo(map).bindPopup("Ghulheim");
-L.marker([6.902193, 158.194723]).addTo(map).bindPopup("Bad Bergfried");
-L.marker([6.908669, 158.215671]).addTo(map).bindPopup("Nordquelle");
-L.marker([6.917974, 158.215406]).addTo(map).bindPopup("Tierlager");
-L.marker([6.914395, 158.224764]).addTo(map).bindPopup("Waldhaus");
-L.marker([6.927091, 158.210941]).addTo(map).bindPopup("Lutsk");
-L.marker([6.932118, 158.20622]).addTo(map).bindPopup("Rektal");
-
-
-	L.marker([6.911054, 158.24384]).addTo(map).bindPopup("Jaegershagen");
-L.marker([6.917871, 158.256031]).addTo(map).bindPopup("Odstwache");
-L.marker([6.915144, 158.250708]).addTo(map).bindPopup("Waldaue");
-L.marker([6.837053, 158.312394]).addTo(map).bindPopup("Walawu");
-L.marker([6.832963, 158.156827]).addTo(map).bindPopup("Kitipon");
-L.marker([6.86705, 158.215894]).addTo(map).bindPopup("Taore");
-L.marker([6.855801, 158.230661]).addTo(map).bindPopup("Ekutapon");
-
-	L.marker([6.83569, 158.190138]).addTo(map).bindPopup("Argo");
-L.marker([6.821032, 158.233408]).addTo(map).bindPopup("Kulan");
-L.marker([6.814214, 158.288355]).addTo(map).bindPopup("Laki");
-	
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
- 
-        // Function to add a marker on the map at the clicked location
-        function onMapClick(e) {
-            L.marker(e.latlng).addTo(map)
-                .bindPopup("You clicked the map at " + e.latlng.toString())
-                .openPopup();
-        }
- 
-        // Add the click event listener to the map
-        map.on('click', onMapClick);
-</script>
-	<br><br>
 	<h2>Weisshaupt or Schwarzgipfel Cave System</h2>
 	<br>
 	<p>
-		Places: Zvesdy - launch area?, stranded planet settlers die off,
 	Characters: Dr. Reich, Edith, Ingrid, dictator, Captain, soldiers, scientists, board directors
-		Objects: Zeitstein from the rift of Arryx, biodiesel, pressure vehicle, uranium en drum, 
-		Tunnel: chemistry lab, fuel processing, server room, aquaponic garden, train, green paradise church,  
-
-Bethin: Walaw beach, priests order, church, 
+		Tunnel: chemistry lab, fuel processing, server room, aquaponic garden, train, green paradise / oasis church,  
 	</p>
 <!--
 	
