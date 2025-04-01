@@ -163,7 +163,88 @@ RSTP:
         section .data 
         msg db 'Hello, world!', 0xa ;our dear string 
         len equ $ - msg ;length of our dear string
-     
+
+200-301 v1.1
+cisco exam prep streams
+CiscoU
+cisco learning Labs
+Netsim
+Boson exam
+cisco practice exam
+Exsim
+
+
+IPV6 ------------ 1.Unicast 2.Any Cast 3.
+
+Multicast(FF00::/8) Uni-cast --------------
+i.Global Uni cast (Public IPs 2000::/3)
+ii.Unique Local (Private IPs FD00::/8)
+iii.Link Local (FE08::10) group address means one to many(Multicast). Answer is D
+IPv6, link-local multicast addresses, starting with "FF02::/16
+link-local address, prefixed with fe80::/64,
+
+multicast addresses, which are used for sending data to a group of devices, are identified by the prefix ff00::/8. This prefix
+
+Sometimes called BUM traffic - Broadcast, Unknown Unicast, Multicast. These forms of traffic are "flooded" out all ports except the port the packet was received on. by default
+
+
+
+see subnet, how many hosts does that leave? what ip address are they assigning? divide the address ending +1 of course by the possible hosts. how far along is this?
+
+
+3 host bits
+
+virtual interface
+service port
+dynamic interface
+
+Private Address Ranges -------------------------------------- Class A 10.0.0.0 to 10.255.255.255 Class B 172.16.0.0 to 172.32.255.255 class C 192.168.0.0 to 192.168.255.255 So 172.28.0.0/16 in the range of Private IPs in Class B. Answer is B.
+
+etherchannel on
+half duplex
+Input errors include runts and giants CRC detects errors, these two counters will react to errors
+CRC
+Spanning tree may fail to detect a switching loop in the network that causes broadcast storms on portfast interfaces connected to other switches.
+
+ipv6 address 2001:DB8:5:112::/64 eui-64
+
+A leaf switch can be added with connections to every spine switch.
+
+root ports fwd, closes to root bridge, lowest cost bpdu
+
+Portfast is appropriate when you are sure that you are connecting to a single device that will not potentially bridge you to other ports. So portfast is fine switch to server, desktop, router, and firewall. you never expect to see BPDU packets. Portfast shortens/bypasses normal STP timers to get ports up and forwarding quickly.
+
+https://learningnetwork.cisco.com/s/article/ipv4-subnetting-reference-chart
+
+https://www.techtarget.com/iotagenda/definition/IPv6-address#:~:text=In%20precise%20terms%2C%20an%20IPv6,groups%20are%20separated%20by%20colons.&text=An%20IPv6%20address%20is%20split,network%20and%20a%20node%20component.
+
+https://www.cisco.com/c/en/us/support/docs/security-vpn/secure-shell-ssh/4145-ssh.html#toc-hId--1615832073
+https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3560/software/release/12-2_55_se/configuration/guide/3560_scg/swstpopt.html
+https://en.wikipedia.org/wiki/802.11_frame_types
+https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/81831-qos-wlc-lap.html
+https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/flexconnect.html
+https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst6500/ios/12-2SX/configuration/guide/book/power_over_ethernet.pdf
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6/configuration/xe-3s/ipv6-xe-36s-book/ip6-multicast.html
+
+
+https://documentation.meraki.com/MS/Port_and_VLAN_Configuration/Spanning_Tree_Protocol_(STP)_Overview
+https://www.geeksforgeeks.org/root-bridge-election-in-spanning-tree-protocol/
+https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus5000/sw/layer2/503_n1_1/Cisco_n5k_layer2_config_gd_rel_503_N1_1_chapter9.html
+https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/10586-65.html
+https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol-stp-8021d/218321-configure-stp-with-loop-guard-and-bpdu-s.html
+https://community.cisco.com/t5/routing/what-is-loopguard-bpduguard-rootguard/td-p/1579742
+https://www.reddit.com/r/ccna/comments/1dgjp47/loop_guard_root_guard_boson/?rdt=52590
+https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html
+https://community.cisco.com/t5/networking-knowledge-base/cisco-access-control-lists-acl/ta-p/4182349
+https://www.geeksforgeeks.org/spanning-tree-port-states/
+https://community.cisco.com/t5/switching/stp-root-port-vs-designated-port/td-p/1517842
+https://learningnetwork.cisco.com/s/article/Basic-of-BGP-routing-Protocol-A-Two-Napkin-Protocol-Part-1
+https://learningnetwork.cisco.com/s/article/Basic-of-BGP-routing-Protocol---A-Two-Napkin-Protocol---Part-2
+https://learningnetwork.cisco.com/s/article/Understanding-Simple-Network-Management-Protocol--SNMP
+https://learningnetwork.cisco.com/s/article/Routing-Protocols-an-Overview
+
+opt 3589
+        
         </p>
     </div>
 </div>
