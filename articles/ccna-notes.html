@@ -79,75 +79,76 @@
 
 Memory:
         AllPeopleSeemToNeedDataProcessing,EveryAmazingCiscoEngineerNeedsIcecreamDaily,BronzeFTP,GoldVid,PlatVoIP,EOR (90, 110, 120), SEO(hello: 2,5,10), ESO(dead:15,20,40/3600=1hr)
-
-ipv4
+<br><br>
+ipv4<br>
         apipa 169.254.255.254
-ipv6
-        2000:3 global uni or 3000 like public
-       fc60,fd60 personal local no web
-       fe08,fe80 link local 
+<br><br>
+ipv6<br>
+        2000:3 global uni or 3000 like public<br>
+       fc60,fd60 personal local no web<br>
+       fe08,fe80 link local <br>
         ff01,ff02 joined multicast
-
-Application
-        http:80,dns:53,dhcp:467,468,dora,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9,ios,domain name),
-Presentation
-        gif/jpeg/mpeg,quicktime,
-Session
-        PAPpassword,RPCremote,reqs and resps
-Transport(segments)
-        flow control,seq, error detection, tcp/udp
-Network(packets)
-        routers, ipv4v6,router red
-Data Link (frames)
-        switches, 802.3ethernet,frame relay,token ring, ppp point 2 point, cdp csc disc, mac addresses, bridges
-Phys (bits) 
-        nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet eia/tia 232s, runts and giants
-
-bum, broadcast unknown multicast,use macs fwding db, send direct or flood,
-
-each port = collision domain, all connected single broadcast domain
-
-switch
-        microsegmentation, cam table(mac,physintf), mac flooding
-
-router
-        vlan to vlan, separate broadcast domains, routing table tcam (ip) can be non exact, multiple tcam tables, acl, qos, if no, static default*, gateway of last resort, drop - icmp dest unreach
-        
-0Emergency,1Alert,2C,3Error,4Network,5Information,6Control,7Debug
-
-eigrp:dist-vector
-        hello10s,holdtime15s
-ospf,lsa,link-state
-        hello10s, lsaadvertisements,maxagetimer3600s1hr
-        
-Subnetting:
-        get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid
-
-Routes:
-        c0, l1, s1, e/d 90, o110, r120, b?
-        
-802.1
-        d= stp
-        w= rstp
-        q= VLANs, Trunking
-
-802.3
-        ethernet, collission detection
-        
-802.11
-        #freq,speed,channel
-        0, b2:11mpbs:3GHz, a2/5:54mbps:12-24MHz, g, n2/5:600mbps:40MHz
-        ac2/5,6.9gpbs,160MHz 4 parallel stations
-        WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz
-        
-PAN: 
+<br><br>
+Application<br>
+        http:80,dns:53,dhcp:467,468,dora,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9,ios,domain name),<br>
+Presentation<br>
+        gif/jpeg/mpeg,quicktime,<br>
+Session<br>
+        PAPpassword,RPCremote,reqs and resps<br>
+Transport(segments)<br>
+        flow control,seq, error detection, tcp/udp<br>
+Network(packets)<br>
+        routers, ipv4v6,router red<br>
+Data Link (frames)<br>
+        switches, 802.3ethernet,frame relay,token ring, ppp point 2 point, cdp csc disc, mac addresses, bridges<br>
+Phys (bits) <br>
+        nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet eia/tia 232s, runts and giants<br>
+<br><br>
+bum, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
+<br>
+each port = collision domain, all connected single broadcast domain<br>
+<br>
+switch<br>
+        microsegmentation, cam table(mac,physintf), mac flooding<br>
+<br>
+router<br>
+        vlan to vlan, separate broadcast domains, routing table tcam (ip) can be non exact, multiple tcam tables, acl, qos, if no, static default*, gateway of last resort, drop - icmp dest unreach<br>
+<br>        
+0Emergency,1Alert,2C,3Error,4Network,5Information,6Control,7Debug<br>
+<br>
+eigrp:dist-vector<br>
+        hello10s,holdtime15s<br>
+ospf,lsa,link-state<br>
+        hello10s, lsaadvertisements,maxagetimer3600s1hr<br>
+<br>        
+Subnetting:<br>
+        get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
+<br>
+Routes:<br>
+        c0, l1, s1, e/d 90, o110, r120, b? <br>
+ <br>       
+802.1 <br>
+        d= stp <br>
+        w= rstp <br>
+        q= VLANs, Trunking <br>
+<br>
+802.3 <br>
+        ethernet, collission detection<br>
+ <br>       
+802.11 <br>
+        #freq,speed,channel <br>
+        0, b2:11mpbs:3GHz, a2/5:54mbps:12-24MHz, g, n2/5:600mbps:40MHz <br>
+        ac2/5,6.9gpbs,160MHz 4 parallel stations<br>
+        WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
+   <br>     
+PAN: <br>
         personal
-        
-STP:
-        802.1d
-
-RSTP:
-        802.1w
+ <br>       
+STP:<br>
+        802.1d <br>
+<br>
+RSTP:<br>
+        802.1w <br>
         
         https://learningnetworkstore.cisco.com/cisco-learning-labs
         https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
