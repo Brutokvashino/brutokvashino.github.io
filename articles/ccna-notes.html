@@ -39,10 +39,10 @@ ipv4<br>
         apipa 169.254.255.254
 <br><br>
 ipv6<br>
-        2000:3 global uni or 3000 like public<br>
-       fc60,fd60 personal local no web<br>
-       fe08,fe80 link local <br>
-        ff01,ff02 joined multicast
+        2000::/3, 3000::/3 global uni like public, or anycast (hits closest with that address, but distant neighbor can have same addr)<br>
+       fc00::/7 or fd00 personal local no web<br>
+       fe80::/10 fe00::/10 link local <br>
+        ff00::/8 joined multicast
 <br><br>
 Application<br>
         http:80,dns:53,dhcp:467,468,dora,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
