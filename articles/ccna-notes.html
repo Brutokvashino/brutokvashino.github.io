@@ -31,17 +31,23 @@
 <div class="title"><h1>Web Tools</h1></div><div class="blogcontainer"><p>CCNA notes  </p> <br><br> <p>:  <br>
 
 Memory:<br>
+EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESO(dead:15,20,40/3600=1hr)
+        <br><br>
         AllPeopleSeemToNeedDataProcessing,<br>
         EveryAmazingCiscoEngineerNeedsIceCreamDaily,<br>
-        BronzeFTP,GoldVid,PlatVoIP,<br>EOR(90,110,120),SEO(hello:2,5,10),ESO(dead:15,20,40/3600=1hr)
+        0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
+        BronzeFTP,GoldVid,PlatVoIP,<br>
 <br><br>
 ipv4<br>
-        apipa 169.254.255.254
+        A: 10.0.0.0 - 10.255.255.255 ? <br>
+        B: 172.0.0.0 - 172.255.255.255 ? <br>
+        C: 192.168.1.0 - 192.168.255.255 ? <br>
+        APIPA: 169.254.255.254
 <br><br>
 ipv6<br>
         2000::/3, 3000::/3 global uni like public, or anycast (hits closest with that address, but distant neighbor can have same addr)<br>
-       fc00::/7 or fd00 personal local no web<br>
-       fe80::/10 fe00::/10 link local <br>
+        fc00::/7 or fd00 personal local no web<br>
+        fe80::/10 fe00::/10 link local <br>
         ff00::/8 joined multicast
 <br><br>
 Application<br>
@@ -59,14 +65,22 @@ Data Link (frames)<br>
 Phys (bits) <br>
         nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet eia/tia 232s, runts and giants<br>
 <br><br>
-bum, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
-<br>
 each port = collision domain, all connected single broadcast domain<br>
 <br>
-switch<br>
-        microsegmentation, cam table(mac,physintf), mac flooding<br>
+Switch<br>
+        microsegmentation, cam table(mac,physintf), weak to mac flooding<br>
+        flooding: BUM, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
+        Capabilities: SNMP, VTP, Layer2/3
+        <br>
+Port<br>
+        State: err-disable, access, trunk, blocked<br>
+        Capabilities: portfast, BPDUguard, STP, RSTP,<br>
 <br>
-router<br>
+Bridge:<br>
+        Layer2        
+        <br>
+Router<br>
+        Layer3<br>
         vlan to vlan, separate broadcast domains, routing table tcam (ip) can be non exact, multiple tcam tables, acl, qos, if no, static default*, gateway of last resort, drop - icmp dest unreach<br>
 <br>        
 0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
@@ -78,9 +92,6 @@ ospf,lsa,link-state<br>
 <br>        
 Subnetting:<br>
         get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
-<br>
-Routes:<br>
-        c0, l1, s1, e/d 90, o110, r120, b? <br>
  <br>       
 802.1 <br>
         d= stp <br>
@@ -99,11 +110,21 @@ Routes:<br>
 PAN: <br>
         personal
  <br>       
-STP:<br>
-        802.1d <br>
+STP:802.1d:<br>
+        Protects against loops and broadcast storms. Downfall convergence time.<br>
+        Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
+        Elect a Root Bridge<br>
+        Elect a Designated Switch<br>
+        Blocking<br>
+        <br>
 <br>
-RSTP:<br>
-        802.1w <br>
+RSTP:802.1w:<br>
+        Has a lower convergence time. 
+        <br><br>
+        
+Portfast:<br>
+        Don't waste any time on STP. Warning: broadcast loops are possible.
+        <br>
         
         https://learningnetworkstore.cisco.com/cisco-learning-labs
         https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
@@ -168,20 +189,6 @@ Netsim
 Boson exam
 cisco practice exam
 Exsim
-
-
-IPV6 ------------ 1.Unicast 2.Any Cast 3.
-
-Multicast(FF00::/8) Uni-cast --------------
-i.Global Uni cast (Public IPs 2000::/3)
-ii.Unique Local (Private IPs FD00::/8)
-iii.Link Local (FE08::10) group address means one to many(Multicast). Answer is D
-IPv6, link-local multicast addresses, starting with "FF02::/16
-link-local address, prefixed with fe80::/64,
-
-multicast addresses, which are used for sending data to a group of devices, are identified by the prefix ff00::/8. This prefix
-
-Sometimes called BUM traffic - Broadcast, Unknown Unicast, Multicast. These forms of traffic are "flooded" out all ports except the port the packet was received on. by default
 
 
 
