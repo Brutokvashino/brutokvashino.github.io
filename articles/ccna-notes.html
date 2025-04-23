@@ -74,7 +74,7 @@ each port = collision domain, all connected single broadcast domain<br>
 Switch<br>
         microsegmentation, cam table(mac,physintf), weak to mac flooding<br>
         flooding: BUM, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
-        Capabilities: SNMP, VTP, Layer2/3
+        Capabilities: SNMP, VTP, Layer2/3, etherchannel on,
         <br>
 Port<br>
         State: err-disable, access, trunk, blocked<br>
@@ -122,6 +122,10 @@ STP:802.1d:<br>
         Blocking<br>
         <br>
 <br>
+Etherchannel:<br>
+        for using full bandwidth with multiple cables, load balancing<br>
+        mode: ON (on both switches)
+        <br><br>
 RSTP:802.1w:<br>
         Has a lower convergence time. 
         <br><br>
