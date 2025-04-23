@@ -39,13 +39,17 @@ EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESO(dead:15,20,40/3600=1hr)
         BronzeFTP,GoldVid,PlatVoIP,<br>
 <br><br>
 ipv4<br>
-        A: 10.0.0.0 - 10.255.255.255 ? <br>
-        B: 172.0.0.0 - 172.255.255.255 ? <br>
-        C: 192.168.1.0 - 192.168.255.255 ? <br>
-        APIPA: 169.254.255.254
+        A: 1.0.0.0 - 126.255.255.255 <br>
+        B: 129.0.0.0 - 191.255.255.255 <br>
+        C: 192.168.0.0 - 192.168.255.255 <br>
+        APIPA: 169.254.0.0 - 169.254.255.254 <br>
+        Loopback: 127.0.0.0 - 127.255.255.255 <br>
+        Multicast: 224.0.0.0 - 239.0.0.0 <br>
+        Research: 240.0.0.0 - 255.0.0.0.0
 <br><br>
 ipv6<br>
-        2000::/3, 3000::/3 global uni like public, or anycast (hits closest with that address, but distant neighbor can have same addr)<br>
+        2000::/3, 3000::/3 global uni like public, or anycast 
+        <br>(sent to closest node with that address while distant neighbor can have same addr)<br>
         fc00::/7 or fd00 personal local no web<br>
         fe80::/10 fe00::/10 link local <br>
         ff00::/8 joined multicast
