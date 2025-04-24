@@ -120,15 +120,26 @@ Subnetting:<br>
         WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
    <br>     
 PAN: <br>
-        personal
+        personal area network<br>
  <br>       
 STP:802.1d:<br>
         Protects against loops and broadcast storms. Downfall convergence time.<br>
         Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
-        Elect a Root Bridge<br>
-        Elect a Designated Switch<br>
-        Blocking<br>
         <br>
+        Elect a Root Bridge:BPDU (root cost, route, local BID(stp priority def 32768+vlan numb, macaddr))<br>
+        Root Bridge intfs all fwding.<br>
+        Non-root switches choose a root port.<br>
+        <br>
+        A designated port is the best way to reach the root bridge<br>
+        <br>
+        Elect a Designated Switch<br>
+        <br>
+        Blocking:all other ports are blocking<br>
+        <br>
+        Forwarding, blocking, listening, learning, forwarding
+        <br>
+<br>
+PVST: cisco STP improvement and adds a per vlan feature.<br>
 <br>
 Etherchannel:<br>
         for using full bandwidth with multiple cables, load balancing<br>
@@ -141,6 +152,14 @@ RSTP:802.1w:<br>
 Portfast:<br>
         Don't waste any time on STP. Warning: broadcast loops are possible.
         <br>
+<br>
+Port costs:<br>
+        10mbps = 2,000,000
+        100mbps = 200,000
+        1gbps = 20,000
+        100gbps = 200
+        1tbps = 20
+        <br><br>
         
         https://learningnetworkstore.cisco.com/cisco-learning-labs
         https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
