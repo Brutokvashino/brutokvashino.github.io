@@ -54,25 +54,32 @@ ipv6<br>
         fe80::/10 fe00::/10 link local <br>
         ff00::/8 joined multicast
 <br><br>
+host: /30,2bits= 3hosts,252net,4inc  /29,3b=7hosts,248net,8inc   /28,4b=15hosts,240net,16inc
+net: /25,1b=128net,128inc  /26,2b=192net,64inc  /27,3b=224net,32inc  
+<br><br>
 Application<br>
         http:80,dns:53,dhcp:467,468,dora,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
 Presentation<br>
         gif/jpeg/mpeg,quicktime,encryption<br>
 Session<br>
-        PAPpassword,RPCremote,reqs and resps<br>
+        PAPpassword,RemProcCall,reqs and resps<br>
 Transport(segments)<br>
-        flow control,seq, error detection, tcp/udp, ports<br>
+        EIGRP, OSPF, flow control,seq, error detection, tcp/udp, ports<br>
 Network(packets)<br>
-        routers, ipv4v6,router red<br>
+        routers, ipv4v6, router red, ipx<br>
 Data Link (frames)<br>
-        switches, 802.3ethernet,frame relay,token ring, ppp point 2 point, cdp csc disc, mac addresses, bridges<br>
+        switches, 802.3ethernet, frame relay ,token ring, PPP(pt2pt), CDPciscodisco, mac addresses, bridges<br>
 Phys (bits) <br>
-        nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet eia/tia 232s, runts and giants<br>
+        nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet EIA/TIA 232 standard, runts and giants<br>
 <br><br>
 each port = collision domain, all connected single broadcast domain<br>
 <br>
+Hub:<br>
+        all same broadcast domain and collision domain, shared bandwidth, half-duplex mode for devices<br>
+        CSMA/CD = listen first, wait-rand
+        <br><br>
 Switch<br>
-        microsegmentation, cam table(mac,physintf), weak to mac flooding<br>
+        microsegmentation of collision domains with each connection, cam table(mac,physintf), weak to mac flooding<br>
         flooding: BUM, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
         Capabilities: SNMP, VTP, Layer2/3, etherchannel on,
         <br>
@@ -81,7 +88,8 @@ Port<br>
         Capabilities: portfast, BPDUguard, STP, RSTP,<br>
 <br>
 Bridge:<br>
-        Layer2        
+        Layer2, increases collision domains with each port, same broadcast domain<br>
+        Forwarding database with sender macs,<br>
         <br>
 Router<br>
         Layer3<br>
@@ -89,7 +97,7 @@ Router<br>
 <br>        
 0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
 <br>
-eigrp:dist-vector<br>
+EIGRP: cisco, adv dist-vector<br>
         hello10s,holdtime15s<br>
 ospf,lsa,link-state<br>
         hello10s, lsaadvertisements,maxagetimer3600s1hr<br>
