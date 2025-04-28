@@ -3,27 +3,12 @@
 <html lang="en">
 <body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}
         a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}
-        .boxtitles {padding:20px;}.header {
-            display:flex;justify-content:space-between;
+        .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;
             padding:20px;}.backbutton { display:flex; justify-content:flex-start;
-            margin-bottom:40px;
-            padding:20px;        }  .largecontainer {
-            display:flex;
-            flex-direction: column;
-            background-color: white;
-            flex-grow:100%;        }  .title {
-            display:flex;
-            justify-content: flex-start;
-            margin-bottom:40px;
-            padding:20px 100px;        }  .blogcontainer {
-            padding:20px 100px;
-            margin-bottom:200px;    }  .box {
-            border: 1px solid black;
-            display:flex;
-            flex-direction:column;
-            width:300px;   } .boxtext {
-            padding:20px;    }  .footer {
-            height:200px;   }   </style>
+            margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {
+            display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {
+            padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;
+            display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style>
 <div class="largecontainer">
 <div class="header">
     <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a>
@@ -34,9 +19,12 @@ Memory:<br>
 EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESO(dead:15,20,40/3600=1hr)
         <br><br>
         AllPeopleSeemToNeedDataProcessing,<br>
-        EveryAmazingCiscoEngineerNeedsIceCreamDaily,<br>
         0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
         BronzeFTP,GoldVid,PlatVoIP,<br>
+        $ there is no 2,000 nor 200<br>
+<br><br>
+host: /30=64subs,2b=3hosts,252net,4inc  /29=32sbs,3b=7hosts,248net,8inc   /28=16sbs,4b=15hosts,240net,16inc
+net: /27=8sbs,3b=224net,32inc   /26=4sbs,2b=192net,64inc    /25=2sbs,1b=128net,128inc  
 <br><br>
 ipv4<br>
         A: 1.0.0.0 - 126.255.255.255 <br>
@@ -52,10 +40,37 @@ ipv6<br>
         <br>(sent to closest node with that address while distant neighbor can have same addr)<br>
         fc00::/7 or fd00 personal local no web<br>
         fe80::/10 fe00::/10 link local <br>
-        ff00::/8 joined multicast
-<br><br>
-host: /30,2bits= 3hosts,252net,4inc  /29,3b=7hosts,248net,8inc   /28,4b=15hosts,240net,16inc
-net: /25,1b=128net,128inc  /26,2b=192net,64inc  /27,3b=224net,32inc  
+        ff00::/8 joined multicast<br>
+<br>
+802.1 <br>
+        d= stp <br>
+        w= rstp <br>
+        q= VLANs, Trunking <br>
+<br>
+802.3 <br>
+        ethernet, collission detection<br>
+ <br>       
+802.11 <br>
+        #freq,speed,channel <br>
+        0, b2:11mpbs:3GHz, a2/5:54mbps:12-24MHz, g, n2/5:600mbps:40MHz <br>
+        ac2/5,6.9gpbs,160MHz 4 parallel stations<br>
+        WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
+   <br>     
+Subnetting:<br>
+        get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
+ <br>  
+STP Port costs:<br>
+        10mbps = 2,000,000 <br>
+        100mbps = 200,000 <br>
+        1gbps = 20,000 <br>
+        100gbps = 200 <br>
+        1tbps = 20 <br>
+        <br><br>
+OSPF costs (ref/intf): <br> 
+        serial 1544kbps = 64 <br>
+        eth 10,000 = 10 <br>
+        100,000 = 1 <br>
+        more = 1 <br>
 <br><br>
 Application<br>
         http:80,dns:53,dhcp:467,468,dora,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
@@ -72,8 +87,14 @@ Data Link (frames)<br>
 Phys (bits) <br>
         nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet EIA/TIA 232 standard, runts and giants<br>
 <br><br>
-each port = collision domain, all connected single broadcast domain<br>
-<br>
+Bridge:<br>
+        Layer2, increases collision domains with each port, same broadcast domain<br>
+        Forwarding database with sender macs,<br>
+        <br>
+Etherchannel:<br>
+        for using full bandwidth with multiple cables, load balancing<br>
+        mode: ON (on both switches)
+        <br><br>
 Hub:<br>
         all same broadcast domain and collision domain, shared bandwidth, half-duplex mode for devices<br>
         CSMA/CD = listen first, wait-rand
@@ -84,41 +105,23 @@ Switch<br>
         Capabilities: SNMP, VTP, Layer2/3, etherchannel on,
         <br>
 Port<br>
+        Collision domain<br>
         State: err-disable, access, trunk, blocked<br>
         Capabilities: portfast, BPDUguard, STP, RSTP,<br>
 <br>
-Bridge:<br>
-        Layer2, increases collision domains with each port, same broadcast domain<br>
-        Forwarding database with sender macs,<br>
-        <br>
 Router<br>
         Layer3<br>
         vlan to vlan, separate broadcast domains, routing table tcam (ip) can be non exact, multiple tcam tables, acl, qos, if no, static default*, gateway of last resort, drop - icmp dest unreach<br>
 <br>        
-0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
 <br>
 EIGRP: cisco, adv dist-vector<br>
         hello10s,holdtime15s<br>
-ospf,lsa,link-state<br>
-        hello10s, lsaadvertisements,maxagetimer3600s1hr<br>
-<br>        
-Subnetting:<br>
-        get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
- <br>       
-802.1 <br>
-        d= stp <br>
-        w= rstp <br>
-        q= VLANs, Trunking <br>
 <br>
-802.3 <br>
-        ethernet, collission detection<br>
- <br>       
-802.11 <br>
-        #freq,speed,channel <br>
-        0, b2:11mpbs:3GHz, a2/5:54mbps:12-24MHz, g, n2/5:600mbps:40MHz <br>
-        ac2/5,6.9gpbs,160MHz 4 parallel stations<br>
-        WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
-   <br>     
+OSPF: IGP, link-state<br>
+        OSPF neighbourly LSAs igp
+reference value 100,000kbps (can be changed manually)
+        hello10s, lsaadvertisements,maxagetimer3600s1hr<br>
+<br>         
 PAN: <br>
         personal area network<br>
  <br>       
@@ -126,7 +129,7 @@ STP:802.1d:<br>
         Protects against loops and broadcast storms. Downfall convergence time.<br>
         Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
         <br>
-        Elect a Root Bridge:BPDU (root cost, route, local BID(stp priority def 32768+vlan numb, macaddr))<br>
+        Elect a Root Bridge=lowest BID: Send BPDU(root cost, route, local BID(stp priority def=32,768+VLAN#,macaddr))<br>
         Root Bridge intfs all fwding.<br>
         Non-root switches choose a root port.<br>
         <br>
@@ -140,11 +143,8 @@ STP:802.1d:<br>
         <br>
 <br>
 PVST: cisco STP improvement and adds a per vlan feature.<br>
-<br>
-Etherchannel:<br>
-        for using full bandwidth with multiple cables, load balancing<br>
-        mode: ON (on both switches)
-        <br><br>
+Rapid PVST<br>
+<br><br>
 RSTP:802.1w:<br>
         Has a lower convergence time. 
         <br><br>
@@ -153,13 +153,7 @@ Portfast:<br>
         Don't waste any time on STP. Warning: broadcast loops are possible.
         <br>
 <br>
-Port costs:<br>
-        10mbps = 2,000,000
-        100mbps = 200,000
-        1gbps = 20,000
-        100gbps = 200
-        1tbps = 20
-        <br><br>
+
         
         https://learningnetworkstore.cisco.com/cisco-learning-labs
         https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
