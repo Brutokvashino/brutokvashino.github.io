@@ -1,3 +1,29 @@
+<!--
+
+
+SEc
+cisco vpn TLS1.2+DTLS 1.2 ipsec IKEv2
+-
+NSA Suite B algs
+ESPv3 with IKEv2
+4096b RSA DHgrp24
+SHA2(256+384)
+-
+Radius SAML2.0 SSO
+CDAP cert TACACS+
+http form
+-
+aaa aaa+cert cert only
+SAML mult certs + mult certs + ana
+-
+CSA SecurID OTP
+axal to gmplus
+alladm x.509 ecdsa
+TPM T2 v2
+-
+
+
+-->
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html lang="en">
@@ -128,6 +154,7 @@ PAN: <br>
 STP:802.1d:<br>
         Protects against loops and broadcast storms. Downfall convergence time.<br>
         Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
+        forwarding > blocking > listening > learning > forwarding
         <br>
         Elect a Root Bridge=lowest BID: Send BPDU(root cost, route, local BID(stp priority def=32,768+VLAN#,macaddr))<br>
         Root Bridge intfs all fwding.<br>
@@ -152,8 +179,148 @@ RSTP:802.1w:<br>
 Portfast:<br>
         Don't waste any time on STP. Warning: broadcast loops are possible.
         <br>
+        VTP: for multiple VLANs, vtp wipeout
 <br>
 
+ARP?? 64 byte frame preamble 01010101 x 7, syncs receiving clock
+SFD start frame delimiter: 01010111 padding if 46 byte min payload
+        type size until 1500+, 0x800 = ipv4
+        fcs for errors
+
+        MAC/BIA address: 48 bits for mac, 3 octets for 24 bits OUI, FF:FF:FF
+        
+        RSTP? uses bdpus
+        BDPUguard port (no STP) + BPDUs = err-disable
+        see port status:
+        enable > show spanning-tree vlan 1
+        configure portfast:
+        conf t > intf fastethernet 0/1
+        switchport mode access > spanning-tree portfast (default)
+        see if portfase or bdpuguard
+        show spanning-tree summary
+
+
+ALL CMDS
+        show spanning-tree vlan 1
+        show interface status
+        show mac address-table
+        show ip route detail
+        arp -a
+        netstat -n
+        show running-config
+        show startup-config
+        copy running-config startup-config
+        write memory
+        write
+        show ip interface brief
+        show interface
+        ipconfig /all
+        ip address 0.0.0.0 0.0.0.0
+        ipv4 route 0.0.0.0 0.0.0.0 180
+        interface description
+        show vlan status
+        show nat client
+        ip address dhcp
+        ip address client
+        security port
+        hostname [name]
+        switchport mode access
+        spanning-tree portfast (default)
+        show spanning-tree summary
+        or
+        show sp tree int fae0/1 portfast (detail)
+        show power inline
+        show controllers serial
+show interfaces status
+
+        
+        ST,SC,LC,MT-RJ 2km >= 62.5 850microns - 1300 microns multimode fiber
+        2km<= 9microns, 1300microns - 1500microns single mode
+
+        sfp
+        cisco no 3rd party mgs: sys-3 transceiver not approved
+        show interfaces = errors up, line protocol encap
+show interffaces status = wlans duplex speed
+                maybe up input q drops/up output drops = router hardware
+improper cable, damage = excessive noise, up x crc errs, down x collissions
+                too x nodes, malf NICs host, duplex mismatch, retransmissions = collisions 0 crc (up collisions, 
+
+excessive noise = crc and no collisions = damaged/wrong cable
+                duplex mismatch = late colls, colls
+                duplex mismatch = late colls, after 512th bit (64th byte) 51.2microseconds over 100mbps fae
+hubs = half duplex
+                duplex mism > show interfaces status = half duplex side late, full fcs frame check sequ, runts, alignment errs,
+                fix: config it as duplex or auto negotiatio, auto on both
+static: config speed first then duplex
+speed mismatch = intf cant send or rx anything, link down, config at least one auto
+
+                ppp eth line protocol up down is a data layer prob
+                = hdlc def for cisco serial intf
+                must match
+                data layer framme relay mismatch encap, clocking err, no keep alive
+                etf def. mtu = 1500 bytes, ip packet 20 bytes header
+                1480 biggest payload
+                if larger, gets fragmented?
+
+                addr scheme, path in rt table, protocol config, def gateway, ipv4, ipv6, vlsm
+                spine-leaf = rand path for even distrobution
+
+                api= paas, saas least consumer control
+                transport : acls, firewall tcp/udp blocking
+
+                ROUTING (next hop)
+                L local route is the interface ip itself
+                C connected route is the network the interface goes to
+                ipv6 route dest/tgt(its port of entry) admdist
+                ipv6 route passthru(port of entry of who's passing it) admdist
+
+                
+        Troubleshooting
+        see if itf down:
+        show ip interface brief
+        show infterface status err-disabled
+        show interface fae01
+
+        To fix err-disabled, go to the intf and shutdown no shutdown
+
+        enable bdpuguard:
+        conf t > intf spanning-tree bdpuguard enable (default)
+
+        OSPF reqs:
+        areaID, OSPF Process ID
+        Neighbor reqs:
+        Same Area ID, same subnet, same hello+dead timers, same auth, stub flag? passw, mtu?
+        Neightbor process:
+        Hello --> Neighbor discovery > Master/Slave Determination > DB Datbase Description Exchange > Link State Requests and Updates > DBD-LSR-LSU-LsAck > Full Adjacency > Periodic Hello Msgs
+        OSPF neighbor states:
+        Down > Attempt > Init > 2 Way > Exstart > Exchange > Loading > Full
+        Hello = RouterID, neighbors
+        Router ID = highest up loopback IP, highest up non-loop ip, used for best route via SPF
+        OSPF cost = Ref. Bandwidth default 100Kbps / interface bandwidtch (can change ref bandw val manually)
+
+        switch = microsegmentation of collision domains, each connection/interface
+        VLAN = separate broadcast domains
+        router = separate broadcast domains, tcam table memory, acl and qos, not in mem? drop and send icmp
+        
+        dna softw serv uses api and gui a controller sim to sdn controller sisco sda netw to build lans
+
+        autonomous WLANS req en AP both traffic and management
+        LAPs need WLC, else reboot and drop clients, lwapp, 2 tunnels
+
+        another rf mgmt
+        sec and policy, qos, laps
+
+                100BaseTX = 100Mbps = FaE
+        
+        802.3af 15.4w poe voip waps, static cams
+        802.3at 30w poe+ vid voip alarms, cams
+        02.3bt 3 60w/poe++/upoe cisco multirad waps 2011 cisco catalyst 9400 2018bt
+        802.3bt 4 100w poe++ computers monitors
+        show power inline
+
+        t586a/d-25 serial DTE data term, DCE circuit term, clocks must match
+        show controllers serial: finds which end it is
+        
         
         https://learningnetworkstore.cisco.com/cisco-learning-labs
         https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
