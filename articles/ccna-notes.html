@@ -45,7 +45,7 @@ For /16 addresses: you can borrow more network bits for more subnets. /25 = 512 
 224.0.0.13 PIM <br>
 224.0.0.18 VRRP <br>
 <br><br>
-EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESO(dead:15,20,40/3600=1hr)
+EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESOb(dead:15,20,40,3600=1hr)
         <br><br>
         AllPeopleSeemToNeedDataProcessing,<br>
         0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
@@ -72,23 +72,10 @@ yaml: 0<br>
    <br>     
 Subnetting:<br>
         get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
- <br>  
-STP Port costs:<br>
-        10mbps = 2,000,000 <br>
-        100mbps = 200,000 <br>
-        1gbps = 20,000 <br>
-        100gbps = 200 <br>
-        1tbps = 20 <br>
-        <br><br>
-OSPF costs (ref/intf): <br> 
-        serial 1544kbps = 64 <br>
-        eth 10,000 = 10 <br>
-        100,000 = 1 <br>
-        more = 1 <br>
-<br>
-Three-tier topology: CORE L3SW, ACCESS L3L2SW, DISTRO SW<br>
-Two-tier: collapsed CORE, ACCESS SW<br>
-Spine SW, Leaf SW
+<br><br>
+///Three-tier topology: CORE L3SW, ACCESS L3L2SW, DISTRO SW<br>
+//Two-tier: collapsed CORE, ACCESS SW<br>
+/Spine SW, Leaf SW
 <br><br>
 ---Application---<br>
         http,dns,dhcp,smtp,pop3,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
@@ -106,14 +93,16 @@ Spine SW, Leaf SW
         nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet EIA/TIA 232 standard, runts and giants<br>
 <br><br>
 ARP Packet: <br>
-Preamble (7 bytes): 01010101 x 7. synchronizes receiver's clock<br>
-Start Frame Delimiter (SFD) (1 byte): 10101011 <br>
-Destination MAC (6 bytes), Source MAC (6 bytes)<br>
-EtherType (2 bytes): ARP = 0x0806, ipv4 = 0x0800<br>
-Payload (ARP Packet): ARP packets typically 28 bytes,<br>
-Ethernet min payload 46 bytes, so padding is added if needed.<br>
-Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
+&nbsp;Preamble (7 bytes): 01010101 x 7. synchronizes receiver's clock<br>
+&nbsp;Start Frame Delimiter (SFD) (1 byte): 10101011 <br>
+&nbsp;Destination MAC (6 bytes), Source MAC (6 bytes)<br>
+&nbsp;EtherType (2 bytes): ARP = 0x0806, ipv4 = 0x0800<br>
+&nbsp;Payload (ARP Packet): ARP packets typically 28 bytes,<br>
+&nbsp;Ethernet min payload 46 bytes, so padding is added if needed.<br>
+&nbsp;Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
 <br><br>
+BGP: maxage 3600s1hr<br>
+<br>
 Bridge:<br>
         Layer2, increases collision domains with each port, same broadcast domain<br>
         Forwarding database with sender macs,<br>
@@ -140,10 +129,19 @@ Hub:<br>
         all same broadcast domain and collision domain, shared bandwidth, half-duplex mode for devices<br>
         CSMA/CD = listen first, wait-rand
         <br><br>
-OSPF: IGP, link-state<br>
-&nbsp;OSPF neighbourly LSAs igp
-&nbsp;reference value 100,000kbps (can be changed manually)
-&nbsp;hello10s, lsaadvertisements,maxagetimer3600s1hr<br>
+OSPF: neighbourly, IGP, link-state LSAs<br>
+&nbsp;hello10s,maxagetimer40<br>
+OSPF-routing: costs (ref/intf): <br> 
+&nbsp;reference value 100,000kbps or 10mbps? (can be changed manually) /bandw<br>
+        serial 1544kbps = 64 <br>
+        eth 10,000 = 10 <br>
+        100,000 = 1 <br>
+        more = 1 <br>
+OSPF-election: DR and BDR<br>
+&nbsp;intfprio0-255, 
+&nbsp;else highest rid
+&nbsp;else highest up loopback intf<br>
+&nbsp;else active physical inf<br>
 <br>
 PAN: <br>
 &nbsp;personal area network<br>
@@ -158,37 +156,37 @@ Portfast:<br>
 &nbsp;Don't waste any time on STP. Warning: broadcast loops are possible.
         <br>
 <br>
+RIP: metric is lowest hop count. [15 max]<br>
+<br>
 Router<br>
         Layer3<br>
         vlan to vlan, separate broadcast domains, routing table tcam (ip) can be non exact, multiple tcam tables, acl, qos, if no, static default*, gateway of last resort, drop - icmp dest unreach<br>
-<br>        
-<br>
+<br><br>
 SMTP: 25, 587 <br>
 <br>
-STP:802.1d:<br>
-        Protects against loops and broadcast storms. Downfall convergence time.<br>
-        Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
-        forwarding > blocking > listening > learning > forwarding
-        <br>
-        Elect a Root Bridge=lowest BID: Send BPDU(root cost, route, local BID(stp priority def=32,768+VLAN#,macaddr))<br>
-        Root Bridge intfs all fwding.<br>
-        Non-root switches choose a root port.<br>
-        <br>
-        A designated port is the best way to reach the root bridge<br>
-        <br>
-        Elect a Designated Switch<br>
-        <br>
-        Blocking:all other ports are blocking<br>
-        <br>
-        Forwarding, blocking, listening, learning, forwarding
-        <br>
-<br>
+STP:802.1d: I am the Root Bridge! bids, bdpu badge<br>
+&nbsp;Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
+&nbsp;Protects against loops and broadcast storms. Downfall convergence time.<br>
+STP-states: forwarding > blocking > listening > learning > forwarding<br>
+STP-election: Root Bridge<br>
+&nbsp;lowest BID: Send BPDU<br>
+STP-BDPU: route cost, route, localBID, BID:(STPprio def=32,768+VLAN#,MAC)<br>
+&nbsp;Root Bridge intfs all fwding.<br>
+STP-election: Root Port and Designated Switch<br>
+&nbsp;Non-root switches choose a root port.<br>
+&nbsp;A designated port is the best way to reach the root bridge<br>
+&nbsp;Blocking:all other ports are blocking<br>
+STP-Port costs:<br>
+&nbsp;Blocking:all other ports are blocking<br>
+&nbsp;100mbps = 200,000 <br>
+&nbsp;1gbps = 20,000 <br>
+&nbsp;100gbps = 200 <br>
+&nbsp;1tbps = 20 <br>
 STP...PVST: cisco STP improvement and adds a per vlan feature.<br>
 &nbsp;Rapid PVST<br>
-<br><br>
 STP...RSTP:802.1w:<br>
-        Has a lower convergence time. 
-        <br><br>        
+&nbsp;Has a lower convergence time. 
+<br><br>        
 Switch<br>
         microsegmentation of collision domains with each connection, cam table(mac,physintf), weak to mac flooding<br>
         flooding: BUM, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
