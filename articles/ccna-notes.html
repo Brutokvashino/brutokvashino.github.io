@@ -1,47 +1,7 @@
-<!--
+<!DOCTYPE html><meta charset="UTF-8"><html lang="en"><body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}    a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}  .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;      padding:20px;}.backbutton { display:flex; justify-content:flex-start;        margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {        display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {     padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;       display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style><div class="largecontainer"><div class="header">  <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a></div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a><
+div class="title"><h1>CCNA Notes</h1></div><div class="blogcontainer"><p>CCNA notes  </p> <br><br> <p>:  <br>
 
-
-SEc
-cisco vpn TLS1.2+DTLS 1.2 ipsec IKEv2
--
-NSA Suite B algs
-ESPv3 with IKEv2
-4096b RSA DHgrp24
-SHA2(256+384)
--
-Radius SAML2.0 SSO
-CDAP cert TACACS+
-http form
--
-aaa aaa+cert cert only
-SAML mult certs + mult certs + ana
--
-CSA SecurID OTP
-axal to gmplus
-alladm x.509 ecdsa
-TPM T2 v2
--
-
-
--->
-<!DOCTYPE html>
-<meta charset="UTF-8">
-<html lang="en">
-<body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}
-        a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}
-        .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;
-            padding:20px;}.backbutton { display:flex; justify-content:flex-start;
-            margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {
-            display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {
-            padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;
-            display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style>
-<div class="largecontainer">
-<div class="header">
-    <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a>
-</div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a>
-<div class="title"><h1>Web Tools</h1></div><div class="blogcontainer"><p>CCNA notes  </p> <br><br> <p>:  <br>
-Learning plan: 200-301 v1.1, cisco exam prep streams, CiscoU, cisco learning Labs, Netsim, Boson exam, cisco practice exam, Exsim 
-<br><br>
+Learning plan: 200-301 v1.1, cisco exam prep streams, CiscoU, cisco learning Labs, Netsim, Boson exam, cisco practice exam, Exsim <br><br>
 20-21 FTP TCP<br>
 22 SSH<br>
 23 Telnet TCP<br>
@@ -130,61 +90,81 @@ Three-tier topology: CORE L3SW, ACCESS L3L2SW, DISTRO SW<br>
 Two-tier: collapsed CORE, ACCESS SW<br>
 Spine SW, Leaf SW
 <br><br>
-Application<br>
-        http,dns,dhcp,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
-DHCP<br>
-&nbsp;67-68, Application<br>
-Presentation<br>
+---Application---<br>
+        http,dns,dhcp,smtp,pop3,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
+---Presentation---<br>
         gif/jpeg/mpeg,quicktime,encryption<br>
-Session<br>
+---Session---<br>
         PAPpassword,RemProcCall,reqs and resps<br>
-Transport(segments)<br>
+---Transport---(segments)<br>
         EIGRP, OSPF, flow control,seq, error detection, tcp/udp, ports<br>
-Network(packets)<br>
+---Network---(packets)<br>
         routers, ipv4v6, router red, ipx<br>
-Data Link (frames)<br>
+---Data Link---(frames)<br>
         switches, 802.3ethernet, frame relay ,token ring, PPP(pt2pt), CDPciscodisco, mac addresses, bridges<br>
-Phys (bits) <br>
+---Physical---(bits) <br>
         nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet EIA/TIA 232 standard, runts and giants<br>
+<br><br>
+ARP Packet: <br>
+Preamble (7 bytes): 01010101 x 7. synchronizes receiver's clock<br>
+Start Frame Delimiter (SFD) (1 byte): 10101011 <br>
+Destination MAC (6 bytes), Source MAC (6 bytes)<br>
+EtherType (2 bytes): ARP = 0x0806, ipv4 = 0x0800<br>
+Payload (ARP Packet): ARP packets typically 28 bytes,<br>
+Ethernet min payload 46 bytes, so padding is added if needed.<br>
+Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
 <br><br>
 Bridge:<br>
         Layer2, increases collision domains with each port, same broadcast domain<br>
         Forwarding database with sender macs,<br>
         <br>
+DHCP<br>
+&nbsp;67-68, Application, DORA<br>
+<br>
+EIGRP: cisco, adv dist-vector<br>
+&nbsp;hello10s,holdtime15s<br>
 Etherchannel:<br>
         for using full bandwidth with multiple cables, load balancing<br>
         mode: ON (on both switches)
+        <br><br>
+Ethernet Frame: <br>
+Preamble (7 bytes): 01010101 x 7. synchronizes receiver's clock<br>
+Start Frame Delimiter (SFD) (1 byte): 10101011 <br>
+Destination MAC (6 bytes), Source MAC (6 bytes)<br>
+EtherType (2 bytes): ARP = 0x0806, ipv4 = 0x0800<br>
+Payload (ARP Packet): ARP packets typically 28 bytes,<br>
+Ethernet min payload 46 bytes, so padding is added if needed.<br>
+Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
         <br><br>
 Hub:<br>
         all same broadcast domain and collision domain, shared bandwidth, half-duplex mode for devices<br>
         CSMA/CD = listen first, wait-rand
         <br><br>
-Switch<br>
-        microsegmentation of collision domains with each connection, cam table(mac,physintf), weak to mac flooding<br>
-        flooding: BUM, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
-        Capabilities: SNMP, VTP, Layer2/3, etherchannel on,
-        <br>
+OSPF: IGP, link-state<br>
+&nbsp;OSPF neighbourly LSAs igp
+&nbsp;reference value 100,000kbps (can be changed manually)
+&nbsp;hello10s, lsaadvertisements,maxagetimer3600s1hr<br>
+<br>
+PAN: <br>
+&nbsp;personal area network<br>
+<br>  
+POP3: 110, 995<br>
+<br>
 Port<br>
         Collision domain<br>
         State: err-disable, access, trunk, blocked<br>
         Capabilities: portfast, BPDUguard, STP, RSTP,<br>
+Portfast:<br>
+&nbsp;Don't waste any time on STP. Warning: broadcast loops are possible.
+        <br>
 <br>
 Router<br>
         Layer3<br>
         vlan to vlan, separate broadcast domains, routing table tcam (ip) can be non exact, multiple tcam tables, acl, qos, if no, static default*, gateway of last resort, drop - icmp dest unreach<br>
 <br>        
 <br>
-EIGRP: cisco, adv dist-vector<br>
-        hello10s,holdtime15s<br>
+SMTP: 25, 587 <br>
 <br>
-OSPF: IGP, link-state<br>
-        OSPF neighbourly LSAs igp
-reference value 100,000kbps (can be changed manually)
-        hello10s, lsaadvertisements,maxagetimer3600s1hr<br>
-<br>         
-PAN: <br>
-        personal area network<br>
- <br>       
 STP:802.1d:<br>
         Protects against loops and broadcast storms. Downfall convergence time.<br>
         Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
@@ -203,24 +183,19 @@ STP:802.1d:<br>
         Forwarding, blocking, listening, learning, forwarding
         <br>
 <br>
-PVST: cisco STP improvement and adds a per vlan feature.<br>
-Rapid PVST<br>
+STP...PVST: cisco STP improvement and adds a per vlan feature.<br>
+&nbsp;Rapid PVST<br>
 <br><br>
-RSTP:802.1w:<br>
+STP...RSTP:802.1w:<br>
         Has a lower convergence time. 
-        <br><br>
-        
-Portfast:<br>
-        Don't waste any time on STP. Warning: broadcast loops are possible.
-        <br>
-        VTP: for multiple VLANs, vtp wipeout
+        <br><br>        
+Switch<br>
+        microsegmentation of collision domains with each connection, cam table(mac,physintf), weak to mac flooding<br>
+        flooding: BUM, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
+        Capabilities: SNMP, VTP, Layer2/3, etherchannel on,
+        <br>         
+VTP: for multiple VLANs, vtp wipeout
 <br>
-
-ARP?? 64 byte frame preamble 01010101 x 7, syncs receiving clock
-SFD start frame delimiter: 01010111 padding if 46 byte min payload
-        type size until 1500+, 0x800 = ipv4
-        fcs for errors
-
         MAC/BIA address: 48 bits for mac, 3 octets for 24 bits OUI, FF:FF:FF
         
         RSTP? uses bdpus
