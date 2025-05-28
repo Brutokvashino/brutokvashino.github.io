@@ -40,7 +40,8 @@ TPM T2 v2
     <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a>
 </div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a>
 <div class="title"><h1>Web Tools</h1></div><div class="blogcontainer"><p>CCNA notes  </p> <br><br> <p>:  <br>
-
+Learning plan: 200-301 v1.1, cisco exam prep streams, CiscoU, cisco learning Labs, Netsim, Boson exam, cisco practice exam, Exsim 
+<br><br>
 20-21 FTP TCP<br>
 22 SSH<br>
 23 Telnet TCP<br>
@@ -52,22 +53,15 @@ TPM T2 v2
 110 POP3 TCP<br>
 123 NTP UDP<br>
 161-162 SNMP UDP<br>
+467 DHCP
 1812-1813 RADIUS UDP<br>
 5246 wlc ipforwardprotocol UDP<br>
-<br>        
-Memory:<br>
-EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESO(dead:15,20,40/3600=1hr)
-        <br><br>
-        AllPeopleSeemToNeedDataProcessing,<br>
-        0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
-        BronzeFTP,GoldVid,PlatVoIP,<br>
-        $ there is no 2,000 nor 200<br>
+<br>        <br>
 <br><br>
 host: /30=64subs,2b=3hosts,252net,4inc  /29=32sbs,3b=7hosts,248net,8inc   /28=16sbs,4b=15hosts,240net,16inc
 net: /27=8sbs,3b=224net,32inc   /26=4sbs,2b=192net,64inc    /25=2sbs,1b=128net,128inc    
-For class B/16 addresses: you can borrow more network bits for more subnets. /25 = 512 subnets, even a /24 subnet will still allow for 254 hosts in each subnet
+For /16 addresses: you can borrow more network bits for more subnets. /25 = 512 subnets, even a /24 subnet will still allow for 254 hosts in each subnet
 <br><br>
-ipv4<br>
         A: 1.0.0.0 - 126.255.255.255 <br>
         B: 129.0.0.0 - 191.255.255.255 <br>
         C: 192.168.0.0 - 192.168.255.255 <br>
@@ -75,27 +69,46 @@ ipv4<br>
         Loopback: 127.0.0.0 - 127.255.255.255 <br>
         Multicast: 224.0.0.0 - 239.0.0.0 <br>
         Research: 240.0.0.0 - 255.0.0.0.0
-<br><br>
-ipv6<br>
+        <br><br>
         2000::/3, 3000::/3 global uni like public, or anycast 
         <br>(sent to closest node with that address while distant neighbor can have same addr)<br>
         fc00::/7 or fd00 personal local no web<br>
         fe80::/10 fe00::/10 link local <br>
         ff00::/8 joined multicast<br>
 <br>
+224.0.0.1 All hosts and IGMPv1/v2 <br>
+224.0.0.2 HSRP <br>
+224.0.0.5 OSPF <br>
+224.0.0.6 OSPF DR/BDR routers <br>
+224.0.0.9 RIPv2 <br>
+224.0.0.10 EIGRP <br>
+224.0.0.13 PIM <br>
+224.0.0.18 VRRP <br>
+<br><br>
+EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESO(dead:15,20,40/3600=1hr)
+        <br><br>
+        AllPeopleSeemToNeedDataProcessing,<br>
+        0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
+        BronzeFTP,GoldVid,PlatVoIP,<br>
+        $ there is no 2,000 nor 200<br>
+<br><br>
+{"json": "0",}<br>
+yaml: 0<br>
+<span>&lt;xml&gt;</span><br>
+        <br>
 802.1 <br>
-        d= stp <br>
-        w= rstp <br>
-        q= VLANs, Trunking <br>
+&nbsp; d= stp <br>
+&nbsp; w= rstp <br>
+&nbsp; q= VLANs, Trunking <br>
 <br>
 802.3 <br>
-        ethernet, collission detection<br>
+&nbsp; ethernet, collission detection<br>
  <br>       
 802.11 <br>
-        #freq,speed,channel <br>
-        0, b2:11mpbs:3GHz, a2/5:54mbps:12-24MHz, g, n2/5:600mbps:40MHz <br>
-        ac2/5,6.9gpbs,160MHz 4 parallel stations<br>
-        WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
+&nbsp; #freq,speed,channel <br>
+&nbsp; b2:11mpbs:3GHz, a2/5:54mbps:12-24MHz, g, n2/5:600mbps:40MHz <br>
+&nbsp; ac2/5,6.9gpbs,160MHz 4 parallel stations<br>
+&nbsp; WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
    <br>     
 Subnetting:<br>
         get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
@@ -113,15 +126,14 @@ OSPF costs (ref/intf): <br>
         100,000 = 1 <br>
         more = 1 <br>
 <br>
-All switches<br>
-Three-tier topology:<br>
-CORE L3, ACCESS L3L2, DISTRO<br>
-Two-tier, collapsed core:<br>
-Collapsed core, access<br>
-Spine and leaf
+Three-tier topology: CORE L3SW, ACCESS L3L2SW, DISTRO SW<br>
+Two-tier: collapsed CORE, ACCESS SW<br>
+Spine SW, Leaf SW
 <br><br>
 Application<br>
-        http:80,dns:53,dhcp:467,468,dora,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
+        http,dns,dhcp,smtp:25,587,pop3:110,995,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
+DHCP<br>
+&nbsp;67-68, Application<br>
 Presentation<br>
         gif/jpeg/mpeg,quicktime,encryption<br>
 Session<br>
@@ -372,52 +384,7 @@ speed mismatch = intf cant send or rx anything, link down, config at least one a
         https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
         
         
-        https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2023-21674
-        https://docs.google.com/spreadsheets/d/1lkNJ0uQwbeC1ZTRrxdtuPLCIl7mlUreoKfSIgajnSyY/edit#gid=1746868651
-        https://googleprojectzero.blogspot.com/2023/01/der-entitlements-brief-return-of.html
-       
-        Python
-        x = input("Please give me a value for x. ")
-        print("Output:n\I am printing what you saved as "+x+". ")
-        
-        Assembly (from https://www.tutorialspoint.com/assembly_programming/assembly_tutorial.pdf)
-        Comment: 
-        ;
-        
-        Declare: 
-        section .data
-        
-        section .bss ; for making variables
-        
-        section .text ; section can be replaced with the word segment
-            global main
-        main:
-        
-        add eax ,ebx ; adds ebx to eax
-        
-        Hello World:
-        section .text 
-            global main ;must be declared for linker (ld) 
-        main: ;tells linker entry point 
-        mov edx,len ;message length 
-        mov ecx,msg ;message to write 
-        mov ebx,1 ;file descriptor (stdout) 
-        mov eax,4 ;system call number (sys_write) 
-        int 0x80 ;call kernel 
-        mov eax,1 ;system call number (sys_exit) 
-        int 0x80 ;call kernel 
-        section .data 
-        msg db 'Hello, world!', 0xa ;our dear string 
-        len equ $ - msg ;length of our dear string
 
-200-301 v1.1
-cisco exam prep streams
-CiscoU
-cisco learning Labs
-Netsim
-Boson exam
-cisco practice exam
-Exsim
 
 
 
