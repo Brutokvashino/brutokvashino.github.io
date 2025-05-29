@@ -91,6 +91,7 @@ Subnetting:<br>
         switches, 802.3ethernet, frame relay ,token ring, PPP(pt2pt), CDPciscodisco, mac addresses, bridges<br>
 ---Physical---(bits) <br>
         nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet EIA/TIA 232 standard, runts and giants<br>
+-------------------------------------------------------------------------------
 <br><br>
 ARP Packet: <br>
 &nbsp;Preamble (7 bytes): 01010101 x 7. synchronizes receiver's clock<br>
@@ -101,15 +102,29 @@ ARP Packet: <br>
 &nbsp;Ethernet min payload 46 bytes, so padding is added if needed.<br>
 &nbsp;Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
 <br><br>
+Authorization:<br>
+RBAC role based <br>
+MAC compulsory, mandated, mandatory assigned by levels <br>
+ABAC attribs flexible <br>
+DAC discretion, most flexible and temporary?? <br>
+        <br>
 BGP: maxage 3600s1hr<br>
 <br>
 Bridge:<br>
         Layer2, increases collision domains with each port, same broadcast domain<br>
         Forwarding database with sender macs,<br>
         <br>
+        Cables:
+        Coax up to 100m.
+        Fiber is more secure for less interference, so MMFiber can be useful within a netw and save more than SMF.
+        Fiber ST,SC,LC,MT-RJ 2km >= 62.5 850microns - 1300 microns multimode fiber
+        Fiber 2km<= 9microns, 1300microns - 1500microns single mode.
 DHCP<br>
 &nbsp;67-68, Application, DORA<br>
 <br>
+DNA: controller <br>
+uses NETCONF, REST APIs, or CLI over SSH
+        <br><br>
 EIGRP: cisco, adv dist-vector<br>
 &nbsp;hello10s,holdtime15s<br>
 Etherchannel:<br>
@@ -146,6 +161,8 @@ OSPF-election: DR and BDR<br>
 PAN: <br>
 &nbsp;personal area network<br>
 <br>  
+PAT: port address translation, like NAT but with ports?<br>
+<br>
 POP3: 110, 995<br>
 <br>
 Port<br>
@@ -164,6 +181,13 @@ Router<br>
 <br><br>
 SMTP: 25, 587 <br>
 <br>
+SNMP uses an NMS like SolarWinds<br>
+        SNMP Controller sends GET to Agent<br>
+        Agent fetches OID data from MIB. Sent to Manager<br>
+SNMPv1 <br>
+SNMPv2 Inform, GetBulk<br>
+SNMPv3 Security (md5/sha, des enc)<br>
+<br><br>
 STP:802.1d: I am the Root Bridge! bids, bdpu badge<br>
 &nbsp;Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
 &nbsp;Protects against loops and broadcast storms. Downfall convergence time.<br>
@@ -194,6 +218,10 @@ Switch<br>
         <br>         
 VTP: for multiple VLANs, vtp wipeout
 <br>
+WLC: central sec configs, L2L3 mobility srvcs
+                uses LWAPP or CAPWAP.
+
+                <br>
         MAC/BIA address: 48 bits for mac, 3 octets for 24 bits OUI, FF:FF:FF
         
         RSTP? uses bdpus
@@ -240,14 +268,9 @@ ALL CMDS
         show controllers serial
 show interfaces status
 
-SNMP Controller sends GET to Agent<br>
-        Agent fetches OID data from MIB<br>
-SNMPv1 <br>
-SNMPv2 Inform, GetBulk<br>
-SNMPv3 Security (md5/sha, des enc)<br>
+
 <br>   
-        ST,SC,LC,MT-RJ 2km >= 62.5 850microns - 1300 microns multimode fiber
-        2km<= 9microns, 1300microns - 1500microns single mode
+
 <br>
 Southbound APIs comm with Edge devices<br>
 OpenTrack and NETCONF<br>
