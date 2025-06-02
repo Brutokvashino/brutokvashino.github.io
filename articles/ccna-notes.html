@@ -14,7 +14,9 @@ Learning plan: 200-301 v1.1, cisco exam prep streams, CiscoU, cisco learning Lab
 110 POP3 TCP<br>
 123 NTP UDP<br>
 161-162 SNMP UDP<br>
-467 DHCP
+443 HTTPS TCP<br>
+467 DHCP UDP<br>
+514 Syslog UDP<br>
 1812-1813 RADIUS UDP<br>
 5246 wlc ipforwardprotocol UDP<br>
 <br>        <br>
@@ -23,9 +25,9 @@ host: /30=64subs,2b=3hosts,252net,4inc  /29=32sbs,3b=7hosts,248net,8inc   /28=16
 net: /27=8sbs,3b=224net,32inc   /26=4sbs,2b=192net,64inc    /25=2sbs,1b=128net,128inc    
 For /16 addresses: you can borrow more network bits for more subnets. /25 = 512 subnets, even a /24 subnet will still allow for 254 hosts in each subnet
 <br><br>
-        A: 1.0.0.0 - 126.255.255.255 <br>
-        B: 129.0.0.0 - 191.255.255.255 <br>
-        C: 192.168.0.0 - 192.168.255.255 <br>
+        A/8: 1.0.0.0 - 126.255.255.255 <br>
+        B/16: 129.0.0.0 - 191.255.255.255 <br>
+        C/24: 192.168.0.0 - 192.168.255.255 <br>
         APIPA: 169.254.0.0 - 169.254.255.254 <br>
         Loopback: 127.0.0.0 - 127.255.255.255 <br>
         Multicast: 224.0.0.0 - 239.0.0.0 <br>
@@ -37,14 +39,16 @@ For /16 addresses: you can borrow more network bits for more subnets. /25 = 512 
         fe80::/10 fe00::/10 link local <br>
         ff00::/8 joined multicast<br>
 <br>
-224.0.0.1 All hosts and IGMPv1/v2 <br>
-224.0.0.2 HSRP <br>
+224.0.0.1 All hosts and IGMPv1/v2<br>
+224.0.0.2 HSRPv1<br>
 224.0.0.5 OSPF <br>
 224.0.0.6 OSPF DR/BDR routers <br>
 224.0.0.9 RIPv2 <br>
 224.0.0.10 EIGRP <br>
 224.0.0.13 PIM <br>
 224.0.0.18 VRRP <br>
+224.0.0.102 HSRPv2 link-local multicast<br>
+224.1.1.102 HSRPv2 adm scoped multicast<br>
 <br><br>
 EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESOb(dead:15,20,40,3600=1hr)
         <br><br>
