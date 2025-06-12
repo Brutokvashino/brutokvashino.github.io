@@ -205,6 +205,7 @@ STP-states: forwarding > blocking > listening > learning > forwarding<br>
 STP-election: Root Bridge<br>
 &nbsp;lowest BID: Send BPDU<br>
 STP-BDPU: route cost, route, localBID, BID:(STPprio def=32,768+VLAN#,MAC)<br>
+&nbsp;bridge priority can only be changed in units of 4096 (max. fourth power), extended system id added (vlan id)<br>
 &nbsp;Root Bridge intfs all fwding.<br>
 STP-election: Root Port and Designated Switch<br>
 &nbsp;Non-root switches choose a root port.<br>
@@ -219,7 +220,7 @@ STP-Port costs:<br>
 STP...PVST: cisco STP improvement and adds a per vlan feature.<br>
 &nbsp;Rapid PVST<br>
 STP...RSTP:802.1w:<br>
-&nbsp;Has a lower convergence time. 
+&nbsp;Has a lower convergence time.
 <br><br>        
 Switch<br>
         microsegmentation of collision domains with each connection, cam table(mac,physintf), weak to mac flooding<br>
