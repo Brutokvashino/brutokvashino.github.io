@@ -545,7 +545,8 @@ STardewProtocol:<br>
 &nbsp;Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
 &nbsp;No loops nor storms. Downfall convergence.<br>
 STP-election: Root Bridge<br>
-&nbsp;lowest BID: Send BPDU<br>
+&nbsp;lowest BID (priority else MAC): Send BPDU<br>
+default priority 32768<br>
 STP-BDPU: route cost, route, localBID, BID:(STPprio def=32,768+VLAN#,MAC)<br>
 &nbsp;bridge priority can only be changed in units of 4096 (max. fourth power), extended system id added (vlan id)<br>
 &nbsp;Root Bridge intfs all fwding.<br>
