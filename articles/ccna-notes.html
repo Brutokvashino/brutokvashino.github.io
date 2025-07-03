@@ -17,10 +17,13 @@ Learning plan: 200-301 v1.1: udemy practice tests, Boson study guide, certbros, 
 110 POP3 TCP<br>
 123 NTP UDP<br>
 161-162 SNMP UDP<br>
+389 LDAP <br>
 443 HTTPS TCP<br>
 514 Syslog UDP<br>
 587 SMTP <br>
+636 LDAPS <br>
 1812-1813 RADIUS UDP<br>
+3389 RDP <br>
 5246 wlc ipforwardprotocol UDP<br>
 5938, 5939 Teamviewer<br>
 <br>        <br>
@@ -529,7 +532,7 @@ interior, link-state LSAs, RID<br>
 Designated Ashe, Backup Basch<br>
 Party neighbors, XStart, 2way<br>
 OSPF-routing: costs (ref/intf): <br> 
-&nbsp;reference value 100,000kbps or 10mbps? (can be changed manually) /bandw<br>
+&nbsp;reference value 100,000kbps (can be changed manually) /bandw<br>
         serial 1544kbps = 64 <br>
         eth 10,000 = 10 <br>
         100,000 = 1 <br>
@@ -538,6 +541,7 @@ OSPF-routing: costs (ref/intf): <br>
 &nbsp;else highest rid
 &nbsp;else highest up loopback intf<br>
 &nbsp;else active physical inf<br>
+Multi-area: Backbone Area needs all to be connected to it. Some SWs live on the zone borders.
 <br><br>
 BDPU law offices: big daddy daddio papa phoenix uight can you dig it?<br>
 I work with STP clients, I offer bdpuguard, and portfast payment plans.
@@ -572,9 +576,11 @@ VLAN nationality(ies) are grouped together, have to agree with each other, and m
 <br><br>
 .10 90 iEIGRP Crossing: hello neighbor! <br>
 170 eEIGRP amphibious plane.<br>
-advanced distance-vector<br>
-hello10s,holdtime15s, lets exchange things<br>
-Active when emergency mode, was cisco now open, Summary Advertisements, Multi AS
+advanced distance-vector, used to be cisco<br>
+hello5s,holdtime15s, HELLO lets be neighbors (same AS, password if on), lets exchange things (SAs), choose the best thing<br>
+Choosing: (def.val 10^7 + slowest speed tens microsecs + total delay all ports microsecs)*256<br>
+Reported distance cant be more than feasible distance, or we will check for loops<br>
+Active when emergency mode, Multi AS
 <br><br>
 200 The eBGP Bouncer: Volt, between AS, path vector, policy based, slow convergence
 <br>20 The iBGP Bouncer: Sion, in AS <br>
