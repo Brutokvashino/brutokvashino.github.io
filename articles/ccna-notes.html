@@ -621,10 +621,12 @@ The El Dab:<br>
 <br>lldp reinit
 <br><br>
 Headers, Guest List:<br>
-Easternet:[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC]<br>
-.1q tag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
-ipv4:20B=+ [v 4b, IHL 4b, ToS 8b=0x800=ipv4, Len 16b, ID 16b, Flag 3b, FragOffs 13b, TTL 8b, CS 16b, SRC 32b, DST 32b, Opts, Padd]<br>
-ipv6:40B [v 4b, Class 8b=ToS, Flow 20b, PL LEN 16b=excl hdr, Next 8b, HopLim 8b, SRC 128b, DST 128b]<br>
+Eastnet:[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC]<br>
+1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
+V4:20B=+ [v 4b, IHL 4b, ToS 8b=0x800=ipv4, Len 16b, ID 16b, Flag 3b, FragOffs 13b, TTL 8b, CS 16b, SRC 32b, DST 32b, Opts, Padd]<br>
+V6:40B [v 4b, Class 8b=ToS, Flow 20b, PL LEN 16b=excl hdr, Next 8b, HopLim 8b, SRC 128b, DST 128b]<br>
+TCP: 20B=+ SRC 16b, DST 16b, SEQ 32b, ACK-NUM 32b, DataOff 4b, RSVD 3b, Flag 9b, Win 16b, CS 16b, Urg 16b, Opts, Padd]<br>
+UDP: 8B [SRC 16b, DST 16b, LEN 16b, CS 16b]<br>
 <br><br>
 API-rate Cave: 
 <br>Application/Admiral level: 
