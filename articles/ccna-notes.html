@@ -467,15 +467,15 @@ For fun:
 <br><br>
 Ginger Island
 <br><br>
-Air travel gates: B2>A5>G2>N3>AC5>AD6>AX3
-<br><br>
-Air force: WEP, WPA, WPA2, WPA3
+Gates: B2>A5>G2>N3>AC5>AD6>AX3<br>
+Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
 <br><br>
 The fairy rainbow gondola cable cars:<br>
 Fiber multirail/monorail, intestines too?<br>
 WAN(re)DA and Momma CSMA/CD<br>
 etherchannel and LAG for WLC<br>
 Dieting: 1500 byte MTU limit, Moll Flanders 9600<br>
+Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface<br>
 <br><br>
 SCSeaPorts:<br>
 Port Security (and big macs they eat): can limit and filter MAC addresses on a SW<br>
@@ -514,14 +514,22 @@ subtract 1 from drop precedence = 0.... 8bits x class(4) = 32 + 2 TOS bits for E
 CMDS: <br>
 config-register 0x2102 default load ios from flash mem and config from nvram,<br> 
 config-register 0x2142 bypass nvram<br>
-show spanning-tree<br>
+show spanning-tree (interface/vlan)<br>
+spanning-tree mode rapid-pvst<br>
+show cdp neighbor<br>
+route...<br>
+show ip interface brief<br>
+show interface [] (status err-disabled)<br>
+show interfaces [] status/switchport<br>
+DTP: duplex full/half/auto<br>
+speed 10/100/1000 auto<br>
+show logging<br>
 <br><br>
-Jungle canopy 2, canopy 3, and spine and leaf topologies:
-<br><br>
-Ginger island OSI/TCP/IP geology:<br>
-ApplPresentSessionTransNetwDataPhy 
-<br><br>
-The VLAN flan biosphere: broadcast domains
+Canopy: 2, 3, spine and leaf<br>
+Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
+Geology:ApplPresentSessionTransNetwDataPhy<br>
+VLAN flan biosphere: broadcast domains, 4096 possible VLANS, 5 default? 1+1002-1005<br>
+VMs:T1: Msft hyperv<br>
 <br><br>
 SaaSSauroncorp: 
 <br>SaaS:Ring app, Palantir Foundry Cloud
@@ -611,6 +619,12 @@ The El Dab:<br>
 <br>LLDP .1ab, 1:80:C2:00000E 30,120
 <br>'transmit or receive, we run the globe'
 <br>lldp reinit
+<br><br>
+Headers, Guest List:<br>
+Easternet:[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC]<br>
+.1q tag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
+ipv4:20B=+ [v 4b, IHL 4b, ToS 8b=0x800=ipv4, Len 16b, ID 16b, Flag 3b, FragOffs 13b, TTL 8b, CS 16b, SRC 32b, DST 32b, Opts, Padd]<br>
+ipv6:40B [v 4b, Class 8b=ToS, Flow 20b, PL LEN 16b=excl hdr, Next 8b, HopLim 8b, SRC 128b, DST 128b]<br>
 <br><br>
 API-rate Cave: 
 <br>Application/Admiral level: 
