@@ -13,8 +13,8 @@ The fairy rainbow gondola cable cars:<br>
 Fiber multirail/monorail, intestines too?<br>
 WAN(re)DA and Momma CSMA/CD<br>
 etherchannel and LAG for WLC<br>
-Trains:<br>
-TCP:[S/D, _SEQ_, _ACK_, .off., rvd, Fl, Win, CS, U, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, <br>
+Trains: padding to an increment of 4<br>
+TCP:[S/D, _SEQ_, _ACK_, .off., rvd, Fl, Win, CS, U, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
 UDP:[S/D, Len, CS, [Data]]<br>
 IPv4:[V, IHL, [ToS:DS, ECN], Tot, ID, Fl/Fr, TTL, P, CS, S/D, O/P, [Data]]<br>
 IPv6:[V, Cl, Flw, PLlen, Nxt, HopLim, S/D]<br>
@@ -178,7 +178,7 @@ Cisco only, otherwise dance at the ElDab.<br>
 enabled by default on Cisco devs. Detects Cisco VoIP phones.<br>
 TLVs[type, len, val]<br>
 <br><br>
-The El Dab:<br> 
+The Loser Disco:<br> 
 "dance the spin: 180degrees...from sea to sea...Ooooh-eeee" 
 <br>LLDP .1ab, 1:80:C2:00000E 30,120
 <br>'transmit or receive, we run the globe'
@@ -306,18 +306,24 @@ yaml: 0<br>
 <br>
 802.3 <br>
 &nbsp; ethernet, collission detection<br>
+&nbsp;.3af =poe<br>
+&nbsp;.3at = poe+<br>
+&nbsp;.3bt = poe++<br>
  <br>       
 802.11 <br>
 &nbsp; #freq,speed,channel <br>
-&nbsp; b2:11mpbs:3GHz, a2/5:54mbps:12-24MHz, g, n2/5:600mbps:40MHz <br>
+&nbsp; b2:11mpbs:3GHz<br>
+&nbsp; a5:54mbps:12-24MHz<br> 
+&nbsp; g2<br>
+&nbsp; n2/5:600mbps:40MHz <br>
 &nbsp; ac2/5,6.9gpbs,160MHz 4 parallel stations<br>
 &nbsp; WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
    <br>     
 Subnetting:<br>
         get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
 <br><br>
-///Three-tier topology: CORE L3SW, ACCESS L3L2SW, DISTRO SW<br>
-//Two-tier: collapsed CORE, ACCESS SW<br>
+///3l:l3,l3,l2 CDA:coredistroaccess, coreaggregateedge, Three-tier topology: CORE L3SW, ACCESS L3L2SW, DISTRO SW<br>
+//2l:l3,l2 Two-tier: collapsed CORE, ACCESS SW<br>
 /Spine SW, Leaf SW
 <br><br>
 ---Application---<br>
