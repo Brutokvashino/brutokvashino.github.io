@@ -6,12 +6,15 @@ Learning plan: 200-301 v1.1: udemy practice tests, Boson study guide, certbros, 
 <br><br>
 Ginger Island
 <br><br>
+        <br><br>
+0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
+$ there is no 2,000 nor 200<br>
 Gates: B2>A5>G2>N3>AC5>AD6>AX3<br>
 Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
 <br><br>
 Ethernet Gondola: 802.3<br>
 Cable car up to 100m<br> 
-Fiber multirail up to 2km<br> 
+Fiber multirail up 550m, but some say up to 2km, verify<br> 
 Fiber monorail more than 2km<br>
 WRED and CSMA/CD<br>
 etherchannel and LAG for WLC<br>
@@ -23,9 +26,47 @@ IPv6:[V, Cl, Flw, PLlen, Nxt, HopLim, S/D]<br>
 IPv6:[Pre, Strt, D/S, Typ, [Data], FC]<br>
 802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
+TCP: [SRC, DST, SEQ, ACK, Off, Fl, Win, CS, U, O/P]<br>
+IP: [V, IHL, DS, ECN, Tot, ID, FlFr, TTL, P, CS, SRC, DST, O/P]<br>
+Eastnet:[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC]<br>
+1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
+V4:20B=+ [v 4b, IHL 4b, ToS 8b=0x800=ipv4, Len 16b, ID 16b, Flag 3b, FragOffs 13b, TTL 8b, CS 16b, SRC 32b, DST 32b, Opts, Padd]<br>
+V6:40B [v 4b, Class 8b=ToS, Flow 20b, PL LEN 16b=excl hdr, Next 8b, HopLim 8b, SRC 128b, DST 128b]<br>
+TCP: 20B=+ SRC 16b, DST 16b, SEQ 32b, ACK-NUM 32b, DataOff 4b, RSVD 3b, Flag 9b, Win 16b, CS 16b, Urg 16b, Opts, Padd]<br>
+UDP: 8B [SRC 16b, DST 16b, LEN 16b, CS 16b]<br>
 Dining options: 1500 byte MTU limit<br>
 Movie options: Moll Flanders 9600<br>
 Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface<br>
+/32 single device<br>/31 two devices linked<br>/30=64subs,2b=3hosts,252net,4inc<br>/29=32sbs,3b=7hosts,248net,8inc<br>/28=16sbs,4b=15hosts,240net,16inc<br>
+<br>/27=8sbs,3b=224net,32inc<br>/26=4sbs,2b=192net,64inc<br>/25=2sbs,1b=128net,128inc<br>    
+/20 subnet240.0 4netbits,16 subnets and 2^12 hosts -2 = 4094...THE HOST AND SUBNETS ARE FLOPPED<br>
+...
+For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1024 subnets, 64 hosts<br>/25 = 512 subnets, 128 hosts<br>/24 = 256 subnets, 256 hosts<br>
+<br><br>
+        /8: 1.0.0.0 - 126.255.255.255 <br>
+        Loopback: 127.0.0.0 - 127.255.255.255 <br>
+        /16: 129.0.0.0 - 191.255.255.255 <br>
+        /24: 192.168.0.0 - 192.168.255.255 <br>
+        APIPA: 169.254.0.0 - 169.254.255.254 <br>
+        Multicast: 224.0.0.0 - 239.0.0.0 <br>
+        Research: 240.0.0.0 - 255.0.0.0.0
+        <br><br>
+        2000::/3, 3000::/3 global uni like public, or anycast 
+        <br>(sent to closest node with that address while distant neighbor can have same addr)<br>
+        fc00::/7 or fd00 personal local no web<br>
+        fe80::/10 fe00::/10 link local <br>
+        ff00::/8 joined multicast<br>
+<br>
+224.0.0.1 All hosts and IGMPv1/v2<br>
+224.0.0.2 HSRPv1<br>
+224.0.0.5 OSPF <br>
+224.0.0.6 OSPF DR/BDR routers <br>
+224.0.0.9 RIPv2 <br>
+224.0.0.10 EIGRP <br>
+224.0.0.13 PIM <br>
+224.0.0.18 VRRP <br>
+224.0.0.102 HSRPv2 link-local multicast<br>
+224.1.1.102 HSRPv2 adm scoped multicast<br>
 <br><br>
 SCSeaPorts:<br>
 Port Security (and big macs they eat): can limit and filter MAC addresses on a SW<br>
@@ -85,6 +126,12 @@ Security:<br>
 Hash browns: SHA or MD5, padding 64bit less than 512 multiple + 64 bit representation of original<br>
 Enchiption: Asymm: RSA, ECC / Symm: RC4, stream, speed and low power, DES 56b, 3DES 112b / Both: IPsec<br>
 <br><br>
+EOR's house dimensions (90,110,120)<br>
+<br>
+Signpost:
+Hello! we just wrote this for SEO (hello:2,5,10)<br>
+Translation: ESO, buey! Peligro de muerte! (dead:15,20,40,3600=1hr)
+<br><br>
 SNMP:
 SNMP gym training grounds: "Going to the S N M P!" uses an NMS like SolarWinds to air condition<br>
 Recruiting: Controllers sends GET to Agents, Agent fetches OID data from MIB. Sent to Manager<br>
@@ -115,10 +162,6 @@ Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
 Geology:ApplPresentSessionTransNetwDataPhy<br>
 VLAN flan biosphere: broadcast domains, 4096 possible VLANS, 5 default? 1+1002-1005<br>
 VMs:T1: Msft hyperv<br>
-<br><br>
-Trains:<br>
-TCP: [SRC, DST, SEQ, ACK, Off, Fl, Win, CS, U, O/P]<br>
-IP: [V, IHL, DS, ECN, Tot, ID, FlFr, TTL, P, CS, SRC, DST, O/P]<br>
 <br><br>
 SaaSSauroncorp: 
 <br>SaaS:Ring app, Palantir Foundry Cloud
@@ -213,14 +256,6 @@ The Loser Disco:<br>
 back in the day, we didn't have PoE support. Now we do<br>
 TLVs[type, len, val]<br>
 <br><br>
-Headers, Guest List:<br>
-Eastnet:[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC]<br>
-1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
-V4:20B=+ [v 4b, IHL 4b, ToS 8b=0x800=ipv4, Len 16b, ID 16b, Flag 3b, FragOffs 13b, TTL 8b, CS 16b, SRC 32b, DST 32b, Opts, Padd]<br>
-V6:40B [v 4b, Class 8b=ToS, Flow 20b, PL LEN 16b=excl hdr, Next 8b, HopLim 8b, SRC 128b, DST 128b]<br>
-TCP: 20B=+ SRC 16b, DST 16b, SEQ 32b, ACK-NUM 32b, DataOff 4b, RSVD 3b, Flag 9b, Win 16b, CS 16b, Urg 16b, Opts, Padd]<br>
-UDP: 8B [SRC 16b, DST 16b, LEN 16b, CS 16b]<br>
-<br><br>
 API-rate Cave: 
 <br>Application/Admiral level: 
 <br>Chef:Ruby::Cookbooks:ChefDSL::ChefServer/ChefClient:https <!--except when running ChefSolo/ChefZero:agentless:knifessh/chef-run-->
@@ -259,36 +294,6 @@ route poisoning failed routes marked with 16 <br>
 <br>        <br>
 <br><br>
 https://www.subnetting.net/Subnetting.aspx?mode=practice<br>
-/32 single device<br>/31 two devices linked<br>/30=64subs,2b=3hosts,252net,4inc<br>/29=32sbs,3b=7hosts,248net,8inc<br>/28=16sbs,4b=15hosts,240net,16inc<br>
-<br>/27=8sbs,3b=224net,32inc<br>/26=4sbs,2b=192net,64inc<br>/25=2sbs,1b=128net,128inc<br>    
-/20 subnet240.0 4netbits,16 subnets and 2^12 hosts -2 = 4094...THE HOST AND SUBNETS ARE FLOPPED<br>
-...
-For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1024 subnets, 64 hosts<br>/25 = 512 subnets, 128 hosts<br>/24 = 256 subnets, 256 hosts<br>
-<br><br>
-        /8: 1.0.0.0 - 126.255.255.255 <br>
-        Loopback: 127.0.0.0 - 127.255.255.255 <br>
-        /16: 129.0.0.0 - 191.255.255.255 <br>
-        /24: 192.168.0.0 - 192.168.255.255 <br>
-        APIPA: 169.254.0.0 - 169.254.255.254 <br>
-        Multicast: 224.0.0.0 - 239.0.0.0 <br>
-        Research: 240.0.0.0 - 255.0.0.0.0
-        <br><br>
-        2000::/3, 3000::/3 global uni like public, or anycast 
-        <br>(sent to closest node with that address while distant neighbor can have same addr)<br>
-        fc00::/7 or fd00 personal local no web<br>
-        fe80::/10 fe00::/10 link local <br>
-        ff00::/8 joined multicast<br>
-<br>
-224.0.0.1 All hosts and IGMPv1/v2<br>
-224.0.0.2 HSRPv1<br>
-224.0.0.5 OSPF <br>
-224.0.0.6 OSPF DR/BDR routers <br>
-224.0.0.9 RIPv2 <br>
-224.0.0.10 EIGRP <br>
-224.0.0.13 PIM <br>
-224.0.0.18 VRRP <br>
-224.0.0.102 HSRPv2 link-local multicast<br>
-224.1.1.102 HSRPv2 adm scoped multicast<br>
 <br><br>
 EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESOb(dead:15,20,40,3600=1hr)
         <br><br>
