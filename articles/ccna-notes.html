@@ -14,7 +14,7 @@ Fiber multirail/monorail, intestines too?<br>
 WAN(re)DA and Momma CSMA/CD<br>
 etherchannel and LAG for WLC<br>
 Trains:<br>
-TCP:[S/D, SEQ, ACK, off, rvd, Fl, Win, CS, U, O/P, [Data]]<br>
+TCP:[S/D, _SEQ_, _ACK_, .off., rvd, Fl, Win, CS, U, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, <br>
 UDP:[S/D, Len, CS, [Data]]<br>
 IPv4:[V, IHL, [ToS:DS, ECN], Tot, ID, Fl/Fr, TTL, P, CS, S/D, O/P, [Data]]<br>
 IPv6:[V, Cl, Flw, PLlen, Nxt, HopLim, S/D]<br>
@@ -327,7 +327,7 @@ Subnetting:<br>
 ---Session---<br>
         PAPpassword,RemProcCall,reqs and resps<br>
 ---Transport---(segments)<br>
-        EIGRP, OSPF, flow control,seq, error detection, tcp/udp, ports<br>
+        EIGRP, OSPF, flow control,seq, error detection, tcp/udp, ports, QUIC<br>
 ---Network---(packets)<br>
         routers, ipv4v6, router red, ipx<br>
 ---Data Link---(frames)<br>
