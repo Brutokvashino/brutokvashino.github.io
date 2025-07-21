@@ -9,9 +9,11 @@ Ginger Island
 Gates: B2>A5>G2>N3>AC5>AD6>AX3<br>
 Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
 <br><br>
-The fairy rainbow gondola cable cars:<br>
-Fiber multirail/monorail, intestines too?<br>
-WAN(re)DA and Momma CSMA/CD<br>
+Ethernet Gondola: 802.3<br>
+Cable car up to 100m<br> 
+Fiber multirail up to 2km<br> 
+Fiber monorail more than 2km<br>
+WRED and CSMA/CD<br>
 etherchannel and LAG for WLC<br>
 Trains: padding to an increment of 4<br>
 TCP:[S/D, _SEQ_, _ACK_, .off., rvd, Fl, Win, CS, U, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
@@ -19,8 +21,9 @@ UDP:[S/D, Len, CS, [Data]]<br>
 IPv4:[V, IHL, [ToS:DS, ECN], Tot, ID, Fl/Fr, TTL, P, CS, S/D, O/P, [Data]]<br>
 IPv6:[V, Cl, Flw, PLlen, Nxt, HopLim, S/D]<br>
 IPv6:[Pre, Strt, D/S, Typ, [Data], FC]<br>
-802.11 MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
-Dining options: 1500 byte MTU limit, MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
+802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
+MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
+Dining options: 1500 byte MTU limit<br>
 Movie options: Moll Flanders 9600<br>
 Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface<br>
 <br><br>
@@ -29,18 +32,42 @@ Port Security (and big macs they eat): can limit and filter MAC addresses on a S
 The SLAACers: please ignore the jobless SLAACers, stateless, they only like to talk about ipv6 on Slack.<br>
 DHCPv6 stateful ipv6 assignment or stateless when mixed with SLAAC.<br>
 intendo64 (eui64) for ipv6, they take the big MACs, split them, insert coFFFE, and change the 7th ingredient making or taking 2 pickles.
+20 FTP data TCP<br>
+21 FTP control TCP<br>
+22 SSH<br>
+23 Telnet TCP<br>
+25 SMTP TCP<br>
+49 TACACS TCP<br>
+53 DNS UDP<br>
+67 DHCP server UDP<br>
+68 DHCP client UDP
+69 TFTP UDP<br>
+80 HTTP TCP<br>
+110 POP3 TCP<br>
+123 NTP UDP<br>
+161-162 SNMP UDP<br>
+389 LDAP <br>
+443 HTTPS TCP<br>
+514 Syslog UDP<br>
+587 SMTP <br>
+636 LDAPS <br>
+1812-1813 RADIUS UDP<br>
+3389 RDP <br>
+5246 wlc ipforwardprotocol UDP<br>
+5938, 5939 Teamviewer<br>
 <br><br>
-metroid area network:<br>
+metroid area network: covers 10s of km<br>
 she wants to go to a large campus or city
-10ks
-highspeed fiber or wireless
-ethernet metro eth, mpls, sonet/sdh
-isps or municipalities
-802.3af poe 15.4W
-at+ 30
-bt++ 100
-PSE&PD
-        <br><br>
+highspeed fiber or wireless<br>
+ethernet, metro eth, mpls, sonet/sdh<br>
+isps or municipalities<br>
+<br>
+POE:<br>
+802.3af = PoE 15.4W
+802.at = PoE+ 30
+802.bt = PoE++ 100
+energy company: PSE & PD refer to the supplier and client<br>
+<br><br>
 QoS Government Hall: silver gold plat
 DSCP 34 = AF41, AF11 = DSCP 10<br>
 subtract 1 from drop precedence = 0.... 8bits x class(4) = 32 + 2 TOS bits for ECN = 34
@@ -229,30 +256,6 @@ route poisoning failed routes marked with 16 <br>
                 <br><br>   
         <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
-
-20 FTP data TCP<br>
-21 FTP control TCP<br>
-22 SSH<br>
-23 Telnet TCP<br>
-25 SMTP TCP<br>
-49 TACACS TCP<br>
-53 DNS UDP<br>
-67 DHCP server UDP<br>
-68 DHCP client UDP
-69 TFTP UDP<br>
-80 HTTP TCP<br>
-110 POP3 TCP<br>
-123 NTP UDP<br>
-161-162 SNMP UDP<br>
-389 LDAP <br>
-443 HTTPS TCP<br>
-514 Syslog UDP<br>
-587 SMTP <br>
-636 LDAPS <br>
-1812-1813 RADIUS UDP<br>
-3389 RDP <br>
-5246 wlc ipforwardprotocol UDP<br>
-5938, 5939 Teamviewer<br>
 <br>        <br>
 <br><br>
 https://www.subnetting.net/Subnetting.aspx?mode=practice<br>
