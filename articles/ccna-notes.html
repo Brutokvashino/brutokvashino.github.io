@@ -28,7 +28,7 @@ IPv6:[Pre, Strt, D/S, Typ, [Data], FC]<br>
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
 TCP: [SRC, DST, SEQ, ACK, Off, Fl, Win, CS, U, O/P]<br>
 IP: [V, IHL, DS, ECN, Tot, ID, FlFr, TTL, P, CS, SRC, DST, O/P]<br>
-Eastnet:[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC]<br>
+Eastnet:[Pre+SFD]notcounted+[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC] min=64B(PL=min46B)<br>
 1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
 V4:20B=+ [v 4b, IHL 4b, ToS 8b=0x800=ipv4, Len 16b, ID 16b, Flag 3b, FragOffs 13b, TTL 8b, CS 16b, SRC 32b, DST 32b, Opts, Padd]<br>
 V6:40B [v 4b, Class 8b=ToS, Flow 20b, PL LEN 16b=excl hdr, Next 8b, HopLim 8b, SRC 128b, DST 128b]<br>
@@ -44,9 +44,11 @@ Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface<br>
 For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1024 subnets, 64 hosts<br>/25 = 512 subnets, 128 hosts<br>/24 = 256 subnets, 256 hosts<br>
 <br><br>
         /8: 1.0.0.0 - 126.255.255.255 <br>
+        PRIVATE /8: 10.0.0.0 - 10.255.255.255<br>
         Loopback: 127.0.0.0 - 127.255.255.255 <br>
         /16: 129.0.0.0 - 191.255.255.255 <br>
-        /24: 192.168.0.0 - 192.168.255.255 <br>
+        PRIVATE /16: 172.16.0.0 - 172.31.255.255<br>
+        PRIVATE /24: 192.168.0.0 - 192.168.255.255 <br>
         APIPA: 169.254.0.0 - 169.254.255.254 <br>
         Multicast: 224.0.0.0 - 239.0.0.0 <br>
         Research: 240.0.0.0 - 255.0.0.0.0
