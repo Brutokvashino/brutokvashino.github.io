@@ -19,21 +19,16 @@ Fiber monorail more than 2km<br>
 WRED and CSMA/CD<br>
 etherchannel and LAG for WLC<br>
 Trains: padding to an increment of 4<br>
-TCP:[S/D, _SEQ_, _ACK_, .off., rvd, Fl, Win, CS, U, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
-UDP:[S/D, Len, CS, [Data]]<br>
-IPv4:[V, IHL, [ToS:DS, ECN], Tot, ID, Fl/Fr, TTL, P, CS, S/D, O/P, [Data]]<br>
-IPv6:[V, Cl, Flw, PLlen, Nxt, HopLim, S/D]<br>
-IPv6:[Pre, Strt, D/S, Typ, [Data], FC]<br>
-802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
+Eth:[Pre+SFD]notcounted+[DST 6B, SRC 6B, .1q 4B, Type 2B, PL/DAT 46-1500B, FCS 4B=CRC] min=64B(PL=min46B)<br>
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
-TCP: [SRC, DST, SEQ, ACK, Off, Fl, Win, CS, U, O/P]<br>
-IP: [V, IHL, DS, ECN, Tot, ID, FlFr, TTL, P, CS, SRC, DST, O/P]<br>
-Eastnet:[Pre+SFD]notcounted+[DST 6B, SRC 6B, .1q 4B, Type 2B, PL 46-1500B, FCS 4B=CRC] min=64B(PL=min46B)<br>
+802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
+ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]<br>
 1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
-V4:20B=+ [v 4b, IHL 4b, ToS 8b=0x800=ipv4, Len 16b, ID 16b, Flag 3b, FragOffs 13b, TTL 8b, CS 16b, SRC 32b, DST 32b, Opts, Padd]<br>
-V6:40B [v 4b, Class 8b=ToS, Flow 20b, PL LEN 16b=excl hdr, Next 8b, HopLim 8b, SRC 128b, DST 128b]<br>
-TCP: 20B=+ SRC 16b, DST 16b, SEQ 32b, ACK-NUM 32b, DataOff 4b, RSVD 3b, Flag 9b, Win 16b, CS 16b, Urg 16b, Opts, Padd]<br>
-UDP: 8B [SRC 16b, DST 16b, LEN 16b, CS 16b]<br>
+ICMP:[T Cod CS ID Seq]<br>
+IPv4:20B=+[v 4b, IHL 4b, [ToS 8b=0x800=ipv4:DS, ECN], Tot=Len 16b, ID 16b, -Fl3b/Fr13b-, .TTL.8b, P, CS 16b, S/D 64b, O/P[Data]]<br>
+IPv6:40B[*v4b, .Class.8b=ToS, _Flow_20b, -PLLEN- 16b=excl hdr, .Next.8b, .HopLim.8b, ___S/D 256b___]<br>
+TCP:20B=+[_S/D_32b, _SEQ_, _ACK_, *off 4b, rvd 3b, Fl 9b, -Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
+UDP:8B[_S/D_, -Len-, CS, [Data]]<br>
 Dining options: 1500 byte MTU limit<br>
 Movie options: Moll Flanders 9600<br>
 Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface<br>
@@ -153,16 +148,14 @@ Newer tunnels: L2TP/IPsec, OpenVPN (l4), IKEv2/IPsec, WireGuard(uses ChaCha20)
 CMDS: <br>
 config-register 0x2102 default load ios from flash mem and config from nvram,<br> 
 config-register 0x2142 bypass nvram<br>
-show spanning-tree (interface/vlan)<br>
-spanning-tree mode rapid-pvst<br>
-show cdp neighbor<br>
-route...<br>
-show ip interface brief<br>
-show interface [] (status err-disabled)<br>
-show interfaces [] status/switchport<br>
-DTP: duplex full/half/auto<br>
-speed 10/100/1000 auto<br>
-show logging<br>
+<br><br>
+CMDS MAC: show mac address-table&nbsp;&nbsp;clear mac address-table dynamic<br>
+CMDS STP: spanning-tree mode (rapid-)pvst&nbsp;&nbsp;show spanning-tree (interface/vlan)&nbsp;&nbsp;spanning-tree portfast default<br>
+CMDS bdpuguard: show interface(s) [] (status err-disabled)&nbsp;&nbsp;show interfaces [] status/switchport<br>
+CMDS CDP: cdp run/enable&nbsp;&nbsp;show cdp neighbor<br>
+CMDS IP: route&nbsp;&nbsp;show ip interface brief<br>
+CMDS DTP: duplex full/half/auto&nbsp;&nbsp;speed 10/100/1000 auto&nbsp;&nbsp;show logging<br>
+CMDS OSPF: ip ospf area (id)&nbsp;&nbsp;router ospf (id) area (id)&nbsp;&nbsp;network (ip/subn)&nbsp;&nbsp;vlan?<br>
 <br><br>
 Canopy: 2, 3, spine and leaf<br>
 Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
