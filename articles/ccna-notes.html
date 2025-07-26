@@ -25,7 +25,7 @@ MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
 ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]<br>
 1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
 ICMP:[T Cod CS ID Seq]<br>
-IPv4:20B=+[v 4b, IHL 4b, [ToS 8b=0x800=ipv4:DS, ECN], Tot=Len 16b, ID 16b, -Fl3b/Fr13b-, .TTL.8b, P, CS 16b, S/D 64b, O/P[Data]]<br>
+IPv4:20B=+[v 4b, IHL 4b, [ToS dscp? 8b=0x800=ipv4:DS, ECN], Tot=Len 16b, ID 16b, -Fl3b/Fr13b-, .TTL.8b, P, CS 16b, S/D 64b, O/P[Data]]<br>
 IPv6:40B[*v4b, .Class.8b=ToS, _Flow_20b, -PLLEN- 16b=excl hdr, .Next.8b, .HopLim.8b, ___S/D 256b___]<br>
 TCP:20B=+[_S/D_32b, _SEQ_, _ACK_, *off 4b, rvd 3b, Fl 9b, -Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
 UDP:8B[_S/D_, -Len-, CS, [Data]]<br>
