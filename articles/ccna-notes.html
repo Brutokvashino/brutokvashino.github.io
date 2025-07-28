@@ -16,18 +16,18 @@ Ethernet Gondola: 802.3<br>
 Cable car up to 100m<br> 
 Fiber multirail up 550m, but some say up to 2km, verify<br> 
 Fiber monorail more than 2km<br>
+Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC<br>
 WRED and CSMA/CD<br>
-etherchannel and LAG for WLC<br>
-Trains: padding to an increment of 4<br>
+Trains: padding to an increment of 4, bit len...__64__ _32_ -16- .8. *4*<br>
 Eth:[Pre+SFD]notcounted+[D/S12B, .1q 4B, Type 2B, PL/DAT 46-1500B, FCS 4B=CRC] min=64B(PL=min46B)<br>
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
 802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
 ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]<br>
 1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
 ICMP:[T Cod CS ID Seq]<br>
-IPv4:20B=+[v 4b, IHL 4b, [ToS dscp? 8b=0x800=ipv4:DS, ECN], Tot=Len 16b, ID 16b, -Fl3b/Fr13b-, .TTL.8b, P, CS 16b, S/D 64b, O/P[Data]]<br>
-IPv6:40B[*v4b, .Class.8b=ToS, _Flow_20b, -PLLEN- 16b=excl hdr, .Next.8b, .HopLim.8b, ___S/D 256b___]<br>
-TCP:20B=+[_S/D_32b, _SEQ_, _ACK_, *off 4b, rvd 3b, Fl 9b, -Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
+IPv4(20B=+):[*V**IHL*[.ToS8b=0x800=ipv4:DS,ECN.]-Tot--ID--Fl3b-/-Fr13b-.TTL.P-CS-__S/D__ O/P[Data]]<br>
+IPv6(40B):[*V*.Class.-Flow20b--PLlen(exclhdr)-.Next..HopLim._________S/D_________]<br>
+TCP:20B=+[_S/D__SEQ__ACK_*off**rvd3b*.Fl9b.-Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
 UDP:8B[_S/D_, -Len-, CS, [Data]]<br>
 Dining options: 1500 byte MTU limit<br>
 Movie options: Moll Flanders 9600<br>
