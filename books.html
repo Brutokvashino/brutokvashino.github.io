@@ -1231,6 +1231,23 @@ certmgr.msc
 
 findstr /c:"[SR]" %windir%\logs\cbs\cbs.log >sfcdetails.txt
 
+"Get-AppxPackage MS-NAME-THING | Remove-AppxPackage"
+
+Remove-Item, del, rm, rmdir, -r, product where name="name-of-the-program" call uninstall, (Get-WmiObject Win32_Product -Filter "Name = 'ProgramName'").Uninstall(), sudo apt-get remove <application_name>
+
+Get-Content target.file > file.txt, or Add-Content, but you may need to figure out beginning value parameter and path
+
+powershell ssh ubnt@192.168.1.1 
+
+PUTTY connect to ubiquity ap address through ssh, maybe try port 443?
+
+getmac
+
+Write-Host 'HelloHello' -BackgroundColor Red -ForegroundColor Green
+
+SQL PHP admin: UPDATE user SET password = PASSWORD("newpassword");
+
+netstat -n /or/ -a	
 	    -->
 </body>
 </html>
