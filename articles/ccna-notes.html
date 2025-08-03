@@ -23,10 +23,10 @@ Eth:[Pre+SFD]notcounted+[D/S12B, .1q 4B, Type 2B, PL/DAT 46-1500B, FCS 4B=CRC] m
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
 802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
 ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]<br>
-1QTag:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
+1QTag 0x8100:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
 ICMP:[T Cod CS ID Seq]<br>
-IPv4(20B=+):[*V**IHL*[.ToS8b=0x800=ipv4:DS,ECN.]-Tot--ID--Fl3b-/-Fr13b-.TTL.P-CS-__S/D__ O/P[Data]]<br>
-IPv6(40B):[*V*.Class.-Flow20b--PLlen(exclhdr)-.Next..HopLim._________S/D_________]<br>
+IPv4 0x0800 (20B=+):[*V**IHL*[.ToS8b=0x800=ipv4:DS,ECN.]-Tot--ID--Fl3b-/-Fr13b-.TTL.P-CS-__S/D__ O/P[Data]]<br>
+IPv6(40B) 0x86DD:[*V*.Class.-Flow20b--PLlen(exclhdr)-.Next..HopLim._________S/D_________]<br>
 TCP:20B=+[_S/D__SEQ__ACK_*off**rvd3b*.Fl9b.-Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
 UDP:8B[_S/D_, -Len-, CS, [Data]]<br>
 Dining options: 1500 byte MTU limit<br>
@@ -161,7 +161,7 @@ CMDS channel: channel-group (num) mode on/auto/desirable/active/passive
 Canopy: 2, 3, spine and leaf<br>
 Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
 Geology:ApplPresentSessionTransNetwDataPhy<br>
-VLAN flan biosphere: broadcast domains, 4096 possible VLANS, 5 default? 1+1002-1005<br>
+VLAN flan biosphere: .1q 0x8100 broadcast domains, 4096 possible VLANS, 5 default, 1+1002-1005<br>
 VMs:T1: Msft hyperv<br>
 <br><br>
 SaaSSauroncorp: 
@@ -313,7 +313,7 @@ yaml: 0<br>
 &nbsp; ab= lldp <br>
 &nbsp; d= stp <br>
 &nbsp; w= rstp <br>
-&nbsp; q= VLANs, Trunking <br>
+&nbsp; q= VLANs, 0x8100, Trunking <br>
 <br>
 802.3 <br>
 &nbsp; ethernet, collission detection<br>
@@ -452,7 +452,7 @@ SNMPv1 <br>
 SNMPv2 Inform, GetBulk<br>
 SNMPv3 Security (md5/sha, des enc)<br>
 <br><br>
-STP:802.1d: I am the Root Bridge! bids, bdpu badge<br>
+STP: .1d: I am the Root Bridge! bids, bdpu badge<br>
 &nbsp;Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
 &nbsp;Protects against loops and broadcast storms. Downfall convergence time.<br>
 STP-states: forwarding > blocking > listening > learning > forwarding<br>
