@@ -149,14 +149,14 @@ CMDS: <br>
 config-register 0x2102 default load ios from flash mem and config from nvram,<br> 
 config-register 0x2142 bypass nvram<br>
 <br><br>
-CMDS MAC: show mac address-table&nbsp;&nbsp;clear mac address-table dynamic<br>
-CMDS STP: spanning-tree mode (rapid-)pvst&nbsp;&nbsp;show spanning-tree (interface/vlan)&nbsp;&nbsp;spanning-tree portfast default<br>
-CMDS bdpuguard: show interface(s) [] (status err-disabled)&nbsp;&nbsp;show interfaces [] status/switchport<br>
-CMDS CDP: cdp run/enable&nbsp;&nbsp;show cdp neighbor<br>
-CMDS IP: route&nbsp;&nbsp;show ip interface brief<br>
-CMDS DTP: duplex full/half/auto&nbsp;&nbsp;speed 10/100/1000 auto&nbsp;&nbsp;show logging<br>
+CMDS MAC: show mac address-table, clear mac address-table dynamic<br>
+CMDS STP: spanning-tree mode (rapid-)pvst, show spanning-tree (interface/vlan), spanning-tree portfast default<br>
+CMDS bdpuguard: show interface(s) [] (status err-disabled), show interfaces [] status/switchport<br>
+CMDS CDP: cdp run/enable, show cdp neighbor<br>
+CMDS IP: route, show ip interface brief = vlans ip status, show interface status = duplex/speed type vlan<br>
+CMDS DTP: duplex full/half/auto, speed [n/a check]/10/100/1000 auto, show logging, duplex half/full/auto<br>
 CMDS OSPF: ip ospf area (id)&nbsp;&nbsp;router ospf (id) area (id)&nbsp;&nbsp;network (ip/subn)&nbsp;&nbsp;vlan?<br>
-CMDS ehter: channel-group (num) mode on/auto/desirable/active/passive
+CMDS channel: channel-group (num) mode on/auto/desirable/active/passive
 <br><br>
 Canopy: 2, 3, spine and leaf<br>
 Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
