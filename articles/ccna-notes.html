@@ -149,6 +149,7 @@ CMDS: <br>
 config-register 0x2102 default load ios from flash mem and config from nvram,<br> 
 config-register 0x2142 bypass nvram<br>
 <br><br>
+CMDS SW/R: write, write-memory, copy running-config startup-config, show startup-config, enable password, enable secret, description<br>
 CMDS MAC: show mac address-table, clear mac address-table dynamic<br>
 CMDS STP: spanning-tree mode (rapid-)pvst, show spanning-tree (interface/vlan), spanning-tree portfast default<br>
 CMDS bdpuguard: show interface(s) [] (status err-disabled), show interfaces [] status/switchport<br>
@@ -156,7 +157,8 @@ CMDS CDP: cdp run/enable, show cdp neighbor<br>
 CMDS IP: route, show ip interface brief = vlans ip status, show interface status = duplex/speed type vlan<br>
 CMDS DTP: duplex full/half/auto, speed [n/a check]/10/100/1000 auto, show logging, duplex half/full/auto<br>
 CMDS OSPF: ip ospf area (id)&nbsp;&nbsp;router ospf (id) area (id)&nbsp;&nbsp;network (ip/subn)&nbsp;&nbsp;vlan?<br>
-CMDS channel: channel-group (num) mode on/auto/desirable/active/passive
+CMDS channel: channel-group (num) mode on/auto/desirable/active/passive<br>
+CMDS dhcp: ipconfig /release, /renew, 
 <br><br>
 Canopy: 2, 3, spine and leaf<br>
 Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
@@ -705,6 +707,14 @@ https://learningnetwork.cisco.com/s/article/Routing-Protocols-an-Overview
 https://www.ciscolive.com/c/dam/r/ciscolive/global-event/docs/2022/pdf/BRKEWN-3004.pdf
 opt 3589
 
+
+Jeremy lessons:
+en for enable
+        Auto MDI-X disabled
+                fully specify addresses
+                
+
+                
 </p>
     </div>
 </div>
