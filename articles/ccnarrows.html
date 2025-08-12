@@ -1,0 +1,779 @@
+<!DOCTYPE html><meta charset="UTF-8"><html lang="en"><body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}    a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}  .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;      padding:20px;}.backbutton { display:flex; justify-content:flex-start;        margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {        display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {     padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;       display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style><div class="largecontainer"><div class="header">  <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a></div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a><
+div class="title"><h1>Cuban Coffee Narrows</h1></div><div class="blogcontainer"><<br><br> 
+        
+<div id="playzone" style="background:black; width:390px; height:390px;">
+<div id="ccnastartscrn" style=""background:brutokvashino.github.io/images/island.jpg"; width:390px; height:390px;"></div>
+<div id="ccnamap"></div>
+</div>
+        
+        
+        <p>:  <br>
+
+<a href ="https://learningnetwork.cisco.com/s/ccna-exam-topics">https://learningnetwork.cisco.com/s/ccna-exam-topics</a><br>
+Learning plan: 200-301 v1.1: udemy practice tests, Boson study guide, certbros, subnetting.net, jeremysITlabs, cisco documentation, cisco learning Labs, Netsim, Boson Exsim, cisco Exsim <br><br>
+<br><br>
+Ginger Island
+<br><br>
+        <br><br>
+0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
+$$$ 19/200... 100Mbps=19stp,200krstp, there is no 2,000 nor 200, 1942<br>
+Gates: B2>A5>G2>N3>AC5>AD6>AX3<br>
+Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
+<br><br>
+Ethernet Gondola: 802.3<br>
+Cable car up to 100m<br> 
+Fiber multirail up 550m, but some say up to 2km, verify<br> 
+Fiber monorail more than 2km<br>
+Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC<br>
+WRED and CSMA/CD<br>
+Trains: padding to an increment of 4, bit len...__64__ _32_ -16- .8. *4*<br>
+Eth:[Pre+SFD]notcounted+[D/S12B *.1q* Type2B, PL/DAT46-1500B *FCS=CRC*] min=64B(PL=min46B)<br>
+MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
+802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
+ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]<br>
+1QTag 0x8100:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
+ICMP:[T Cod CS ID Seq]<br>
+IPv4 0x0800 (20B=+):[*V**IHL*[.ToS8b=0x800=ipv4:DS,ECN.]-Tot--ID--Fl3b-/-Fr13b-.TTL.P-CS-__S/D__ O/P[Data]]<br>
+IPv6(40B) 0x86DD:[*V*.Class.-Flow20b--PLlen(exclhdr)-.Next..HopLim._________S/D_________]<br>
+TCP:20B=+[_S/D__SEQ__ACK_*off**rvd3b*.Fl9b.-Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,<br>
+UDP:8B[_S/D_, -Len-, CS, [Data]]<br>
+Dining options: 1500 byte MTU limit<br>
+Movie options: Moll Flanders 9600<br>
+Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface<br>
+/32 single device<br>/31 two devices linked<br>/30=64subs,2b=3hosts,252net,4inc<br>/29=32sbs,3b=7hosts,248net,8inc<br>/28=16sbs,4b=15hosts,240net,16inc<br>
+<br>/27=8sbs,3b=224net,32inc<br>/26=4sbs,2b=192net,64inc<br>/25=2sbs,1b=128net,128inc<br>    
+/20 subnet240.0 4netbits,16 subnets and 2^12 hosts -2 = 4094...THE HOST AND SUBNETS ARE FLOPPED<br>
+...
+For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1024 subnets, 64 hosts<br>/25 = 512 subnets, 128 hosts<br>/24 = 256 subnets, 256 hosts<br>
+<br><br>
+        /8: 1.0.0.0 - 126.255.255.255 <br>
+        PRIVATE /8: 10.0.0.0 - 10.255.255.255<br>
+        Loopback: 127.0.0.0 - 127.255.255.255 <br>
+        /16: 128.0.0.0 - 191.255.255.255 <br>
+        PRIVATE /12: 172.16.0.0 - 172.31.255.255<br>
+        PRIVATE /24: 192.168.0.0 - 192.168.255.255 <br>
+        /24: 192.0.0.0 - 195.255.255.255<br>
+        ??? /24: 196...<br>
+        /24: 197.0.0.0 - 223.255.255.255<br>
+        APIPA: 169.254.0.0 - 169.254.255.254 <br>
+        Multicast: 224.0.0.0 - 239.0.0.0 <br>
+        Research: 240.0.0.0 - 255.0.0.0.0 some say multicast goes to 247.255.255.255<br>
+        Experimental: 248.0.0.0 - 255.255.255.254<br>
+        Broadcast: 255.255.255.255<br>
+        <br><br>
+        2000::/3, 3000::/3 global uni like public, or anycast 
+        <br>(sent to closest node with that address while distant neighbor can have same addr)<br>
+        fc00::/7 or fd00 personal local no web<br>
+        fe80::/10 fe00::/10 link local <br>
+        ff00::/8 joined multicast<br>
+<br>
+224.0.0.1 All hosts and IGMPv1/v2<br>
+224.0.0.2 HSRPv1<br>
+224.0.0.5 OSPF <br>
+224.0.0.6 OSPF DR/BDR routers <br>
+224.0.0.9 RIPv2 <br>
+224.0.0.10 EIGRP <br>
+224.0.0.13 PIM <br>
+224.0.0.18 VRRP <br>
+224.0.0.102 HSRPv2 link-local multicast<br>
+224.1.1.102 HSRPv2 adm scoped multicast<br>
+<br><br>
+SCSeaPorts:<br>
+Port Security (and big macs they eat): can limit and filter MAC addresses on a SW<br>
+The SLAACers: please ignore the jobless SLAACers, stateless, they only like to talk about ipv6 on Slack.<br>
+DHCPv6 stateful ipv6 assignment or stateless when mixed with SLAAC.<br>
+intendo64 (eui64) for ipv6, they take the big MACs, split them, insert coFFFE, and change the 7th ingredient making or taking 2 pickles.
+20 FTP data TCP<br>
+21 FTP control TCP<br>
+22 SSH<br>
+23 Telnet TCP<br>
+25 SMTP TCP<br>
+49 TACACS TCP<br>
+53 DNS UDP<br>
+67 DHCP server UDP<br>
+68 DHCP client UDP
+69 TFTP UDP<br>
+80 HTTP TCP<br>
+110 POP3 TCP<br>
+123 NTP UDP<br>
+161-162 SNMP UDP<br>
+389 LDAP <br>
+443 HTTPS TCP<br>
+514 Syslog UDP<br>
+587 SMTP <br>
+636 LDAPS <br>
+1812-1813 RADIUS UDP<br>
+3389 RDP <br>
+5246 wlc ipforwardprotocol UDP<br>
+5938, 5939 Teamviewer<br>
+<br><br>
+metroid area network: covers 10s of km<br>
+she wants to go to a large campus or city
+highspeed fiber or wireless<br>
+ethernet, metro eth, mpls, sonet/sdh<br>
+isps or municipalities<br>
+<br>
+POE:<br>
+802.3af = PoE 15.4W
+802.at = PoE+ 30
+802.bt = PoE++ 100
+energy company: PSE & PD refer to the supplier and client<br>
+<br><br>
+QoS Government Hall: silver gold plat
+DSCP 34 = AF41, AF11 = DSCP 10<br>
+subtract 1 from drop precedence = 0.... 8bits x class(4) = 32 + 2 TOS bits for ECN = 34
+<br><br>
+Syslog defcon levels EmAlCritENoticeInfoDebug: Facilities<br>
+WLC: Dos Gatos Binary Cyber Center:<br>
+2Gatos connect WLC with Secret Lightweight Service: WLC+LAPs, used to be the LWAPP office<br>
+Never LACP nor PAgP, LAG/etherchannel<br>
+"Everyone has an MIB in them", deal in OID data, DNA Center: contains the Men in Black, SDN level<br>
+Wanted by the DNA: Cpt Clyde, Cpt Python, Cpt JSONs REST crew,...<br>
+LAP: ex Aironet<br>
+Server-side Operation 43: option 43, 0xf1 (dec 241), any vendor?, used by WLC to offer ip to LAPs<br>
+<br><br>
+Security:<br>
+Hash browns: SHA or MD5, padding 64bit less than 512 multiple + 64 bit representation of original<br>
+Enchiption: Asymm: RSA, ECC / Symm: RC4, stream, speed and low power, DES 56b, 3DES 112b / Both: IPsec<br>
+<br><br>
+EOR's house dimensions (90,110,120)<br>
+<br>
+Signpost:
+Hello! we just wrote this for SEO (hello:2,5,10)<br>
+Translation: ESO, buey! Peligro de muerte! (dead:15,20,40,3600=1hr)
+<br><br>
+SNMP:
+SNMP gym training grounds: "Going to the S N M P!" uses an NMS like SolarWinds to air condition<br>
+Recruiting: Controllers sends GET to Agents, Agent fetches OID data from MIB. Sent to Manager<br>
+SNMPv1,SNMPv2Inform,GetBulk, SNMPv3(MD5/SHA,DESenc)<br>
+VPN Tunnels:<br>
+HabDichLiebCa...<3 (l2) for WAN/leased lines, bit stuffing<br>
+PPP(l2) byte stuffing, supports protocols and asynch, auth like PAP and CHAP, LCP, NCP, DSL,Dialup,VPNs
+PaperPaperToiletPaper: PPTP(l3) outdated tunnel, tunnels PPP frames over GRE...<br>
+GRE Tunnel, just encapsulated, not encrypted, used with PPTP paperpapertoiletpaper, and maybe IPsec for VPNs<br>
+Newer tunnels: L2TP/IPsec, OpenVPN (l4), IKEv2/IPsec, WireGuard(uses ChaCha20)
+<br><br>
+CMDS: <br>
+config-register 0x2102 default load ios from flash mem and config from nvram,<br> 
+config-register 0x2142 bypass nvram<br>
+<br><br>
+CMDS SW/R: write, write-memory, copy running-config startup-config, show startup-config, enable password, enable secret, description<br>
+CMDS MAC: show mac address-table, clear mac address-table dynamic<br>
+CMDS STP: spanning-tree mode (rapid-)pvst, show spanning-tree (interface/vlan), spanning-tree portfast default<br>
+CMDS bdpuguard: show interface(s) [] (status err-disabled), show interfaces [] status/switchport<br>
+CMDS CDP: cdp run/enable, show cdp neighbor<br>
+CMDS IP: route, show ip interface brief = vlans ip status, show interface status = duplex/speed type vlan<br>
+CMDS DTP: duplex full/half/auto, speed [n/a check]/10/100/1000 auto, show logging, duplex half/full/auto<br>
+CMDS OSPF: ip ospf area (id)&nbsp;&nbsp;router ospf (id) area (id)&nbsp;&nbsp;network (ip/subn)&nbsp;&nbsp;vlan?<br>
+CMDS channel: channel-group (num) mode on/auto/desirable/active/passive<br>
+CMDS dhcp: ipconfig /release, /renew, 
+<br><br>
+Canopy: 2, 3, spine and leaf<br>
+Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
+Geology:ApplPresentSessionTransNetwDataPhy<br>
+VLAN flan biosphere: .1q 0x8100 broadcast domains, 4096 possible VLANS, 5 default, 1+1002-1005<br>
+VMs:T1: Msft hyperv<br>
+<br><br>
+SaaSSauroncorp: 
+<br>SaaS:Ring app, Palantir Foundry Cloud
+<br>PaaS: tower kit and Palantir Foundry Platform
+<br>IaaS: space in our tower.
+<br>IaC:TerraformByHashicorp:HashiConfLang DSL
+<br><br>
+110 The Ossipee sky pirates of the BRD<br>
+"we serve the highest IP, but the treasure always loops back to us."<br>
+exit 224...5 and 6 (the DR/BDR are so cool, when they send a broadcast, they have Charizard on their Pokedex)<br>
+10,40 Prof. Dijsktra's Algorithm<br>
+interior, link-state LSAs, RID(def is loopback, else highest IP)<br>
+Designated Ashe, Backup Basch<br>
+Party neighbors, XStart, 2way<br>
+OSPF-routing: costs (ref/intf): <br> 
+&nbsp;reference value 100,000kbps (can be changed manually) /bandw<br>
+        serial 1544kbps = 64 <br>
+        eth 10,000 = 10 <br>
+        100,000 = 1 <br>
+        more = 1 <br>
+&nbsp;intfprio0-255, 
+&nbsp;else highest rid
+&nbsp;else highest up loopback intf<br>
+&nbsp;else active physical inf<br>
+Multi-area: Backbone Area needs all to be connected to it. Some SWs live on the zone borders.
+<br><br>
+BDPU law offices: big daddy daddio papa phoenix uight can you dig it?<br>
+I work with STP clients, I offer bdpuguard, and portfast payment plans.
+<br><br>
+STardewProtocol:<br>
+802.1d: bids, bdpu badge<br>
+"Listen and Learn. That's how we move forward", betting and voting, I have 4096 priorities<br>
+&nbsp;Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
+&nbsp;No loops nor storms. Downfall convergence.<br>
+STP-election: Root Bridge<br>
+&nbsp;lowest BID (priority else MAC): Send BPDU<br>
+default priority 32768<br>
+STP-BDPU: 4 byte, route cost, route, localBID, BID:3bit(STPprio def=32,768+VLAN#,MAC)<br>
+&nbsp;bridge priority can only be changed in units of 4096 (max. fourth power), extended system id added (vlan id)<br>
+&nbsp;Root Bridge intfs all fwding.<br>
+STP-election: Root Port and Designated Switch<br>
+&nbsp;Non-root switches choose a root port.<br>
+&nbsp;A designated port is the best way to reach the root bridge<br>
+&nbsp;Blocking:all other ports are blocking<br>
+Pierre's Port costs:<br>
+&nbsp;100mbps = 200,000 <br>
+&nbsp;1gbps = 20,000 <br>
+&nbsp;100gbps = 200 <br>
+&nbsp;1tbps = 20 <br>
+STP...PVST: cisco STP improvement and adds a per vlan feature.<br>
+&nbsp;Rapid PVST<br>
+STP...RSTP:802.1w:<br>
+&nbsp;Has a lower convergence time.<br>
+CMDS: override stp: spanning-tree vlan vlan-id (root primary | root secondary)<br>
+show spanning-tree (root | vlan-id | intf) = vanilla: rootid, bid, 
+<br><br>
+VeryTerriblePerson Prison: wipeout, very terrible person, prison<br>
+VLAN nationality(ies) are grouped together, have to agree with each other, and maybe subnets<br>
+<br><br>
+.10 90 iEIGRP Crossing: hello neighbor! <br>
+170 eEIGRP amphibious plane.<br>
+advanced distance-vector, used to be cisco<br>
+hello5s,holdtime15s, HELLO lets be neighbors (same AS, password if on), lets exchange things (SAs), choose the best thing<br>
+Choosing: (def.val 10^7 + slowest speed tens microsecs + total delay all ports microsecs)*256<br>
+Reported distance cant be more than feasible distance, or we will check for loops<br>
+Active when emergency mode, Multi AS
+<br><br>
+20 The eBGP Bouncer: Volt, between AS, path vector, policy based, slow convergence
+<br>200 The iBGP Bouncer: Sion, in AS <br>
+"We don't care about AD. We care about weight, local pref, AS-Path..."<br>
+v4 TCP 179 <br>
+ISP is Neighbor<br>
+Duragon Autonomous Systems (AS-Path avoids loops) ASN 64512-65535 private <br>
+maxage 3600s1hr
+<br><br>
+The Fred Hut Really Peppers: 1x2<br>
+HSRP 3,10 .2/.102 c074c01, PI means highest Priority then IP <br> 
+V5RRP 1,3 .18, 5e0001 adv, master down<br>
+GLBP 3, 10 .102, PI, 7b400 unique MACs for load balancing<br>
+<br><br>
+The Cisco Disco:
+01:00:0C:CC:CC:CC l2, 01::0C "one sec, check my OC" 60s,180s<br>
+'enables the interface, runs the globe'<br>
+icebreaker: id, ip, platf, capabilities, intfs<br>
+Cisco only, otherwise dance at the ElDab.<br>
+enabled by default on Cisco devs. Detects Cisco VoIP phones.<br>
+TLVs[type, len, val]<br>
+<br><br>
+The Loser Disco:<br> 
+"dance the spin: 180degrees...from sea to sea...Ooooh-eeee" 
+<br>LLDP .1ab, 1:80:C2:00000E 30,120
+<br>'transmit or receive, we run the globe'
+<br>lldp reinit<br>
+back in the day, we didn't have PoE support. Now we do<br>
+TLVs[type, len, val]<br>
+<br><br>
+API-rate Cave: 
+<br>Application/Admiral level: 
+<br>Chef:Ruby::Cookbooks:ChefDSL::ChefServer/ChefClient:https <!--except when running ChefSolo/ChefZero:agentless:knifessh/chef-run-->
+<br>Puppet:Ruby::Manifest:PuppetDSL::PuppetMaster/PuppetAgent:https8140
+<br>Ansible:Python::Playbooks:YAML::connects:ssh,common<br>
+Controller/Commander level: DNA, SDN controllers<br>
+Device Layer: All seas:
+<br>tall, cruddy Fleet Admiral Jason: the REST crew, cruddy, CrRdUpdDel/PstGtPutPatchDel
+<br>tall, confident Fleet Admiral Xbones: XML, (CONF brothers)
+<br>short, stoic Fleet Admiral Python: SDK, Ansible
+        <br>Northern seas:<br>
+<br>wanted, stoic Cpt SkipDraygonKraid (P for Phantoon) vendors: TOOLBOX, (DNA), python automation SDK Draygon Kraid Phantoon
+<br>young Cpt GraphQL FLEXIBLE, modern
+<br>fast Cpt Webhooks, TRIGGERED, automation triggered, event-driven, real-time alerts, meraki can do http post to http server
+<br>tall, abstract, wanted REST Mateys (J)(DNA), http/s, json, so common!!, abstract catalyst use, cruddy, communicate via http codes: 100 info, 200 success, 300 moved, 400 client error, 500 server error.
+        <br>Southern Seas:<br>
+<br>tall, direct First mate RESTCONF (X/J), double agent, TALL, restful http/s, json/xml, atop netconf, cruddy, direct device conf use.
+<br>old, short, wanted Mr. NETCONF (X)(DNA), ssh, config/state, hates Cpt Genome
+<br>foreign Commander Subaru-OhmyPrius Openfire Openflow commandeers/direct control of fwding plane, other SDN enviros not Catalyst like OpenDaylight
+<br>young, efficient Capt GeNMI + RPC + Protobuf lackey, telemetry/config efficient, hates NETCONF, modern
+<br>old, short, wanted Capt CLIyde, ssh (DNA templates push), for lack of modern APIs, scriptable, not scalable, unstructured, can be user-defined
+<br><br>
+120 The RIP Reaper: ye have 15 hops to live... <br>
+...9<br>
+v1 classful, broadcast <br>
+v2 classless VLSM supported, auth plain or md5, multicast updates 224...09 <br>
+ESO..., split horizon<br>
+update/heartbeat 30secs, <br>
+invalid 180 <br>
+holddown 180, for flapping from reinstating too quickly <br>
+flush 240 <br>
+route poisoning failed routes marked with 16 <br>
+                <br><br>   
+        <br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br>        <br>
+<br><br>
+https://www.subnetting.net/Subnetting.aspx?mode=practice<br>
+<br><br>
+EOR(90,110,120)<br>SEO(hello:2,5,10)<br>ESOb(dead:15,20,40,3600=1hr)
+        <br><br>
+        AllPeopleSeemToNeedDataProcessing,<br>
+        0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
+        BronzeFTP,GoldVid,PlatVoIP,<br>
+        $ there is no 2,000 nor 200<br>
+<br><br>
+{"json": "0",}<br>
+yaml: 0<br>
+<span>&lt;xml&gt;</span><br>
+        <br>
+802.1 <br>
+&nbsp; ab= lldp <br>
+&nbsp; d= stp <br>
+&nbsp; w= rstp <br>
+&nbsp; q= VLANs, 0x8100, Trunking <br>
+<br>
+802.3 <br>
+&nbsp; ethernet, collission detection<br>
+&nbsp;.3af =poe<br>
+&nbsp;.3at = poe+<br>
+&nbsp;.3bt = poe++<br>
+ <br>       
+802.11 <br>
+&nbsp; #freq,speed,channel <br>
+&nbsp; b2:11mpbs:3GHz<br>
+&nbsp; a5:54mbps:12-24MHz<br> 
+&nbsp; g2<br>
+&nbsp; n2/5:600mbps:40MHz <br>
+&nbsp; ac2/5,6.9gpbs,160MHz 4 parallel stations<br>
+&nbsp; WiFi 6 ax2/5, 8 parallel stations // WiFi 6E can do 6GHz/60GHz <br>
+   <br>     
+Subnetting:<br>
+        get cidr notation --> figure subnet mask --> 256 possible hosts - mask value = interval --> ip / intervals = valid<br>
+<br><br>
+///3l:l3,l3,l2 CDA:coredistroaccess, coreaggregateedge, Three-tier topology: CORE L3SW, ACCESS L3L2SW, DISTRO SW<br>
+//2l:l3,l2 Two-tier: collapsed CORE, ACCESS SW<br>
+/Spine SW, Leaf SW
+<br><br>
+---Application---<br>
+        http,dns,dhcp,smtp,pop3,ftp:20,21,tftp:69,telnet:23,ssh:22(k9ios,domain name),<br>
+---Presentation---<br>
+        gif/jpeg/mpeg,quicktime,encryption<br>
+---Session---<br>
+        PAPpassword,RemProcCall,reqs and resps<br>
+---Transport---(segments)<br>
+        EIGRP, OSPF, flow control,seq, error detection, tcp/udp, ports, QUIC<br>
+---Network---(packets)<br>
+        routers, ipv4v6, router red, ipx<br>
+---Data Link---(frames)<br>
+        switches, 802.3ethernet, frame relay ,token ring, PPP(pt2pt), CDPciscodisco, mac addresses, bridges<br>
+---Physical---(bits) <br>
+        nics, hubs, repeaters, csma/cd listensendlistenrandwaittryagain,halfduplex,ethernet EIA/TIA 232 standard, runts and giants<br>
+-------------------------------------------------------------------------------
+<br><br>
+ARP Packet: <br>
+&nbsp;Preamble (7 bytes): 01010101 x 7. synchronizes receiver's clock<br>
+&nbsp;Start Frame Delimiter (SFD) (1 byte): 10101011 <br>
+&nbsp;Destination MAC (6 bytes), Source MAC (6 bytes)<br>
+&nbsp;EtherType (2 bytes): ARP = 0x0806, ipv4 = 0x0800<br>
+&nbsp;Payload (ARP Packet): ARP packets typically 28 bytes,<br>
+&nbsp;Ethernet min payload 46 bytes, so padding is added if needed.<br>
+&nbsp;Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
+<br><br>
+Authorization:<br>
+RBAC role based <br>
+MAC compulsory, mandated, mandatory assigned by levels <br>
+ABAC attribs flexible <br>
+DAC discretion, most flexible and temporary?? <br>
+        <br>
+BGP: maxage 3600s1hr<br>
+<br>
+Bridge:<br>
+        Layer2, increases collision domains with each port, same broadcast domain<br>
+        Forwarding database with sender macs,<br>
+        <br>
+        Cables:
+        Coax up to 100m.
+        Fiber is more secure for less interference, so MMFiber can be useful within a netw and save more than SMF.
+        Fiber ST,SC,LC,MT-RJ 2km >= 62.5 850microns - 1300 microns multimode fiber
+        Fiber 2km<= 9microns, 1300microns - 1500microns single mode.
+DHCP<br>
+&nbsp;67-68, Application, DORA<br>
+<br>
+DNA: controller <br>
+uses NETCONF, REST APIs, or CLI over SSH
+        <br><br>
+EIGRP: cisco, adv dist-vector<br>
+&nbsp;hello10s,holdtime15s<br>
+Etherchannel:<br>
+        for using full bandwidth with multiple cables, load balancing<br>
+        mode: ON (on both switches)
+        <br><br>
+Ethernet Frame/Ethernet Header: <br>
+Preamble (7 bytes): 01010101 x 7. synchronizes receiver's clock<br>
+Start Frame Delimiter (SFD) (1 byte): 10101011 <br>
+Destination MAC (6 bytes), Source MAC (6 bytes)<br>
+EtherType (2 bytes): ARP = 0x0806, ipv4 = 0x0800<br>
+Payload (ARP Packet): ARP packets typically 28 bytes,<br>
+Ethernet min payload 46 bytes, so padding is added if needed.<br>
+Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
+        <br><br>
+FHRP:<br>
+        VRRP multicast 224.0.0.18
+        VRRP mac 
+        <br><br>
+Hub:<br>
+        all same broadcast domain and collision domain, shared bandwidth, half-duplex mode for devices<br>
+        CSMA/CD = listen first, wait-rand
+        <br><br>
+OSPF: neighbourly, IGP, link-state LSAs<br>
+&nbsp;hello10s,maxagetimer40<br>
+OSPF-routing: costs (ref/intf): <br> 
+&nbsp;reference value 100,000kbps or 10mbps? (can be changed manually) /bandw<br>
+        serial 1544kbps = 64 <br>
+        eth 10,000 = 10 <br>
+        100,000 = 1 <br>
+        more = 1 <br>
+OSPF-election: DR and BDR<br>
+&nbsp;intfprio0-255, 
+&nbsp;else highest rid
+&nbsp;else highest up loopback intf<br>
+&nbsp;else active physical inf<br>
+<br>
+PAN: <br>
+&nbsp;personal area network<br>
+<br>  
+PAT: port address translation, like NAT but with ports?<br>
+<br>
+POP3: 110, 995<br>
+<br>
+Port<br>
+        Collision domain<br>
+        State: err-disable, access, trunk, blocked<br>
+        Capabilities: portfast, BPDUguard, STP, RSTP,<br>
+Portfast:<br>
+&nbsp;Don't waste any time on STP. Warning: broadcast loops are possible.
+        <br>
+<br>
+RIP: metric is lowest hop count. [15 max]<br>
+<br>
+Router<br>
+        Layer3<br>
+        vlan to vlan, separate broadcast domains, routing table tcam (ip) can be non exact, multiple tcam tables, acl, qos, if no, static default*, gateway of last resort, drop - icmp dest unreach<br>
+<br><br>
+SMTP: 25, 587 <br>
+<br>
+SNMP uses an NMS like SolarWinds<br>
+        SNMP Controller sends GET to Agent<br>
+        Agent fetches OID data from MIB. Sent to Manager<br>
+SNMPv1 <br>
+SNMPv2 Inform, GetBulk<br>
+SNMPv3 Security (md5/sha, des enc)<br>
+<br><br>
+STP: .1d: I am the Root Bridge! bids, bdpu badge<br>
+&nbsp;Hello=2s, Forwarding Delay=15s, MaxAge=20s<br>
+&nbsp;Protects against loops and broadcast storms. Downfall convergence time.<br>
+STP-states: forwarding > blocking > listening > learning > forwarding<br>
+STP-election: Root Bridge<br>
+&nbsp;lowest BID: Send BPDU<br>
+STP-BDPU: route cost, route, localBID, BID:(STPprio def=32,768+VLAN#,MAC)<br>
+&nbsp;bridge priority can only be changed in units of 4096 (max. fourth power), extended system id added (vlan id)<br>
+&nbsp;Root Bridge intfs all fwding.<br>
+STP-election: Root Port and Designated Switch<br>
+&nbsp;Non-root switches choose a root port.<br>
+&nbsp;A designated port is the best way to reach the root bridge<br>
+&nbsp;Blocking:all other ports are blocking<br>
+STP-Port costs:<br>
+&nbsp;Blocking:all other ports are blocking<br>
+&nbsp;100mbps = 200,000 <br>
+&nbsp;1gbps = 20,000 <br>
+&nbsp;100gbps = 200 <br>
+&nbsp;1tbps = 20 <br>
+STP...PVST: cisco STP improvement and adds a per vlan feature.<br>
+&nbsp;Rapid PVST<br>
+STP...RSTP:802.1w:<br>
+&nbsp;Has a lower convergence time.
+<br><br>        
+Switch<br>
+        microsegmentation of collision domains with each connection, cam table(mac,physintf), weak to mac flooding<br>
+        flooding: BUM, broadcast unknown multicast,use macs fwding db, send direct or flood,<br>
+        Capabilities: SNMP, VTP, Layer2/3, etherchannel on,
+        <br>         
+VTP: for multiple VLANs, vtp wipeout
+<br>
+WLC: central sec configs, L2L3 mobility srvcs
+                uses LWAPP or CAPWAP.
+
+                <br>
+        MAC/BIA address: 48 bits for mac, 3 octets for 24 bits OUI, FF:FF:FF
+        
+        RSTP? uses bdpus
+        BDPUguard port (no STP) + BPDUs = err-disable
+        see port status:
+        enable > show spanning-tree vlan 1
+        configure portfast:
+        conf t > intf fastethernet 0/1
+        switchport mode access > spanning-tree portfast (default)
+        see if portfase or bdpuguard
+        show spanning-tree summary
+
+
+ALL CMDS
+        show spanning-tree vlan 1
+        show interface status
+        show mac address-table
+        show ip route detail
+        arp -a
+        netstat -n
+        show running-config
+        show startup-config
+        copy running-config startup-config
+        write memory
+        write
+        show ip interface brief
+        show interface
+        ipconfig /all
+        ip address 0.0.0.0 0.0.0.0
+        ipv4 route 0.0.0.0 0.0.0.0 180
+        interface description
+        show vlan status
+        show nat client
+        ip address dhcp
+        ip address client
+        security port
+        hostname [name]
+        switchport mode access
+        spanning-tree portfast (default)
+        show spanning-tree summary
+        or
+        show sp tree int fae0/1 portfast (detail)
+        show power inline
+        show controllers serial
+show interfaces status
+
+
+<br>   
+
+<br>
+Southbound APIs comm with Edge devices<br>
+Openflow and NETCONF<br>
+Northbound APIs comm with Controller and Applications<br>
+Chef uses Ruby<br>
+Puppet uses a Manifest<br>
+
+        sfp
+        cisco no 3rd party mgs: sys-3 transceiver not approved
+        show interfaces = errors up, line protocol encap
+show interffaces status = wlans duplex speed
+                maybe up input q drops/up output drops = router hardware
+improper cable, damage = excessive noise, up x crc errs, down x collissions
+                too x nodes, malf NICs host, duplex mismatch, retransmissions = collisions 0 crc (up collisions, 
+
+excessive noise = crc and no collisions = damaged/wrong cable
+                duplex mismatch = late colls, colls
+                duplex mismatch = late colls, after 512th bit (64th byte) 51.2microseconds over 100mbps fae
+hubs = half duplex
+                duplex mism > show interfaces status = half duplex side late, full fcs frame check sequ, runts, alignment errs,
+                fix: config it as duplex or auto negotiatio, auto on both
+static: config speed first then duplex
+speed mismatch = intf cant send or rx anything, link down, config at least one auto
+
+                ppp eth line protocol up down is a data layer prob
+                = hdlc def for cisco serial intf
+                must match
+                data layer framme relay mismatch encap, clocking err, no keep alive
+                etf def. mtu = 1500 bytes, ip packet 20 bytes header
+                1480 biggest payload
+                if larger, gets fragmented?
+
+                addr scheme, path in rt table, protocol config, def gateway, ipv4, ipv6, vlsm
+                spine-leaf = rand path for even distrobution
+
+                api= paas, saas least consumer control
+                transport : acls, firewall tcp/udp blocking
+
+                ROUTING (next hop)
+                L local route is the interface ip itself
+                C connected route is the network the interface goes to
+                ipv6 route dest/tgt(its port of entry) admdist
+                ipv6 route passthru(port of entry of who's passing it) admdist
+
+                
+        Troubleshooting
+        see if itf down:
+        show ip interface brief
+        show infterface status err-disabled
+        show interface fae01
+
+        To fix err-disabled, go to the intf and shutdown no shutdown
+
+        enable bdpuguard:
+        conf t > intf spanning-tree bdpuguard enable (default)
+
+        OSPF reqs:
+        areaID, OSPF Process ID
+        Neighbor reqs:
+        Same Area ID, same subnet, same hello+dead timers, same auth, stub flag? passw, mtu?
+        Neightbor process:
+        Hello --> Neighbor discovery > Master/Slave Determination > DB Datbase Description Exchange > Link State Requests and Updates > DBD-LSR-LSU-LsAck > Full Adjacency > Periodic Hello Msgs
+        OSPF neighbor states:
+        Down > Attempt > Init > 2 Way > Exstart > Exchange > Loading > Full
+        Hello = RouterID, neighbors
+        Router ID = highest up loopback IP, highest up non-loop ip, used for best route via SPF
+        OSPF cost = Ref. Bandwidth default 100Kbps / interface bandwidtch (can change ref bandw val manually)
+
+        switch = microsegmentation of collision domains, each connection/interface
+        VLAN = separate broadcast domains
+        router = separate broadcast domains, tcam table memory, acl and qos, not in mem? drop and send icmp
+        
+        dna softw serv uses api and gui a controller sim to sdn controller sisco sda netw to build lans
+
+        autonomous WLANS req en AP both traffic and management
+        LAPs need WLC, else reboot and drop clients, lwapp, 2 tunnels
+
+        another rf mgmt
+        sec and policy, qos, laps
+
+                100BaseTX = 100Mbps = FaE
+        
+        802.3af 15.4w poe voip waps, static cams
+        802.3at 30w poe+ vid voip alarms, cams
+        02.3bt 3 60w/poe++/upoe cisco multirad waps 2011 cisco catalyst 9400 2018bt
+        802.3bt 4 100w poe++ computers monitors
+        show power inline
+
+        t586a/d-25 serial DTE data term, DCE circuit term, clocks must match
+        show controllers serial: finds which end it is
+        
+        
+        https://learningnetworkstore.cisco.com/cisco-learning-labs
+        https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
+        https://developer.cisco.com/learning/tracks/Networking-101-v0/Networking-101-Fundamentals-v0/
+        https://www.ciscopress.com/store/ccnp-tshoot-lab-manual-9781587134036
+        https://www.ciscopress.com/store/ccnp-route-lab-manual-9781587134029
+        https://www.ciscopress.com/store/ccna-200-301-official-cert-guide-and-network-simulator-9780137837748
+        https://www.ciscopress.com/store/ccnp-enterprise-advanced-routing-enarsi-v8-lab-manual-9780136870937
+        https://www.ciscopress.com/store/ccnp-enterprise-advanced-routing-enarsi-300-410-ucertify-9780137420339
+        https://www.ciscopress.com/store/routing-and-switching-essentials-v6-course-booklet-9781587134272
+        https://www.ciscopress.com/store/networking-essentials-lab-manual-9780137659265
+        https://www.ciscopress.com/store/cisco-data-center-fundamentals-9780137638246
+        https://www.ciscopress.com/store/routing-and-switching-essentials-v6-labs-study-guide-9781587134265
+        https://mkto.cisco.com/ccna-cert-guide.html?utm_campaign=ccna&utm_source=website&utm_medium=cdc-ccnapage-hero
+        https://learningnetwork.cisco.com/s/article/200-301-ccna-study-materials
+        https://www.cisco.com/c/en/us/products/cloud-systems-management/modeling-labs/index.html
+        
+        
+
+
+
+
+see subnet, how many hosts does that leave? what ip address are they assigning? divide the address ending +1 of course by the possible hosts. how far along is this?
+
+
+3 host bits
+
+virtual interface
+service port
+dynamic interface
+
+RFC1918 Private Address Ranges -------------------------------------- Class A 10.0.0.0 to 10.255.255.255 Class B 172.16.0.0 to 172.32.255.255 class C 192.168.0.0 to 192.168.255.255 So 172.28.0.0/16 in the range of Private IPs in Class B. Answer is B.
+
+etherchannel on
+half duplex
+Input errors include runts and giants CRC detects errors, these two counters will react to errors
+CRC
+Spanning tree may fail to detect a switching loop in the network that causes broadcast storms on portfast interfaces connected to other switches.
+
+ipv6 address 2001:DB8:5:112::/64 eui-64
+
+A leaf switch can be added with connections to every spine switch.
+
+root ports fwd, closes to root bridge, lowest cost bpdu
+
+Portfast is appropriate when you are sure that you are connecting to a single device that will not potentially bridge you to other ports. So portfast is fine switch to server, desktop, router, and firewall. you never expect to see BPDU packets. Portfast shortens/bypasses normal STP timers to get ports up and forwarding quickly.
+
+https://learningnetwork.cisco.com/s/article/ipv4-subnetting-reference-chart
+
+https://www.techtarget.com/iotagenda/definition/IPv6-address#:~:text=In%20precise%20terms%2C%20an%20IPv6,groups%20are%20separated%20by%20colons.&text=An%20IPv6%20address%20is%20split,network%20and%20a%20node%20component.
+
+https://www.cisco.com/c/en/us/support/docs/security-vpn/secure-shell-ssh/4145-ssh.html#toc-hId--1615832073
+https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3560/software/release/12-2_55_se/configuration/guide/3560_scg/swstpopt.html
+https://en.wikipedia.org/wiki/802.11_frame_types
+https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/81831-qos-wlc-lap.html
+https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/flexconnect.html
+https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst6500/ios/12-2SX/configuration/guide/book/power_over_ethernet.pdf
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6/configuration/xe-3s/ipv6-xe-36s-book/ip6-multicast.html
+
+
+https://documentation.meraki.com/MS/Port_and_VLAN_Configuration/Spanning_Tree_Protocol_(STP)_Overview
+https://www.geeksforgeeks.org/root-bridge-election-in-spanning-tree-protocol/
+https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus5000/sw/layer2/503_n1_1/Cisco_n5k_layer2_config_gd_rel_503_N1_1_chapter9.html
+https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/10586-65.html
+https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol-stp-8021d/218321-configure-stp-with-loop-guard-and-bpdu-s.html
+https://community.cisco.com/t5/routing/what-is-loopguard-bpduguard-rootguard/td-p/1579742
+https://www.reddit.com/r/ccna/comments/1dgjp47/loop_guard_root_guard_boson/?rdt=52590
+https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html
+https://community.cisco.com/t5/networking-knowledge-base/cisco-access-control-lists-acl/ta-p/4182349
+https://www.geeksforgeeks.org/spanning-tree-port-states/
+https://community.cisco.com/t5/switching/stp-root-port-vs-designated-port/td-p/1517842
+https://learningnetwork.cisco.com/s/article/Basic-of-BGP-routing-Protocol-A-Two-Napkin-Protocol-Part-1
+https://learningnetwork.cisco.com/s/article/Basic-of-BGP-routing-Protocol---A-Two-Napkin-Protocol---Part-2
+https://learningnetwork.cisco.com/s/article/Understanding-Simple-Network-Management-Protocol--SNMP
+https://learningnetwork.cisco.com/s/article/Routing-Protocols-an-Overview
+https://www.ciscolive.com/c/dam/r/ciscolive/global-event/docs/2022/pdf/BRKEWN-3004.pdf
+opt 3589
+
+<br><br><br><br>
+
+1969 Arpanet, router, telnet <br>
+1974: TCP developed for ARPAnet <br>
+1977 Apple ][, Commodore PET 2001 <br>
+1980 Apple ///, 10mbps <br>
+1981 IBM PC 5150, 3DES, ipv4, MS-DOS <br>
+1982 ARP, ICMP <br>
+1983 .3, windows, ping, TCP/IP, BSD Unix, DNS, Hub <br>
+1984 TACACS <br>
+1985 STP, Bridge, Windows 1.0 <br>
+1989 BGP, OSPF, IGMP <br>
+1990 Cisco password enc srv, IS-IS, 10BaseT, Switch, Cisco IOS 10.0 <br>
+1991 HTTP, Linux <br>
+1992 MD5(128b), EIGRP, PIM <br>
+1993 DHCP, Cisco eqpmt <br>
+1994 NAT, CDP, HSRP, SSL 1.0, Cisco K9, AAA <br>
+1995 SSH, 100BaseT, SSL2.0, HTTPS, cisco next models <br>
+1996 SSL 3.0, IPSEC, Netflow, DTP, VTP <br>
+1997 WEP, .3x, duplex, MPLS, ISL, .11 <br>
+1998 XML 1000BaseT, VLAN.1Q, ipv6 draft <br>
+1999 .11b, .11a, TLS <br>
+2001 WinXP, 10GBaseT, AES asym, RSTP, MacOS <br>
+2002 JSON <br>
+2003 WPA, SSO, .11g <br>
+2005 GLBP, WLC, LAP <br>
+2007 WinVista, OAuth tokens <br>
+2010 40G+100GBaseT <br>
+2011 SAE <br>
+2012 Win8 <br>
+2013 .11ac <br>
+2015 Win10 <br>
+2016 2.5+5GBaseT <br>
+2017 DNA, ipv6, 200+400GBaseT <br>
+2018 WPA3 <br>
+2019 .11ax <br>
+2020 .11ax ext <br>
+2021 Win11 <br>
+2024 .11be        
+                
+<br><br><br><br>
+Jeremy lessons:
+en for enable
+        Auto MDI-X disabled
+                fully specify addresses
+                
+
+                
+</p>
+    </div>
+</div>
+<div class="footer">
+</div>
+</div>
+<script>
+function() startscrnpress{
+        $thelot = array(GetElementByHtml:ID:ccnastartscrn, ccnamap)
+        thelot display:0;
+}
+</script>
+</body>
+</html>
