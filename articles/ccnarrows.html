@@ -782,6 +782,17 @@ function() startscrnpress{
         $thelot = array(GetElementByHtml:ID:ccnastartscrn, ccnamap)
         thelot display:0;
 }
+        	function getintro(){
+    document.getElementById("introgot").innerHTML = intros();
+                }
+function copyprefix() {
+  var copyText = document.getElementById("town-prefix");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the list");
+  document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
+}
 </script>
 </body>
 </html>
