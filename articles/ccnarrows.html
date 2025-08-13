@@ -31,7 +31,12 @@ Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
 </div>
 </div>
 <br><br><div id="trains" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
-
+Ethernet Gondola: 802.3<br>
+Cable car up to 100m<br> 
+Fiber multirail up 550m, but some say up to 2km, verify<br> 
+Fiber monorail more than 2km<br>
+Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC<br>
+WRED and CSMA/CD<br>
         Trains: padding to an increment of 4, bit len...__64__ _32_ -16- .8. *4*<br>
 Eth:[Pre+SFD]notcounted+[D/S12B *.1q* Type2B, PL/DAT46-1500B *FCS=CRC*] min=64B(PL=min46B)<br>
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
@@ -831,59 +836,14 @@ function copyprefix() {
   alert("Copied the list");
   document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
 }
-function etherfacts() {var txt = getRndInteger(1,21);
-if (txt == 1) {return "Witch-King";}
-else if (txt == 2) {return "Farmer";}
-else if (txt == 3) {return "King";}
-else if (txt == 4) {return "Queen";}
-else if (txt == 5) {return "Prince";}
-else if (txt == 6) {return "Princess";}
-else if (txt == 7) {return "Bane";}
-else if (txt == 8) {return "Slayer";}
-else if (txt == 9) {return "Keeper";}
-else if (txt == 10) {return "Guardian";}
-else if (txt == 11) {return "Healer";}
-else if (txt == 12) {return "Mage";}
-else if (txt == 13) {return "Innkeeper";}
-else if (txt == 14) {return "Undertaker";}
-else if (txt == 15) {return "Protector";}
-else if (txt == 16) {return "Son";}
-else if (txt == 17) {return "Daughter";}
-else if (txt == 18) {return "Lady";}
-else if (txt == 19) {return "Master";}
-else if (txt == 20) {return "Duke";}
-else if (txt == 21) {return "Duchess";}
-else if (txt == 22) {return "Sun";}
-else if (txt == 23) {return "Bear";}
-else if (txt == 24) {return "Beast";}
-else if (txt == 25) {return "Curse";}
-else if (txt == 26) {return "Star";}
-else if (txt == 27) {return "Mountain";}
-else if (txt == 28) {return "Behemoth";}
-else if (txt == 29) {return "Dragon";}
-else if (txt == 30) {return "Beauty";}
-else if (txt == 31) {return "Giant";}
-else if (txt == 32) {return "Enchantress";}
-else if (txt == 33) {return "Survivor";}
-else if (txt == 34) {return "Light";}
-else if (txt == 35) {return "Hope";}
-else if (txt == 36) {return "Tiger";}
-else if (txt == 37) {return "Lion";}
-else if (txt == 38) {return "Dog";}
-else if (txt == 39) {return "Serpent";}
-else if (txt == 40) {return "Heir";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
-else if (txt == 40) {return "";}
 
+function etherfacts() {var txt = getRndInteger(1,6);
+if (txt == 1) {return "Ethernet Gondola: 802.3";}
+else if (txt == 2) {return "Cable car up to 100m";}
+else if (txt == 3) {return "Fiber multirail up 550m";}
+else if (txt == 4) {return "Fiber monorail more than 2km";}
+else if (txt == 5) {return "Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC";}
+else if (txt == 6) {return "WRED and CSMA/CD";}
 }
 function getetherfact(){
     document.getElementById("etherfactgot").innerHTML = etherfacts();
