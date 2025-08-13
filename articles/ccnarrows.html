@@ -1,7 +1,7 @@
 <!DOCTYPE html><meta charset="UTF-8"><html lang="en"><body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}    a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}  .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;      padding:20px;}.backbutton { display:flex; justify-content:flex-start;        margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {        display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {     padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;       display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style><div class="largecontainer"><div class="header">  <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a></div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a><
 div class="title"><h1>Cuban Coffee Narrows</h1></div><div class="blogcontainer"><<br><br> 
         
-<div id="playzone" style="background:black; width:390px; height:390px;">
+<div id="playzone" style="background:url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px;">
 <div id="ccnastartscrn" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px;">
 <button onclick="resetscrn(), loadccnamap()">Start</button>
 </div>
@@ -18,7 +18,7 @@ div class="title"><h1>Cuban Coffee Narrows</h1></div><div class="blogcontainer">
 <a href ="https://learningnetwork.cisco.com/s/ccna-exam-topics">https://learningnetwork.cisco.com/s/ccna-exam-topics</a><br>
 Learning plan: 200-301 v1.1: udemy practice tests, Boson study guide, certbros, subnetting.net, jeremysITlabs, cisco documentation, cisco learning Labs, Netsim, Boson Exsim, cisco Exsim <br><br>
 <br><br>
-Ginger Island
+Cuban Coffee Narrows
 <br><br>
         <br><br>
 0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
@@ -26,13 +26,16 @@ $$$ 19/200... 100Mbps=19stp,200krstp, there is no 2,000 nor 200, 1942<br>
 Gates: B2>A5>G2>N3>AC5>AD6>AX3<br>
 Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
 <br><br>
-<div id="ethernet" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
+<div id="ethernetaround" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px;">
+<div id="ethernet" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:100%; height:100%;">
 Ethernet Gondola: 802.3<br>
 Cable car up to 100m<br> 
 Fiber multirail up 550m, but some say up to 2km, verify<br> 
 Fiber monorail more than 2km<br>
 Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC<br>
 WRED and CSMA/CD<br>
+</div>
+</div>
 <br><br><div id="trains" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
 Trains: padding to an increment of 4, bit len...__64__ _32_ -16- .8. *4*<br>
 Eth:[Pre+SFD]notcounted+[D/S12B *.1q* Type2B, PL/DAT46-1500B *FCS=CRC*] min=64B(PL=min46B)<br>
@@ -57,8 +60,8 @@ Subnet scoreboard:<br>
 /20 subnet240.0 4netbits,16 subnets and 2^12 hosts -2 = 4094...THE HOST AND SUBNETS ARE FLOPPED<br>
 ...
 For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1024 subnets, 64 hosts<br>/25 = 512 subnets, 128 hosts<br>/24 = 256 subnets, 256 hosts<br>
-<br><br>
-<br><br><div id="ethernet" style="map-coordinates: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br>
+<br><br><div id="coordinates" style="map-coordinates: url('https://brutokvashino.github.io/images/ccna_map.jpg'); width:390px; height:390px; object-fit: contain;">
         /8: 1.0.0.0 - 126.255.255.255 <br>
         PRIVATE /8: 10.0.0.0 - 10.255.255.255<br>
         Loopback: 127.0.0.0 - 127.255.255.255 <br>
@@ -79,7 +82,7 @@ For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1
         fc00::/7 or fd00 personal local no web<br>
         fe80::/10 fe00::/10 link local <br>
         ff00::/8 joined multicast<br>
-<br>
+</div><br>
 <br><br><div id="multicast theater" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
 Multicast Theater<br>
 224.0.0.1 All hosts and IGMPv1/v2<br>
@@ -92,7 +95,7 @@ Multicast Theater<br>
 224.0.0.18 VRRP <br>
 224.0.0.102 HSRPv2 link-local multicast<br>
 224.1.1.102 HSRPv2 adm scoped multicast<br>
-<br><br>
+</div><br><br>
 <br><br><div id="seaports" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px; object-fit: contain;">
 SeaPorts:<br>
 Port Security (and big macs they eat): can limit and filter MAC addresses on a SW<br>
@@ -122,7 +125,7 @@ intendo64 (eui64) for ipv6, they take the big MACs, split them, insert coFFFE, a
 3389 RDP <br>
 5246 wlc ipforwardprotocol UDP<br>
 5938, 5939 Teamviewer<br>
-<br><br>
+</div><br><br>
 <br><br><div id="manet" style="background-image: url('https://brutokvashino.github.io/images/ccna_map.jpg'); width:390px; height:390px; object-fit: contain;">
 metroid area network: covers 10s of km<br>
 she wants to go to a large campus or city
@@ -135,12 +138,12 @@ POE:<br>
 802.at = PoE+ 30
 802.bt = PoE++ 100
 energy company: PSE & PD refer to the supplier and client<br>
-<br><br>
+</div><br><br>
 <br><br><div id="qos" style="background-image: url('https://brutokvashino.github.io/images/house_red.jpg'); width:390px; height:390px; object-fit: contain;">
 QoS Government Hall: silver gold plat
 DSCP 34 = AF41, AF11 = DSCP 10<br>
 subtract 1 from drop precedence = 0.... 8bits x class(4) = 32 + 2 TOS bits for ECN = 34
-<br><br>
+</div><br><br>
 <br><br><div id="dosgatos" style="background-image: url('https://brutokvashino.github.io/images/house_blue.jpg'); width:390px; height:390px; object-fit: contain;">
 Syslog defcon levels EmAlCritENoticeInfoDebug: Facilities<br>
 WLC: Dos Gatos Binary Cyber Center:<br>
@@ -154,14 +157,14 @@ Server-side Operation 43: option 43, 0xf1 (dec 241), any vendor?, used by WLC to
 Security:<br>
 Hash browns: SHA or MD5, padding 64bit less than 512 multiple + 64 bit representation of original<br>
 Enchiption: Asymm: RSA, ECC / Symm: RC4, stream, speed and low power, DES 56b, 3DES 112b / Both: IPsec<br>
-<br><br>
+</div><br><br>
 <br><br><div id="ontheroad" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
 EOR's house dimensions (90,110,120)<br>
 <br>
 Signpost:
 Hello! we just wrote this for SEO (hello:2,5,10)<br>
 Translation: ESO, buey! Peligro de muerte! (dead:15,20,40,3600=1hr)
-<br><br>
+</div><br><br>
 <br><br><div id="snmp" style="background-image: url('https://brutokvashino.github.io/images/house_yellow.jpg'); width:390px; height:390px; object-fit: contain;">
 SNMP:
 SNMP gym training grounds: "Going to the S N M P!" uses an NMS like SolarWinds to air condition<br>
@@ -188,14 +191,14 @@ CMDS DTP: duplex full/half/auto, speed [n/a check]/10/100/1000 auto, show loggin
 CMDS OSPF: ip ospf area (id)&nbsp;&nbsp;router ospf (id) area (id)&nbsp;&nbsp;network (ip/subn)&nbsp;&nbsp;vlan?<br>
 CMDS channel: channel-group (num) mode on/auto/desirable/active/passive<br>
 CMDS dhcp: ipconfig /release, /renew, 
-<br><br>
+</div><br><br>
 <br><br><div id="jungle" style="background-image: url('https://brutokvashino.github.io/images/mountain.jpg'); width:390px; height:390px; object-fit: contain;">
 Canopy: 2, 3, spine and leaf<br>
 Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
 Geology:ApplPresentSessionTransNetwDataPhy<br>
 VLAN flan biosphere: .1q 0x8100 broadcast domains, 4096 possible VLANS, 5 default, 1+1002-1005<br>
 VMs:T1: Msft hyperv<br>
-<br><br>
+</div><br><br>
 <br><br><div id="saas" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
 SaaSSauroncorp: 
 <br>SaaS:Ring app, Palantir Foundry Cloud
@@ -203,11 +206,11 @@ SaaSSauroncorp:
 <br>IaaS: space in our tower.
 <br>IaC:TerraformByHashicorp:HashiConfLang DSL
 <br><br>
-<br><br><div id="bdpu" style="background-image: url('https://brutokvashino.github.io/images/house_orange.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="bdpu" style="background-image: url('https://brutokvashino.github.io/images/house_orange.jpg'); width:390px; height:390px; object-fit: contain;">
 BDPU law offices: big daddy daddio papa phoenix uight can you dig it?<br>
 I work with STP clients, I offer bdpuguard, and portfast payment plans.
 <br><br>
-<br><br><div id="stp" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="stp" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
 STardewProtocol:<br>
 802.1d: bids, bdpu badge<br>
 "Listen and Learn. That's how we move forward", betting and voting, I have 4096 priorities<br>
@@ -235,10 +238,10 @@ STP...RSTP:802.1w:<br>
 CMDS: override stp: spanning-tree vlan vlan-id (root primary | root secondary)<br>
 show spanning-tree (root | vlan-id | intf) = vanilla: rootid, bid, 
 <br><br>
-<br><br><div id="vtp" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="vtp" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
 VeryTerriblePerson Prison: wipeout, very terrible person, prison<br>
 VLAN nationality(ies) are grouped together, have to agree with each other, and maybe subnets<br>
-<br><br><div id="reaper" style="background-image: url('https://brutokvashino.github.io/images/reaper.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="reaper" style="background-image: url('https://brutokvashino.github.io/images/reaper.jpg'); width:390px; height:390px; object-fit: contain;">
 120 The RIP Reaper: ye have 15 hops to live... <br>
 ...9<br>
 v1 classful, broadcast <br>
@@ -250,7 +253,7 @@ holddown 180, for flapping from reinstating too quickly <br>
 flush 240 <br>
 route poisoning failed routes marked with 16 <br>
                 <br><br>   
-<br><br><div id="ospf" style="background-image: url('https://brutokvashino.github.io/images/boss.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="ospf" style="background-image: url('https://brutokvashino.github.io/images/boss.jpg'); width:390px; height:390px; object-fit: contain;">
 110 The Ossipee sky pirates of the BRD<br>
 "we serve the highest IP, but the treasure always loops back to us."<br>
 exit 224...5 and 6 (the DR/BDR are so cool, when they send a broadcast, they have Charizard on their Pokedex)<br>
@@ -270,7 +273,7 @@ OSPF-routing: costs (ref/intf): <br>
 &nbsp;else active physical inf<br>
 Multi-area: Backbone Area needs all to be connected to it. Some SWs live on the zone borders.
 <br><br>
-<br><br><div id="eigrp" style="background-image: url('https://brutokvashino.github.io/images/house_red.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="eigrp" style="background-image: url('https://brutokvashino.github.io/images/house_red.jpg'); width:390px; height:390px; object-fit: contain;">
 .10 90 iEIGRP Crossing: hello neighbor! <br>
 170 eEIGRP amphibious plane.<br>
 advanced distance-vector, used to be cisco<br>
@@ -279,7 +282,7 @@ Choosing: (def.val 10^7 + slowest speed tens microsecs + total delay all ports m
 Reported distance cant be more than feasible distance, or we will check for loops<br>
 Active when emergency mode, Multi AS
 <br><br>
-<br><br><div id="theLocal" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="theLocal" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
 The Local: <br>
 20 The eBGP Bouncer: Volt, between AS, path vector, policy based, slow convergence
 <br>200 The iBGP Bouncer: Sion, in AS <br>
@@ -294,7 +297,7 @@ HSRP 3,10 .2/.102 c074c01, PI means highest Priority then IP <br>
 V5RRP 1,3 .18, 5e0001 adv, master down<br>
 GLBP 3, 10 .102, PI, 7b400 unique MACs for load balancing<br>
 <br><br>
-<br><br><div id="cdp" style="background-image: url('https://brutokvashino.github.io/images/house_green.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="cdp" style="background-image: url('https://brutokvashino.github.io/images/house_green.jpg'); width:390px; height:390px; object-fit: contain;">
 The Cisco Disco:
 01:00:0C:CC:CC:CC l2, 01::0C "one sec, check my OC" 60s,180s<br>
 'enables the interface, runs the globe'<br>
@@ -303,7 +306,7 @@ Cisco only, otherwise dance at the ElDab.<br>
 enabled by default on Cisco devs. Detects Cisco VoIP phones.<br>
 TLVs[type, len, val]<br>
 <br><br>
-<br><br><div id="lldp" style="background-image: url('https://brutokvashino.github.io/images/house_blue.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="lldp" style="background-image: url('https://brutokvashino.github.io/images/house_blue.jpg'); width:390px; height:390px; object-fit: contain;">
 The Loser Disco:<br> 
 "dance the spin: 180degrees...from sea to sea...Ooooh-eeee" 
 <br>LLDP .1ab, 1:80:C2:00000E 30,120
@@ -312,7 +315,7 @@ The Loser Disco:<br>
 back in the day, we didn't have PoE support. Now we do<br>
 TLVs[type, len, val]<br>
 <br><br>
-<br><br><div id="multicast theater" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="multicast theater" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px; object-fit: contain;">
 API-rate Cave: 
 <br>Application/Admiral level: 
 <br>Chef:Ruby::Cookbooks:ChefDSL::ChefServer/ChefClient:https <!--except when running ChefSolo/ChefZero:agentless:knifessh/chef-run-->
@@ -334,6 +337,7 @@ Device Layer: All seas:
 <br>foreign Commander Subaru-OhmyPrius Openfire Openflow commandeers/direct control of fwding plane, other SDN enviros not Catalyst like OpenDaylight
 <br>young, efficient Capt GeNMI + RPC + Protobuf lackey, telemetry/config efficient, hates NETCONF, modern
 <br>old, short, wanted Capt CLIyde, ssh (DNA templates push), for lack of modern APIs, scriptable, not scalable, unstructured, can be user-defined
+</div>
         <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 <br>        <br>
