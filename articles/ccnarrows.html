@@ -1,3 +1,298 @@
+
+Like RIP, OSPFv2 supports equal-cost load balancing. If multiple paths have the same cost to a destination, OSPF can use them to load balance traffic. By default, OSPFv2 will load balance across four equal-cost paths, but it can be configured to load balance across 16 paths. OSPFv2 does not support unequal-cost load balancing.
+
+Graphical user interface, text, application
+
+Description automatically generated
+OSPF Interface Types
+OSPF has six interface types:
+
+Broadcast
+Nonbroadcast multiaccess (NBMA)
+Point-to-point
+Point-to-multipoint
+Point-to-multipoint NBMA
+Loopback
+OSPF will handle router elections, timer settings, and neighbor adjacencies differently depending on the interface type.
+
+Broadcast interfaces are typically found on Ethernet networks. Broadcast interfaces can find OSPF neighbors automatically. Router elections for designated router (DR) and backup designated router (BDR) are performed on broadcast networks.
+
+An NBMA network does not support broadcasts but does support multiple devices being connected to the network. Frame Relay serial interfaces are NBMA interfaces. OSPF neighbor relationships must be established manually on NBMA networks. Router elections for DR and BDR are performed on NBMA networks. Note that the DR and BDR need to have full connectivity with the other routers on the NBMA network.
+
+Point-to-point networks have a direct connection between two endpoints. Point-to-point interfaces are typically found on HDLC or PPP serial interfaces. Router elections for DR and BDR are not performed on point-to-point networks.
+
+Point-to-multipoint networks involve multiple devices connecting to a shared single endpoint. These networks can be either broadcast or NBMA. Router elections for DR and BDR are not performed on point-to-multipoint networks.
+
+Loopback addresses are typically used to automatically establish the OSPF router ID. The following section covers this in detail.
+
+Diagram
+
+Description automatically generated
+Understanding OSPF Areas
+OSPF can segment an entire AS, which is a group of networks that share a single routing method and operate under a single administrative organization, into a hierarchy of areas. The routers in a specific area calculate routes for only that area. Therefore, the flood of LSA packets that results from a topology change in a specific area of a network causes the routers in only that area to recalculate routes. The routers in other areas of the network are not affected. In the diagram above, the six routers are all contained within the same AS but are further segmented into three separate OSPF areas: Area 0, Area 100, and Area 200.
+
+To enable communication between different areas in an AS, you must configure a backbone area, which is an OSPF area that must be connected to every other area in the AS. The backbone area is always configured as Area 0. In the diagram above, the routers in Area 0 are responsible for forwarding packets between Area 100 and Area 200.
+
+Diagram
+
+Description automatically generated
+Understanding Nonbackbone Areas
+Any nonbackbone area in a multiarea OSPF configuration is also known as a normal area. Normal areas typically contain end users and should possess no more than 50 OSPF routers. Each normal area must be directly connected to the backbone area because the backbone area is responsible for sending traffic from one area to another.
+
+Diagram
+
+Description automatically generated
+Understanding Single-Area and Multiarea Configurations
+OSPF configurations can be designated as single-area or multiarea. Routers in a single-area configuration are contained wholly within a single OSPF area. A router is considered a single-area router when all of its interfaces that participate in OSPF routing are configured to operate in a single area. A router is considered a multiarea router when it has OSPF interfaces that are configured to operate in different areas. For example, a router that has an interface that operates in Area 0 and an interface that operates in Area 100 is a multiarea router.
+
+In the diagram above, RouterB, RouterE, and RouterF all use single-area OSPF configurations because the interfaces on each of those routers all reside in a single OSPF area. RouterB resides entirely in the backbone area. RouterE resides entirely in Area 100. RouterF resides entirely in Area 200.
+
+RouterC and RouterD, on the other hand, are both multiarea routers, because each of them has interfaces that reside in different areas. RouterC has an interface in both the backbone area and Area 100. RouterD has an interface in both the backbone area and Area 200.
+
+One advantage of using a multiarea OSPF design instead of a single-area OSPF design is that multiarea designs enable OSPF routers to maintain smaller routing tables and smaller LSDBs. OSPF routers only flood LSAs within a single area. Therefore, OSPF routers only store information about OSPF neighbors that reside within their own areas. As a result, routing tables and LSDBs are smaller and convergence times are faster in multiarea configurations.
+
+Before deciding to implement a multiarea configuration, you should plan the OSPF IP addressing scheme and network topology to determine whether the network you are designing is scalable enough to warrant a multiarea implementation.
+
+Diagram
+
+Description automatically generated
+Understanding OSPF Router Roles
+There are four OSPF router designations that indicate whether the router is connected to multiple areas or multiple ASes.
+
+Autonomous System Boundary Routers
+Any router that connects to both the local AS and a remote AS is known as an autonomous system boundary router (ASBR). An ASBR is responsible for routing traffic between the local AS and one or more remote ASes. In the diagram above, RouterA is connected to both the remote AS that contains the ISP and the backbone area of the local AS. Therefore, RouterA is an ASBR. An ASBR can be considered a single-area router if it connects only to a single OSPF area of the local AS. However, it is also possible for an ASBR to use a multiarea configuration if it connects to more than one area within the local AS.
+
+Area Border Routers
+A router that connects to multiple OSPF areas within the same AS is known as an area border router (ABR). Typically, an ABR connects to a single normal area and the backbone area; therefore, it is helpful to think of an ABR as the default gateway for a normal OSPF area. An ABR is always a multiarea router and can route traffic between the areas to which it is connected. ABRs maintain a separate LSDB for each of the areas to which they are connected. In the diagram above, RouterC and RouterD each connect to a normal area and the backbone area in the local AS. RouterC connects to both Area 0 and Area 100. RouterD connects to both Area 0 and Area 200. Therefore, RouterC and RouterD are both ABRs.
+
+Backbone and Nonbackbone Routers
+A backbone router is a router that has an interface within the backbone area. In the previous diagram, RouterA, RouterB, RouterC, and RouterD are backbone routers. RouterB is also an internal backbone router because all of its interfaces reside within Area 0.
+
+A nonbackbone router is a single-area router that is entirely within a nonbackbone area. In the previous diagram, RouterE and RouterF are nonbackbone routers. A nonbackbone router maintains an LSDB for only the area in which it is contained. Nonbackbone routers can receive default routes from ABRs and use those default routes to forward packets that are destined for other areas to the ABR. A router that exists entirely within a single OSPF area is also known as an internal router.
+
+Text
+
+Description automatically generated
+Understanding OSPF Router IDs
+The OSPF router ID is used to uniquely identify each router on the network. You can manually configure a router ID for a router by issuing the router-id ip-address command in router configuration mode, where ip-address is the address that you want OSPF to acknowledge as the new router ID. If you manually configure a router ID, it is important to ensure that the router ID is unique to a given OSPF router on the network. Two OSPF routers that have the same router ID will not be able to form an adjacency.
+
+If you do not manually configure a router ID, then the router ID will be the highest IP address configured among loopback interfaces on the router. If no loopback addresses are configured on the router, the router ID will be the highest IP address configured among all physical interfaces on the router.
+
+Cisco recommends using a loopback interface instead of a physical interface for the router ID. Because a loopback interface is never in the down state, OSPF is considered to be more stable when the router ID is configured from the IP address of a loopback interface.
+
+You can verify the router ID that has been assigned to an OSPF router by issuing the show ip ospf command in privileged EXEC mode. Similarly, you can issue the show ipv6 ospf command in privileged EXEC mode to verify the router ID that is being used by OSPFv3.
+
+Table
+
+Description automatically generated
+Understanding OSPF Adjacencies
+Before routers in an OSPF area can exchange information, they must establish a neighbor relationship, which is also known as an adjacency. An OSPF router that has not yet exchanged information with a potential neighbor is considered to be in the Down neighbor state. OSPF routers establish adjacencies by sending Hello packets, which are also known as Type 1 packets, to the multicast address 224.0.0.5, which is the All OSPF Routers address. OSPFv3 routers can use link-local IPv6 addresses to reach neighbors.
+
+Each Hello packet contains a number of fields that OSPF routers use to establish adjacencies, including the Hello timer and dead timer values that are configured on an OSPF router. A router cannot form an adjacency with another router unless the hello interval and dead interval values in the Hello packet match the router's own values. The two routers also must reside in the same OSPF area and must have OSPF configurations that match in other ways.
+
+The OSPF Hello timer is used to specify the amount of time that should pass before the router sends another Hello packet. By default, the Hello timer is set to 10 seconds on Ethernet, point-to-point, and broadcast links and is set to 30 seconds on NBMA links. To manually configure the Hello timer interval, you should issue the ip ospf hello-interval seconds command in interface configuration mode.
+
+The OSPF dead timer is used to specify the amount of time to wait before declaring a neighbor to be down. By default, the dead timer is set to four times the Hello timer value. To manually configure the dead timer interval, you should issue the ip ospf dead-interval seconds command in interface configuration mode.
+
+Hello packets also contain information about more advanced OSPF features, such as priority values that determine the DR and backup designated router BDR, the IP addresses of the DR and the BDR, and the password for OSPF authentication.
+
+Timeline
+
+Description automatically generated
+The initial Hello packets announce the OSPF router to its directly connected neighbors. When the neighbors receive the Hello packets, they add the OSPF router as a neighbor and enter the Init neighbor state. The Init neighbor state indicates that the neighbor routers received a Hello packet from the local router and that the Hello packet does not contain the neighboring router ID. Therefore, two-way communication has not yet been established between the local router and the neighbor.
+
+The neighbor routers then reply to the new OSPF router with their own Hello packets, which are sent to establish two-way communication between the neighbor routers and the new router. The neighbor router Hello packets should contain the router ID of the local router. If the local router recognizes its own router ID in the Neighbor field of the Hello packet, the router will acknowledge two-way communication with the router that sent the packet. Thus the routers enter the two-way neighbor state, which is the normal state for most neighbors on a broadcast network.
+
+After the routers have entered the two-way state, the election of a DR and a BDR occurs.
+
+Text
+
+Description automatically generated
+OSPF Adjacency Caveats
+Because OSPF is unable to automatically discover neighbors on a partially meshed NBMA network, neighbors must be defined manually with the neighbor command. In addition, the DR and BDR must be able to communicate with all other routers on the NBMA network. This can be accomplished by using a hub-and-spoke topology, where the hub router is configured as the DR. Issuing the ip ospf priority 0 command on the spoke routers will prevent them from becoming the DR.
+
+If the IP MTU values do not match on each interface that shares a network segment, OSPF routers can get stuck in the Exstart or Exchange state. Although you can configure OSPF to ignore MTU checking by issuing the ip ospf mtu-ignore command on each interface, Cisco recommends that you configure each interface with matching MTU values.
+
+Diagram
+
+Description automatically generated with medium confidence
+Understanding DR and BDR Elections
+OSPF uses the router ID and the priority value to elect the DR and BDR for an OSPF multiaccess network segment. OSPF routers in each multiaccess network elect a DR and a BDR. The DR generates LSAs that contain OSPF routing information, and the BDR takes over for the DR if the DR fails. Because only the DR and BDR generate LSAs, network bandwidth is conserved. The DR and BDR are elected only on multiaccess networks.
+
+The DR is typically the router with the highest OSPF priority, and the BDR is typically the router with the second-highest OSPF priority. If priorities are equal between two or more routers, the router with the highest router ID will be elected to become the DR. OSPF priorities can range from 0 through 255; the default OSPF priority is 1. To change the OSPF priority, you should issue the ip ospf priority value command, where value is a number from 0 through 255; a router with a priority of 0 will never become the DR or BDR.
+
+There are additional ways that you can influence the DR election process. For example, you can manually configure the router ID. You could also configure a loopback interface with an IP address that is higher than the IP addresses that are configured on the other OSPF routers. It is important to note that the router must advertise the interface with the highest IP address to be elected as the DR.
+
+Once the DR and BDR have been elected, the OSPF routers enter the Exstart neighbor state and attempt to form relationships with other neighbor routers. In the Exstart state, the hierarchy between the DR, BDR, and all the other routers is established. Once the hierarchy is formed, the routers enter the Exchange state. In the Exchange state, the routers begin the process of exchanging the information that constructs and synchronizes the LSDB on each router.
+
+
+Understanding the LSDB
+LSAs contain information about an individual router's interfaces and connections to neighboring OSPF routers. The information collected from LSAs is stored on each OSPF router in an LSDB. When an OSPF topology is converged, each router should have a copy of the same LSDB. The information that constructs and synchronizes the LSDB across OSPF routers is exchanged during the establishment of neighbor relationships.
+
+The following are five types of LSAs that are stored in an OSPF link-state database:
+
+Router Link, or Type 1, advertisements
+Network Link, or Type 2, advertisements
+Summary Link advertisements to networks, or Type 3 advertisements
+Summary Link advertisements to ASBRs, or Type 4 advertisements
+AS external link, or Type 5, advertisements
+In addition to the five LSAs above, the LSDB also stores not-so-stubby-area (NSSA) LSAs, which are also known as external LSAs or Type 7 LSAs.
+
+Type 1 advertisements are generated by an OSPF router for each area to which the router belongs and contain information about the router's links to the given areas. The router floods Type 1 advertisements only within the given areas.
+
+Type 2 advertisements contain information about the OSPF routers attached to a specific network and can be generated only by a DR. The DR floods Type 2 advertisements to the area within which the network is contained.
+
+Type 3 and Type 4 advertisements contain information about paths that connect OSPF areas together, or interarea paths, and are generated by ABRs. Type 3 advertisements contain information about interarea paths to networks. Type 4 advertisements contain information about interarea paths to the ASBR.
+
+Type 5 advertisements contain information about paths destined for routers that are outside an AS. With the exception of OSPF stub and not-so-stubby areas, Type 5 advertisements are flooded throughout an AS by the ASBR.
+
+Once a neighbor adjacency has been established by the exchange of Hello, or Type 1, packets, OSPF sends a series of four other packets in order to establish or synchronize the LSDB:
+
+Database Descriptor (DBD), or Type 2, packets
+Link State Request (LSR), or Type 3, packets
+Link State Update (LSU), or Type 4, packets
+Link State Acknowledgment (LSAck), or Type 5, packets
+After the routers enter the Exstart neighbor state, they will exchange DBD packets. The DBD packets contain summary information about each router's LSDB, including information about the LSAs that are stored in the LSDBs. The routers will acknowledge receipt of a DBD packet by sending an LSAck packet. Based on the information contained within the DBD packets, an OSPF router will compare the contents of the neighbor router's LSDB with its own LSDB. It is important to note that OSPF interfaces with mismatched MTU values will not be able to form an adjacency if MTU mismatch is detected during the DBD packet exchange. You can configure OSPF to ignore MTUs, or you can manually configure matching MTUs on both sides of a link to solve this problem.
+
+Once the information provided by the DBD exchange is processed, the routers enter the Loading neighbor state. In the Loading state, the routers begin exchanging LSAs in order to synchronize the LSDBs with each other. An OSPF router will send an LSR packet to its neighbor if it needs to request any LSAs that it determines are missing from its own LSDB. When the neighbor router receives the LSR packet, it will respond with an LSAck packet; then it will send an LSU packet that contains the LSAs that the requesting router needs to complete its LSDB. When the requesting router receives the LSU packet, it will respond with an LSAck packet and update its LSDB with the new information.
+
+Finally, once the LSDBs on each router are fully synchronized, the routers enter the Full state, which is to say that the neighbor relationship between the routers is fully established. The Full state is the normal state for the DR and BDR and their neighbors. Other OSPF neighbors remain in the Two-way state. If a neighbor relationship appears to be stuck in any state other than Full or Two-way, you should assume that there is a problem forming the neighbor relationship.
+
+You can view the contents of an LSDB on a Cisco router by issuing the show ip ospf database command in privileged EXEC mode.
+
+Table
+
+Description automatically generated
+Configuring OSPF
+To enable OSPF on a router, you should issue the router ospf process-id command from global configuration mode, where process-id is any positive integer in the range from 1 through 65,535 that identifies the routing process. Similarly, you can enable OSPFv3 on a router by issuing the ipv6 router ospf process-id command. The OSPF process ID does not have to match across routers in an area, because the process ID is locally significant to the router. After you have enabled OSPF or OSPFv3, you will be placed into router configuration mode. The router configuration mode prompt for OSPFv2 and OSPFv3 are different. The output below displays the different configuration prompts for each protocol:
+
+RouterA(config)#router ospf 10
+RouterA(config-router)#
+
+RouterA(config)#ipv6 router ospf 100
+RouterA(config-rtr)#
+When configuring OSPFv3, it is important to note that IPv6 unicast routing must be enabled on the OSPF router. By default, IPv6 unicast routing is disabled. To enable IPv6 unicast routing, you should issue the ipv6 unicast-routing command in global configuration mode.
+
+It is also important to note that a router with interfaces that are configured exclusively with IPv6 addresses will not automatically obtain an OSPF router ID. A router ID is a 32-bit dotted decimal value that is required by both OSPFv2 and OSPFv3. Router IDs and the manual configuration of router IDs will be discussed in more depth later in this module.
+
+Configuring Single-Area OSPFv2
+To configure a particular interface or network to connect to a specific OSPF area, you should issue either the network ip-address wildcard-mask area area-id command in router configuration mode or the ip ospf process-id area area-id command in interface configuration mode. By issuing the network command with the ip-address and wildcard-mask parameters, you can specify a router interface, a single network, or a group of networks. For example, the network 192.168.1.0 0.255.255.255 area 0 command indicates that any interface that is configured with an IP address that starts with 192 will be configured with OSPF and will operate in Area 0. By contrast, the network 192.168.1.0 0.0.0.255 area 0 command indicates that any interface that is configured with an IP address that starts with 192.168.1 will be configured with OSPF and will operate in Area 0. The value of area-id can be any positive integer in the range from 0 through 4294967295.
+
+To make configuring an OSPF network easier, you can replace the ip-address parameter of the network command with the actual IP address of the interface that you are configuring for OSPF, or you can issue the ip ospf process-id area area-id command in interface configuration mode, where process-id is the OSPF process ID and area-id is the OSPF area ID in which you want the interface to operate. If you use the interface's IP address with the network command, you must configure the wildcard-mask parameter as 0.0.0.0 so that OSPF matches every bit in the IP address. For example, the network 172.1.1.1 0.0.0.0 area 1 command configures OSPF to be enabled only on an interface with an IP address that matches the one in the network statement, 172.1.1.1. The network that will be advertised by OSPF will be the network that corresponds to the interface's IP address and subnet mask.
+
+Configuring Multiarea OSPFv2
+Configuring an OSPF router, such as an ABR, to participate in more than one area is similar to configuring single-area OSPF, except that you will configure interfaces and issue network commands for more than one area. For example, RouterC in the following graphic is an ABR that is connected to both Area 0 and Area 100:
+
+Diagram
+
+Description automatically generated
+In order to configure RouterC as a multiarea router, you would need to configure the Area 0 interface with an IP address and subnet mask appropriate to the network in Area 0. You would also need to configure the Area 100 interface with an IP address and subnet mask appropriate to the network in Area 100. Finally, you would need to issue network commands that advertise each of those networks in its appropriate area. For example, the following command set would configure RouterC to advertise the 192.168.0.0/30 network in Area 0 and the 192.168.100.0/24 network in Area 100:
+
+RouterC(config)#interface serial 0/0
+RouterC(config-if)#ip address 192.168.0.1 255.255.255.252
+RouterC(config-if)#exit
+RouterC(config)#interface serial 0/1
+RouterC(config-if)#ip address 192.168.100.1 255.255.255.0
+RouterC(config-if)#exit
+RouterC(config)#router ospf 10
+RouterC(config-router)#network 192.168.0.0 0.0.0.3 area 0
+RouterC(config-router)#network 192.168.100.0 0.0.0.255 area 100
+RouterC(config-router)#exit
+Because RouterC is an ABR, it can be used as the default gateway for other devices in Area 100. By default, an OSPF router will not advertise a default path to its neighbors. However, you can configure an OSPF router to inject its default path into OSPF by issuing the default-information originate command in OSPF router configuration mode. The default-information originate command configures OSPF to inject a router's default external route into OSPF. For example, RouterC and RouterE are OSPF neighbors. If you were to configure RouterC with the ip route 0.0.0.0 0.0.0.0 192.168.0.2 command, you could issue the default-information originate command in OSPF router configuration mode on RouterC to ensure that RouterE receives a default path through the next-hop interface that has been assigned the IP address of 192.168.0.1. You can also configure OSPFv3 to inject a default route by issuing the default-information originate command in OSPFv3 router configuration mode.
+
+Configuring Areas in OSPFv3
+The biggest difference in configuring OSPFv2 and OSPFv3 is that the router configuration mode network command cannot be used to configure OSPFv3 areas. Instead, areas are assigned by issuing the ipv6 ospf process-id area area-id command in interface configuration mode. For example, if RouterC were an OSPFv3 router, you might configure the Serial 0/1 interface to operate in Area 100 by issuing the following commands:
+
+RouterC(config)#interface serial 0/1
+RouterC(config-if)#ipv6 address 2001:ABCD:1234::2/64
+RouterC(config-if)#ipv6 ospf 10 area 100
+The ipv6 address 2001:ABCD:1234::2/64 command above configures the Serial 0/1 interface with the IPv6 address of 2001:ABCD:1234::2/64. The ipv6 ospf 10 area 100 command configures the Serial 0/1 interface to operate in OSPFv3 area 100 by using an OSPFv3 process ID of 10. Note that OSPF areas are 32-bit values. Therefore, you can also specify area IDs by using a dotted decimal notation similar to an IPv4 address. Therefore, you might also see OSPF area commands in forms such as ipv6 ospf 10 area 0.0.0.100 or, in the case of OSPFv2, network 192.168.100.0 0.0.0.255 area 0.0.0.100.
+
+Text
+
+Description automatically generated
+Verifying OSPF
+You can verify that you have enabled OSPF on a Cisco router by issuing the show running-config command and checking for the presence of the router ospf command or the ipv6 router ospf command. Alternatively, you can issue the show ip protocols command in privileged EXEC mode to verify OSPFv2 and the show ipv6 protocols command to verify OSPFv3.
+
+The show ip protocols command and its IPv6 equivalent are also useful for helping to determine why OSPFv2 or OSPFv3 routes are not appearing in the routing table. These commands display any incoming or outgoing route filters that have been applied to the interfaces on the router. A misconfigured or a misapplied route filter can prevent a router from inserting routes into the routing table.
+
+The output above indicates that the router is running OSPF under process ID 15. The router is an ASBR with a router ID of 192.168.99.3. In addition, only one OSPF area is configured on the router. Finally, OSPF is advertising the 192.168.1.8/30 network.
+
+A picture containing text
+
+Description automatically generated
+You can issue the show ip route command to display a list of IPv4 routes that have been learned by the router, including OSPF routes. For example, the partial output above displays two routes. The route to 192.168.99.3 is a directly connected route. The route to 192.168.99.5 is an OSPF route to a network that is located within the same OSPF area, as indicated by the O that precedes the address to the route. Routes to a network inside the same OSPF area are called intra-area routes. You can also limit the output for the show ip route command to only OSPF routes by issuing the show ip route ospf command in privileged EXEC mode.
+
+Similar to the show ip route command, the show ipv6 route command displays a list of IPv6 routes that have been learned by the router, including OSPFv3 routes. In addition, you can limit the output for the show ipv6 route command to OSPFv3 routes by issuing the show ipv6 route ospf command in privileged EXEC mode.
+
+OSPFv2 routes can also be indicated as O IA routes, O E1 routes, or O E2 routes in the output from the show ip route command. An OSPF route with the IA designation is a route to a network that is located in a different OSPF area but within the same AS; this is called an interarea route. By contrast, an OSPFv3 interarea route is designed as OI in the output from the show ipv6 route command. An interarea route must pass through an ABR. An OSPFv2 route with the E1 or E2 designation is a route to a network located in another AS; this is called an external route. An external route must pass through an ASBR. Similar OSPFv3 routes are designated by an OE1 or an OE2.
+
+The [110/75] in the output above indicates the AD of the route to 192.168.99.5 and the cost that has been calculated or configured for that route. In the output above, the OSPF route is configured with the default administrative distance of 110 and a cost of 75.
+
+A screenshot of a computer
+
+Description automatically generated with medium confidence
+Verifying OSPF Link States
+You can issue the show ip ospf database command to display information about OSPF LSAs. In the output above, the Router Link States section displays Type 1 router LSA information. The Net Link States section of output displays Type 2 network LSA information. The Summary Net Link States section of output displays Type 3 network summary LSA information.
+
+The OSPFv3 equivalent of the show ip ospf database command is the show ipv6 ospf database command.
+
+Text
+
+Description automatically generated
+Verifying OSPF Adjacencies
+In addition to verifying the OSPF router ID, the show ip ospf command and the show ipv6 ospf command also display the process ID, the number of areas that are configured on the router, the number of times the SPF algorithm has been executed, and other OSPF statistics. The output of the show ip ospf command above indicates that RouterB has been configured with OSPF process 10 and is using a router ID of 192.168.0.1. In addition, RouterB is an ABR that has one interface configured in the backbone area and at least one interface configured in another area. RouterB is configured in two OSPF areas.
+
+Text, letter
+
+Description automatically generated
+You can verify that OSPF is configured on an interface, as well as review Hello and dead timer values for the interface, by issuing the show ip ospf interface [interface] command, where interface is the name and number of the interface that is configured with the information you want to display. The show ip ospf interface interface command displays the OSPF area ID, process ID, router ID, interface timer values, and neighbor adjacencies that are associated with the specified interface. When issued without any parameters, the show ip ospf interface command displays the same information about all of the OSPF interfaces that are configured on the router.
+
+In the output above, the GigabitEthernet 0/0 interface is configured with an IP address of 192.168.1.1 and is operating in the backbone area, or Area 0. In addition, the OSPF process ID is identified as 10. The Hello timer is configured to the default value of 10. The dead timer is therefore configured to the default value of 40. In addition, RouterA has only one OSPF neighbor. The neighbor has an OSPF router ID of 192.168.5.2.
+
+The OSPFv3 equivalent of the show ip ospf interface command is the show ipv6 ospf interface command. You can also view shorter summaries of OSPF interface configurations by issuing the show ip ospf interface brief command for OSPF interfaces or the show ipv6 ospf interface brief command for OSPFv3 interfaces.
+
+Table
+
+Description automatically generated
+You can display the adjacencies that an OSPF router has formed with other OSPF routers by issuing the show ip ospf neighbor command in privileged EXEC mode. The output from the show ip ospf neighbor command also includes the router ID and priority for each neighbor, the neighbor state, the amount of time left until the neighbor is considered dead, the IP address of the neighboring interface, and the local interface through which the neighbor can be reached.
+
+You can display information about neighbors that can be reached through a specific local interface by issuing the show ip ospf neighbor interface command, where interface is the name and number of the local interface. You can also display detailed information about a specific OSPF neighbor by issuing the show ip ospf neighbor router-id command, where router-id is the neighbor's router ID.
+
+The output above indicates that RouterB has two OSPF neighbors: a neighbor with a router ID of 192.168.5.1 and a neighbor with a router ID of 192.168.5.3. The Pri field displays the OSPF priority of the router. In the output above, the priority of both neighbors is 1. The State field indicates that the neighbors are in the FULL/BDR neighbor state. The Address field contains the IP address of each neighbor. Note that the Address field and the Neighbor ID field do not match in the output above. This will not always be the case because a router ID can be the same as the IP address of the neighbor's connected interface. The Interface field displays the local interface through which the neighbor relationship was formed.
+
+The OSPFv3 equivalent of the show ip ospf neighbor command is the show ipv6 ospf neighbor command.
+
+Diagram
+
+Description automatically generated
+Troubleshooting OSPF Adjacencies
+Layer 1 and Layer 2 problems can prevent OSPF routers from establishing adjacencies. To verify that no Layer 1 or Layer 2 problems exist, you can issue the show ip ospf interface [brief] command or the show ipv6 ospf interface [brief] command in privileged EXEC mode. The show ip ospf interface command lists the OSPFv2 area ID, process ID, router ID, network type, interface state, and protocol state for all the interfaces on the router that are configured with OSPF. The show ip ospf interface brief command lists a shorter summary of similar information. If the state of the interface and line protocol is not up/up, then a Layer 1 or Layer 2 problem exists. The show ipv6 ospf interface and show ipv6 ospf interface brief commands display similar information for OSPFv3 interfaces.
+
+You can verify the state of an OSPFv2 adjacency by issuing the show ip ospf neighbor command in privileged EXEC mode. The show ip ospf neighbor command displays a list of a router's OSPF neighbors and the state of the neighbor relationship between them. If the State field in the output is not FULL or 2WAY, then the routers have not established an adjacency. The show ipv6 ospf neighbor command displays similar information for OSPFv3 adjacencies.
+
+Neighbor relationships cannot be established over interfaces that have been configured with the passive-interface command. You can determine whether the passive-interface command has been configured on an interface by issuing the show running-config command or by issuing the show ip ospf interface or the show ip protocols command. The show ipv6 protocols command is the OSPFv3 equivalent of the show ip protocols command.
+
+OSPF interfaces with mismatched MTU values will not be able to form an adjacency if the MTU mismatch is detected during the DBD packet exchange. You can issue the ip ospf mtu-ignore command in interface configuration mode to disable the MTU mismatch test. Another solution to this issue is to manually configure the interface MTU so that it matches the MTU on the remote router. You can manually configure the IP MTU by issuing the ip mtu bytes command in interface configuration mode. You can manually configure the IPv6 MTU by issuing the ipv6 mtu bytes command in interface configuration mode.
+
+The Hello timer value, dead timer value, and authentication password must match between routers in order to establish an adjacency. You can verify that these values match by issuing the debug ip ospf adj command in privileged EXEC mode. The debug ip ospf adj command displays information about Hello packets as they arrive on a router interface. The debug ipv6 ospf adj command is the OSPFv3 equivalent of the debug ip ospf adj command.
+
+In the previous diagram, RouterD has successfully established an adjacency with RouterB because the area ID, password, Hello timer, and dead timer values are identical on both routers. However, RouterA cannot establish an adjacency with RouterB, because RouterA is configured with a different area ID. Similarly, RouterC cannot establish an adjacency with RouterB, because RouterC is configured with different Hello timer and dead timer values.
+
+Diagram
+
+Description automatically generated
+Using Cost to Load Balance OSPF
+OSPF uses link cost as a metric to determine the best route to a destination. The best route is the route with the lowest link cost. By default, the link cost is determined by the bandwidth of the link: the higher the bandwidth, the lower the cost. As stated earlier, to calculate the cost, divide 100,000,000 by the bandwidth in bits per second. Thus, a 100-Mbps link has a cost of 1, a 10-Mbps link has a cost of 10, and a 1.544-Mbps T1 line has a cost of 64. Any link faster than a 100-Mbps link, such as a 1000-Mbps link, will have a cost of 1 because cost cannot be configured to a value lower than 1. The calculated or configured cost of an OSPF path to a given network is displayed in the output of the show ip route command or the show ipv6 route equivalent. For example, the following output from the show ip route command displays an OSPF path to the 192.168.99.0 network:
+
+O      192.168.99.0 [110/75] via 192.168.1.10, 00:02:46, Serial1/0.324
+The [110/75] in the output above indicates the AD of the route to 192.168.99.0 and the cost that has been calculated or configured for that route. In the output above, the OSPF route is configured with the default administrative distance of 110 and a cost of 75. As the hops between a router and a destination increase, the cost increases by the bandwidth calculation of the additional links. Therefore, based on the value of 75 in the output above, it is reasonable to conclude that the OSPF path to the 192.168.99.0 network is comprised of a FastEthernet link, an Ethernet link, and a T1 link, which would equal a cost formula of 1 + 10 + 64, or a cost value of 75. You can also verify the cost of a specific interface by issuing the show ip ospf interface [brief] command or the show ipv6 ospf interface [brief] equivalent in privileged EXEC mode.
+
+If multiple OSPF routes exist to a destination and the cost of each route is equal, a Cisco router will load balance traffic equally between those routes. In the above diagram, RouterB is able to send traffic to RouterD through both RouterA and RouterC. The cost of the route through RouterA is the same as the cost of the route through RouterC. Therefore, RouterB will send some traffic to RouterD through RouterA and other traffic to RouterD through RouterC, thereby minimizing the amount of traffic that must pass through any single link.
+
+When an OSPF router is load-balancing traffic, the output of the show ip route command or the show ipv6 route equivalent will reflect this by displaying each route to the network. For example, the following output from the show ip route command indicates that traffic to 192.168.99.0 is being load balanced over two separate interfaces:
+
+
 <!DOCTYPE html><meta charset="UTF-8"><html lang="en"><body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}    a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}  .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;      padding:20px;}.backbutton { display:flex; justify-content:flex-start;        margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {        display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {     padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;       display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style><div class="largecontainer"><div class="header">  <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a></div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a><
 div class="title"><h1>Cuban Coffee Narrows</h1></div><div class="blogcontainer"><<br><br> 
         
