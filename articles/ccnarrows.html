@@ -1,7 +1,7 @@
 <!DOCTYPE html><meta charset="UTF-8"><html lang="en"><body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}    a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}  .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;      padding:20px;}.backbutton { display:flex; justify-content:flex-start;        margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {        display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {     padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;       display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style><div class="largecontainer"><div class="header">  <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a></div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a><
 div class="title"><h1>Cuban Coffee Narrows</h1></div><div class="blogcontainer"><<br><br> 
         
-<div id="playzone" style="background:url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px;">
+<div id="playzone" style="background:url('https://brutokvashino.github.io/images/island.jpg'); background-size:cover; width:390px; height:390px;">
 <div id="ccnastartscrn" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px;">
 <button onclick="resetscrn(), loadccnamap()">Start</button>
 </div>
@@ -26,18 +26,13 @@ $$$ 19/200... 100Mbps=19stp,200krstp, there is no 2,000 nor 200, 1942<br>
 Gates: B2>A5>G2>N3>AC5>AD6>AX3<br>
 Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
 <br><br>
-<div id="ethernetaround" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px;">
-<div id="ethernet" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:100%; height:100%;">
-Ethernet Gondola: 802.3<br>
-Cable car up to 100m<br> 
-Fiber multirail up 550m, but some say up to 2km, verify<br> 
-Fiber monorail more than 2km<br>
-Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC<br>
-WRED and CSMA/CD<br>
+<div id="etheraround" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px;">
+<div id="ether" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:100%; height:100%;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 </div>
 </div>
-<br><br><div id="trains" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
-Trains: padding to an increment of 4, bit len...__64__ _32_ -16- .8. *4*<br>
+<br><br><div id="trains" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
+        Trains: padding to an increment of 4, bit len...__64__ _32_ -16- .8. *4*<br>
 Eth:[Pre+SFD]notcounted+[D/S12B *.1q* Type2B, PL/DAT46-1500B *FCS=CRC*] min=64B(PL=min46B)<br>
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
 802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
@@ -53,7 +48,8 @@ Movie options: Moll Flanders 9600<br>
 Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface<br>
 </div>
 <br><br>
-<br><br><div id="subnet_scoreboard" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="subnet_scoreboard" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 Subnet scoreboard:<br>
 /32 single device<br>/31 two devices linked<br>/30=64subs,2b=3hosts,252net,4inc<br>/29=32sbs,3b=7hosts,248net,8inc<br>/28=16sbs,4b=15hosts,240net,16inc<br>
 <br>/27=8sbs,3b=224net,32inc<br>/26=4sbs,2b=192net,64inc<br>/25=2sbs,1b=128net,128inc<br>    
@@ -61,7 +57,8 @@ Subnet scoreboard:<br>
 ...
 For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1024 subnets, 64 hosts<br>/25 = 512 subnets, 128 hosts<br>/24 = 256 subnets, 256 hosts<br>
 </div><br><br>
-<br><br><div id="coordinates" style="map-coordinates: url('https://brutokvashino.github.io/images/ccna_map.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="coordinates" style="map-coordinates: url('https://brutokvashino.github.io/images/ccna_map.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
         /8: 1.0.0.0 - 126.255.255.255 <br>
         PRIVATE /8: 10.0.0.0 - 10.255.255.255<br>
         Loopback: 127.0.0.0 - 127.255.255.255 <br>
@@ -83,7 +80,8 @@ For /16 addresses: you can borrow more network bits for more subnets.<br>/26 = 1
         fe80::/10 fe00::/10 link local <br>
         ff00::/8 joined multicast<br>
 </div><br>
-<br><br><div id="multicast theater" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="multicast theater" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 Multicast Theater<br>
 224.0.0.1 All hosts and IGMPv1/v2<br>
 224.0.0.2 HSRPv1<br>
@@ -96,7 +94,8 @@ Multicast Theater<br>
 224.0.0.102 HSRPv2 link-local multicast<br>
 224.1.1.102 HSRPv2 adm scoped multicast<br>
 </div><br><br>
-<br><br><div id="seaports" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="seaports" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 SeaPorts:<br>
 Port Security (and big macs they eat): can limit and filter MAC addresses on a SW<br>
 The SLAACers: please ignore the jobless SLAACers, stateless, they only like to talk about ipv6 on Slack.<br>
@@ -126,7 +125,8 @@ intendo64 (eui64) for ipv6, they take the big MACs, split them, insert coFFFE, a
 5246 wlc ipforwardprotocol UDP<br>
 5938, 5939 Teamviewer<br>
 </div><br><br>
-<br><br><div id="manet" style="background-image: url('https://brutokvashino.github.io/images/ccna_map.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="manet" style="background-image: url('https://brutokvashino.github.io/images/ccna_map.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 metroid area network: covers 10s of km<br>
 she wants to go to a large campus or city
 highspeed fiber or wireless<br>
@@ -139,12 +139,14 @@ POE:<br>
 802.bt = PoE++ 100
 energy company: PSE & PD refer to the supplier and client<br>
 </div><br><br>
-<br><br><div id="qos" style="background-image: url('https://brutokvashino.github.io/images/house_red.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="qos" style="background-image: url('https://brutokvashino.github.io/images/house_red.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 QoS Government Hall: silver gold plat
 DSCP 34 = AF41, AF11 = DSCP 10<br>
 subtract 1 from drop precedence = 0.... 8bits x class(4) = 32 + 2 TOS bits for ECN = 34
 </div><br><br>
-<br><br><div id="dosgatos" style="background-image: url('https://brutokvashino.github.io/images/house_blue.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="dosgatos" style="background-image: url('https://brutokvashino.github.io/images/house_blue.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 Syslog defcon levels EmAlCritENoticeInfoDebug: Facilities<br>
 WLC: Dos Gatos Binary Cyber Center:<br>
 2Gatos connect WLC with Secret Lightweight Service: WLC+LAPs, used to be the LWAPP office<br>
@@ -158,14 +160,16 @@ Security:<br>
 Hash browns: SHA or MD5, padding 64bit less than 512 multiple + 64 bit representation of original<br>
 Enchiption: Asymm: RSA, ECC / Symm: RC4, stream, speed and low power, DES 56b, 3DES 112b / Both: IPsec<br>
 </div><br><br>
-<br><br><div id="ontheroad" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="ontheroad" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 EOR's house dimensions (90,110,120)<br>
 <br>
 Signpost:
 Hello! we just wrote this for SEO (hello:2,5,10)<br>
 Translation: ESO, buey! Peligro de muerte! (dead:15,20,40,3600=1hr)
 </div><br><br>
-<br><br><div id="snmp" style="background-image: url('https://brutokvashino.github.io/images/house_yellow.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="snmp" style="background-image: url('https://brutokvashino.github.io/images/house_yellow.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 SNMP:
 SNMP gym training grounds: "Going to the S N M P!" uses an NMS like SolarWinds to air condition<br>
 Recruiting: Controllers sends GET to Agents, Agent fetches OID data from MIB. Sent to Manager<br>
@@ -192,25 +196,29 @@ CMDS OSPF: ip ospf area (id)&nbsp;&nbsp;router ospf (id) area (id)&nbsp;&nbsp;ne
 CMDS channel: channel-group (num) mode on/auto/desirable/active/passive<br>
 CMDS dhcp: ipconfig /release, /renew, 
 </div><br><br>
-<br><br><div id="jungle" style="background-image: url('https://brutokvashino.github.io/images/mountain.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="jungle" style="background-image: url('https://brutokvashino.github.io/images/mountain.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 Canopy: 2, 3, spine and leaf<br>
 Vines: ESS(SW+APs+Nodes), (AP+Node)BSS, (Node-Node)IBSS<br>
 Geology:ApplPresentSessionTransNetwDataPhy<br>
 VLAN flan biosphere: .1q 0x8100 broadcast domains, 4096 possible VLANS, 5 default, 1+1002-1005<br>
 VMs:T1: Msft hyperv<br>
 </div><br><br>
-<br><br><div id="saas" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
+<br><br><div id="saas" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 SaaSSauroncorp: 
 <br>SaaS:Ring app, Palantir Foundry Cloud
 <br>PaaS: tower kit and Palantir Foundry Platform
 <br>IaaS: space in our tower.
 <br>IaC:TerraformByHashicorp:HashiConfLang DSL
 <br><br>
-</div><br><br><div id="bdpu" style="background-image: url('https://brutokvashino.github.io/images/house_orange.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="bdpu" style="background-image: url('https://brutokvashino.github.io/images/house_orange.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 BDPU law offices: big daddy daddio papa phoenix uight can you dig it?<br>
 I work with STP clients, I offer bdpuguard, and portfast payment plans.
 <br><br>
-</div><br><br><div id="stp" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="stp" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 STardewProtocol:<br>
 802.1d: bids, bdpu badge<br>
 "Listen and Learn. That's how we move forward", betting and voting, I have 4096 priorities<br>
@@ -238,10 +246,11 @@ STP...RSTP:802.1w:<br>
 CMDS: override stp: spanning-tree vlan vlan-id (root primary | root secondary)<br>
 show spanning-tree (root | vlan-id | intf) = vanilla: rootid, bid, 
 <br><br>
-</div><br><br><div id="vtp" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="vtp" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
+
 VeryTerriblePerson Prison: wipeout, very terrible person, prison<br>
 VLAN nationality(ies) are grouped together, have to agree with each other, and maybe subnets<br>
-</div><br><br><div id="reaper" style="background-image: url('https://brutokvashino.github.io/images/reaper.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="reaper" style="background-image: url('https://brutokvashino.github.io/images/reaper.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 120 The RIP Reaper: ye have 15 hops to live... <br>
 ...9<br>
 v1 classful, broadcast <br>
@@ -253,7 +262,7 @@ holddown 180, for flapping from reinstating too quickly <br>
 flush 240 <br>
 route poisoning failed routes marked with 16 <br>
                 <br><br>   
-</div><br><br><div id="ospf" style="background-image: url('https://brutokvashino.github.io/images/boss.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="ospf" style="background-image: url('https://brutokvashino.github.io/images/boss.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 110 The Ossipee sky pirates of the BRD<br>
 "we serve the highest IP, but the treasure always loops back to us."<br>
 exit 224...5 and 6 (the DR/BDR are so cool, when they send a broadcast, they have Charizard on their Pokedex)<br>
@@ -273,7 +282,7 @@ OSPF-routing: costs (ref/intf): <br>
 &nbsp;else active physical inf<br>
 Multi-area: Backbone Area needs all to be connected to it. Some SWs live on the zone borders.
 <br><br>
-</div><br><br><div id="eigrp" style="background-image: url('https://brutokvashino.github.io/images/house_red.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="eigrp" style="background-image: url('https://brutokvashino.github.io/images/house_red.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 .10 90 iEIGRP Crossing: hello neighbor! <br>
 170 eEIGRP amphibious plane.<br>
 advanced distance-vector, used to be cisco<br>
@@ -282,7 +291,7 @@ Choosing: (def.val 10^7 + slowest speed tens microsecs + total delay all ports m
 Reported distance cant be more than feasible distance, or we will check for loops<br>
 Active when emergency mode, Multi AS
 <br><br>
-</div><br><br><div id="theLocal" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="theLocal" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 The Local: <br>
 20 The eBGP Bouncer: Volt, between AS, path vector, policy based, slow convergence
 <br>200 The iBGP Bouncer: Sion, in AS <br>
@@ -297,7 +306,7 @@ HSRP 3,10 .2/.102 c074c01, PI means highest Priority then IP <br>
 V5RRP 1,3 .18, 5e0001 adv, master down<br>
 GLBP 3, 10 .102, PI, 7b400 unique MACs for load balancing<br>
 <br><br>
-</div><br><br><div id="cdp" style="background-image: url('https://brutokvashino.github.io/images/house_green.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="cdp" style="background-image: url('https://brutokvashino.github.io/images/house_green.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 The Cisco Disco:
 01:00:0C:CC:CC:CC l2, 01::0C "one sec, check my OC" 60s,180s<br>
 'enables the interface, runs the globe'<br>
@@ -306,7 +315,7 @@ Cisco only, otherwise dance at the ElDab.<br>
 enabled by default on Cisco devs. Detects Cisco VoIP phones.<br>
 TLVs[type, len, val]<br>
 <br><br>
-</div><br><br><div id="lldp" style="background-image: url('https://brutokvashino.github.io/images/house_blue.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="lldp" style="background-image: url('https://brutokvashino.github.io/images/house_blue.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 The Loser Disco:<br> 
 "dance the spin: 180degrees...from sea to sea...Ooooh-eeee" 
 <br>LLDP .1ab, 1:80:C2:00000E 30,120
@@ -315,7 +324,7 @@ The Loser Disco:<br>
 back in the day, we didn't have PoE support. Now we do<br>
 TLVs[type, len, val]<br>
 <br><br>
-</div><br><br><div id="multicast theater" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px; object-fit: contain;">
+</div><br><br><div id="multicast theater" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 API-rate Cave: 
 <br>Application/Admiral level: 
 <br>Chef:Ruby::Cookbooks:ChefDSL::ChefServer/ChefClient:https <!--except when running ChefSolo/ChefZero:agentless:knifessh/chef-run-->
@@ -822,6 +831,64 @@ function copyprefix() {
   alert("Copied the list");
   document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
 }
+function etherfacts() {var txt = getRndInteger(1,21);
+if (txt == 1) {return "Witch-King";}
+else if (txt == 2) {return "Farmer";}
+else if (txt == 3) {return "King";}
+else if (txt == 4) {return "Queen";}
+else if (txt == 5) {return "Prince";}
+else if (txt == 6) {return "Princess";}
+else if (txt == 7) {return "Bane";}
+else if (txt == 8) {return "Slayer";}
+else if (txt == 9) {return "Keeper";}
+else if (txt == 10) {return "Guardian";}
+else if (txt == 11) {return "Healer";}
+else if (txt == 12) {return "Mage";}
+else if (txt == 13) {return "Innkeeper";}
+else if (txt == 14) {return "Undertaker";}
+else if (txt == 15) {return "Protector";}
+else if (txt == 16) {return "Son";}
+else if (txt == 17) {return "Daughter";}
+else if (txt == 18) {return "Lady";}
+else if (txt == 19) {return "Master";}
+else if (txt == 20) {return "Duke";}
+else if (txt == 21) {return "Duchess";}
+else if (txt == 22) {return "Sun";}
+else if (txt == 23) {return "Bear";}
+else if (txt == 24) {return "Beast";}
+else if (txt == 25) {return "Curse";}
+else if (txt == 26) {return "Star";}
+else if (txt == 27) {return "Mountain";}
+else if (txt == 28) {return "Behemoth";}
+else if (txt == 29) {return "Dragon";}
+else if (txt == 30) {return "Beauty";}
+else if (txt == 31) {return "Giant";}
+else if (txt == 32) {return "Enchantress";}
+else if (txt == 33) {return "Survivor";}
+else if (txt == 34) {return "Light";}
+else if (txt == 35) {return "Hope";}
+else if (txt == 36) {return "Tiger";}
+else if (txt == 37) {return "Lion";}
+else if (txt == 38) {return "Dog";}
+else if (txt == 39) {return "Serpent";}
+else if (txt == 40) {return "Heir";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+else if (txt == 40) {return "";}
+
+}
+function getetherfact(){
+    document.getElementById("etherfactgot").innerHTML = etherfacts();
+}
+        
 </script>
 </body>
 </html>
