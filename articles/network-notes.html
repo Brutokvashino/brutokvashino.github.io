@@ -1,0 +1,38 @@
+wireshark:
+protocol preferences, tcp, calculate conversation timestamps
+paint FINs blue
+sort delta times
+
+tcp behavior:
+ack is a 0 byte ghost byte
+ISN = initial SEQ num
+TTYL defaults: 255, 128, 64, rarely 130, 60
+CWND congestion window = what the svr can send = x*MSS slow start can apply, doubles until threshold reached but NOT advertised so you have to figure it out through clues.
+MSS = min MSS is 536. max segment size varies and can increase with slow start from server
+3 dupacks trigger fast retrans
+fw rules / gateway will set its own limits on the MTU based on what it needs to add. Make sure that FW and clients and server can agree.
+20B iphdr + 20B tcphdr + FWBytes = MTU
+MTU is 1500 max by default?
+if no response from client, server will default to min MSS. 
+
+network troubleshooting:
+high response times from the server are suspicious when it comes to people reporting delays, that kind of packet (server response, http 200 OK) will be the ones you want to line up with what people reported.
+early in TCP stream delays mean that slowstart is never overcome
+
+symptoms:
+small but many delays in delta time,
+large single delay
+repeat transmissions
+winsize / scaling in use or not in use
+SACK in use or not in use
+RWND size dropping
+latency throughout
+server is waiting
+
+problems:
+CWND is very small
+RWND full
+application not emptying data from RWND
+interference, congestion, throttling
+QUIC can be dropped in enviros where UDP is dropped during congestion
+FW MTU rules where svr and client and FW disagree
