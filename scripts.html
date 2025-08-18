@@ -1,0 +1,28 @@
+<!--
+$Text = "Hello, World!"
+$Bytes = [System.Text.Encoding]::UTF8.GetBytes($Text)
+$Encoded = [Convert]::ToBase64String($Bytes)
+$Encoded
+
+$DecodedBytes = [Convert]::FromBase64String($Encoded)
+[System.Text.Encoding]::UTF8.GetString($DecodedBytes)
+
+
+function XOR-Encrypt {
+    param (
+        [string]$Text,
+        [string]$Key
+    )
+    $result = ""
+    for ($i = 0; $i -lt $Text.Length; $i++) {
+        $result += [char]([byte][charurn $result
+}
+
+$encrypted = XOR-Encrypt -Text "SecretMessage" -Key "key"
+$encrypted
+
+
+certutil -encode input.txt output.txt
+
+certutil -decode output.txt decoded.txt
+-->
