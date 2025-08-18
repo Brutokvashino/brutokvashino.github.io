@@ -1,3 +1,43 @@
+
+EINAC/SAGE/ARPANET - MESM, Mir123, Minsk2 Strela BESM6 ALGOL Argon-11S
+Alti 8.22.168.219
+Novgorod 5.22.7.0.0
+5.76 kazak
+tomsk 5.248
+5.207 check
+5.228 moscow
+
+64 byte frame
+preamble 01010101 x 7
+syncs rx clock
+sfd start frame delimiter 01010111
+padding if needed
+46 byte min payload
+type size until 1500+
+0x0800 = ipv4
+fcs for errors
+48 bits for mac
+3 octets for 24 bits oui
+FF 255 FF 255 FF 255
+
+VRRP over eth 00:00:5E OUI 00:01:XX IANA VRRP
+vtp domain [name]
+ap mode transparent
+
+less specific as it moves downward
+
+ip access-list extended wwwblock
+deny tcp any host 10.30.0.100 eq [80/http]
+permit ip any any
+int vlan 20 [<-- interface]
+ip access-group [name] in
+
+searching | include [string]
+TACACS enc TCP granular processes
+RADIUS password enc UDP auth/authr same
+
+
+
 Volcano floods:
 DDOS: UDP, ICMP, DNS amp, 
 DDOS smurf rebellion smurf (recruits endemic devices, uses netw)
