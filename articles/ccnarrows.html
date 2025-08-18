@@ -66,6 +66,7 @@ WRED and CSMA/CD<br>
 Eth:[Pre+SFD]notcounted+[D/S12B *.1q* Type2B, PL/DAT46-1500B *FCS=CRC*] min=64B(PL=min46B)<br>
 MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
 802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
+CMDS MAC: show mac address-table, clear mac address-table dynamic<br>
 ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]<br>
 1QTag 0x8100:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
 ICMP:[T Cod CS ID Seq]<br>
@@ -218,8 +219,6 @@ config-register 0x2102 default load ios from flash mem and config from nvram,<br
 config-register 0x2142 bypass nvram<br>
 <br><br>
 CMDS SW/R: write, write-memory, copy running-config startup-config, show startup-config, enable password, enable secret, description<br>
-CMDS MAC: show mac address-table, clear mac address-table dynamic<br>
-CMDS STP: spanning-tree mode (rapid-)pvst, show spanning-tree (interface/vlan), spanning-tree portfast default<br>
 CMDS bdpuguard: show interface(s) [] (status err-disabled), show interfaces [] status/switchport<br>
 CMDS CDP: cdp run/enable, show cdp neighbor<br>
 CMDS IP: route, show ip interface brief = vlans ip status, show interface status = duplex/speed type vlan<br>
@@ -277,6 +276,10 @@ STP...RSTP:802.1w:<br>
 &nbsp;Has a lower convergence time.<br>
 CMDS: override stp: spanning-tree vlan vlan-id (root primary | root secondary)<br>
 show spanning-tree (root | vlan-id | intf) = vanilla: rootid, bid, 
+CMDS STP: spanning-tree mode (rapid-)pvst, show spanning-tree (interface/vlan), spanning-tree portfast default<br>
+CMD show spanning-tree (interface/vlan 10)<br>
+CMD show spanning-tree root<br>
+CMD spanning-tree mode rapid-pvst<br>
 <br><br>
 </div><br><br><div id="vtp" style="background-image: url('https://brutokvashino.github.io/images/house_purple.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 
