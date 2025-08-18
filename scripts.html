@@ -25,4 +25,28 @@ $encrypted
 certutil -encode input.txt output.txt
 
 certutil -decode output.txt decoded.txt
+
+Get-CimInstance -ClassName Win32_ComputerSystem | Select-Object UserName
+
+
+Get-Counter '\Processor(_Total)\% Processor Time'
+unreliable
+
+Get-Process | Where-Object { $_.ProcessName -match "chrome|msedge|firefox" } | Select-Object Name, Id, CPU
+
+
+Get-Process -Id <PID> | Format-List *
+
+
+Get-CimInstance Win32_Process -Filter "ProcessId = <PID>" | Format-List *
+
+
+Get-CimInstance Win32_Process -Filter "ProcessId = <PID>" | Select-Object ProcessId, Name, Priority
+
+
+Get-Process -Id <PID> | Select-Object Id, Name, PriorityClass
+
+can query more than one PID with commas
+
+
 -->
