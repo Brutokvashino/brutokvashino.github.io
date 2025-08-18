@@ -1,4 +1,126 @@
 
+stp attack
+mac flooding
+double tagging vlan
+dhcp attack
+spoofing
+
+disable trunk on aps
+limit attempts for mac entries
+limit mac entries per port
+
+
+
+OSPF Multi Area:
+LSDB too big for single area, too many updates in single area
+subnet areas accordingly
+ABR area border router connects two or more areas
+
+
+des port for switch
+lowest root cost to bridge
+lowest bid
+lowest neighbor port priority
+lowest neighbor port #
+
+max age is 10* hello timer by def
+
+
+choose root ports:=lowest port cost, best path to root bridge
+root cost is the collection of each outgoing port to the root bridge
+tie:lowest neighbor bid
+tie:lowest neighbor port priority
+tie:lowest neighbor port number
+
+Distro:route filter, intervlan routing, mgmt. acls and ips filters, sec policies, packet manipulation, routing, summarization, next hop redundancy, 
+
+Access: user auth and port sec, vlans, 
+NAC cisco, must comply to access net, Nac profiler automates the discover and inventory
+
+
+----CMDs:---
+ping 1.1.1.1 size 1000 (will cause fragmentation)
+ping 1.1.1.1 size 1000 df (dont fragment) will fail
+speed 1000
+duplex full
+show interface status
+end, exit
+interface range fa0/1-12
+description
+show interface 
+show ip interface brief
+show ip route
+ntp master
+routing
+----TASKS:---
+disable autonegotiate duplex
+sfp fiber
+ARP
+----FACTS:---
+ipv4 header: option 60 bytes?
+ethernet header sfd, fcs
+100 byte pings
+cisco disco l2
+dtp dynamic trunking l2
+64 ttl
+version 4 0100
+bgp = 20 ext, 200 int, 200 local
+
+mac 6by=48
+ipv6 =128b
+
+
+
+
+hostnames
+gateway should be the router
+turn off unused switchports, add descriptions
+>
+(config-if)#description
+
+access-list name
+deny vlan 60 eq 80
+deny vlan 60 eq http
+permit ip any any  
+access-list vlan 60 in
+
+vlan 60
+switchport mode encapsulation dot1q
+switchport mode trunk
+switchport allowed vlans 20, 60
+ip intf 10.0.0.0.60 encapsulation dot1q vlan 60
+
+0x800, 00000100 ipv4
+0x???, 00000110
+
+
+update stp role:
+find root bridge: bid lowest: bridge prio (priorit sys id = extended sys id + vlan #, mac), mac
+all intfs designated pts
+lowest cost = root port, all others are designated if designated switch?
+connected directly to rtbrg = nondesignated
+intf with lower root cost = designated, other non designated
+show spanning-tree
+show spanning-tree vlan 1
+root bridge has all designated ports and fwding
+show spanning-tree detail (shows cost)
+show spanning-tree summary (shows stp states and vlans)
+
+bpduguard enable/disable
+portfast enable/disable
+portfast defaults to edge mode
+should enable portfast on switch access ports to client nodes
+
+
+bdpufilter default all and no bdpus will be sent out
+bdpufilter does not send bdpus but if one received it will become stp
+cmd: spanningtree guard loop
+show spanningtree interface detail
+rootguard bkn/rtinc = broken/root inconsistency, only for root but not on access ports? 
+l1 problems on fiber causes unidirectional loops. loopguard bkn/lpinc, for designated ports
+rootguard and loopguard auto reenable when problem is fixed
+
+
 ieigrp(10^7/minbandw)+delay(microsecs/10)*256
 eeigrp def 34672000
 show ip interface brief
