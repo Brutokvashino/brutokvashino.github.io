@@ -1,4 +1,40 @@
 <!--
+
+
+Get-Module -Name ActiveDirectory -ListAvailable
+
+Pwr Get-ADUser *
+SQL SELECT * FROM * WHERE * = "*"
+Py 
+AWS api req
+
+
+Pwr...
+Get-ADUser -Identity *
+-Properties *
+Set-ADUser -*Property '*'
+| Format-List *, *
+
+
+get-mguser
+-filter
+-userid
+Select
+eq
+ne
+
+-Filter 'Name -like "*NNNAccount"'
+
+
+Get-ADUser -Filter * -SearchBase "OU=Finance,OU=UserAccounts,DC=FABRIKAM,DC=COM"
+
+Format-List  ID, DisplayName, Mail, UserPrincipalName
+
+dsget group "CN=GroupName,DC=domain,DC=name,DC=com" -members
+
+dsquery group -samid "Group_SAM_Account_Name" | dsget group -members -expand
+
+
         Python
         x = input("Please give me a value for x. ")
         print("Output:n\I am printing what you saved as "+x+". ")
