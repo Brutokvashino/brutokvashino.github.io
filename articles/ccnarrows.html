@@ -173,7 +173,6 @@ fcs for errors
 3 octets for 24 bits oui
 FF 255 FF 255 FF 255
 
-VRRP over eth 00:00:5E OUI 00:01:XX IANA VRRP
 vtp domain [name]
 ap mode transparent
 
@@ -249,7 +248,7 @@ T1 1.544 mbps
 LLQ
 GRE tunnels
 Syslog facility
-vrrp .18, 5e0001
+
 
 there is a hidden implicit deny, so permit any any is good at end of acl
 acl apply to all any or 0.0.0.0 255.255.255.255
@@ -593,6 +592,7 @@ The Fred Hut Really Peppers: 1x2<br>
 HSRP 3,10 .2/.102 c074c01, PI means highest Priority then IP <br> 
 V5RRP 1,3 .18, 5e0001 adv, master down<br>
 GLBP 3, 10 .102, PI, 7b400 unique MACs for load balancing<br>
+1024 possible groups, no designated router, all fwd<br>
 <br><br>
 </div><br><br><div id="cdp" style="background-image: url('https://brutokvashino.github.io/images/house_green.jpg'); width:390px; height:390px; object-fit: contain;background-size:cover;"><button id="getetherfact" onclick="getetherfact()">+</button><span id="etherfactgot"></span>
 The Cisco Disco:
@@ -746,6 +746,10 @@ Frame Check Sequence (FCS) (4 bytes): CRC used for error checking.<br>
 FHRP:<br>
         VRRP multicast 224.0.0.18
         VRRP mac 
+                vrrp .18, 5e0001
+        VRRP over eth 00:00:5E OUI 00:01:XX IANA VRRP
+owns ip address = priority goes to 255
+IP Owner will win over preempt
         <br><br>
 Hub:<br>
         all same broadcast domain and collision domain, shared bandwidth, half-duplex mode for devices<br>
