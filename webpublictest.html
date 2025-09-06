@@ -248,50 +248,6 @@ else if (txt == 27) {return "Land";}
           else if (txt == 0) {return "";}
 
       }
-      function rooms() {
-          var txt = getRndInteger(1,1);
-          if (txt == 0) {return "greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
-          else if (txt == 1) {return "'https://brutokvashino.github.io/images/island.jpg'";}
-          else if (txt == 2) {return "shower";}
-          else if (txt == 3) {return "gallery";}
-          else if (txt == 4) {return "kitchen";}
-          else if (txt == 5) {return "meeting room";}
-          else if (txt == 6) {return "computer room";}
-          else if (txt == 7) {return "office";}
-          else if (txt == 8) {return "studio";}
-          else if (txt == 9) {return "toilet";}
-          else if (txt == 10) {return "full_bath";}
-          else if (txt == 11) {return "stalls";}
-          else if (txt == 12) {return "windows";}
-          else if (txt == 13) {return "conservatory";}
-          else if (txt == 14) {return "storeroom";}
-          else if (txt == 15) {return "hallway";}
-          else if (txt == 16) {return "gameroom";}
-          else if (txt == 17) {return "foyer";}
-          else if (txt == 18) {return "lab";}
-          else if (txt == 19) {return "terrace";}
-          else if (txt == 20) {return "balcony";}
-          else if (txt == 21) {return "watch";}
-          else if (txt == 22) {return "library";}
-          else if (txt == 23) {return "cellar";}
-          else if (txt == 24) {return "attic";}
-          else if (txt == 25) {return "pantry";}
-          else if (txt == 26) {return "dining room";}
-          else if (txt == 27) {return "bedroom";}
-          else if (txt == 28) {return "stairs";}
-          else if (txt == 29) {return "cafeteria";}
-          else if (txt == 30) {return "living room";}
-          else if (txt == 31) {return "music room";}
-          else if (txt == 32) {return "ballroom";}
-          else if (txt == 33) {return "banquet hall";}
-          else if (txt == 34) {return "throneroom";}
-          else if (txt == 35) {return "theater";}
-          else if (txt == 36) {return "cinema";}
-          else if (txt == 37) {return "temple";}
-          else if (txt == 38) {return "coatroom";}
-          else if (txt == 39) {return "garden";}
-
-      }
       function structures() {
           var txt = getRndInteger(1,41);
           if (txt == 0) {return "fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
@@ -1225,9 +1181,20 @@ function runmadlib(){
     document.getElementById("roadgot").innerHTML = roads();
   }function getweapon(){
     document.getElementById("weapongot").innerHTML = weapons();
-  }function getroom(){
-    roomgot = rooms();
-  }function getstructure(){
+  }function roomgot(){
+		const images = [
+    "https://brutokvashino.github.io/images/island.jpg",
+    "https://brutokvashino.github.io/images/forest.jpg",
+    "https://brutokvashino.github.io/images/mountain.jpg"
+  ];
+		  const randIndex = Math.floor(Math.random() * images.length);
+  const chosenImage = images[randIndex];
+
+		  document.getElementById("room").style.backgroundImage = `url(${chosenImage})`;
+  document.getElementById("room").style.backgroundSize = "cover";
+	}
+	
+	function getstructure(){
     document.getElementById("structuregot").innerHTML = structures();
   }function getcharacter(){
     document.getElementById("charactergot").innerHTML = characters();
@@ -1287,7 +1254,7 @@ function copyprefix() {
 </script>
 <br><br><h2>What is your quest?</h2>
 <div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-  In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
+  In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id=""></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
   </div>  
   <button id="runmadlib" onclick="runmadlib()">Start</button>
   <br><br><br>
@@ -1521,7 +1488,7 @@ function copyprefix() {
 <p>Click a square to build</p>
 <br>
 <div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background-image: url = roomgot">
+<div id="room" style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="roomgot"></div>
 <input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
 <input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
 <input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
@@ -1569,7 +1536,7 @@ function copyprefix() {
     <br><br>
 	Rooms:
     <button id="getroom" onclick="getroom()">Select</button>
-    <span id="roomgot"></span>
+    <span id=""></span>
     <br><br>
     <br><br>
 	    <h2>Extra</h2>
