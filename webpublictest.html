@@ -1187,11 +1187,11 @@ function runmadlib(){
     "https://brutokvashino.github.io/images/forest.jpg",
     "https://brutokvashino.github.io/images/mountain.jpg"
   ];
-		  const randIndex = Math.floor(Math.random() * images.length);
-  const chosenImage = images[randIndex];
+const randIndex = Math.floor(getRndInteger(1,1) * images.length);
+const chosenImage = images[randIndex];
 
-		  document.getElementById("room").style.backgroundImage = `url(${chosenImage})`;
-  document.getElementById("room").style.backgroundSize = "cover";
+document.getElementById("room").style.backgroundImage = `url(${chosenImage})`;
+document.getElementById("room").style.backgroundSize = "cover";
 	}
 	
 	function getstructure(){
