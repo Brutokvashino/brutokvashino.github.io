@@ -4,7 +4,6 @@
 <title>Quest Randomizer</title>
 </head>
 <body>
-https://brutokvashino.github.io/images/island.jpg
   <h1>Build Your Own Quest</h1>
   <div class="navbar">
     <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
@@ -250,9 +249,9 @@ else if (txt == 27) {return "Land";}
 
       }
       function rooms() {
-          var txt = getRndInteger(1,37);
+          var txt = getRndInteger(1,1);
           if (txt == 0) {return "greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
-          else if (txt == 1) {return "courtroom";}
+          else if (txt == 1) {return "'https://brutokvashino.github.io/images/island.jpg'";}
           else if (txt == 2) {return "shower";}
           else if (txt == 3) {return "gallery";}
           else if (txt == 4) {return "kitchen";}
@@ -1227,7 +1226,7 @@ function runmadlib(){
   }function getweapon(){
     document.getElementById("weapongot").innerHTML = weapons();
   }function getroom(){
-    document.getElementById("roomgot").innerHTML = rooms();
+    roomgot = rooms();
   }function getstructure(){
     document.getElementById("structuregot").innerHTML = structures();
   }function getcharacter(){
@@ -1522,7 +1521,7 @@ function copyprefix() {
 <p>Click a square to build</p>
 <br>
 <div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background-image: url = roomgot">
 <input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
 <input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
 <input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
