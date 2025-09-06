@@ -1,23 +1,18 @@
-<button onclick="roomgot()">Get Room</button>
-
-<div id="room" style="width:300px;height:200px;border:1px solid black;">
-  <!-- The background image will show here -->
+<div id="room" style="width:300px;height:200px;border:1px solid black;" onclick="roomgot()">
+<div id="room" style="width:300px;height:200px;border:1px solid black;" onclick="roomgot()">
+<div id="room" style="width:300px;height:200px;border:1px solid black;" onclick="roomgot()">
+<div id="room" style="width:300px;height:200px;border:1px solid black;" onclick="roomgot()">
 </div>
 
 <script>
 function roomgot() {
-  // List of image URLs
   const images = [
     "https://brutokvashino.github.io/images/island.jpg",
     "https://brutokvashino.github.io/images/forest.jpg",
     "https://brutokvashino.github.io/images/mountain.jpg"
   ];
-  
-  // Pick a random one
   const randIndex = Math.floor(Math.random() * images.length);
   const chosenImage = images[randIndex];
-  
-  // Apply it as background
   document.getElementById("room").style.backgroundImage = `url(${chosenImage})`;
   document.getElementById("room").style.backgroundSize = "cover";
 }
