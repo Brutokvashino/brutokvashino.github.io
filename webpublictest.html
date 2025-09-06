@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Quest Randomizer</title>
+</head>
+<body>
+https://brutokvashino.github.io/images/island.jpg
+  <h1>Build Your Own Quest</h1>
+  <div class="navbar">
+    <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
+    <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
+    <a href="webpublicquests.html" title="Generates random strings for story-telling" class="templateLink">Quest Game</a> 
+    <a href="webnumberguesser.html" title="A game where you guess the number" class="templateLink">Number Guesser</a> 
+    <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
+    <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
+    <a href="webnamegen.html" title="Generates random names" class="templateLink">Name Generator</a>   
+    <a href="minesweeper.html" title="Click around and find out" class="templateLink">Minesweeper</a>   
+    <a href="doctor.html" title="Doctor Quackov is in" class="templateLink">Doctor</a>   
+  </div>
+
+<a href="javascript:void(0)" id="dragbar"></a>
+<p>
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+        function intros() {
+          var txt = getRndInteger(1,64);
+          if (txt == 1) {return "Scenic";}
+          else if (txt == 2) {return "Historic";}
+          else if (txt == 3) {return "Remote";}
+          else if (txt == 4) {return "Colonial";}
+          else if (txt == 5) {return "The Sun-Drenched";}
+          else if (txt == 6) {return "Tropical";}
+          else if (txt == 7) {return "The Sun-Drenched Tropical Paradise";}
+          else if (txt == 8) {return "Quaint";}
+          else if (txt == 9) {return "Foggy";}
+          else if (txt == 10) {return "Beautiful";}
+          else if (txt == 11) {return "Wet";}
+          else if (txt == 12) {return "Infested";}
+          else if (txt == 13) {return "Cultural";}
+          else if (txt == 14) {return "Crime-ridden";}
+          else if (txt == 15) {return "Rich";}
+          else if (txt == 16) {return "Dodgy";}
+          else if (txt == 17) {return "Seedy";}
+          else if (txt == 18) {return "Wealthy";}
+          else if (txt == 19) {return "Affluent";}
+          else if (txt == 20) {return "Cozy";}
+          else if (txt == 21) {return "Boring";}
+          else if (txt == 22) {return "Quiet";}
+          else if (txt == 23) {return "Bustling";}
+          else if (txt == 24) {return "Hip";}
+          else if (txt == 25) {return "Exciting";}
+          else if (txt == 26) {return "Filthy";}
+          else if (txt == 27) {return "Poor";}
+          else if (txt == 28) {return "Scary";}
+          else if (txt == 29) {return "Rural";}
+          else if (txt == 30) {return "The City of";}
+          else if (txt == 31) {return "Blessed";}
+          else if (txt == 32) {return "Cursed";}
+          else if (txt == 33) {return "Lost";}
+          else if (txt == 34) {return "The Lost City of";}
+          else if (txt == 35) {return "Far";}
+          else if (txt == 36) {return "Near";}
+          else if (txt == 37) {return "Abandoned";}
+          else if (txt == 38) {return "Burnt";}
+          else if (txt == 39) {return "Salty";}
+          else if (txt == 40) {return "Bright";}
+          else if (txt == 41) {return "Deserted";}
+          else if (txt == 42) {return "Haunted";}
+          else if (txt == 43) {return "Smoggy";}
+          else if (txt == 44) {return "Snowy";}
+          else if (txt == 45) {return "Boozy";}
+          else if (txt == 46) {return "Free";}
+          else if (txt == 47) {return "Utopian";}
+          else if (txt == 48) {return "Icy";}
+          else if (txt == 49) {return "Terrible";}
+          else if (txt == 40) {return "Wild";}
+          else if (txt == 51) {return "Timeless";}
+          else if (txt == 52) {return "Revolutionary";}
+          else if (txt == 53) {return "Whimsical";}
+          else if (txt == 54) {return "Mythical";}
+          else if (txt == 55) {return "Rainy";}
+          else if (txt == 56) {return "Dank";}
+          else if (txt == 57) {return "Bleak";}
+          else if (txt == 58) {return "Sacred";}
+          else if (txt == 59) {return "Windy";}
+          else if (txt == 60) {return "Harmonious";}
+          else if (txt == 61) {return "Picturesque";}
+          else if (txt == 62) {return "Freezing";}
+          else if (txt == 63) {return "Sweltering";}
+          else if (txt == 64) {return "Rustic";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+        }
+        function prefixes() {
+          var txt = getRndInteger(1,19);
+          if (txt == 0) {return "Lower,Pink, Yellow, Orange, Broken, Dry,, Fort, Big, El, Bad, Gran, Grand, Great, Hallow, Grey, Costa, Blue, Tall,, Winter, Summer, Tierra, Wandering,, Windy, Sandy, Rainbow, Crimson, Celestial, Eternal, Fall, Weathered, One, Two, Three, Four, Fucsia, Short, Long, Young,";}
+          else if (txt == 1) {return "North";}
+          else if (txt == 2) {return "Mount";}
+          else if (txt == 3) {return "Greater";}
+          else if (txt == 4) {return "New";}
+          else if (txt == 5) {return "Port";}
+          else if (txt == 6) {return "Black";}
+          else if (txt == 7) {return "Road of ";}
+          else if (txt == 8) {return "Winding";}
+          else if (txt == 9) {return "Lost";}
+          else if (txt == 10) {return "Spring";}
+          else if (txt == 11) {return "West";}
+          else if (txt == 12) {return "East";}
+          else if (txt == 13) {return "South";}
+          else if (txt == 14) {return "Old";}
+          else if (txt == 15) {return "Red";}
+          else if (txt == 16) {return "White";}
+          else if (txt == 17) {return "Green";}
+          else if (txt == 18) {return "Dead";}
+          else if (txt == 19) {return "Monte";}
+          else if (txt == 20) {return "Bath";}
+          else if (txt == 21) {return "Key";}
+          else if (txt == 22) {return "Upper";}
+else if (txt == 23) {return "Ros";}
+
+      }
+      
+      function townnames() {
+          var txt = getRndInteger(1,23);
+          if (txt == 0) {return "Dog, Rose, Sunflower, Petunia, Lily, Deer, Fox, Tulip, Lions, Skull, Devils, Sand, Wine, Placido, San,, Turtle, Robin, Toten, Kreuz, Lichten, Briar, Thorn, Flower, Daisy, Peach, Hound, Cedar, Bear, Wolf, Apple, Butter, Mine, Mountain, Man's, Smuggler's, Rattlesnake, Winter, Summer, Tierra, Summoner's, Glacier, Ocean, Palm, Hinter, Nether, Heather, Danger, Aguas, Isla, Crocodile, Vogel, Diamond, Emerald, Berstein, Amber, Crystal, Pearl, Hawthorn, Blackthorn, Thorn, Bayberry, Belle, Redwood, Sequoia, Lenape, Cherokee, Cerulean, Cree, Cherry, Orange, Sky, Glass, Silver, Gold, Spruce, Hemlock, Hope, Harmony, Cinder, Crane, Dove, Palo, Saddle, Leaf, Mist, Drift, Spine, Bell, Myth, Ever, Arbor, Fall, Autumn, Dark, Black, White, Grey, Argentine, Venice, Flood, Fire, Frontier, Fox, Racoon, Goldenrod, Ember,";}
+          else if (txt == 1) {return "River";}
+          else if (txt == 2) {return "Oak";}
+          else if (txt == 3) {return "Spring";}
+          else if (txt == 4) {return "Willow";}
+          else if (txt == 5) {return "Stone";}
+          else if (txt == 6) {return "Paradise";}
+          else if (txt == 7) {return "Pine";}
+          else if (txt == 8) {return "Birken";}
+          else if (txt == 9) {return "Horse";}
+          else if (txt == 10) {return "Weiden";}
+          else if (txt == 11) {return "Linden";}
+          else if (txt == 12) {return "Eichen";}
+          else if (txt == 13) {return "Bone";}
+          else if (txt == 14) {return "Redwood";}
+          else if (txt == 15) {return "Cactus";}
+          else if (txt == 16) {return "Mill";}
+          else if (txt == 17) {return "Forge";}
+          else if (txt == 18) {return "Rock";}
+          else if (txt == 19) {return "Snake";}
+          else if (txt == 20) {return "Dogwood";}
+          else if (txt == 21) {return "Pumpkin";}
+          else if (txt == 22) {return "Edge";}
+          else if (txt == 23) {return "Rose";}
+          else if (txt == 24) {return "Gerudo";}
+          else if (txt == 25) {return "Faron";}
+          else if (txt == 26) {return "Hyrule";}
+          else if (txt == 27) {return "Holodrum";}
+          else if (txt == 28) {return "Tarm";}
+          else if (txt == 29) {return "Zora";}
+          else if (txt == 30) {return "Kakariko";}
+          else if (txt == 31) {return "Onett";}
+          else if (txt == 32) {return "Twoson";}
+          else if (txt == 33) {return "Threed";}
+          else if (txt == 34) {return "Dalaam";}
+          else if (txt == 35) {return "Fourside";}
+          else if (txt == 36) {return "Star";}
+          else if (txt == 37) {return "Stardew";}
+          else if (txt == 38) {return "Fairy";}
+          else if (txt == 38) {return "Key";}
+          else if (txt == 38) {return "Crest";}
+          else if (txt == 38) {return "Bath";}
+
+      }
+      function suffixes() {
+          var txt = getRndInteger(1,27);
+          if (txt == 0) {return "Sea, World, Church, Grad, Saxony, Sachsen, Mill, Wood, Forest, Forge, Flats, Way, Ranch, Hill, Swamp, Tree, Hollow, Mouth, Mund, Bay, Cape, Sands, Station, Cove, Rock, Bank, Head, Kopulos, Abbey, Rift, Gardens, Hills, Anchor, Creek, Bury, Crest, no_Mori, -ku, Shima, Gawa, Mura, Gard, Watch, Outpost, Wasser, Stone, Kreuz, Moor, Thorn, Bottom, Top, Country, Eye, Perdido, Dorado, Santo, Ridge, Narrows, Downs, Mill, Rapids, Village, Lake, Lodge, Mire, Crossing, Gorge, Badlands, Coast, Bog, Pass, Mountain, Gulf, Clearing, Hagen, Glen, Sylvania, Sagrada, Cross, Jokull, Fjall, Bay, Vik, Park, View, Palm, Reef, Peligroso, Isle, Beach, Shores, Grove, City, Canyon, Castle, Court, Haven, Spire, Port, Barrens, Waste, Laurel, Springs, Viejo, Nuevo, Brook, Vale, Rica, Gate, Wall, Song, Head, Isle, Islands, Verde, Plain, de Fuego, Rift, Burough, -hold";}
+          else if (txt == 1) {return "Berg";}
+          else if (txt == 2) {return "Valley";}
+          else if (txt == 3) {return "Towne";}
+          else if (txt == 4) {return "Flower";}
+          else if (txt == 5) {return "Hausen";}
+          else if (txt == 6) {return "Burg";}
+          else if (txt == 7) {return "Del";}
+          else if (txt == 8) {return "Meade";}
+          else if (txt == 9) {return "Field";}
+          else if (txt == 10) {return "Stadt";}
+          else if (txt == 11) {return "Port";}
+          else if (txt == 12) {return "Ville";}
+          else if (txt == 13) {return "Falls";}
+          else if (txt == 14) {return "Dorf";}
+          else if (txt == 15) {return "Bridge";}
+          else if (txt == 16) {return "Land";}
+          else if (txt == 17) {return "Ford";}
+          else if (txt == 18) {return "Dew";}
+          else if (txt == 19) {return "Fountain";}
+          else if (txt == 20) {return "Pulcher";}
+          else if (txt == 21) {return "Foedus";}
+          else if (txt == 22) {return "-let";}
+else if (txt == 22) {return "Byr";}
+else if (txt == 21) {return "Meadow";}
+          else if (txt == 22) {return "by the Water";}
+else if (txt == 23) {return "Water";}
+else if (txt == 24) {return "-sylvania";}
+else if (txt == 25) {return "-istan";}
+else if (txt == 26) {return "-abad";}
+else if (txt == 27) {return "Land";}
+	      
+      }
+      function nations() {
+          var txt = getRndInteger(1,36);
+          if (txt == 0) {return "Lascaux, Mistrise, Puddledeep, the_Cave_of Treasures, Plageo, , Greensprout, Everblossom, , Dunewaste, Gildin, Emc, Randolphville,,, Tekoa, Anathoth, Gibeah, Adamah, Rarámuri, Tarahumara, Fiji, Lenape, Huron, Munsee, Apache, Cherokee, Swampy_Cree, Forest_Cree, Inuit, Cheyenne, Hopi, Navajo, Dakota, Pensacola, Chatot, Apalachee, Timucua Tocobaga, Jororo, Ais, Jeaga, Mayaimi, Tequesta, Calusa, Matecumbe, Taino, Apache, Pueblo, Kikapoo, Oneida, Celts, Saxony, Iberia, Basque_Country, Angles, Lombards, Visigoths, Goths, Ostrogoths, Carolingians, Merovingians, Franks, Arawak, Sentinel, Caribs, Yoruba,";}
+          else if (txt == 1) {return "Ethiopia";}
+          else if (txt == 2) {return "France";}
+          else if (txt == 3) {return "Everdell";}
+          else if (txt == 4) {return "the Cave of Wonders";}
+          else if (txt == 5) {return "Treasure Island";}
+          else if (txt == 6) {return "Treasure Planet";}
+          else if (txt == 7) {return "Sierra de Atapuerca";}
+          else if (txt == 8) {return "Pangea";}
+          else if (txt == 9) {return "Lorien";}
+          else if (txt == 10) {return "Angmar";}
+          else if (txt == 11) {return "Bellfaire";}
+          else if (txt == 12) {return "Pearlbrook";}
+          else if (txt == 13) {return "spirecrest";}
+          else if (txt == 14) {return "Everfrost";}
+          else if (txt == 15) {return "Hopewatch";}
+          else if (txt == 16) {return "the Fatherland";}
+          else if (txt == 17) {return "the Motherland";}
+          else if (txt == 18) {return "the Misty Mountains";}
+          else if (txt == 19) {return "Antarctica";}
+          else if (txt == 20) {return "Gondor";}
+          else if (txt == 21) {return "Helms Deep";}
+          else if (txt == 22) {return "the Golden Kingdom";}
+          else if (txt == 23) {return "Bethlehem";}
+          else if (txt == 24) {return "Nazareth";}
+          else if (txt == 25) {return "the Unhappy Kingdom";}
+          else if (txt == 26) {return "the United Kingdom";}
+          else if (txt == 27) {return "Scotland";}
+          else if (txt == 28) {return "the Cossacks";}
+          else if (txt == 29) {return "Hyrule";}
+          else if (txt == 30) {return "Wessex";}
+          else if (txt == 31) {return "El Dorado";}
+          else if (txt == 32) {return "the Caribbean";}
+          else if (txt == 33) {return "the Underworld";}
+          else if (txt == 34) {return "Mount Olympus";}
+          else if (txt == 35) {return "the Greeks";}
+          else if (txt == 36) {return "Sparta";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+      function rooms() {
+          var txt = getRndInteger(1,37);
+          if (txt == 0) {return "greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
+          else if (txt == 1) {return "courtroom";}
+          else if (txt == 2) {return "shower";}
+          else if (txt == 3) {return "gallery";}
+          else if (txt == 4) {return "kitchen";}
+          else if (txt == 5) {return "meeting room";}
+          else if (txt == 6) {return "computer room";}
+          else if (txt == 7) {return "office";}
+          else if (txt == 8) {return "studio";}
+          else if (txt == 9) {return "toilet";}
+          else if (txt == 10) {return "full_bath";}
+          else if (txt == 11) {return "stalls";}
+          else if (txt == 12) {return "windows";}
+          else if (txt == 13) {return "conservatory";}
+          else if (txt == 14) {return "storeroom";}
+          else if (txt == 15) {return "hallway";}
+          else if (txt == 16) {return "gameroom";}
+          else if (txt == 17) {return "foyer";}
+          else if (txt == 18) {return "lab";}
+          else if (txt == 19) {return "terrace";}
+          else if (txt == 20) {return "balcony";}
+          else if (txt == 21) {return "watch";}
+          else if (txt == 22) {return "library";}
+          else if (txt == 23) {return "cellar";}
+          else if (txt == 24) {return "attic";}
+          else if (txt == 25) {return "pantry";}
+          else if (txt == 26) {return "dining room";}
+          else if (txt == 27) {return "bedroom";}
+          else if (txt == 28) {return "stairs";}
+          else if (txt == 29) {return "cafeteria";}
+          else if (txt == 30) {return "living room";}
+          else if (txt == 31) {return "music room";}
+          else if (txt == 32) {return "ballroom";}
+          else if (txt == 33) {return "banquet hall";}
+          else if (txt == 34) {return "throneroom";}
+          else if (txt == 35) {return "theater";}
+          else if (txt == 36) {return "cinema";}
+          else if (txt == 37) {return "temple";}
+          else if (txt == 38) {return "coatroom";}
+          else if (txt == 39) {return "garden";}
+
+      }
+      function structures() {
+          var txt = getRndInteger(1,41);
+          if (txt == 0) {return "fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
+          else if (txt == 1) {return "enclosure";}
+          else if (txt == 2) {return "tower";}
+          else if (txt == 3) {return "altar";}
+          else if (txt == 4) {return "zoo";}
+          else if (txt == 5) {return "monument";}
+          else if (txt == 6) {return "bank";}
+          else if (txt == 7) {return "town hall";}
+          else if (txt == 8) {return "courthouse";}
+          else if (txt == 9) {return "museum";}
+          else if (txt == 10) {return "hospital";}
+          else if (txt == 11) {return "residence";}
+          else if (txt == 12) {return "café";}
+          else if (txt == 13) {return "apartment";}
+          else if (txt == 14) {return "theater";}
+          else if (txt == 15) {return "warehouse";}
+          else if (txt == 16) {return "general store";}
+          else if (txt == 17) {return "prison";}
+          else if (txt == 18) {return "restaurant";}
+          else if (txt == 19) {return "inn";}
+          else if (txt == 20) {return "hotel";}
+          else if (txt == 21) {return "motel";}
+          else if (txt == 22) {return "windmill";}
+          else if (txt == 23) {return "police_station";}
+          else if (txt == 24) {return "saloon";}
+          else if (txt == 25) {return "bar";}
+          else if (txt == 26) {return "factory";}
+          else if (txt == 27) {return "office";}
+          else if (txt == 28) {return "restrooms";}
+          else if (txt == 29) {return "bakery";}
+          else if (txt == 30) {return "marketplace";}
+          else if (txt == 31) {return "plaza";}
+          else if (txt == 32) {return "fountain";}
+          else if (txt == 33) {return "well";}
+          else if (txt == 34) {return "outhouse";}
+          else if (txt == 35) {return "threshing_floor";}
+          else if (txt == 36) {return "barracks";}
+          else if (txt == 37) {return "training ground";}
+          else if (txt == 38) {return "park";}
+          else if (txt == 39) {return "festival field";}
+          else if (txt == 40) {return "racetrack";}
+          else if (txt == 41) {return "arena";}
+          else if (txt == 42) {return "castle";}
+          else if (txt == 43) {return "foodstore";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+      function weapons() {
+          var txt = getRndInteger(1,20);
+          if (txt == 0) {return "Sling, Slingshot, Fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
+          else if (txt == 1) {return "✒️Spear";}
+          else if (txt == 2) {return "🗡Sword";}
+          else if (txt == 3) {return "🦯Staff";}
+          else if (txt == 4) {return "🔨Pike";}
+          else if (txt == 5) {return "🛡Shield";}
+          else if (txt == 6) {return "🗡Longsword";}
+          else if (txt == 7) {return "🗡Greatsword";}
+          else if (txt == 8) {return "🗡Rapier";}
+          else if (txt == 9) {return "🗡Sabre";}
+          else if (txt == 10) {return "🔪Knife";}
+          else if (txt == 11) {return "🔨Club";}
+          else if (txt == 12) {return "🪄Wand";}
+          else if (txt == 13) {return "🏹Projectiles";}
+          else if (txt == 14) {return "🏓Fan";}
+          else if (txt == 15) {return "🥏Disc";}
+          else if (txt == 16) {return "🪓Scythe";}
+          else if (txt == 17) {return "🪓Axe";}
+          else if (txt == 18) {return "🔨Warhammer";}
+          else if (txt == 19) {return "🪓Battleaxe";}
+          else if (txt == 20) {return "🏹Bow";}
+          else if (txt == 21) {return "";}
+          else if (txt == 22) {return "";}
+          else if (txt == 23) {return "";}
+          else if (txt == 24) {return "";}
+          else if (txt == 25) {return "";}
+          else if (txt == 26) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+      function roads() {
+          var txt = getRndInteger(1,25);
+          if (txt == 0) {return "intersection, crossroad, traveler, campsite, roadkill, fallen_tree, guarded_detour, toll, guard_tower, gate, cobble, dirt, gravel, dusty, grass, mud, sinkhole, flooded, landslide, debris, hitchhiker, stranded, animal_crossing,";}
+          else if (txt == 1) {return "crowded";}
+          else if (txt == 2) {return "winding";}
+          else if (txt == 3) {return "bandit-ridden";}
+          else if (txt == 4) {return "over a bridge";}
+          else if (txt == 5) {return "uphill";}
+          else if (txt == 6) {return "downhill";}
+          else if (txt == 7) {return "scrambling";}
+          else if (txt == 8) {return "falling rocks";}
+          else if (txt == 9) {return "bridge short";}
+          else if (txt == 10) {return "bridge long";}
+          else if (txt == 11) {return "bridge makeshift";}
+          else if (txt == 12) {return "potholes";}
+          else if (txt == 13) {return "bumpy";}
+          else if (txt == 14) {return "uneven";}
+          else if (txt == 15) {return "cliffside";}
+          else if (txt == 16) {return "main";}
+          else if (txt == 17) {return "grave-ridden";}
+          else if (txt == 18) {return "river-crossing";}
+          else if (txt == 19) {return "broken bridge";}
+          else if (txt == 20) {return "long";}
+          else if (txt == 21) {return "forest";}
+          else if (txt == 22) {return "steep-walled";}
+          else if (txt == 23) {return "narrow";}
+          else if (txt == 24) {return "overgrown";}
+          else if (txt == 25) {return "wide";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+
+      }
+      function partyjobs() {
+          var txt = getRndInteger(1,13);
+          if (txt == 0) {return""}
+          else if (txt == 1) {return "Healer";}
+          else if (txt == 2) {return "Tank";}
+          else if (txt == 3) {return "Archer";}
+          else if (txt == 4) {return "Summoner";}
+          else if (txt == 5) {return "Mage";}
+          else if (txt == 6) {return "Thief";}
+          else if (txt == 7) {return "Scholar";}
+          else if (txt == 8) {return "Negotiator";}
+          else if (txt == 9) {return "Demolition Expert";}
+          else if (txt == 10) {return "Guide";}
+          else if (txt == 11) {return "Chef";}
+          else if (txt == 12) {return "Bodyguard";}
+          else if (txt == 13) {return "Leader";}
+          
+
+      }
+   
+      function characters() { /*appearance*/
+          var txt = getRndInteger(1,135);
+          if (txt == 0) {return "";}
+          else if (txt == 1) {return"🧑Human"}
+	  else if (txt == 2) {return "🧔‍♂️Dwarf";}   
+	  else if (txt == 3) {return "🧝🏽‍♂️Dark Elf";}  
+	  else if (txt == 4) {return "🧚Angel";} 
+	  else if (txt == 5) {return "👿Demon";}
+	  else if (txt == 6) {return "😈Tiefling";}
+	  else if (txt == 7) {return "Dragon";}
+	  else if (txt == 8) {return "🧝‍♀️Elf";}
+	  else if (txt == 9) {return "Paladin";}
+	  else if (txt == 10) {return "Gnome";}
+	  else if (txt == 11) {return "Animal";}
+	  else if (txt == 12) {return "🧝🏽‍♂️Half-Elf";}
+	  else if (txt == 13) {return "🚶Halfling";} 
+	  else if (txt == 14) {return "👹Orc";} 
+	  else if (txt == 15) {return "👹Goblin";} 
+	  else if (txt == 16) {return "👹Troll";} else if (txt == 17) {return "Half-Orc";}else if (txt == 18) {return "Wizard";} else if (txt == 19) {return "Yokai";}else if (txt == 20) {return "Immortal";}else if (txt == 21) {return "Bangaa";}else if (txt == 22) {return "Sprite";}else if (txt == 23) {return "Nymph";}else if (txt == 24) {return "Fairy";}else if (txt == 25) {return "Mermaid";}else if (txt == 26) {return "Fishfolk";}else if (txt == 27) {return "Undead";}else if (txt == 28) {return "Zombie";}else if (txt == 29) {return "Skeleton";}else if (txt == 30) {return "Shade";}else if (txt == 31) {return "Ghost";}else if (txt == 32) {return "Vampire";}else if (txt == 33) {return "Werewolf";}else if (txt == 34) {return "Satyr";}else if (txt == 35) {return "Leonin";}else if (txt == 36) {return "Ronso";}else if (txt == 37) {return "Mousefolk";}else if (txt == 38) {return "Birdfolk";}else if (txt == 39) {return "Fox";}else if (txt == 40) {return "Toadfolk";}else if (txt == 41) {return "Harefolk";}else if (txt == 42) {return "Turtlefolk";}else if (txt == 43) {return "Giant";}else if (txt == 44) {return "Elemental";}else if (txt == 45) {return "Bugbear";}else if (txt == 46) {return "Cherub";}
+          else if (txt == 47) {return "🌱Forestfolk";}
+	  else if (txt == 48) {return "🧝Hyrulean";}else if (txt == 49) {return "Krampus";}else if (txt == 50) {return "Lizardfolk";}else if (txt == 51) {return "Kajiit";}else if (txt == 52) {return "Moogle";}else if (txt == 53) {return "Mudblood";}else if (txt == 54) {return "Viera";}else if (txt == 55) {return "NuMou";}else if (txt == 56) {return "Seeq";}else if (txt == 57) {return "Garif";}else if (txt == 58) {return "Yensa";}else if (txt == 59) {return "Mii";}else if (txt == 60) {return "Bitmoji";}
+          else if (txt == 61) {return "🏋‍♀️Gerudo";}else if (txt == 62) {return "Dalek";}else if (txt == 63) {return "Zora";}else if (txt == 64) {return "Treefolk";}else if (txt == 65) {return "Black-Mage";}else if (txt == 66) {return "Cat";}else if (txt == 67) {return "Dog";}else if (txt == 68) {return "Wolf";}else if (txt == 69) {return "Heartless";}else if (txt == 70) {return "Spaceman";}
+          else if (txt == 71) {return "Nobody";} else if (txt == 72) {return "Mr. Saturn";}else if (txt == 73) {return "Witch";}else if (txt == 74) {return "Wikke";}else if (txt == 75) {return "Animal Whisperer";}else if (txt == 76) {return "Changeling";}else if (txt == 77) {return "Valkyrie";}else if (txt == 78) {return "Hulk";} else if (txt == 79) {return "Klingon";}else if (txt == 80) {return "Romulan";}else if (txt == 81) {return "Vulcan";}else if (txt == 82) {return "Firefolk";}
+          else if (txt == 83) {return "Rockfolk";}else if (txt == 84) {return "Goron";}
+          else if (txt == 85) {return "Twi'lek";}else if (txt == 86) {return "Android";}else if (txt == 87) {return "Saiyan";}else if (txt == 88) {return "Robot";}else if (txt == 89) {return "Pokemon";}else if (txt == 90) {return "Cyborg";}else if (txt == 91) {return "Jelly";}else if (txt == 92) {return "Wiggin";}else if (txt == 93) {return "Hedgehog";}else if (txt == 94) {return "Mushroom";}else if (txt == 95) {return "Slenderman";}else if (txt == 96) {return "Bugfolk";}else if (txt == 97) {return "Plantfolk";}else if (txt == 98) {return "Centaur";}else if (txt == 99) {return "Warforged";}else if (txt == 100) {return "Silican";}
+          else if (txt == 101) {return "Falmer";}else if (txt == 102) {return "Minotaur";}else if (txt == 103) {return "Loxodon";}else if (txt == 104) {return "Deerfolk";}else if (txt == 105) {return "Gargoyle";}else if (txt == 106) {return "Spiderfolk";}else if (txt == 107) {return "Unicorn";}else if (txt == 108) {return "Jin";}else if (txt == 109) {return "Cyclops";}else if (txt == 110) {return "Anubis";}
+          else if (txt == 111) {return "Griffin";}else if (txt == 112) {return "Harpy";}else if (txt == 113) {return "Sphinx";}else if (txt == 114) {return "Scorpionfolk";}else if (txt == 115) {return "Icefolk";}else if (txt == 116) {return "Golem";}else if (txt == 117) {return "Pigfolk";}else if (txt == 118) {return "Sage";}else if (txt == 119) {return "Monkeykin";}else if (txt == 120) {return "Bigfoot";}else if (txt == 121) {return "Yeti";}else if (txt == 122) {return "Imp";}
+          else if (txt == 123) {return "Imp";}
+          else if (txt == 124) {return "Draugr";}
+          else if (txt == 125) {return "Faun";}
+          else if (txt == 126) {return "Pegasus";}
+          else if (txt == 127) {return "Chimera";}
+ 	  else if (txt == 128) {return "M&M";}
+          else if (txt == 129) {return "Bubble Buddy";}
+          else if (txt == 130) {return "Sponge";}
+          else if (txt == 131) {return "Starfish";}
+          else if (txt == 132) {return "Crab";}
+          else if (txt == 133) {return "TV show character";}
+          else if (txt == 134) {return "Movie star";}
+          else if (txt == 135) {return "Machine";}
+          else if (txt == 136) {return "Concept";}
+      }
+   
+      function interactions() {
+          var txt = getRndInteger(1,61);
+          if (txt == 0) {return "directions, sell to, trade with, slap, harass, run, follow, beckon, flirt, threaten, curse, invite, inform, give, beg, stare, laugh, joke, overshare, introduce, smalltalk, listen, overhear, mispeak, propose, befriend, fall in love with, frown, cry, yawn, disgust, repulse, attract, enchant, preach, handshake, trust, mistrust, convince, pillage, defeat,";}
+          else if (txt == 1) {return "hit";}
+          else if (txt == 2) {return "greet";}
+          else if (txt == 3) {return "rob";}
+          else if (txt == 4) {return "hug";}
+          else if (txt == 5) {return "antagonize";}
+          else if (txt == 6) {return "gossip to";}
+          else if (txt == 7) {return "bless";}
+          else if (txt == 8) {return "kidnap";}
+          else if (txt == 9) {return "fight";}
+          else if (txt == 10) {return "steal";}
+          else if (txt == 11) {return "wave to";}
+          else if (txt == 12) {return "grunt at";}
+          else if (txt == 13) {return "scowl";}
+          else if (txt == 14) {return "question";}
+          else if (txt == 15) {return "slap";}
+          else if (txt == 16) {return "smile at";}
+          else if (txt == 17) {return "sing to";}
+          else if (txt == 18) {return "pray for";}
+          else if (txt == 19) {return "drink with";}
+          else if (txt == 20) {return "ignore";}
+          else if (txt == 21) {return "charm";}
+          else if (txt == 22) {return "marry";}
+          else if (txt == 23) {return "kill";}
+          else if (txt == 24) {return "gossip about";}
+          else if (txt == 25) {return "tell a secret to";}
+          else if (txt == 26) {return "interrogate";}
+          else if (txt == 27) {return "make friends with";}
+          else if (txt == 28) {return "accompany";}
+          else if (txt == 29) {return "follow";}
+          else if (txt == 30) {return "flee";}
+          else if (txt == 31) {return "pet";}
+          else if (txt == 32) {return "photograph";}
+          else if (txt == 33) {return "admire";}
+          else if (txt == 34) {return "assess";}
+          else if (txt == 35) {return "sneak up on";}
+          else if (txt == 36) {return "worship";}
+          else if (txt == 37) {return "pray to";}
+          else if (txt == 38) {return "pray for";}
+          else if (txt == 39) {return "argue with";}
+          else if (txt == 40) {return "sell to";}
+          else if (txt == 41) {return "preach to";}
+          else if (txt == 42) {return "inform";}
+          else if (txt == 43) {return "educate";}
+          else if (txt == 44) {return "fraternize";}
+          else if (txt == 45) {return "small talk with";}
+          else if (txt == 46) {return "chit chat with";}
+          else if (txt == 47) {return "question";}
+          else if (txt == 48) {return "confuse";}
+          else if (txt == 49) {return "dare";}
+          else if (txt == 50) {return "challenge";}
+          else if (txt == 51) {return "inspect";}
+          else if (txt == 52) {return "judge";}
+          else if (txt == 53) {return "observe";}
+          else if (txt == 54) {return "write up";}
+          else if (txt == 55) {return "accuse";}
+          else if (txt == 56) {return "sue";}
+          else if (txt == 57) {return "ignore";}
+          else if (txt == 58) {return "celebrate with";}
+          else if (txt == 59) {return "dance with";}
+          else if (txt == 60) {return "sing to";}
+          else if (txt == 61) {return "play a game with";}
+
+      }
+      function activities() {
+          var txt = getRndInteger(1,50);
+          if (txt == 0) {return "pull, push, lift, , walk, fall,";}
+          else if (txt == 1) {return "sit";}
+          else if (txt == 2) {return "sleep";}
+          else if (txt == 3) {return "examine";}
+          else if (txt == 4) {return "recline";}
+          else if (txt == 5) {return "run";}
+          else if (txt == 6) {return "sing";}
+          else if (txt == 7) {return "daydream";}
+          else if (txt == 8) {return "eat";}
+          else if (txt == 9) {return "drink";}
+          else if (txt == 10) {return "scratch oneself";}
+          else if (txt == 11) {return "groom oneself";}
+          else if (txt == 12) {return "shave";}
+          else if (txt == 13) {return "trim one's nails";}
+          else if (txt == 14) {return "paint one's nails";}
+          else if (txt == 15) {return "pick one's nose";}
+          else if (txt == 16) {return "blow one's nose";}
+          else if (txt == 17) {return "take it";}
+          else if (txt == 18) {return "place it somewhere";}
+          else if (txt == 19) {return "put it down";}
+          else if (txt == 20) {return "use it";}
+          else if (txt == 21) {return "hold it";}
+          else if (txt == 22) {return "talk to oneself";}
+          else if (txt == 23) {return "make tea";}
+          else if (txt == 24) {return "smoke";}
+          else if (txt == 25) {return "daydream";}
+          else if (txt == 26) {return "twitch nervously";}
+          else if (txt == 27) {return "sweat";}
+          else if (txt == 28) {return "mosh";}
+          else if (txt == 29) {return "brood";}
+          else if (txt == 30) {return "loiter";}
+          else if (txt == 31) {return "dare to dream";}
+          else if (txt == 32) {return "commit a crime";}
+          else if (txt == 33) {return "write";}
+          else if (txt == 34) {return "paint";}
+          else if (txt == 35) {return "improve oneself";}
+          else if (txt == 36) {return "play a game";}
+          else if (txt == 37) {return "plot";}
+          else if (txt == 38) {return "think";}
+          else if (txt == 39) {return "ponder";}
+          else if (txt == 40) {return "cry";}
+          else if (txt == 41) {return "whine";}
+          else if (txt == 42) {return "meditate";}
+          else if (txt == 43) {return "snack";}
+          else if (txt == 44) {return "complain";}
+          else if (txt == 45) {return "medicate";}
+          else if (txt == 46) {return "work";}
+          else if (txt == 47) {return "fret";}
+          else if (txt == 48) {return "sing";}
+          else if (txt == 49) {return "perform";}
+          else if (txt == 50) {return "dance";}
+
+      }
+
+      function questitems() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return "the Kolojala sword, Philosopher's Stone,";}
+          else if (txt == 1) {return "Golden Snitch";}
+          else if (txt == 2) {return "Holy Grail";}
+          else if (txt == 3) {return "Goliath Sword";}
+          else if (txt == 4) {return "Golden Hat of Schifferstadt";}
+          else if (txt == 5) {return "Lance of Longinus";}
+          else if (txt == 6) {return "Sword of Kings";}
+          else if (txt == 7) {return "Don Patch Sword";}
+          else if (txt == 8) {return "Helmet of Albrech";}
+          else if (txt == 9) {return "Ring of Power";}
+          else if (txt == 10) {return "Ring of Reingold";}
+          else if (txt == 11) {return "Invisibility Cloak";}
+          else if (txt == 12) {return "Wand of Albus Dumbledore";}
+          else if (txt == 13) {return "Shephard's Journal";}
+          else if (txt == 14) {return "Enchanted Rose";}
+          else if (txt == 15) {return "Worthless Blessing";}
+      }
+      function mysteriousitems() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return "staff, talon, fang, talisman, rune, message";}
+          else if (txt == 1) {return "a book";}
+          else if (txt == 2) {return "an orb";}
+          else if (txt == 3) {return "a stone";}
+          else if (txt == 4) {return "breadcrumbs";}
+          else if (txt == 5) {return "a pen";}
+          else if (txt == 6) {return "a Spear";}
+          else if (txt == 7) {return "a Shield";}
+          else if (txt == 8) {return "a knife";}
+          else if (txt == 9) {return "a bracelet";}
+          else if (txt == 10) {return "a potion";}
+          else if (txt == 11) {return "a harp";}
+          else if (txt == 12) {return "a sword";}
+          else if (txt == 13) {return "a lead pipe";}
+          else if (txt == 14) {return "a weapon";}
+          else if (txt == 15) {return "a tool";}
+
+      }
+      function phrases() {
+          var txt = getRndInteger(1,6);
+          if (txt == 0) {return ", ";}
+          else if (txt == 1) {return "bread";}
+          else if (txt == 2) {return "If so-and-so were still alive...";}
+          else if (txt == 3) {return "Chimp!";}
+          else if (txt == 4) {return "Kittycat";}
+          else if (txt == 5) {return "Airslosh!";}
+          else if (txt == 6) {return "You've got your sheep, and you've got your black sheep. I'm not a sheep, I'm on the friggin' moon!";}
+      }
+
+      function lootitems() {
+          var txt = getRndInteger(1,15);
+          if (txt == 0) {return ", breadcrumbs, feather, cat_toy, leek, spear, pike, shield, sword, longsword, greatsword, rapier, sabre, knife, club, staff, wand, fan, disc, Scythe, Axe, Warhammer, Battleaxe, Projectiles, Bow, Sling, Slingshot, Fists, Bomchu, Pipe, Pan, Shovel, Book, Element, Shout, Triton, Blaster, Ninjato, Katana, Nunchaku, Blowgun, Shuriken, Crossbow, Claws, Kusarigama, Mace, Ball_and_Chain, Whip, Chain, Assassin's_Knife, Lance,";}
+          else if (txt == 1) {return "a warm burrito";}
+          else if (txt == 2) {return "a candlestick";}
+          else if (txt == 3) {return "some rope";}
+          else if (txt == 4) {return "a frozen burrito";}
+          else if (txt == 5) {return "a hamburger";}
+          else if (txt == 6) {return "bomchu";}
+          else if (txt == 7) {return "a metal pipe";}
+          else if (txt == 8) {return "a rock";}
+          else if (txt == 9) {return "coins";}
+          else if (txt == 10) {return "paper";}
+          else if (txt == 11) {return "partially eaten food";}
+          else if (txt == 12) {return "a pen";}
+          else if (txt == 13) {return "a pencil";}
+          else if (txt == 14) {return "a bracelet";}
+          else if (txt == 15) {return "a potato";}
+          else if (txt == 0) {return "";}
+      }
+      function monsters() {
+          var txt = getRndInteger(1,128);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Bozo";}
+          else if (txt == 2) {return "big Bozo";}
+          else if (txt == 3) {return "Vampire";}
+          else if (txt == 4) {return "Extremist";}
+          else if (txt == 5) {return"Bandit"}
+	else if (txt == 6) {return "Tiefling";}
+	  else if (txt == 7) {return "Dragon";}else if (txt == 8) {return "Elf";}else if (txt == 9) {return "Paladin";}else if (txt == 10) {return "Gnome";}else if (txt == 11) {return "Animal";}else if (txt == 12) {return "Half-Elf";}else if (txt == 13) {return "Halfling";} else if (txt == 14) {return "Orc";} else if (txt == 15) {return "Goblin";} else if (txt == 16) {return "Troll";} else if (txt == 17) {return "Half-Orc";}else if (txt == 18) {return "Wizard";} else if (txt == 19) {return "Yōkai";}else if (txt == 20) {return "Immortal";}else if (txt == 21) {return "Bangaa";}else if (txt == 22) {return "Sprite";}else if (txt == 23) {return "Nymph";}else if (txt == 24) {return "Fairy";}else if (txt == 25) {return "Mermaid";}else if (txt == 26) {return "Fishfolk";}else if (txt == 27) {return "Undead";}else if (txt == 28) {return "Zombie";}else if (txt == 29) {return "Skeleton";}else if (txt == 30) {return "Shade";}else if (txt == 31) {return "Ghost";}else if (txt == 32) {return "Vampire";}else if (txt == 33) {return "Werewolf";}else if (txt == 34) {return "Satyr";}else if (txt == 35) {return "Leonin";}else if (txt == 36) {return "Ronso";}else if (txt == 37) {return "Mousefolk";}else if (txt == 38) {return "Birdfolk";}else if (txt == 39) {return "Fox";}else if (txt == 40) {return "Toadfolk";}else if (txt == 41) {return "Harefolk";}else if (txt == 42) {return "Turtlefolk";}else if (txt == 43) {return "Giant";}else if (txt == 44) {return "Elemental";}else if (txt == 45) {return "Bugbear";}else if (txt == 46) {return "Cherub";}
+          
+	  else if (txt == 47) {return "Forestfolk";}else if (txt == 48) {return "Hyrulean";}else if (txt == 49) {return "Krampus";}else if (txt == 50) {return "Lizardfolk";}else if (txt == 51) {return "Kajiit";}else if (txt == 52) {return "Moogle";}else if (txt == 53) {return "Mudblood";}else if (txt == 54) {return "Viera";}else if (txt == 55) {return "NuMou";}else if (txt == 56) {return "Seeq";}else if (txt == 57) {return "Garif";}else if (txt == 58) {return "Yensa";}else if (txt == 59) {return "Mii";}else if (txt == 60) {return "Bitmoji";}
+          else if (txt == 61) {return "Gerudo";}else if (txt == 62) {return "Dalek";}else if (txt == 63) {return "Zora";}else if (txt == 64) {return "Treefolk";}else if (txt == 65) {return "Black-Mage";}else if (txt == 66) {return "Cat";}else if (txt == 67) {return "Dog";}else if (txt == 68) {return "Wolf";}else if (txt == 69) {return "Heartless";}else if (txt == 70) {return "Spaceman";}
+          else if (txt == 71) {return "Nobody";} else if (txt == 72) {return "Mr. Saturn";}else if (txt == 73) {return "Witch";}else if (txt == 74) {return "Wikke";}else if (txt == 75) {return "Animal Whisperer";}else if (txt == 76) {return "Changeling";}else if (txt == 77) {return "Valkyrie";}else if (txt == 78) {return "Hulk";} else if (txt == 79) {return "Klingon";}else if (txt == 80) {return "Romulan";}else if (txt == 81) {return "Vulcan";}else if (txt == 82) {return "Firefolk";}
+          else if (txt == 83) {return "Rockfolk";}else if (txt == 84) {return "Goron";}
+          else if (txt == 85) {return "Twi'lek";}else if (txt == 86) {return "Android";}else if (txt == 87) {return "Saiyan";}else if (txt == 88) {return "Robot";}else if (txt == 89) {return "Pokemon";}else if (txt == 90) {return "Cyborg";}else if (txt == 91) {return "Jelly";}else if (txt == 92) {return "Wiggin";}else if (txt == 93) {return "Hedgehog";}else if (txt == 94) {return "Mushroom";}else if (txt == 95) {return "Slenderman";}else if (txt == 96) {return "Bugfolk";}else if (txt == 97) {return "Plantfolk";}else if (txt == 98) {return "Centaur";}else if (txt == 99) {return "Warforged";}else if (txt == 100) {return "Silican";}
+          else if (txt == 101) {return "Falmer";}else if (txt == 102) {return "Minotaur";}else if (txt == 103) {return "Loxodon";}else if (txt == 104) {return "Deerfolk";}else if (txt == 105) {return "Gargoyle";}else if (txt == 106) {return "Spiderfolk";}else if (txt == 107) {return "Unicorn";}else if (txt == 108) {return "Jin";}else if (txt == 109) {return "Cyclops";}else if (txt == 110) {return "Anubis";}
+          else if (txt == 111) {return "Griffin";}else if (txt == 112) {return "Harpy";}else if (txt == 113) {return "Sphinx";}else if (txt == 114) {return "Scorpionfolk";}else if (txt == 115) {return "Icefolk";}else if (txt == 116) {return "Golem";}else if (txt == 117) {return "Pigfolk";}else if (txt == 118) {return "Sage";}else if (txt == 119) {return "Monkeykin";}else if (txt == 120) {return "Bigfoot";}else if (txt == 121) {return "Yeti";}else if (txt == 122) {return "Imp";}
+          else if (txt == 123) {return "Imp";}
+          else if (txt == 124) {return "Draugr";}
+          else if (txt == 125) {return "Faun";}
+          else if (txt == 126) {return "Pegasus";}
+          else if (txt == 127) {return "Chimera";}
+	else if (txt == 128) {return "Sora, Hylian, Gerudo, etc.";}
+	else if (txt == 2) {return "Dwarf";}   else if (txt == 3) {return "Dark Elf";}  else if (txt == 4) {return "Angel";} else if (txt == 5) {return "Demon";}
+      }
+      function boss() {
+          var txt = getRndInteger(1,9);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Ganon";}
+          else if (txt == 2) {return "giant Insect";}
+          else if (txt == 3) {return "Godzilla";}
+          else if (txt == 4) {return "Malifacent";}
+          else if (txt == 5) {return "Captain Hook";}
+          else if (txt == 6) {return "Thomas Jefferson";}
+          else if (txt == 7) {return "Jimmy Neutron";}
+          else if (txt == 8) {return "Ultra Lord";}
+          else if (txt == 9) {return "Buzz Lightyear";}
+      }
+      function news() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "An earthquake wrecked the city";}
+          else if (txt == 2) {return "Missles incoming!";}
+          else if (txt == 3) {return "Wendy's is selling burgers for just $1";}
+          else if (txt == 4) {return "";}
+          else if (txt == 5) {return "";}
+          else if (txt == 6) {return " ";}
+          else if (txt == 7) {return " ";}
+          else if (txt == 8) {return " ";}
+          else if (txt == 9) {return " ";}
+          else if (txt == 10) {return "";}
+          else if (txt == 11) {return "";}
+          else if (txt == 12) {return "";}
+          else if (txt == 13) {return "";}
+          else if (txt == 14) {return "";}
+          else if (txt == 15) {return "";}
+          else if (txt == 0) {return "";}
+        }
+      function plots() {
+          var txt = getRndInteger(1,108);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "You find an abandoned baby!";}
+          else if (txt == 2) {return "A mysterious animal follows you!";}
+          else if (txt == 3) {return "You are accused of a crime you didn't commit!";}
+          else if (txt == 4) {return "You witness a crime!";}
+          else if (txt == 5) {return "You've been robbed!";}
+          else if (txt == 6) {return "Someone you love wants something very specific!";}
+          else if (txt == 7) {return "The city will be destroyed if you do not act quickly!";}
+          else if (txt == 8) {return "The town was invaded by barbarians!";}
+          else if (txt == 9) {return "You find a large sum of money!";}
+          else if (txt == 10) {return "Everyone has turned against you!";}
+          else if (txt == 11) {return "A deadly virus makes everyone go insane!";}
+          else if (txt == 12) {return "The robots have become self-aware!";}
+          else if (txt == 13) {return "The aliens have landed!";}
+          else if (txt == 14) {return "You've been replaced!";}
+          else if (txt == 15) {return "The devil makes you an offer you can't refuse!";}
+          else if (txt == 16) {return "You have lost something very precious to you";}
+          else if (txt == 17) {return "You want to impress someone";}
+          else if (txt == 18) {return "You lost your mentor";}
+          else if (txt == 19) {return "Someone important has died";}
+          else if (txt == 20) {return "The people have revolted!";}
+          else if (txt == 21) {return "A sudden, unfortunate accident has occurred.";}
+          else if (txt == 22) {return "Nuclear apocalypse is upon us!";}
+          else if (txt == 23) {return "You find a treasure map!";}
+          else if (txt == 24) {return "You find a portal to another world!";}
+          else if (txt == 25) {return "You have to stay very late at work tonight.";}
+          else if (txt == 26) {return "The consequences of your actions have caught up with you.";}
+          else if (txt == 27) {return "You have taken a cursed item.";}
+          else if (txt == 28) {return "Someone is gunning for your job";}
+          else if (txt == 29) {return "You've been replaced!";}
+          else if (txt == 30) {return "You meet your doppelganger.";}
+          else if (txt == 31) {return "You meet your soul-mate!";}
+          else if (txt == 32) {return "Your life falls apart.";}
+          else if (txt == 33) {return "You are lost.";}
+          else if (txt == 34) {return "You need to rise to complete a challenge!";}
+          else if (txt == 35) {return "You are not the person you once were.";}
+          else if (txt == 36) {return "You lost your title.";}
+          else if (txt == 37) {return "You got a big promotion!";}
+          else if (txt == 38) {return "You've won a contest!";}
+          else if (txt == 39) {return "A mysterious message arrives.";}
+          else if (txt == 40) {return "You're being blackmailed!";}
+          else if (txt == 41) {return "You've gotten mixed up in the wrong crowd.";}
+          else if (txt == 42) {return "The economy collapsed!";}
+          else if (txt == 43) {return "You are bankrupt!";}
+          else if (txt == 44) {return "The auditors are here!";}
+          else if (txt == 45) {return "Your reality is flipped upside-down!";}
+          else if (txt == 46) {return "It was all a lie!";}
+          else if (txt == 47) {return "Things are more complicated than you thought.";}
+          else if (txt == 48) {return "You are being socially alienated.";}
+          else if (txt == 49) {return "Someone you trusted has turned on you.";}
+          else if (txt == 50) {return "Someone starts stalking you.";}
+          else if (txt == 51) {return "You publish one of the greatest works of our time!";}
+          else if (txt == 52) {return "You compose one of the greatest songs of our time!";}
+          else if (txt == 53) {return "You've created a masterpiece!";}
+          else if (txt == 54) {return "You've created a monster!";}
+          else if (txt == 55) {return "You're stuck!";}
+          else if (txt == 56) {return "A giant hole has opened up!";}
+          else if (txt == 57) {return "You discover a mysterious place.";}
+          else if (txt == 58) {return "You meet a mysterious person.";}
+          else if (txt == 59) {return "Your spirit animal has come to warn you about something.";}
+          else if (txt == 60) {return "You receive a cryptic warning from someone.";}
+          else if (txt == 61) {return "The government has collapsed!";}
+          else if (txt == 62) {return "A great storm is heading your way!";}
+          else if (txt == 63) {return "A great calamity approaches from space!";}
+          else if (txt == 64) {return "A solar flare has disrupted life on the planet!";}
+          else if (txt == 65) {return "The deadline is tomorrow!";}
+          else if (txt == 66) {return "You've overslept!";}
+          else if (txt == 67) {return "You have disappointed someone you love.";}
+          else if (txt == 68) {return "The deadline is tonight!";}
+          else if (txt == 69) {return "Opportunity strikes! Don't miss it!";}
+          else if (txt == 70) {return "You come across a strange device.";}
+          else if (txt == 71) {return "You feel like you've been here before.";}
+          else if (txt == 72) {return "The internet has collapsed!";}
+          else if (txt == 73) {return "Something has spoken to you, and now nothing will ever be the same.";}
+          else if (txt == 74) {return "You've switched bodies with someone!";}
+          else if (txt == 75) {return "You have been mistaken for someone else.";}
+          else if (txt == 76) {return "Nature is trying to reclaim your home!";}
+          else if (txt == 77) {return "You have upset an ancient diety!";}
+          else if (txt == 78) {return "You've been kidnapped!";}
+          else if (txt == 79) {return "War has broken out in your once peaceful home!";}
+          else if (txt == 80) {return "You've been arrested!";}
+          else if (txt == 81) {return "There is an imposter among us.";}
+          else if (txt == 82) {return "Something isn't right about all this.";}
+          else if (txt == 83) {return "You fall off a cliff!";}
+          else if (txt == 84) {return "You are being possessed!";}
+          else if (txt == 85) {return "You meet a mysterious creature.";}
+          else if (txt == 86) {return "You've been living in filth!";}
+          else if (txt == 87) {return "You really let yourself go...";}
+          else if (txt == 88) {return "You were wrong about this!";}
+          else if (txt == 89) {return "You need a career change.";}
+          else if (txt == 90) {return "You've passed out!";}
+          else if (txt == 91) {return "You've got to get out of here!";}
+          else if (txt == 92) {return "They're looking for you!";}
+          else if (txt == 93) {return "The volcano is erupting!";}
+          else if (txt == 94) {return "You've been hacked!";}
+          else if (txt == 95) {return "You are sick!";}
+          else if (txt == 96) {return "You have a child!";}
+          else if (txt == 97) {return "You find a long-lost family member.";}
+          else if (txt == 98) {return "You were right about it.";}
+          else if (txt == 99) {return "We don't do that here.";}
+          else if (txt == 100) {return "You've insulted someone.";}
+          else if (txt == 101) {return "You've made a friend.";}
+          else if (txt == 102) {return "It's not usually like this.";}
+          else if (txt == 103) {return "You forgot something!";}
+          else if (txt == 104) {return "It's all naturally caused.";}
+          else if (txt == 105) {return "It's supernatural.";}
+          else if (txt == 106) {return " It was right under your nose the whole time. ";}
+          else if (txt == 107) {return " It's man-made.";}
+          else if (txt == 108) {return "You're actually related. ";}
+          else if (txt == 109) {return "You are the killer.  ";}
+          else if (txt == 110) {return "Everyone has moved on without you. ";}
+          else if (txt == 111) {return "You've become the villain. ";}
+          else if (txt == 112) {return "You deleted something important. ";}
+          else if (txt == 113) {return "You really need to train more.";}
+          else if (txt == 114) {return "You're already dead. ";}
+          else if (txt == 115) {return "It was all a dream.  ";}
+          else if (txt == 116) {return "They died years ago. ";}
+          else if (txt == 117) {return "It was all a distraction. ";}
+          else if (txt == 118) {return "You missed the point. ";}
+          else if (txt == 119) {return " You disappointed them. ";}
+          else if (txt == 120) {return "You're all better now! ";}
+          else if (txt == 121) {return "You remember everything now! ";}
+          else if (txt == 122) {return "You've changed. ";}
+          else if (txt == 123) {return "You're on your own.";}
+          else if (txt == 124) {return "You can understand it now. ";}
+          else if (txt == 125) {return " ";}
+          else if (txt == 126) {return " ";}
+          else if (txt == 127) {return " ";}
+          else if (txt == 128) {return " ";}
+          else if (txt == 129) {return " ";}
+          else if (txt == 130) {return " ";}
+          else if (txt == 131) {return " ";}
+          else if (txt == 132) {return " ";}
+          else if (txt == 133) {return " ";}
+          else if (txt == 134) {return " ";}
+          else if (txt == 135) {return " ";}
+          else if (txt == 136) {return " It's gotten pretty dirty. ";}
+          else if (txt == 137) {return " You were betrayed.  You convinced everyone. Your money is all gone. You were mistaken. Everyone lived happily ever after. You've lost contact. You're in a recession. The economic bubble burst. Business is booming! The floor caved in! The ceiling comes crashing down! Someone bursts in! You are offered a deal with the devil. There's a price on your head! Everybody left. You have been summoned! Your people need you! You're popular! You're on the winning team! Somebody else gets the credit. It moves you to tears. You have a life-changing experience. You'll never forget this. You've seen this before. You've been here before. Help has arrived! It's too late! You're just in time! The stars all align. It all goes according to plan. The plan goes awry. You've been spotted! You arose suspicion. You've gained their trust. You've lost their trust. It didn't make you as happy as you thought it would. You are inexplicably happy. You are inexplicably sad. You think it's the funniest thing ever. Everyone laughs. Nobody was amused. You forgot what you were doing. Everyone forgot. They stood you up. It was an ambush! They weren't serious. They didn't think you were serious. There are too many distractions. The weather takes a turn for the worse. You find an old friend. You find a long-lost relative. Someone has been messing with your stuff! Sabotage! It's a disaster! There is quite a commotion! A powerful creature awakens. The system is corrupt. You've been lied to. Incompetence. You've got a bad feeling about this. A random encounter. A friendly encounter. Hospitality! It's all taken care of! You passed the test! You have proven yourself. There is a meteor strike. Lightning strikes. It's on fire! It's under water. They're swarming! It stinks in here! You've got to get out of here! You can't stand it anymore! That makes you mad! Everyone is furious! There's a festival! There's a sporting event! Time for some friendly competition! Now it's personal! You're gonna regret that! You get your wish! At least you tried. You were overshadowed. You're famous! You're notorious. You've built a reputation. You've blacked out. You find yourself somewhere new. You've been teleported! No one will believe you! It's not as easy as it seems! So hungry! Water... Food... water... atmosphere... It manages to surprise you. Famine has struck. A rebellion has ensued! War has broken out! Social injustice plagues the land. You're outnumbered. It's too easy! You have an admirer! You're in love! You just can't resist. You fixed it! It magically works now! You get another chance. There's still time! Time heals all wounds. Love heals all wounds. Laughter is the best medicine. Ownership has changed. They've been forced to close up shop. Moved to a new location. Fads come and go. Everything's frozen. It's like an oven in here! You need new clothes. You're dressed to impress. You're overdressed. You're underdressed. It was a lot more than you expected. There's a big storm coming. It's a tornado! A big wind blew. A piece has fallen off. Your equipment is damaged.";}
+          else if (txt == 138) {return " ";}
+          else if (txt == 139) {return " ";}
+          else if (txt == 140) {return " ";}
+          else if (txt == 141) {return " ";}
+          else if (txt == 142) {return " ";}
+          else if (txt == 143) {return " ";}
+          else if (txt == 144) {return " ";}
+          else if (txt == 145) {return " ";}
+          else if (txt == 146) {return " ";}
+          else if (txt == 147) {return " ";}
+          else if (txt == 148) {return " ";}
+          else if (txt == 149) {return " ";}
+          else if (txt == 150) {return " ";}
+          else if (txt == 151) {return " ";}
+
+      }
+
+	 function spoilers() {
+          var txt = getRndInteger(1,28);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Everyone lived happily ever after";}
+          else if (txt == 2) {return "It was the butler the whole time!";}
+          else if (txt == 3) {return "You have proven yourself!";}
+          else if (txt == 4) {return "Good prevails!";}
+          else if (txt == 5) {return "Evil prevails!";}
+          else if (txt == 6) {return "Love conquers all";}
+          else if (txt == 7) {return "Everything was destroyed!";}
+          else if (txt == 8) {return "The bad guy became good!";}
+          else if (txt == 9) {return "You get all the treasure!";}
+          else if (txt == 10) {return "The hero fails!";}
+          else if (txt == 11) {return "It all gets old eventually";}
+          else if (txt == 12) {return "Technology is bad!";}
+          else if (txt == 13) {return "The underdog wins!";}
+          else if (txt == 14) {return "You were right all along!";}
+          else if (txt == 15) {return "The villain dies!";}
+          else if (txt == 16) {return "Order has been restored!";}
+          else if (txt == 17) {return "The world descends into madness!";}
+          else if (txt == 18) {return "The world descends into chaos!";}
+          else if (txt == 19) {return "Someone important has died";}
+          else if (txt == 20) {return "We learned a valuable lesson";}
+          else if (txt == 21) {return "We became better people";}
+          else if (txt == 22) {return "We made friends along the way";}
+          else if (txt == 23) {return "The characters fell in love!";}
+          else if (txt == 24) {return "None of it mattered at all";}
+          else if (txt == 25) {return "Life went on as usual";}
+          else if (txt == 26) {return "Everybody died!";}
+          else if (txt == 27) {return "Cliffhanger";}
+          else if (txt == 28) {return "The cycle will repeat itself";}
+          else if (txt == 0) {return "";}
+          else if (txt == 0) {return "";}
+        }
+	
+        function music() {
+          var txt = getRndInteger(1,3);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Sit on a Ball by R.E.M. from Sonic X";}
+          else if (txt == 2) {return "Box-War by Genfall";}
+          else if (txt == 3) {return "Push the Neutron by The Chemical Brothers";}
+          else if (txt == 4) {return "";}
+          else if (txt == 5) {return "";}
+          else if (txt == 6) {return "";}
+          else if (txt == 7) {return "";}
+          else if (txt == 8) {return "";}
+          else if (txt == 9) {return "";}
+          else if (txt == 10) {return "";}
+          else if (txt == 11) {return "";}
+          else if (txt == 12) {return "";}
+          else if (txt == 13) {return "";}
+          else if (txt == 14) {return "";}
+          else if (txt == 15) {return "";}
+          else if (txt == 0) {return "";}
+        }
+	function twenties() {
+          var txt = getRndInteger(1,20);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "1";}
+          else if (txt == 2) {return "2";}
+          else if (txt == 3) {return "3";}
+          else if (txt == 4) {return "4";}
+          else if (txt == 5) {return "5";}
+          else if (txt == 6) {return "6";}
+          else if (txt == 7) {return "7";}
+          else if (txt == 8) {return "8";}
+          else if (txt == 9) {return "9";}
+          else if (txt == 10) {return "10";}
+          else if (txt == 11) {return "11";}
+          else if (txt == 12) {return "12";}
+          else if (txt == 13) {return "13";}
+          else if (txt == 14) {return "14";}
+          else if (txt == 15) {return "15";}
+          else if (txt == 16) {return "16";}
+          else if (txt == 17) {return "17";}
+          else if (txt == 18) {return "18";}
+          else if (txt == 19) {return "19";}
+          else if (txt == 20) {return "20";}
+        }
+	function year() {
+          var txt = getRndInteger(-3000,3000);
+          if (txt < 3001) {return txt;}
+	else if (txt == 3001) {return "5kya";}
+	else if (txt == 3002) {return "10kya";}
+	else if (txt == 3003) {return "50kya";}
+	else if (txt == 3004) {return "100kya";}
+	else if (txt == 3005) {return "1mya";}
+	else if (txt == 3006) {return "2mya";}
+	else if (txt == 3007) {return "3mya";}
+	else if (txt == 3008) {return "4mya";}
+	else if (txt == 3009) {return "5mya";}
+	else if (txt == 3010) {return "10mya";}
+	else if (txt == 3011) {return "50mya";}
+	else if (txt == 3012) {return "100mya";}
+	else if (txt == 3013) {return "150mya";}
+	else if (txt == 3014) {return "500mya";}
+	else if (txt == 3015) {return "1bya";}
+	else if (txt == 3016) {return "5bya";}
+	else if (txt == 3017) {return "10bya";}
+	else if (txt == 3018) {return "11bya";}
+	else if (txt == 3019) {return "12bya";}
+	else if (txt == 3020) {return "13bya";}
+	else if (txt == 3021) {return "14bya";}
+		/*
+      else if (txt == 1) {return "1";}
+          else if (txt == 2) {return "2";}
+          else if (txt == 3) {return "3";}
+          else if (txt == 4) {return "4";}
+          else if (txt == 5) {return "5";}
+          else if (txt == 6) {return "6";}
+          else if (txt == 7) {return "7";}
+          else if (txt == 8) {return "8";}
+          else if (txt == 9) {return "9";}
+          else if (txt == 10) {return "10";}
+          else if (txt == 11) {return "11";}
+          else if (txt == 12) {return "12";}
+          else if (txt == 13) {return "13";}
+          else if (txt == 14) {return "14";}
+          else if (txt == 15) {return "15";}
+          else if (txt == 16) {return "16";}
+          else if (txt == 17) {return "17";}
+          else if (txt == 18) {return "18";}
+          else if (txt == 19) {return "19";}
+          else if (txt == 20) {return "20";}
+	  */
+        }
+	function bios(){
+		var txt = getRndInteger(1,4);
+		if (txt == 1) {return "enrolled in the mathematics and physics teaching diploma program at the federal polytechnic school"}/*[1]*/
+		else if (txt == 2) {return ""}
+		else if (txt == 3) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+		else if (txt == 0) {return ""}
+	}
+	function sixes() {
+          var txt = getRndInteger(1,6);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "1";}
+          else if (txt == 2) {return "2";}
+          else if (txt == 3) {return "3";}
+          else if (txt == 4) {return "4";}
+          else if (txt == 5) {return "5";}
+          else if (txt == 6) {return "6";}
+        }
+	function eights() {
+          var txt = getRndInteger(1,28);
+          if (txt == 0) {return ""}
+          else if (txt == 1) {return "Yes";}
+          else if (txt == 2) {return "No";}
+          else if (txt == 3) {return "Maybe";}
+          else if (txt == 4) {return "Probably";}
+          else if (txt == 5) {return "Most likely";}
+          else if (txt == 6) {return "I guess so";}
+          else if (txt == 7) {return "Doesn't look like it";}
+          else if (txt == 8) {return "Unlikely";}
+          else if (txt == 9) {return "Impossible";}
+          else if (txt == 10) {return "Not realistically";}
+          else if (txt == 11) {return "Improbable";}
+          else if (txt == 12) {return "If you believe";}
+          else if (txt == 13) {return "Try harder";}
+          else if (txt == 14) {return "Absolutely not";}
+          else if (txt == 15) {return "Of course!";}
+          else if (txt == 16) {return "I dunno";}
+          else if (txt == 17) {return "Check again later";}
+          else if (txt == 18) {return "If all goes well";}
+          else if (txt == 19) {return "If the planets align";}
+          else if (txt == 20) {return "Sort of";}
+          else if (txt == 21) {return "In a way";}
+          else if (txt == 22) {return "A little bit";}
+          else if (txt == 23) {return "Partially";}
+          else if (txt == 24) {return "Barely";}
+          else if (txt == 25) {return "Definitely";}
+          else if (txt == 26) {return "For sure";}
+          else if (txt == 27) {return "Whatever";}
+          else if (txt == 28) {return "It doesn't matter";}
+        }
+function runmadlib(){
+  document.getElementById("introgot2").innerHTML = intros();
+  document.getElementById("prefixgot2").innerHTML = prefixes();
+  document.getElementById("suffixgot2").innerHTML = suffixes();
+  document.getElementById("townnamegot2").innerHTML = townnames();
+  document.getElementById("nationgot2").innerHTML = "of " + nations();
+  document.getElementById("roadgot2").innerHTML = roads();
+  document.getElementById("weapongot2").innerHTML = weapons();
+  document.getElementById("roomgot2").innerHTML = rooms();
+  document.getElementById("structuregot2").innerHTML = structures();
+  document.getElementById("charactergot2").innerHTML = characters();
+  document.getElementById("partyjobgot2").innerHTML = partyjobs();
+  document.getElementById("interactiongot2").innerHTML = interactions();
+  document.getElementById("activitygot2").innerHTML = activities();
+  document.getElementById("questitemgot2").innerHTML = questitems(); 
+  document.getElementById("questitemgot3").innerHTML = document.getElementById("questitemgot2").textContent;
+  document.getElementById("mysteriousitemgot2").innerHTML = mysteriousitems();
+  document.getElementById("lootitemgot2").innerHTML = lootitems();
+}
+	 function emojis() {
+          var txt = getRndInteger(1,110);
+          if (txt == 0) {return "👺💀☠️👻👽👾🤖💩😺😸😹😻😼😽🙀😿😾🙈🙉🙊🐵🐶🐺🐱🦁🐯🦊🦝🐮🐷🐗🐭🐹🐰🐻🐻‍❄️🐨🐼🐸🐴🫎🦄🐔🐲🦒🦓🫏🐒🦍🦧🦮🐕‍🦺🐩🐕🐈🐈‍⬛🐅🐆🐎🦌🦬🦏🦛🐂🐃🐄🐖🐏🐑🐐🐪🐫🦙🦘🦥🦨🦡🐘🦣🐁🐀🦔🐇🐿️🦫🦎🐊🐢🐍🐉🦕🦖🦦🦈🐬🦭🐳🐋🐟🐠🐡🦐🦑🐙🦞🦀🐚🪼🦆🐓🦃🦅🕊️🦢🦜🐦‍⬛🪿🐦‍🔥🦩🦚🦉🦤🐦🐧🐥🐤🐣🦇🐌🐛🪱🐜🦗🪳🐝🪲🐞🦂🕷️🦠🧞‍♀️🧞‍♂️🧞🧟‍♀️🧟‍♂️🧟🧌🤺⛷️👩👨🧑👧👦🧒👶👵👴🧓👩‍🦰👨‍🦰🧑‍🦰👩‍🦱👨‍🦱🧑‍🦱👩‍🦲👨‍🦲🧑‍🦲👩‍🦳👨‍🦳🧑‍🦳👱‍♀️👱‍♂️👱👸🤴🫅👳‍♀️👳‍♂️👳👲🧔🧔‍♂️🧔‍♀️👼🤶🎅🧑‍🎄👮‍♀️👮‍♂️👮🕵️‍♀️🕵️‍♂️🕵️💂‍♀️💂‍♂️💂🥷👷‍♀️👷‍♂️👷👩‍⚕️👨‍⚕️🧑‍⚕️👩‍🎓👨‍🎓🧑‍🎓👩‍🏫👨‍🏫🧑‍🏫👩‍⚖️👨‍⚖️🧑‍⚖️👩‍🌾👨‍🌾🧑‍🌾👩‍🍳👨‍🍳🧑‍🍳👩‍🔧👨‍🔧🧑‍🔧👩‍🏭👨‍🏭🧑‍🏭👩‍💼👨‍💼🧑‍💼👩‍🔬👨‍🔬🧑‍🔬👩‍💻👨‍💻🧑‍💻👩‍🎤👨‍🎤🧑‍🎤👩‍🎨👨‍🎨🧑‍🎨👩‍✈️👨‍✈️🧑‍✈️👩‍🚀👨‍🚀🧑‍🚀👩‍🚒👨‍🚒🧑‍🚒🧕👰‍♀️👰‍♂️👰🤵‍♀️🤵‍♂️🤵🤱👩‍🍼👨‍🍼🧑‍🍼🤰🫃🫄🦸‍♀️🦸‍♂️🦸🦹‍♀️🦹‍♂️🦹🧙‍♀️🧙‍♂️🧙🧚‍♀️🧚‍♂️🧚🧛‍♀️🧛‍♂️🧛🧜‍♀️🧜‍♂️🧜🧝‍♀️🧝‍♂️🧝🙍‍♀️🙍‍♂️🙍🙎‍♀️🙎‍♂️🙎🙅‍♀️🙅‍♂️🙅🙆‍♀️🙆‍♂️🙆🧏‍♀️🧏‍♂️🧏💁‍♀️💁‍♂️💁🙋‍♀️🙋‍♂️🙋🙇‍♀️🙇‍♂️🙇🤦‍♀️🤦‍♂️🤦🤷‍♀️🤷‍♂️🤷💆‍♀️💆‍♂️💆💇‍♀️💇‍♂️💇🧖‍♀️🧖‍♂️🧖🤹‍♀️🤹‍♂️🤹👩‍🦽👨‍🦽🧑‍🦽👩‍🦽‍➡️👨‍🦽‍➡️🧑‍🦽‍➡️👩‍🦼👨‍🦼🧑‍🦼👩‍🦼‍➡️👨‍🦼‍➡️🧑‍🦼‍➡️👩‍🦯👨‍🦯🧑‍🦯👩‍🦯‍➡️👨‍🦯‍➡️🧑‍🦯‍➡️🧎‍♀️🧎‍♂️🧎🧎‍♀️‍➡️🧎‍♂️‍➡️🧎‍➡️🧍‍♀️🧍‍♂️🧍🚶‍♀️‍➡️🚶‍♂️‍➡️🚶‍➡️🚶‍♀️🚶‍♂️🚶🏃‍♀️🏃‍♂️🏃🏃‍♀️‍➡️🏃‍♂️‍➡️🏃‍➡️💃🕺🧗‍♀️🧗‍♂️🧗🧘‍♀️🧘‍♂️🧘🛀🛌🕴️🏇🏂🏌️‍♀️🏌️‍♂️🏌️🏄‍♀️🏄‍♂️🏄🚣‍♀️🚣‍♂️🚣🏊‍♀️🏊‍♂️🏊🤽‍♀️🤽‍♂️🤽🤾‍♀️🤾‍♂️🤾⛹️‍♀️⛹️‍♂️⛹️🏋️‍♀️🏋️‍♂️🏋️🚴‍♀️🚴‍♂️🚴🚵‍♀️🚵‍♂️🚵🤸‍♀️🤸‍♂️🤸👯‍♀️👯‍♂️👯🩻🗿🌱🪴🌳🌵🏔️🌋🪐🗽🌝🌛🌞⭐🌠☄️🌬️🌀⚡🔥⛄💧🌊💥☢️☣️🔴🟠🟡🟢🔵🟣🟤⚫⚪💭💬 Filthy, Smoggy, Snowy, Boozy, Free, Utopian, Icy, Remote, Terrible, Wild, Timeless, Revolutionary, Whimsical, Mythical, Rainy, Dank, Bustling, Bleak, Sacred, Windy, Bustling, Seedy, Harmonious, Picturesque, Freezing, Sweltering, Rustic, Haunted,";}
+		else if (txt == 1) {return "😊";}
+          else if (txt == 2) {return "😂";}
+          else if (txt == 3) {return "🤣";}
+          else if (txt == 4) {return "😍";}
+          else if (txt == 5) {return "😒";}
+          else if (txt == 6) {return "😁";}
+          else if (txt == 7) {return "🤦‍♀️";}
+          else if (txt == 8) {return "🤦‍♂️";}
+          else if (txt == 9) {return "🤷‍♀️";}
+          else if (txt == 10) {return "🤷‍♂️";}
+          else if (txt == 11) {return "😉";}
+          else if (txt == 12) {return "😘";}
+          else if (txt == 13) {return "😎";}
+          else if (txt == 14) {return "😢";}
+          else if (txt == 15) {return "😜";}
+          else if (txt == 16) {return "🥰";}
+          else if (txt == 17) {return "😗";}
+          else if (txt == 18) {return "😙";}
+          else if (txt == 19) {return "🥲";}
+          else if (txt == 20) {return "🥲";}
+          else if (txt == 21) {return "🙂";}
+          else if (txt == 22) {return "🤗";}
+          else if (txt == 23) {return "🤩";}
+          else if (txt == 24) {return "🤔";}  
+	  else if (txt == 25) {return "🫡";}
+          else if (txt == 26) {return "🤨";}  
+	  else if (txt == 27) {return "😐";}
+          else if (txt == 28) {return "😑";}  
+	  else if (txt == 29) {return "😶";}
+          else if (txt == 30) {return "🫥";}  
+	  else if (txt == 31) {return "😶‍🌫️";}
+          else if (txt == 32) {return "🙄";}  
+	  else if (txt == 33) {return "😏";}
+          else if (txt == 34) {return "😣";}  
+	  else if (txt == 35) {return "😥";}
+          else if (txt == 36) {return "😯";}  
+	  else if (txt == 37) {return "😕";}
+          else if (txt == 38) {return "😮";}
+          else if (txt == 39) {return "🤐";}  
+	  else if (txt == 40) {return "🫤";}
+          else if (txt == 41) {return "😪";}  
+	  else if (txt == 42) {return "🙃";}
+          else if (txt == 43) {return "🙃";}  
+	  else if (txt == 44) {return "🫠";}
+          else if (txt == 45) {return "🤑";}  
+	  else if (txt == 46) {return "😲";}
+          else if (txt == 47) {return "☹️";}  
+	  else if (txt == 48) {return "🙁";}
+          else if (txt == 49) {return "😫";}
+          else if (txt == 50) {return "🥱";}  
+	  else if (txt == 51) {return "😴";}
+          else if (txt == 52) {return "😌";}  
+	  else if (txt == 53) {return "😛";}
+          else if (txt == 54) {return "😜";}  
+	  else if (txt == 55) {return "😔";}
+          else if (txt == 56) {return "😝";}  
+	  else if (txt == 57) {return "🤤";}
+          else if (txt == 58) {return "😒";}  
+	  else if (txt == 59) {return "😓";}
+          else if (txt == 60) {return "😖";}
+          else if (txt == 61) {return "😞";}  
+	  else if (txt == 62) {return "😟";}
+          else if (txt == 63) {return "😤";}  
+	  else if (txt == 64) {return "😢";}
+          else if (txt == 65) {return "😭";}  
+	  else if (txt == 66) {return "😦";}
+          else if (txt == 67) {return "😧";}  
+	  else if (txt == 68) {return "😨";}
+          else if (txt == 69) {return "😮‍💨";}  
+	  else if (txt == 70) {return "😩";}
+	  else if (txt == 71) {return "🤯";}
+	  else if (txt == 72) {return "😬";}
+	  else if (txt == 73) {return "😰";}
+	  else if (txt == 74) {return "😱";}
+	  else if (txt == 75) {return "🥵";}
+	  else if (txt == 76) {return "🥶";}
+	  else if (txt == 77) {return "😵";}
+	  else if (txt == 78) {return "😵‍💫";}
+	  else if (txt == 79) {return "🥴";}
+	  else if (txt == 80) {return "🤪";}
+	  else if (txt == 81) {return "😳";}
+	  else if (txt == 82) {return "😠";}
+	  else if (txt == 83) {return "😡";}
+	  else if (txt == 84) {return "🤬";}
+	  else if (txt == 85) {return "😷";}
+	  else if (txt == 86) {return "🤒";}
+	  else if (txt == 87) {return "🤕";}
+	  else if (txt == 88) {return "🤢";}
+	  else if (txt == 89) {return "🤮";}
+	  else if (txt == 90) {return "🤧";}
+	  else if (txt == 91) {return "😇";}
+	  else if (txt == 92) {return "🥳";}
+	  else if (txt == 93) {return "🥸";}
+	  else if (txt == 94) {return "🥹";}
+	  else if (txt == 95) {return "🥺";}
+	  else if (txt == 96) {return "🤠";}
+	  else if (txt == 97) {return "🤡";}
+	  else if (txt == 98) {return "🤥";}
+	  else if (txt == 99) {return "🫨";}
+	  else if (txt == 100) {return "🙂‍↔️";}
+	  else if (txt == 101) {return "🙂‍↕️";}
+	  else if (txt == 102) {return "🤫";}
+	  else if (txt == 103) {return "🤭";}
+	  else if (txt == 104) {return "🫢";}
+	  else if (txt == 105) {return "🫣";}
+	  else if (txt == 106) {return "🧐";}
+	  else if (txt == 107) {return "🤓";}
+	  else if (txt == 108) {return "😈";}
+	  else if (txt == 109) {return "👿";}
+	  else if (txt == 110) {return "👹";}
+	  else if (txt == 0) {return "";}
+        }
+	
+	function getintro(){
+    document.getElementById("introgot").innerHTML = intros();
+}function getprefix(){
+    document.getElementById("prefixgot").innerHTML = prefixes();
+  }function getsuffix(){
+    document.getElementById("suffixgot").innerHTML = suffixes();
+  }function gettownname(){
+    document.getElementById("townnamegot").innerHTML = townnames();
+  }function getnation(){
+    document.getElementById("nationgot").innerHTML = "of " + nations();
+  }function getroad(){
+    document.getElementById("roadgot").innerHTML = roads();
+  }function getweapon(){
+    document.getElementById("weapongot").innerHTML = weapons();
+  }function getroom(){
+    document.getElementById("roomgot").innerHTML = rooms();
+  }function getstructure(){
+    document.getElementById("structuregot").innerHTML = structures();
+  }function getcharacter(){
+    document.getElementById("charactergot").innerHTML = characters();
+  }function getpartyjob(){
+    document.getElementById("partyjobgot").innerHTML = partyjobs();
+  }function getinteraction(){
+    document.getElementById("interactiongot").innerHTML = interactions();
+  }function getactivity(){
+    document.getElementById("activitygot").innerHTML = activities();
+  }function getquestitem(){
+    document.getElementById("questitemgot").innerHTML = questitems();
+   }function getmysteriousitem(){
+    document.getElementById("mysteriousitemgot").innerHTML = mysteriousitems();
+  }function getlootitem(){
+    document.getElementById("lootitemgot").innerHTML = lootitems();
+  }function getmonster(){
+    document.getElementById("monstergot").innerHTML = monsters();
+  }function getnews(){
+    document.getElementById("newsgot").innerHTML = news();
+  }function getplot(){
+    document.getElementById("plotgot").innerHTML = plots();
+  }function get8(){
+    document.getElementById("8got").innerHTML = eights();
+  }function getboss(){
+    document.getElementById("bossgot").innerHTML = boss();
+  }function getspoiler(){
+    document.getElementById("spoilergot").innerHTML = spoilers();
+  }function getcatchphrase(){
+    document.getElementById("catchphrasegot").innerHTML = phrases();
+  }function gettwenties(){
+    document.getElementById("twentiesgot").innerHTML = twenties();
+  }function getsixes(){
+    document.getElementById("sixesgot").innerHTML = sixes();
+  }function getyear(){
+    document.getElementById("yeargot").innerHTML = year();
+}function getemoji(){
+    document.getElementById("emojigot").innerHTML = emojis();
+}
+
+
+function copyintro() {
+  var copyText = document.getElementById("town-intro");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the list");
+  document.getElementById("surroundingtext").innerHTML = "..."
+}
+function copyprefix() {
+  var copyText = document.getElementById("town-prefix");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the list");
+  document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
+}
+</script>
+<br><br><h2>What is your quest?</h2>
+<div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+  In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
+  </div>  
+  <button id="runmadlib" onclick="runmadlib()">Start</button>
+  <br><br><br>
+	<h2>Setting:</h2>
+    Town Description:
+    <button id="getintro" onclick="getintro()">Select</button>
+    <span id="introgot"></span>
+    <br><br>
+    Town Prefixes:
+    <button id="getprefix" onclick="getprefix()">Select</button>
+    <span id="prefixgot"></span>
+    <br><br>
+    Town Name:
+    <button id="gettownname" onclick="gettownname()">Select</button>
+    <span id="townnamegot"></span>
+    <br><br>
+    Town Suffixes:
+    <button id="getsuffix" onclick="getsuffix()">Select</button>
+    <span id="suffixgot"></span>
+    <br><br>
+    Nations:
+    <button id="getnation" onclick="getnation()">Select</button>
+    <span id="nationgot"></span>
+    <br><br>
+    Roads are:
+    <button id="getroad" onclick="getroad()">Select</button>
+    <span id="roadgot"></span>
+<div id="chargenarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+<h2>Generate Character:</h2> 
+	<button id="getallcharacter" onclick="getweapon2()", onclick="getcharacter()", onclick="getpartyjob2()">Select</button><br><br>
+   	Name: <input>     <a href="webnamegen.html" target="_blank" title="Generates random names" class="templateLink">Not sure?</a><br><br> 
+	Appearance: <input><span id="charactergot2"></span><br><br>
+	Default weapon: <input><span id="weapongot2"></span>
+	Role: <input><span id="partyjobgot2"></span><br><br>
+	Alignment: <input><span id="aligngot"></span>
+	Language: <input><span id="langgot"></span><br><br>
+	Constitution: <input><span id="constgot"></span>
+	Strength: <input><span id="strengthgot"></span><br><br>
+	Dexterity: <input><span id="dextgot"></span>
+	Intelligence: <input><span id="intelgot"></span><br><br>
+	Wisdom: <input><span id="wisegot"></span>
+	Charisma: <input><span id="charismagot"></span>
+</div><br><br>
+    Weapons:
+    <button id="getweapon" onclick="getweapon()">Select</button>
+    <span id="weapongot"></span>
+    <br><br>
+    Appearance:
+    <button id="getcharacter" onclick="getcharacter()">Select</button>
+    <span id="charactergot"></span>
+    <br><br>
+    Party Job:
+    <button id="getpartyjob" onclick="getpartyjob()">Select</button>
+    <span id="partyjobgot"></span>
+    <br><br>
+	    <br><br><h2>Story:</h2>
+    Bio:
+    <button id="getbio" onclick="getbio()">Select</button>
+    <span id="biogot"></span>
+    Dialogue:
+    <button id="getcatchphrase" onclick="getcatchphrase()">Select</button>
+    <span id="catchphrasegot"></span>
+    <br><br>
+    Interactions:
+    <button id="getinteraction" onclick="getinteraction()">Select</button>
+    <span id="interactiongot"></span>
+    <br><br>
+    Activities:
+    <button id="getactivity" onclick="getactivity()">Select</button>
+    <span id="activitygot"></span>
+    <br><br>
+    Quest Item:
+    <button id="getquestitem" onclick="getquestitem()">Select</button>
+    <span id="questitemgot"></span>
+    <br><br>
+    Mysterious Item:
+    <button id="getmysteriousitem" onclick="getmysteriousitem()">Select</button>
+    <span id="mysteriousitemgot"></span>
+    <br><br>
+    Loot Item:
+    <button id="getlootitem" onclick="getlootitem()">Select</button>
+    <span id="lootitemgot"></span>
+    <br><br>
+    Random Encounter:
+    <button id="getmonster" onclick="getmonster()">Select</button>
+    <span id="monstergot"></span>
+	<br><br>
+ Boss Fight:
+    <button id="getboss" onclick="getboss()">Select</button>
+    <span id="bossgot"></span>
+    <br><br>
+    Plot Device:
+    <button id="getplot" onclick="getplot()">Select</button>
+    <span id="plotgot"></span>
+    <br><br>
+	Spoilers:
+    <button id="getspoiler" onclick="getspoiler()">Select</button>
+    <span id="spoilergot"></span>
+    <br><br>
+    Headlines (from Wikipedia):
+    <button id="getnews" onclick="getnews()">Select</button>
+    <span id="newsgot"></span>
+    <br><br>
+    <div style="border: 3px">
+<h2>Map</h2>
+<p>Click a square to place land</p>
+<br>
+<div style="border: 2px, solid, red; background-color: black; width: 338px;">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<br>
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+<input value=" " style="background: blue; width: 30px; height: 30px; padding: 0px; margin: 0px" onclick="style.background = 'green'">
+</div>
+<br>
+	    <h2>Buildings / Rooms</h2>
+<p>Click a square to build</p>
+<br>
+<div style="border: 2px, solid, red; background-color: black; width: 338px;">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<br>
+	<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+<input value=" " style="background: black; width: 50px; height: 50px; padding: 0px; margin: 0px" onclick="style.background = '#964B00'">
+</div><br>
+	    Structures:
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+	Rooms:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
+    <br><br>
+	    <h2>Extra</h2>
+	    8 Ball:
+    <button id="get8" onclick="get8()">Select</button>
+    <span id="8got"></span>
+	<br><br>
+	D20:
+    <button id="gettwenties" onclick="gettwenties()">Select</button>
+    <span id="twentiesgot"></span>
+	    <br><br>
+	    D6:
+    <button id="getsixes" onclick="getsixes()">Select</button>
+    <span id="sixesgot"></span>
+	    <br><br>
+	    <br><br>
+	Years:
+    <button id="getyear" onclick="getyear()">Select</button>
+    <span id="yeargot"></span>
+	     <br><br>
+	Emojis:
+    <button id="getemoji" onclick="getemoji()">Select</button>
+    <span id="emojigot"></span>
+	    <br><br>
+Drag this icon:
+	    <br>
+	    <div id="drag" style="position: absolute;">
+<div id="dragheader" style="background-color: yellow; text-align: center; cursor: move; font-size: 25px; width:38px; height: 38px; text-align: center; border-radius: 45px;">☺</div>
+</div>
+<script>
+dragElement(document.getElementById("drag"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+	    <br><br>
+    Previous Campaigns:
+    <br>
+    <input value="Space to take notes...">
+    <br><br>
+</p>
+
+<script>
+
+function submitTryit(n) {
+  if (window.editor) {
+    window.editor.save();
+  }
+  var text = document.getElementById("textareaCode").value;
+  var ifr = document.createElement("iframe");
+  ifr.setAttribute("frameborder", "0");
+  ifr.setAttribute("id", "iframeResult");
+  ifr.setAttribute("name", "iframeResult");  
+  document.getElementById("iframewrapper").innerHTML = "";
+  document.getElementById("iframewrapper").appendChild(ifr);
+  document.getElementById("iframeResult").addEventListener("load", hideSpinner);
+  if (loadSave == true ) {
+    ifr.setAttribute("src", "/code/opentext.htm");
+  } else if (loadSave == false) {
+    displaySpinner();
+    var t=text;
+    t=t.replace(/=/gi,"w3equalsign");
+    t=t.replace(/\+/gi,"w3plussign");    
+    var pos=t.search(/script/i)
+    while (pos>0) {
+      t=t.substring(0,pos) + "w3" + t.substr(pos,3) + "w3" + t.substr(pos+3,3) + "tag" + t.substr(pos+6);
+	    pos=t.search(/script/i);
+    }
+    document.getElementById("code").value=t;
+    document.getElementById("codeForm").action = "https://try.w3schools.com/try_php.php?x=" + Math.random();
+    document.getElementById('codeForm').method = "post";
+    document.getElementById('codeForm').acceptCharset = "utf-8";
+    document.getElementById('codeForm').target = "iframeResult";
+    document.getElementById("codeForm").submit();
+  } else {
+    var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+    ifrw.document.open();
+    ifrw.document.write(text);  
+    ifrw.document.close();
+    //23.02.2016: contentEditable is set to true, to fix text-selection (bug) in firefox.
+    //(and back to false to prevent the content from being editable)
+    //(To reproduce the error: Select text in the result window with, and without, the contentEditable statements below.)  
+    if (ifrw.document.body && !ifrw.document.body.isContentEditable) {
+      ifrw.document.body.contentEditable = true;
+      ifrw.document.body.contentEditable = false;
+    }
+  }
+}
+
+function hideSpinner() {
+  document.getElementById("runloadercontainer").style.display = "none";
+}
+function displaySpinner() {
+  var i, c, w, h, r, top;
+  i = document.getElementById("iframeResult");
+  w = w3_getStyleValue(i, "width");
+  h = w3_getStyleValue(i, "height");
+  c = document.getElementById("runloadercontainer");
+  c.style.width = w;
+  c.style.height = h;
+  c.style.display = "block";
+  w = Number(w.replace("px", "")) / 5;
+  r = document.getElementById("runloader");
+  r.style.width = w + "px";
+  r.style.height = w + "px";
+  h = w3_getStyleValue(r, "height");
+  h = Number(h.replace("px", "")) / 2;
+  top = w3_getStyleValue(c, "height");
+  top = Number(top.replace("px", "")) / 2;
+  top = top - h
+  r.style.top = top + "px";
+}
+
+
+var currentStack=true;
+if ((window.screen.availWidth <= 768 && window.innerHeight > window.innerWidth) || "" == " horizontal") {restack(true);}
+function restack(horizontal) {
+    var tc, ic, t, i, c, f, sv, sh, d, height, flt, width;
+    tc = document.getElementById("textareacontainer");
+    ic = document.getElementById("iframecontainer");
+    t = document.getElementById("textarea");
+    i = document.getElementById("iframe");
+    c = document.getElementById("container");    
+    sv = document.getElementById("stackV");
+    sh = document.getElementById("stackH");
+    tc.className = tc.className.replace("horizontal", "");
+    ic.className = ic.className.replace("horizontal", "");        
+    t.className = t.className.replace("horizontal", "");        
+    i.className = i.className.replace("horizontal", "");        
+    c.className = c.className.replace("horizontal", "");                        
+    if (sv) {sv.className = sv.className.replace("horizontal", "")};
+    if (sv) {sh.className = sh.className.replace("horizontal", "")};
+    stack = "";
+    if (horizontal) {
+        tc.className = tc.className + " horizontal";
+        ic.className = ic.className + " horizontal";        
+        t.className = t.className + " horizontal";        
+        i.className = i.className + " horizontal";                
+        c.className = c.className + " horizontal";                
+        if (sv) {sv.className = sv.className + " horizontal"};
+        if (sv) {sh.className = sh.className + " horizontal"};
+        stack = " horizontal";
+        document.getElementById("textareacontainer").style.height = "50%";
+        document.getElementById("iframecontainer").style.height = "50%";
+        document.getElementById("textareacontainer").style.width = "100%";
+        document.getElementById("iframecontainer").style.width = "100%";
+        currentStack=false;
+    } else {
+        document.getElementById("textareacontainer").style.height = "100%";
+        document.getElementById("iframecontainer").style.height = "100%";
+        document.getElementById("textareacontainer").style.width = "50%";
+        document.getElementById("iframecontainer").style.width = "50%";
+        currentStack=true;        
+    }
+    fixDragBtn();
+    showFrameSize();
+}
+function retheme() {
+  var cc = document.body.className;
+  if (cc.indexOf("darktheme") > -1) {
+    document.body.className = cc.replace("darktheme", "");
+    if (opener) {opener.document.body.className = cc.replace("darktheme", "");}
+    localStorage.setItem("preferredmode", "light");
+  } else {
+    document.body.className += " darktheme";
+    if (opener) {opener.document.body.className += " darktheme";}
+    localStorage.setItem("preferredmode", "dark");
+  }
+}
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  if (x == "dark") {
+    document.body.className += " darktheme";
+  }
+})();
+function showFrameSize() {
+  var t;
+  var width, height;
+  width = Number(w3_getStyleValue(document.getElementById("iframeResult"), "width").replace("px", "")).toFixed();
+  height = Number(w3_getStyleValue(document.getElementById("iframeResult"), "height").replace("px", "")).toFixed();
+  document.getElementById("framesize").innerHTML = "Result Size: <span>" + width + " x " + height + "</span>";
+}
+var dragging = false;
+var stack;
+function fixDragBtn() {
+  var textareawidth, leftpadding, dragleft, containertop, buttonwidth
+  var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+  if (stack != " horizontal") {
+    document.getElementById("dragbar").style.width = "5px";    
+    textareasize = Number(w3_getStyleValue(document.getElementById("textareawrapper"), "width").replace("px", ""));
+    leftpadding = Number(w3_getStyleValue(document.getElementById("textarea"), "padding-left").replace("px", ""));
+    buttonwidth = Number(w3_getStyleValue(document.getElementById("dragbar"), "width").replace("px", ""));
+    textareaheight = w3_getStyleValue(document.getElementById("textareawrapper"), "height");
+    dragleft = textareasize + leftpadding + (leftpadding / 2) - (buttonwidth / 2);
+    document.getElementById("dragbar").style.top = containertop + "px";
+    document.getElementById("dragbar").style.left = dragleft + "px";
+    document.getElementById("dragbar").style.height = textareaheight;
+    document.getElementById("dragbar").style.cursor = "col-resize";
+    
+  } else {
+    document.getElementById("dragbar").style.height = "5px";
+    if (window.getComputedStyle) {
+        textareawidth = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("height");
+        textareaheight = window.getComputedStyle(document.getElementById("textareawrapper"),null).getPropertyValue("width");
+        leftpadding = window.getComputedStyle(document.getElementById("textarea"),null).getPropertyValue("padding-top");
+        buttonwidth = window.getComputedStyle(document.getElementById("dragbar"),null).getPropertyValue("height");
+    } else {
+        dragleft = document.getElementById("textareawrapper").currentStyle["width"];
+    }
+    textareawidth = Number(textareawidth.replace("px", ""));
+    leftpadding = Number(leftpadding .replace("px", ""));
+    buttonwidth = Number(buttonwidth .replace("px", ""));
+    dragleft = containertop + textareawidth + leftpadding + (leftpadding / 2);
+    document.getElementById("dragbar").style.top = dragleft + "px";
+    document.getElementById("dragbar").style.left = "5px";
+    document.getElementById("dragbar").style.width = textareaheight;
+    document.getElementById("dragbar").style.cursor = "row-resize";        
+  }
+}
+function dragstart(e) {
+  e.preventDefault();
+  dragging = true;
+  var main = document.getElementById("iframecontainer");
+}
+function dragmove(e) {
+  if (dragging) 
+  {
+    document.getElementById("shield").style.display = "block";        
+    if (stack != " horizontal") {
+      var percentage = (e.pageX / window.innerWidth) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.width = percentage + "%";
+        document.getElementById("iframecontainer").style.width = mainPercentage + "%";
+        fixDragBtn();
+      }
+    } else {
+      var containertop = Number(w3_getStyleValue(document.getElementById("container"), "top").replace("px", ""));
+      var percentage = ((e.pageY - containertop + 20) / (window.innerHeight - containertop + 20)) * 100;
+      if (percentage > 5 && percentage < 98) {
+        var mainPercentage = 100-percentage;
+        document.getElementById("textareacontainer").style.height = percentage + "%";
+        document.getElementById("iframecontainer").style.height = mainPercentage + "%";
+        fixDragBtn();
+      }
+    }
+    showFrameSize();    
+  }
+}
+function dragend() {
+  document.getElementById("shield").style.display = "none";
+  dragging = false;
+  var vend = navigator.vendor;
+  if (window.editor && vend.indexOf("Apple") == -1) {
+      window.editor.refresh();
+  }
+}
+if (window.addEventListener) {              
+  document.getElementById("dragbar").addEventListener("mousedown", function(e) {dragstart(e);});
+  document.getElementById("dragbar").addEventListener("touchstart", function(e) {dragstart(e);});
+  window.addEventListener("mousemove", function(e) {dragmove(e);});
+  window.addEventListener("touchmove", function(e) {dragmove(e);});
+  window.addEventListener("mouseup", dragend);
+  window.addEventListener("touchend", dragend);
+  window.addEventListener("load", fixDragBtn);
+  window.addEventListener("load", showFrameSize);
+}
+
+
+/*
+// Make the DIV element draggable
+dragElement(document.getElementById("mydiv"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from
+    document.getElementById(elmnt.id + "header").ontouchstart = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV
+    elmnt.ontouchstart = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the touch cursor position at startup
+    pos3 = e.touches[0].clientX;
+    pos4 = e.touches[0].clientY;
+    document.ontouchend = closeDragElement;
+    // call a function whenever the cursor moves
+    document.ontouchmove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position
+    pos1 = pos3 - e.touches[0].clientX;
+    pos2 = pos4 - e.touches[0].clientY;
+    pos3 = e.touches[0].clientX;
+    pos4 = e.touches[0].clientY;
+    // set the element's new position
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when touch is released
+    document.ontouchend = null;
+    document.ontouchmove = null;
+  }
+}
+
+[1] Albert Einstein
+[2] Elvis Presley
+[3] Cleopatra
+[4] 
+
+
+*/
+
+
+	
+function colorcoding() {
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+    mode: "application/x-httpd-php",
+    lineWrapping: true,
+    smartIndent: false
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+colorcoding();
+
+function w3_getStyleValue(elmnt,style) {
+    if (window.getComputedStyle) {
+        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+    } else {
+        return elmnt.currentStyle[style];
+    }
+}
+
+function openMenu() {
+    var x = document.getElementById("navbarDropMenu");
+    var y = document.getElementById("menuOverlay");
+    var z = document.getElementById("menuButton");
+    if (z.className.indexOf("w3-text-gray") == -1) {
+        z.className += " w3-text-gray";
+    } else { 
+        z.className = z.className.replace(" w3-text-gray", "");
+    }
+    if (z.className.indexOf("w3-gray") == -1) {
+        z.className += " w3-gray";
+    } else { 
+        z.className = z.className.replace(" w3-gray", "");
+    }
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+    if (y.className.indexOf("w3-show") == -1) {
+        y.className += " w3-show";
+    } else { 
+        y.className = y.className.replace(" w3-show", "");
+    }
+
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == document.getElementById("menuOverlay")) {
+        openMenu();
+    } 
+}
+uic_r_e()
+</script>
+<input value="Space to take notes...">
+<!--
+head: narrow, round, 
+mouth: mandibles, snout, 
+eyes: cat, ungulate, insect, spider, membrane, 
+wings: bat, bird, insect
+machine: screen, keys, ports, vent, fan, 
+vehicle: wings, turbine, propeller, engine, wheel, treads, 
+-->
+</body>
+</html>
