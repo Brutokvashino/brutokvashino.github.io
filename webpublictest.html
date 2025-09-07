@@ -23,210 +23,152 @@
 <div id="t18" style="width:30px;height:30px;border:1px solid black;" onclick="tg18()">
 <br>
 </div>
-<br>
-	    <h2>Buildings / Rooms</h2>
-<p>Click a square to build</p>
-<br>
-<div style="border: 2px, solid, red; background-color: black; width: 338px;">
-<div id="tg0" style="width:50px;height:50px;border:1px solid black;" onclick="t0()">
-<div id="tg0" style="width:50px;height:50px;border:1px solid black;" onclick="t0()">
-<div id="tg0" style="width:50px;height:50px;border:1px solid black;" onclick="t0()">
-<div id="tg0" style="width:50px;height:50px;border:1px solid black;" onclick="t0()">
-<div id="tg0" style="width:50px;height:50px;border:1px solid black;" onclick="t0()">
-<div id="tg0" style="width:50px;height:50px;border:1px solid black;" onclick="t0()">
-  <br>
+<br> <br>
 </div><br>
-	    Structures:
-    <button id="getstructure" onclick="getstructure()">Select</button>
-    <span id="structuregot"></span>
-    <br><br>
-	Rooms:
-    <button id="getroom" onclick="getroom()">Select</button>
-    <span id="roomgot"></span>
-<script>
-     function structures() {
-          var txt = getRndInteger(1,41);
-          if (txt == 0) {return "fuel_station, train_station, airport, guard_tower, water_tower, city_wall, city_gate, woodstacks, storehouse, mansion, palace, fortress, antenna, lookout, farmhouse, field, greenhouse, pond, garden, watermill, keep, forge, furnace, slaughterhouse, abandoned_residence, university, school, kennel,";}
-          else if (txt == 1) {return "enclosure";}
-          else if (txt == 2) {return "tower";}
-          else if (txt == 3) {return "altar";}
-          else if (txt == 4) {return "zoo";}
-          else if (txt == 5) {return "monument";}
-          else if (txt == 6) {return "bank";}
-          else if (txt == 7) {return "town hall";}
-          else if (txt == 8) {return "courthouse";}
-          else if (txt == 9) {return "museum";}
-          else if (txt == 10) {return "hospital";}
-          else if (txt == 11) {return "residence";}
-          else if (txt == 12) {return "café";}
-          else if (txt == 13) {return "apartment";}
-          else if (txt == 14) {return "theater";}
-          else if (txt == 15) {return "warehouse";}
-          else if (txt == 16) {return "general store";}
-          else if (txt == 17) {return "prison";}
-          else if (txt == 18) {return "restaurant";}
-          else if (txt == 19) {return "inn";}
-          else if (txt == 20) {return "hotel";}
-          else if (txt == 21) {return "motel";}
-          else if (txt == 22) {return "windmill";}
-          else if (txt == 23) {return "police_station";}
-          else if (txt == 24) {return "saloon";}
-          else if (txt == 25) {return "bar";}
-          else if (txt == 26) {return "factory";}
-          else if (txt == 27) {return "office";}
-          else if (txt == 28) {return "restrooms";}
-          else if (txt == 29) {return "bakery";}
-          else if (txt == 30) {return "marketplace";}
-          else if (txt == 31) {return "plaza";}
-          else if (txt == 32) {return "fountain";}
-          else if (txt == 33) {return "well";}
-          else if (txt == 34) {return "outhouse";}
-          else if (txt == 35) {return "threshing_floor";}
-          else if (txt == 36) {return "barracks";}
-          else if (txt == 37) {return "training ground";}
-          else if (txt == 38) {return "park";}
-          else if (txt == 39) {return "festival field";}
-          else if (txt == 40) {return "racetrack";}
-          else if (txt == 41) {return "arena";}
-          else if (txt == 42) {return "castle";}
-          else if (txt == 43) {return "foodstore";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-          else if (txt == 0) {return "";}
-      }
-   function rooms() {
-          var txt = getRndInteger(1,37);
-          if (txt == 0) {return "greenhouse, shed, walkway, road, yard, factory, warehouse, bath_house, sauna, pool,";}
-          else if (txt == 1) {return "courtroom";}
-          else if (txt == 2) {return "shower";}
-          else if (txt == 3) {return "gallery";}
-          else if (txt == 4) {return "kitchen";}
-          else if (txt == 5) {return "meeting room";}
-          else if (txt == 6) {return "computer room";}
-          else if (txt == 7) {return "office";}
-          else if (txt == 8) {return "studio";}
-          else if (txt == 9) {return "toilet";}
-          else if (txt == 10) {return "full_bath";}
-          else if (txt == 11) {return "stalls";}
-          else if (txt == 12) {return "windows";}
-          else if (txt == 13) {return "conservatory";}
-          else if (txt == 14) {return "storeroom";}
-          else if (txt == 15) {return "hallway";}
-          else if (txt == 16) {return "gameroom";}
-          else if (txt == 17) {return "foyer";}
-          else if (txt == 18) {return "lab";}
-          else if (txt == 19) {return "terrace";}
-          else if (txt == 20) {return "balcony";}
-          else if (txt == 21) {return "watch";}
-          else if (txt == 22) {return "library";}
-          else if (txt == 23) {return "cellar";}
-          else if (txt == 24) {return "attic";}
-          else if (txt == 25) {return "pantry";}
-          else if (txt == 26) {return "dining room";}
-          else if (txt == 27) {return "bedroom";}
-          else if (txt == 28) {return "stairs";}
-          else if (txt == 29) {return "cafeteria";}
-          else if (txt == 30) {return "living room";}
-          else if (txt == 31) {return "music room";}
-          else if (txt == 32) {return "ballroom";}
-          else if (txt == 33) {return "banquet hall";}
-          else if (txt == 34) {return "throneroom";}
-          else if (txt == 35) {return "theater";}
-          else if (txt == 36) {return "cinema";}
-          else if (txt == 37) {return "temple";}
-          else if (txt == 38) {return "coatroom";}
-          else if (txt == 39) {return "garden";}
-      }
-  function getstructure(){
-    document.getElementById("structuregot").innerHTML = structures();
-  }
-  function getroom(){
-    document.getElementById("roomgot").innerHTML = rooms();
-  }
-  function tg0() {
-  const tmages = [
-    "https://brutokvashino.github.io/images/stone.jpg",
-    "https://brutokvashino.github.io/images/rockline.jpg",
-    "https://brutokvashino.github.io/images/treeline.jpg",
-    "https://brutokvashino.github.io/images/tree.jpg",
-    "https://brutokvashino.github.io/images/pine.jpg"
-    "https://brutokvashino.github.io/images/person.jpg"
+	   <script>
+     document.getElementById("t").addEventListener("click", tg);
+function tg(){ const roomages = [
+    "https://brutokvashino.github.io/images/L1.jpg",
+    "https://brutokvashino.github.io/images/L2.jpg",
+        "https://brutokvashino.github.io/images/H1.jpg",
+        "https://brutokvashino.github.io/images/H2.jpg",
+        "https://brutokvashino.github.io/images/H3.jpg",
+    "https://brutokvashino.github.io/images/D1.jpg",
+    "https://brutokvashino.github.io/images/D2.jpg",
+        "https://brutokvashino.github.io/images/D3.jpg",
+        "https://brutokvashino.github.io/images/D4.jpg",
+        "https://brutokvashino.github.io/images/C1.jpg",
+    "https://brutokvashino.github.io/images/C2.jpg",
+    "https://brutokvashino.github.io/images/C3.jpg",
+    "https://brutokvashino.github.io/images/C4.jpg",
+        "https://brutokvashino.github.io/images/F1.jpg",
+    "https://brutokvashino.github.io/images/F2.jpg",
+    "https://brutokvashino.github.io/images/F3.jpg",
+    "https://brutokvashino.github.io/images/F4.jpg",
+        "https://brutokvashino.github.io/images/Z1.jpg"
   ];
-  const rand0ndex = Math.floor(Math.random() * tmages.length);
-  const chosen0mage = tmages[rand0ndex];
-  document.getElementById("t0").style.backgroundImage = `url(${chosen0mage})`;
-  document.getElementById("t0").style.backgroundSize = "cover";
-}
-function tg() {
-  const images = [
-    "https://brutokvashino.github.io/images/island.jpg",
-    "https://brutokvashino.github.io/images/forest.jpg",
-    "https://brutokvashino.github.io/images/landscape.jpg",
-    "https://brutokvashino.github.io/images/tree.jpg",
-    "https://brutokvashino.github.io/images/mountain.jpg"
-    "https://brutokvashino.github.io/images/grassland.jpg"
-    "https://brutokvashino.github.io/images/grassland_tall.jpg"
-  ];
-  const randIndex = Math.floor(Math.random() * images.length);
-  const chosenImage = images[randIndex];
-  document.getElementById("t").style.backgroundImage = `url(${chosenImage})`;
+  const randroompicindex = Math.floor(Math.random() * roomages.length);
+  const chosenroompic = roomages[randroompicindex];
+  document.getElementById("t").style.backgroundImage = `url(${chosenroompic})`;
   document.getElementById("t").style.backgroundSize = "cover";
 }
-  function tg2() {
-  const rand2ndex = Math.floor(Math.random() * images.length);
-  const chosen2mage = images[rand2ndex];
-  document.getElementById("t2").style.backgroundImage = `url(${chosen2mage})`;
+		    document.getElementById("t2").addEventListener("click", tg2);
+function tg2(){ 
+  const randroompic2ndex = Math.floor(Math.random() * roomages.length);
+  const chosen2roompic = roomages[randroompic2ndex];
+  document.getElementById("t2").style.backgroundImage = `url(${chosen2roompic})`;
   document.getElementById("t2").style.backgroundSize = "cover";
-} 
-  function tg3() {
-  const rand3ndex = Math.floor(Math.random() * images.length);
-  const chosen3mage = images[rand3ndex];
-  document.getElementById("t3").style.backgroundImage = `url(${chosen3mage})`;
+}
+		   		    document.getElementById("t3").addEventListener("click", tg3);
+function tg3(){ 
+  const randroompic3ndex = Math.floor(Math.random() * roomages.length);
+  const chosen3roompic = roomages[randroompic3ndex];
+  document.getElementById("t3").style.backgroundImage = `url(${chosen3roompic})`;
   document.getElementById("t3").style.backgroundSize = "cover";
 }
-  function tg4() {
-  const rand4ndex = Math.floor(Math.random() * images.length);
-  const chosen4mage = images[rand4ndex];
-  document.getElementById("t4").style.backgroundImage = `url(${chosen4mage})`;
+		   		    document.getElementById("t4").addEventListener("click", tg4);
+function tg4(){ 
+  const randroompic4ndex = Math.floor(Math.random() * roomages.length);
+  const chosen4roompic = roomages[randroompic4ndex];
+  document.getElementById("t4").style.backgroundImage = `url(${chosen4roompic})`;
   document.getElementById("t4").style.backgroundSize = "cover";
 }
-	  function tg5() {
-  const rand5ndex = Math.floor(Math.random() * images.length);
-  const chosen5mage = images[rand5ndex];
-  document.getElementById("t5").style.backgroundImage = `url(${chosen5mage})`;
+		   		    document.getElementById("t5").addEventListener("click", tg5);
+function tg5(){ 
+  const randroompic5ndex = Math.floor(Math.random() * roomages.length);
+  const chosen5roompic = roomages[randroompic5ndex];
+  document.getElementById("t5").style.backgroundImage = `url(${chosen5roompic})`;
   document.getElementById("t5").style.backgroundSize = "cover";
 }
-		  function tg6() {
-  const rand6ndex = Math.floor(Math.random() * images.length);
-  const chosen6mage = images[rand6ndex];
-  document.getElementById("t6").style.backgroundImage = `url(${chosen6mage})`;
+		   		    document.getElementById("t6").addEventListener("click", tg6);
+function tg6(){ 
+  const randroompic6ndex = Math.floor(Math.random() * roomages.length);
+  const chosen6roompic = roomages[randroompic6ndex];
+  document.getElementById("t6").style.backgroundImage = `url(${chosen6roompic})`;
   document.getElementById("t6").style.backgroundSize = "cover";
 }
-		  function tg7() {
-  const rand7ndex = Math.floor(Math.random() * images.length);
-  const chosen7mage = images[rand7ndex];
-  document.getElementById("t7").style.backgroundImage = `url(${chosen7mage})`;
+		   		    document.getElementById("t7").addEventListener("click", tg7);
+function tg7(){ 
+  const randroompic7ndex = Math.floor(Math.random() * roomages.length);
+  const chosen7roompic = roomages[randroompic7ndex];
+  document.getElementById("t7").style.backgroundImage = `url(${chosen7roompic})`;
   document.getElementById("t7").style.backgroundSize = "cover";
 }
-		  function tg8() {
-  const rand8ndex = Math.floor(Math.random() * images.length);
-  const chosen8mage = images[rand8ndex];
-  document.getElementById("t8").style.backgroundImage = `url(${chosen8mage})`;
+		   		    document.getElementById("t8").addEventListener("click", tg8);
+function tg8(){ 
+  const randroompic8ndex = Math.floor(Math.random() * roomages.length);
+  const chosen8roompic = roomages[randroompic8ndex];
+  document.getElementById("t8").style.backgroundImage = `url(${chosen8roompic})`;
   document.getElementById("t8").style.backgroundSize = "cover";
 }
-		  function tg9() {
-  const rand9ndex = Math.floor(Math.random() * images.length);
-  const chosen9mage = images[rand9ndex];
-  document.getElementById("t9").style.backgroundImage = `url(${chosen9mage})`;
+		   		    document.getElementById("t9").addEventListener("click", tg9);
+function tg9(){ 
+  const randroompic9ndex = Math.floor(Math.random() * roomages.length);
+  const chosen9roompic = roomages[randroompic9ndex];
+  document.getElementById("t9").style.backgroundImage = `url(${chosen9roompic})`;
   document.getElementById("t9").style.backgroundSize = "cover";
+}
+		   		   document.getElementById("t10").addEventListener("click", tg10);
+function tg10(){ 
+  const randroompic10ndex = Math.floor(Math.random() * roomages.length);
+  const chosen10roompic = roomages[randroompic10ndex];
+  document.getElementById("t10").style.backgroundImage = `url(${chosen10roompic})`;
+  document.getElementById("t10").style.backgroundSize = "cover";
+}
+		   		    document.getElementById("t11").addEventListener("click", tg11);
+function tg11(){ 
+  const randroompic11ndex = Math.floor(Math.random() * roomages.length);
+  const chosen11roompic = roomages[randroompic11ndex];
+  document.getElementById("t11").style.backgroundImage = `url(${chosen11roompic})`;
+  document.getElementById("t11").style.backgroundSize = "cover";
+}
+		   		    document.getElementById("t12").addEventListener("click", tg12);
+function tg12(){ 
+  const randroompic12ndex = Math.floor(Math.random() * roomages.length);
+  const chosen12roompic = roomages[randroompic12ndex];
+  document.getElementById("t12").style.backgroundImage = `url(${chosen12roompic})`;
+  document.getElementById("t12").style.backgroundSize = "cover";
+}
+		   		    document.getElementById("t13").addEventListener("click", tg13);
+function tg13(){ 
+  const randroompic13ndex = Math.floor(Math.random() * roomages.length);
+  const chosen13roompic = roomages[randroompic13ndex];
+  document.getElementById("t13").style.backgroundImage = `url(${chosen13roompic})`;
+  document.getElementById("t13").style.backgroundSize = "cover";
+}
+		   		   		    document.getElementById("t14").addEventListener("click", tg14);
+function tg14(){ 
+  const randroompic14ndex = Math.floor(Math.random() * roomages.length);
+  const chosen14roompic = roomages[randroompic14ndex];
+  document.getElementById("t14").style.backgroundImage = `url(${chosen14roompic})`;
+  document.getElementById("t14").style.backgroundSize = "cover";
+}
+		   		   		    document.getElementById("t15").addEventListener("click", tg15);
+function tg15(){ 
+  const randroompic15ndex = Math.floor(Math.random() * roomages.length);
+  const chosen15roompic = roomages[randroompic15ndex];
+  document.getElementById("t15").style.backgroundImage = `url(${chosen15roompic})`;
+  document.getElementById("t15").style.backgroundSize = "cover";
+}
+		   		   		    document.getElementById("t16").addEventListener("click", tg16);
+function tg16(){ 
+  const randroompic16ndex = Math.floor(Math.random() * roomages.length);
+  const chosen16roompic = roomages[randroompic16ndex];
+  document.getElementById("t16").style.backgroundImage = `url(${chosen16roompic})`;
+  document.getElementById("t16").style.backgroundSize = "cover";
+}
+		   		   		    document.getElementById("t17").addEventListener("click", tg17);
+function tg17(){ 
+  const randroompic17ndex = Math.floor(Math.random() * roomages.length);
+  const chosen17roompic = roomages[randroompic17ndex];
+  document.getElementById("t17").style.backgroundImage = `url(${chosen17roompic})`;
+  document.getElementById("t17").style.backgroundSize = "cover";
+}
+		   		   		    document.getElementById("t18").addEventListener("click", tg18);
+function tg18(){ 
+  const randroompic18ndex = Math.floor(Math.random() * roomages.length);
+  const chosen18roompic = roomages[randroompic18ndex];
+  document.getElementById("t18").style.backgroundImage = `url(${chosen18roompic})`;
+  document.getElementById("t18").style.backgroundSize = "cover";
 }
 </script>
