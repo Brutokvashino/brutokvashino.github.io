@@ -58,8 +58,8 @@
     "https://brutokvashino.github.io/images/F2.jpg",
     "https://brutokvashino.github.io/images/F3.jpg",
     "https://brutokvashino.github.io/images/F4.jpg",
-        "https://brutokvashino.github.io/images/Z1.jpg"
-        ""
+        "https://brutokvashino.github.io/images/Z1.jpg",
+        null
   ]; for (let i = 1; i <= 18; i++) {
     const elem = document.getElementById("t" + i);
     if (elem) {
@@ -70,7 +70,10 @@
         elem.style.backgroundSize = "contain";
         elem.style.backgroundPosition = "center"; 
         elem.style.backgroundRepeat = "no-repeat"; 
-      }); }  }
+      });   }
+      else {
+    elem.style.backgroundImage = "none"; // clears background safely
+  }  }
 </script>
 </body>
 </html>
