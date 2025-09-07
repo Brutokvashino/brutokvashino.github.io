@@ -41,21 +41,22 @@
 <div id="g20" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
   </div>
 <script>
-  const roomages = [
+  const gfeatures = [
  "https://brutokvashino.github.io/images/tree.jpg",
     "https://brutokvashino.github.io/images/pine.jpg",
         "https://brutokvashino.github.io/images/rockline.jpg",
         "https://brutokvashino.github.io/images/treeline.jpg",
         "https://brutokvashino.github.io/images/grassland.jpg",
     "https://brutokvashino.github.io/images/grassland_tall.jpg",
-    "https://brutokvashino.github.io/images/person.jpg"
-  ]; for (let i = 1; i <= 20; i++) {
-    const elem = document.getElementById("t" + i);
+    "https://brutokvashino.github.io/images/person.jpg",
+    "https://brutokvashino.github.io/images/stone.jpg"
+  ]; for (let y = 1; y <= 20; y++) {
+    const elem = document.getElementById("g" + y);
     if (elem) {
       elem.addEventListener("click", function() {
-        const randIndex = Math.floor(Math.random() * roomages.length);
-        const chosenImage = roomages[randIndex];
-        elem.style.backgroundImage = `url(${chosenImage})`;
+        const randgndex = Math.floor(Math.random() * gfeatures.length);
+        const chosengmage = gfeatures[randgndex];
+        elem.style.backgroundImage = `url(${chosengmage})`;
         elem.style.backgroundSize = "contain";
         elem.style.backgroundPosition = "center"; 
         elem.style.backgroundRepeat = "no-repeat"; 
