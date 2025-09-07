@@ -1,13 +1,12 @@
 <html>
 <body>
 <div style="width:100px;height:100px;">
-<div id="room" style="display:inline-block;padding:10px;width:30px;height:30px;border:1px solid black;"></div>
+<div id="roompic" style="display:inline-block;padding:10px;width:30px;height:30px;border:1px solid black;"></div>
 <div id="toom" style="display:inline-block;padding:10px;width:30px;height:30px;border:1px solid black;"></div>
 </div>
 <script>
-  document.getElementById("room").addEventListener("click", roomgot);
-function roomgot(){
-  const images = [
+  document.getElementById("roompic").addEventListener("click", roompicgen);
+function roompicgen(){ const roomages = [
     "https://brutokvashino.github.io/images/L1.jpg",
     "https://brutokvashino.github.io/images/L2.jpg",
         "https://brutokvashino.github.io/images/H1.jpg",
@@ -27,12 +26,10 @@ function roomgot(){
     "https://brutokvashino.github.io/images/F4.jpg",
         "https://brutokvashino.github.io/images/Z1.jpg"
   ];
-  // Pick a random one
-  const randIndex = Math.floor(Math.random() * images.length);
-  const chosenImage = images[randIndex];
-  // Apply it as background
-  document.getElementById("room").style.backgroundImage = `url(${chosenImage})`;
-  document.getElementById("room").style.backgroundSize = "cover";
+  const randroompicindex = Math.floor(Math.random() * roomages.length);
+  const chosenroompic = roomages[randroompicindex];
+  document.getElementById("roompic").style.backgroundImage = `url(${chosenroompic})`;
+  document.getElementById("roompic").style.backgroundSize = "cover";
 }
 
   
