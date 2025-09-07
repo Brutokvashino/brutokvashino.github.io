@@ -1,5 +1,41 @@
-<h2>Map</h2><p>Click a square to place land</p><br><div style="border: 2px, solid, red; background-color: black; width: 338px;"><div id="t" style="width:30px;height:30px;border:1px solid black;" onclick="tg()">
+
+
+<div id="room" style="width:300px;height:200px;border:1px solid black;" onclick="roomgot()">
+<div id="toom" style="width:300px;height:200px;border:1px solid black;" onclick="toomgot()">
+  <!-- The background image will show here -->
 </div>
+
 <script>
-function tg() {  const images = [    "https://brutokvashino.github.io/images/island.jpg",    "https://brutokvashino.github.io/images/forest.jpg",    "https://brutokvashino.github.io/images/landscape.jpg",    "https://brutokvashino.github.io/images/tree.jpg",    "https://brutokvashino.github.io/images/mountain.jpg"    "https://brutokvashino.github.io/images/grassland.jpg"    "https://brutokvashino.github.io/images/grassland_tall.jpg"  ];  const randIndex = Math.floor(Math.random() * images.length);  const chosenImage = images[randIndex];  document.getElementById("t").style.backgroundImage = `url(${chosenImage})`; 
+function roomgot() {
+  // List of image URLs
+  const images = [
+    "https://brutokvashino.github.io/images/island.jpg",
+    "https://brutokvashino.github.io/images/forest.jpg",
+    "https://brutokvashino.github.io/images/mountain.jpg"
+  ];
+  
+  // Pick a random one
+  const randIndex = Math.floor(Math.random() * images.length);
+  const chosenImage = images[randIndex];
+  
+  // Apply it as background
+  document.getElementById("room").style.backgroundImage = `url(${chosenImage})`;
+  document.getElementById("room").style.backgroundSize = "cover";
+}
+  function toomgot() {
+  // List of image URLs
+  const tmages = [
+    "https://brutokvashino.github.io/images/island.jpg",
+    "https://brutokvashino.github.io/images/forest.jpg",
+    "https://brutokvashino.github.io/images/mountain.jpg"
+  ];
+  
+  // Pick a random one
+  const randtndex = Math.floor(Math.random() * tmages.length);
+  const chosentmage = tmages[randtndex];
+  
+  // Apply it as background
+  document.getElementById("toom").style.backgroundImage = `url(${chosentmage})`;
+  document.getElementById("toom").style.backgroundSize = "cover";
+  }
 </script>
