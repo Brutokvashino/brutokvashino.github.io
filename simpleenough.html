@@ -2,10 +2,10 @@
   <style>
   #grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 0px;
-    max-width: 600px;
-    margin: 5px auto;
+  justify-content: start; /* align grid to left */
+  align-content: start;   /* align grid to top */
   }
 
   #grid div {
@@ -13,12 +13,10 @@
     height: 20px;
     border: 1px solid #444;
     background-color: #eee;
-    display: flex;
-    align-items: left;
-    justify-content: left;
     cursor: pointer;
-    font-family: sans-serif;
-    font-size: 14px;
+      background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   }
 </style>
 <body>
