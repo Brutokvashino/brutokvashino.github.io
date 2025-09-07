@@ -5,14 +5,12 @@
     grid-template-columns: repeat(3, 0fr);
     gap: 0px;
   justify-content: start;
-  align-content: start;   /* align grid to top */
+  align-content: start;
   }
-
   #grid div {
     width: 50px;
     height: 50px;
     border: 1px solid #444;
-    background-color: #eee;
     cursor: pointer;
       background-size: contain;
   background-position: center;
@@ -39,7 +37,6 @@
 <div id="t16"></div>
 <div id="t17"></div>
 <div id="t18"></div>
-
   </div>
 <script>
   const roomages = [
@@ -61,10 +58,8 @@
     "https://brutokvashino.github.io/images/F3.jpg",
     "https://brutokvashino.github.io/images/F4.jpg",
         "https://brutokvashino.github.io/images/Z1.jpg"
-  ];
-  for (let i = 1; i <= 18; i++) {
+  ]; for (let i = 1; i <= 18; i++) {
     const elem = document.getElementById("t" + i);
-
     if (elem) {
       elem.addEventListener("click", function() {
         const randIndex = Math.floor(Math.random() * roomages.length);
@@ -73,9 +68,7 @@
         elem.style.backgroundSize = "contain";
         elem.style.backgroundPosition = "center"; 
         elem.style.backgroundRepeat = "no-repeat"; 
-      });
-    }
-  }
+      }); }  }
 </script>
 </body>
 </html>
