@@ -1,13 +1,27 @@
 <html>
 <body>
-<div style="width:100px;height:100px;">
-<div id="roompic" style="display:inline-block;padding:10px;width:30px;height:30px;border:1px solid black;"></div>
-<div id="toom" style="display:inline-block;padding:10px;width:30px;height:30px;border:1px solid black;"></div>
-</div>
+<div id="t1" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">1</div>
+<div id="t2" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">2</div>
+<div id="t3" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">3</div>
+<div id="t4" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">4</div>
+<div id="t5" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">5</div>
+<div id="t6" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">6</div>
+<div id="t7" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">7</div>
+<div id="t8" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">8</div>
+<div id="t9" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">9</div>
+<div id="t10" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">10</div>
+<div id="t11" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">11</div>
+<div id="t12" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">t12</div>
+<div id="t13" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">t13</div>
+<div id="t14" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">t14</div>
+<div id="t15" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">t15</div>
+<div id="t16" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">t16</div>
+<div id="t17" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">t17</div>
+<div id="t18" style="width:150px;height:100px;border:1px solid black;cursor:pointer;">t18</div>
+
 <script>
-  document.getElementById("roompic").addEventListener("click", roompicgen);
-function roompicgen(){ const roomages = [
-    "https://brutokvashino.github.io/images/L1.jpg",
+  const roomages = [
+ "https://brutokvashino.github.io/images/L1.jpg",
     "https://brutokvashino.github.io/images/L2.jpg",
         "https://brutokvashino.github.io/images/H1.jpg",
         "https://brutokvashino.github.io/images/H2.jpg",
@@ -26,30 +40,18 @@ function roompicgen(){ const roomages = [
     "https://brutokvashino.github.io/images/F4.jpg",
         "https://brutokvashino.github.io/images/Z1.jpg"
   ];
-  const randroompicindex = Math.floor(Math.random() * roomages.length);
-  const chosenroompic = roomages[randroompicindex];
-  document.getElementById("roompic").style.backgroundImage = `url(${chosenroompic})`;
-  document.getElementById("roompic").style.backgroundSize = "cover";
-}
+  for (let i = 1; i <= 18; i++) {
+    const elem = document.getElementById("t" + i);
 
-  
-  document.getElementById("toom").addEventListener("click", toomgot); 
-  function toomgot(){
-  // List of image URLs
-  const tmages = [
-    "https://brutokvashino.github.io/images/island.jpg",
-    "https://brutokvashino.github.io/images/forest.jpg",
-    "https://brutokvashino.github.io/images/mountain.jpg"
-  ];
-  
-  // Pick a random one
-  const randtndex = Math.floor(Math.random() * tmages.length);
-  const chosentmage = tmages[randtndex];
-  
-  // Apply it as background
-  document.getElementById("toom").style.backgroundImage = `url(${chosentmage})`;
-  document.getElementById("toom").style.backgroundSize = "cover";
-}
+    if (elem) {
+      elem.addEventListener("click", function() {
+        const randIndex = Math.floor(Math.random() * roomages.length);
+        const chosenImage = roomages[randIndex];
+        elem.style.backgroundImage = `url(${chosenImage})`;
+        elem.style.backgroundSize = "cover";
+      });
+    }
+  }
 </script>
 </body>
 </html>
