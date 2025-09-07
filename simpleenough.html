@@ -11,7 +11,6 @@
     width: 50px;
     height: 50px;
     border: 1px solid #444;
-    background-image: url("https://brutokvashino.github.io/images/grassland.jpg");
     cursor: pointer;
       background-size: contain;
   background-position: center;
@@ -20,24 +19,26 @@
 </style>
 <body>
   <div id="grid">
-<div id="t1"></div>
-<div id="t2"></div>
-<div id="t3"></div>
-<div id="t4"></div>
-<div id="t5"></div>
-<div id="t6"></div>
-<div id="t7"></div>
-<div id="t8"></div>
-<div id="t9"></div>
-<div id="t10"></div>
-<div id="t11"></div>
-<div id="t12"></div>
-<div id="t13"></div>
-<div id="t14"></div>
-<div id="t15"></div>
-<div id="t16"></div>
-<div id="t17"></div>
-<div id="t18"></div>
+<div id="g1" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g2" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g3" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g4" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g5" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g6" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g7" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g8" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g9" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g10" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g11" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g12" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g13" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g14" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g15" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g16" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g17" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g18" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g19" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
+<div id="g20" style="background-image: url("https://brutokvashino.github.io/images/grassland.jpg"");></div>
   </div>
 <script>
   const roomages = [
@@ -47,9 +48,8 @@
         "https://brutokvashino.github.io/images/treeline.jpg",
         "https://brutokvashino.github.io/images/grassland.jpg",
     "https://brutokvashino.github.io/images/grassland_tall.jpg",
-    "https://brutokvashino.github.io/images/person.jpg",
-        null
-  ]; for (let i = 1; i <= 18; i++) {
+    "https://brutokvashino.github.io/images/person.jpg"
+  ]; for (let i = 1; i <= 20; i++) {
     const elem = document.getElementById("t" + i);
     if (elem) {
       elem.addEventListener("click", function() {
