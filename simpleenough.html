@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+x<!DOCTYPE html>
 <html lang="en-US">
 <head>
-<title>Quest Randomizer</title>
+<title>Explore</title>
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:image" content="">
@@ -1886,7 +1886,7 @@ function copyprefix() {
   document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
 }
 </script>
-<br><br><h2>What is your quest?</h2>
+<br><br><h2>Explore</h2>
 <div id="madlibtextarea" style="margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
   In the <span id="introgot2"></span> town of <span id="prefixgot2"></span> <span id="townnamegot2"></span> <span id="suffixgot2"></span>, lies the <span id="questitemgot2"></span> locked away in the <span id="roomgot2"></span> of the <span id="structuregot2"></span>. Our hero, the <span id="charactergot2"></span> <span id="partyjobgot2"></span>, travels up the <span id="roadgot2"></span> road with only a(n) <span id="weapongot2"></span> to find <span id="mysteriousitemgot2"></span>, bring back the <span id="questitemgot3"></span>, and save the land <span id="nationgot2"></span>. But first, it is time to <span id="activitygot2"></span> and <span id="interactiongot2"></span> the locals for <span id="lootitemgot2"></span>.
   </div>  
@@ -2202,12 +2202,32 @@ function copyprefix() {
 <div id="t20"></div>
   </div>
 	<br>
+		  Structures:
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+	Rooms:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
 		<h2>Chest</h2>
 	<br>
 		<div id="xgrid">
 <div id="x1"></div>
   </div>
-	<br>
+		<br>
+		    Quest Item:
+    <button id="getquestitem" onclick="getquestitem()">Select</button>
+    <span id="questitemgot"></span>
+    <br><br>
+    Mysterious Item:
+    <button id="getmysteriousitem" onclick="getmysteriousitem()">Select</button>
+    <span id="mysteriousitemgot"></span>
+	<br><br>
+		    Loot Item:
+    <button id="getlootitem" onclick="getlootitem()">Select</button>
+    <span id="lootitemgot"></span>
+		<br><br>
 				    <h2>Known World</h2>
 	<br>
  <div id="wgrid">
