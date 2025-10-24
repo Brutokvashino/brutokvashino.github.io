@@ -268,7 +268,27 @@ path=egp
 
 <!DOCTYPE html><meta charset="UTF-8"><html lang="en"><body><style>  body{font-family: Arial, Helvetica, sans-serif;margin:15px;background-color: #dedede;}    a {text-decoration: none;color:rgb(40, 40, 40);}h2 {font-size: 36px;}.title {font-size:large;font-weight:5px;}  .boxtitles {padding:20px;}.header {            display:flex;justify-content:space-between;      padding:20px;}.backbutton { display:flex; justify-content:flex-start;        margin-bottom:40px;  padding:20px;        }  .largecontainer { display:flex;            flex-direction: column; background-color: white; flex-grow:100%;        }  .title {        display:flex;            justify-content: flex-start; margin-bottom:40px;            padding:20px 100px;        }  .blogcontainer {     padding:20px 100px;            margin-bottom:200px;    }  .box {border: 1px solid black;       display:flex;            flex-direction:column;            width:300px;   } .boxtext {padding:20px;    }  .footer {  height:200px;   }   </style><div class="largecontainer"><div class="header">  <a href="https://brutokvashino.github.io/index.html">Raul's Tech Journey</a><a href="https://brutokvashino.github.io/aboutblog.html">About</a></div><a class="backbutton" href="https://brutokvashino.github.io/blog.html">← Back<a><
 div class="title"><h1>Cuban Coffee Narrows</h1></div><div class="blogcontainer"><<br><br> 
-        
+     <script>
+function startscrnpress() {
+        $thelot = array(GetElementByHtml:ID:ccnastartscrn, ccnamap)
+        thelot display:0;
+}
+function getintro(){
+    document.getElementById("introgot").innerHTML = intros();
+}
+function etherfacts() {
+var txt = getRndInteger(1,6);
+if (txt == 1) {return "Ethernet Gondola: 802.3";}
+else if (txt == 2) {return "Cable car up to 100m";}
+else if (txt == 3) {return "Fiber multirail up 550m";}
+else if (txt == 4) {return "Fiber monorail more than 2km";}
+else if (txt == 5) {return "Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC";}
+else if (txt == 6) {return "WRED and CSMA/CD";}
+}
+function getetherfact(){
+    document.getElementById("etherfactgot").innerHTML = etherfacts();
+}
+</script>   
 <div id="playzone" style="background:url('https://brutokvashino.github.io/images/island.jpg'); background-size:cover; width:390px; height:390px;">
 <div id="ccnastartscrn" style="background-image: url('https://brutokvashino.github.io/images/island.jpg'); width:390px; height:390px;">
 <button onclick="resetscrn(), loadccnamap()">Start</button>
@@ -1112,34 +1132,5 @@ VTP prison: counting to infinity, routing loops, switching loops, flapping,
 <div class="footer">
 </div>
 </div>
-<script>
-function startscrnpress() {
-        $thelot = array(GetElementByHtml:ID:ccnastartscrn, ccnamap)
-        thelot display:0;
-}
-function getintro(){
-    document.getElementById("introgot").innerHTML = intros();
-}
-function copyprefix() {
-  var copyText = document.getElementById("town-prefix");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-  alert("Copied the list");
-  document.getElementById("surroundingtext").innerHTML = "(goes before your town name)"
-}
-function etherfacts() {
-var txt = getRndInteger(1,6);
-if (txt == 1) {return "Ethernet Gondola: 802.3";}
-else if (txt == 2) {return "Cable car up to 100m";}
-else if (txt == 3) {return "Fiber multirail up 550m";}
-else if (txt == 4) {return "Fiber monorail more than 2km";}
-else if (txt == 5) {return "Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC";}
-else if (txt == 6) {return "WRED and CSMA/CD";}
-}
-function getetherfact(){
-    document.getElementById("etherfactgot").innerHTML = etherfacts();
-}
-</script>
 </body>
 </html>
