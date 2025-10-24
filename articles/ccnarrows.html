@@ -285,6 +285,18 @@ else if (txt == 4) {return "Fiber monorail more than 2km";}
 else if (txt == 5) {return "Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC";}
 else if (txt == 6) {return "WRED and CSMA/CD";}
 }
+function sdnfacts() {
+var txt = getRndInteger(1,6);
+if (txt == 1) {return "0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug";}
+}
+     function wififacts() {
+var txt = getRndInteger(1,6);
+if (txt == 1) {return "0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug";}
+else if (txt == 2) {return "B2>A5>G2>N3>AC5>AD6>AX3";}
+else if (txt == 3) {return "Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH";}          
+             
+
+}
 function getetherfact(){
     document.getElementById("etherfactgot").innerHTML = etherfacts();
 }
@@ -297,22 +309,12 @@ function getetherfact(){
 <div id="ccnamap" style="background-image: url('https://brutokvashino.github.io/images/ccna_map.jpg'); width:390px; height:390px; object-fit: contain;"></div>
 
         
-        
 <!--end playzone--></div>
         
         
         <p>:  <br>
-
-<a href ="https://learningnetwork.cisco.com/s/ccna-exam-topics">https://learningnetwork.cisco.com/s/ccna-exam-topics</a><br>
-Learning plan: 200-301 v1.1: udemy practice tests, Boson study guide, certbros, subnetting.net, jeremysITlabs, cisco documentation, cisco learning Labs, Netsim, Boson Exsim, cisco Exsim <br><br>
-<br><br>
-Cuban Coffee Narrows
-<br><br>
-        <br><br>
-0Emergency,1Alert,2Critical,3Error,4Network,5Information,6Control,7Debug<br>
-$$$ 19/200... 100Mbps=19stp,200krstp, there is no 2,000 nor 200, 1942<br>
-Gates: B2>A5>G2>N3>AC5>AD6>AX3<br>
-Air force:WEP:rc4/crc::WPA:tkip/rc4+mic::WPA2:CCMP/AES::WPA3:GCMP/256-DH<br>
+<br>
+$$$ 19/200... 100Mbps=19stp,200krstp, there is no 2,000 nor 200, 1942<br><br>
 <br><br>
 <div id="etheraround" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:390px; height:390px;">
 <div id="ether" style="background-image: url('https://brutokvashino.github.io/images/landscape.jpg'); width:100%; height:100%;background-size:cover;"></div>
