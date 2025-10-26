@@ -446,120 +446,52 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
         <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
           <a href="doctor.html" title="Doctor Quackov is in" class="templateLink">Doctor</a>   
       </div>
-Cable car up to 100m<br> 
-Fiber multirail up 550m, but some say up to 2km, verify<br> 
-Fiber monorail more than 2km<br>
-Etherchannel corridor mainline, pagp auto/desirable, lacp active/passive, and LAG for WLC<br>
-WRED and CSMA/CD<br>
-        Trains: padding to an increment of 4, bit len...__64__ _32_ -16- .8. *4*<br>
-Eth:[Pre+SFD]notcounted+[D/S12B *.1q* Type2B, PL/DAT46-1500B *FCS=CRC*] min=64B(PL=min46B)<br>
-MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]<br>
-802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]<br>
-CMDS MAC: show mac address-table, clear mac address-table dynamic<br>
-ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]<br>
-1QTag 0x8100:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]<br>
-ICMP:[T Cod CS ID Seq]<br>
-IPv4 0x0800 (20B=+):[*V**IHL*[.ToS8b=0x800=ipv4:DS,ECN.]-Tot--ID--Fl3b-/-Fr13b-.TTL.P-CS-__S/D__ O/P[Data]]<br>
-IPv6(40B) 0x86DD:[*V*.Class.-Flow20b--PLlen(exclhdr)-.Next..HopLim._________S/D_________]<br>
 <script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function etherfact() {
-          var txt = getRndInteger(1,58);
+          var txt = getRndInteger(1,21);
           if (txt == 1) { return "  Ethernet Gondola: 802.3";} 
                    else if (txt == 2) {return "Routing: 0 connected/loopback, 1 fully specified, next-hop, exit interface";}
           else if (txt == 3) {return "Movie options: Moll Flanders 9600";}
-                    else if (txt == 3) {return "Dining options: 1500 byte MTU limit";}
-                    else if (txt == 3) {return "UDP:8B[_S/D_, -Len-, CS, [Data]]";}
-                    else if (txt == 3) {return "TCP:20B=+[_S/D__SEQ__ACK_*off**rvd3b*.Fl9b.-Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
-                    else if (txt == 3) {return "Movie";}
+                    else if (txt == 4) {return "Dining options: 1500 byte MTU limit";}
+                    else if (txt == 5) {return "UDP:8B[_S/D_, -Len-, CS, [Data]]";}
+                    else if (txt == 6) {return "TCP:20B=+[_S/D__SEQ__ACK_*off**rvd3b*.Fl9b.-Win-16b, -CS-, -U-, O/P, [Data]]...16/16, _32/32_, .small., flags = SYN, ACK, O/=MSS, SACK,";}
+                    else if (txt == 7) {return "IPv6(40B) 0x86DD:[*V*.Class.-Flow20b--PLlen(exclhdr)-.Next..HopLim._________S/D_________]";}
+                    else if (txt == 8) {return "IPv4 0x0800 (20B=+):[*V**IHL*[.ToS8b=0x800=ipv4:DS,ECN.]-Tot--ID--Fl3b-/-Fr13b-.TTL.P-CS-__S/D__ O/P[Data]]";}
+                    else if (txt == 9) {return "ICMP:[T Cod CS ID Seq]";}
+                    else if (txt == 10) {return "1QTag 0x8100:[TPID 2B 0x8100=.1q, TCI 2B [PCP 3b=QoS=prio, DEI 1b, VID 12b=VLAN ID]";}
+                    else if (txt == 11) {return "ARP:[HdwT, P, Len, PLlen, Op, Smac/ip, Tgtmac/ip]";}
+                    else if (txt == 12) {return "CMDS MAC: show mac address-table, clear mac address-table dynamic";}
+                    else if (txt == 13) {return "802.11MAC: [FC:[Pv, Typ, Sub, tDS/fDS, MorFr, Rty, Pwr, MorDat, Protc, HTC], Dur, Ad1, Ad2, Ad3, SEQ, Ad4, *QoS, *HT, [DATA], FCS]";}
+                    else if (txt == 14) {return "MAC: firsthext:[bit2:0 gllOUI, 1 ladm, bit1: 0 uni, 1 mult]";}
+                    else if (txt == 15) {return "Eth:[Pre+SFD]notcounted+[D/S12B *.1q* Type2B, PL/DAT46-1500B *FCS=CRC*] min=64B(PL=min46B)";}
+                    else if (txt == 16) {return "Trains: padding to an increment of 4";}
+                    else if (txt == 17) {return "WRED and CSMA/CD";}
+                    else if (txt == 18) {return "pagp auto/desirable, lacp active/passive, and LAG for WLC";}
+                    else if (txt == 19) {return "Fiber monorail more than 2km";}
+                    else if (txt == 20) {return "Fiber multirail up 550m, but some say up to 2km, verify";}
+                    else if (txt == 21) {return "Cable car up to 100m";}
+        }
+        function miscfacts() {
+        var txt = getRndInteger(1,2);
+          if (txt == 1) { return "DHCP: Options field 4byte magic cookie 99.130.83.99 / 0x63825363 distiguishes dhcp from bootp";} 
+          else if (txt == 2) {return "ash clouds";}
 
         }
-        function weather() {
-        var txt = getRndInteger(1,36);
-          if (txt == 1) { return "clear";} else if (txt == 2) { return "cloudy";} else if (txt == 3) { return "rainy";} else if (txt == 4) { return "foggy";} else if (txt == 5) { return "misty";} else if (txt == 6) { return "monsoon";} else if (txt == 7) { return "hurricane";} else if (txt == 8) { return "tornado";} else if (txt == 9) { return "storm";} else if (txt == 10) { return "lightning_storm";} else if (txt == 11) { return "wildfire";} else if (txt == 12) { return "overcast";} else if (txt == 13) { return "patched_sky";} else if (txt == 14) { return "hailstorm";} else if (txt == 15) { return "snow";} else if (txt == 16) { return "blizzard";} else if (txt == 17) { return "cool";} else if (txt == 18) { return "warm";} else if (txt == 19) { return "freezing";} else if (txt == 20) { return "hot";} else if (txt == 21) { return "humid";} else if (txt == 22) { return "dry";} else if (txt == 23) { return "mountains";} else if (txt == 24) { return "comfortable";} else if (txt == 25) { return "windy";} else if (txt == 26) { return "breezy";} else if (txt == 27) { return "doldrum";} else if (txt == 28) { return "earthquake";} else if (txt == 29) { return "volcanic_ash";} else if (txt == 30) { return "flood";} else if (txt == 31) { return "pollen";} else if (txt == 32) { return "migration";}else if (txt == 33) {return "locusts";} else if (txt == 34) {return "drought";}
-          else if (txt == 35) {return "dry";}
-          else if (txt == 36) {return "ash clouds";}
+        function attacks() {
+          var txt = getRndInteger(1,5);
+          if (txt == 1) {return "stp attack";}
+          else if (txt == 2) {return "mac flooding";}
+          else if (txt == 3) {return "double tagging vlan";}
+          else if (txt == 4) {return "dhcp attack";}
+          else if (txt == 5) {return "spoofing";}
+    }
 
-        }
-        function flora() {
-          var txt = getRndInteger(1,83);
-          if (txt == 0) {return ",, prickly_pear, seagrass, rose, 'crop plant',";
-          } else if (txt == 1) { return "cardamine_hirsuta";} else if (txt == 2) { return "prunella_vulgaris";} else if (txt == 3) { return "plantago_major";} else if (txt == 4) { return "plantago_lanceolata";}else if (txt == 5) { return "crabgrass";}     else if (txt == 6) { return "'queen Annes lace'";}    else if (txt == 7) {return "pigweed";}    else if (txt == 8) {return "lambsquarters";}else if (txt == 9) {return "cattail";} else if (txt == 10) {return "hemlock";}else if (txt == 11) {return "wineberry";}else if (txt == 12) {return "salmonberry";}else if (txt == 13) {return "black_raspberry";}else if (txt == 14) { return "scarlet_pimpernel";}else if (txt == 15) {return "knotweed";}else if (txt == 16) {return "mullein";}else if (txt == 17) {return "veronica";}else if (txt == 18) {return "dandelion";}else if (txt == 19) {return "henbit";}else if (txt == 20) {return "lobelia";}else if (txt == 21) {return "spring_beauties";}else if (txt == 22) {return "serviceberry";}else if (txt == 23) {return "'poison ivy'";}else if (txt == 24) {return "elderberry";}else if (txt == 25) {return "nightshade";}else if (txt == 26) {return "'crows foot grass'";}else if (txt == 27) {return "cotton";}else if (txt == 28) {return "maize";}else if (txt == 29) {return "squash";}else if (txt == 30) {return "melon";}else if (txt == 31) {return "blueberry";}else if (txt == 32) {return "currant";}else if (txt == 33) {return "wild_strawberry";} else if (txt == 34) {return "death_camas";}
-          else if (txt == 35) {return "moss";}
-          else if (txt == 36) {return "mushroom";}
-          else if (txt == 37) {return "buttercup";}
-          else if (txt == 38) {return "strawberry_wild";}
-          else if (txt == 39) {return "blueberry";}
-          else if (txt == 40) {return "porcelainberry";}
-          else if (txt == 41) {return "mile-a-minute";}
-          else if (txt == 42) {return "poison_oak";}
-          else if (txt == 43) {return "poison_sumac";}
-          else if (txt == 44) {return "peppervine";}
-          else if (txt == 45) {return "virginia_creeper";}
-          else if (txt == 46) {return "box_elder";}
-          else if (txt == 47) {return "sassafrass";}else if (txt == 48) {return "wintergreen";}else if (txt == 49) {return "fox_grapes";}else if (txt == 50) {return "seagrapes";}else if (txt == 51) {return "wild_oats";}else if (txt == 52) {return "nightshade";}else if (txt == 53) {return "wild_garlic";}else if (txt == 54) {return "guord";}else if (txt == 55) {return "yucca";}else if (txt == 56) {return "joshua_tree";}else if (txt == 57) {return "pricky_pear";}else if (txt == 58) {return "purslane";}else if (txt == 59) {return "black_medic";}else if (txt == 60) {return "white_clover";}else if (txt == 61) {return "alsike_clover";}else if (txt == 62) {return "lichen";}else if (txt == 63) {return "spanish_moss";}else if (txt == 64) {return "fern";}else if (txt == 65) {return "thistle";}else if (txt == 66) {return "burdock";}else if (txt == 67) {return "barngrass";}else if (txt == 68) {return "elephant_grass";}else if (txt == 69) {return "campana";}else if (txt == 70) {return "bacon_and_eggs";}else if (txt == 71) {return "hydrangea";}else if (txt == 72) {return "fig";}else if (txt == 73) {return "tea";}else if (txt == 74) {return "wild_rice";} else if (txt == 75) {return "lily_of_the_valley";}else if (txt == 76) {return "hibiscus";}
-          else if (txt == 77) {return "orache";}
-          else if (txt == 78) {return "sea blite";}
-          else if (txt == 79) {return "sea purslane";}
-          else if (txt == 80) {return "goose tongue";}
-          else if (txt == 81) {return "cactus";}
-          else if (txt == 82) {return "yucca";}
-          else if (txt == 83) {return "joshua tree";}
-        }
-
-        function beachstuff() {
+        function ospffacts() {
           var txt = getRndInteger(1,36);
-          if (txt == 0) {return "orache";}
-          else if (txt == 1) {return "orache";}
-          else if (txt == 2) {return "goosetongue";}
-          else if (txt == 3) {return "goosetongue";}
-          else if (txt == 4) {return "sea purslane";}
-          else if (txt == 5) {return "sea blite";}
-          else if (txt == 6) {return "🌿edible kelp";}
-          else if (txt == 7) {return "🌿edible kelp";}
-          else if (txt == 8) {return "🌿edible kelp";}
-          else if (txt == 9) {return "🌱seagrass";}
-          else if (txt == 10) {return "🌱seagrass";}
-          else if (txt == 11) {return "🌱seagrass";}
-          else if (txt == 12) {return "coral";}
-          else if (txt == 13) {return "sand";}
-          else if (txt == 14) {return "sand";}
-          else if (txt == 15) {return "sand";}
-          else if (txt == 16) {return "sand";}
-          else if (txt == 17) {return "sand";}
-          else if (txt == 18) {return "sand";}
-          else if (txt == 19) {return "sand";}
-          else if (txt == 20) {return "sand";}
-          else if (txt == 21) {return "sand";}
-          else if (txt == 22) {return "shell";}
-          else if (txt == 23) {return "shell";}
-          else if (txt == 24) {return "shell";}
-          else if (txt == 25) {return "shell";}
-          else if (txt == 26) {return "shell";}
-          else if (txt == 27) {return "shell";}
-          else if (txt == 28) {return "shell";}
-          else if (txt == 29) {return "eggsack";}
-          else if (txt == 30) {return "rock";}
-          else if (txt == 31) {return "rock";}
-          else if (txt == 32) {return "rock";}
-          else if (txt == 33) {return "rock";}
-          else if (txt == 34) {return "🦀crab";}
-          else if (txt == 35) {return "seagull";}
-          else if (txt == 36) {return "pelican";}
-          else if (txt == 37) {return "";}
-
+          if (txt == 0) {return "LSDB too big for single area, too many updates in single area";}
         }
         
         function swampstuff() {
@@ -1713,8 +1645,8 @@ function getetherfact(){
 function getroad() {
   document.getElementById("roadgot").innerHTML = roads();
 }
-  function getweather(){
-    document.getElementById("weathergot").innerHTML = weather();
+  function getmiscfacts(){
+    document.getElementById("miscfactsgot").innerHTML = miscfacts();
 }function getflora(){
     document.getElementById("floragot").innerHTML = flora();
 }function gettrees(){
@@ -1771,8 +1703,8 @@ function getnortham(){
 function getjunglestuff(){
     document.getElementById("junglestuffgot").innerHTML = junglestuff();
 }
-function getbeachstuff(){
-    document.getElementById("beachstuffgot").innerHTML = beachstuff();
+function getospffacts(){
+    document.getElementById("ospffactsgot").innerHTML = ospffacts();
 }
 function getmountainstuff(){
     document.getElementById("mountainstuffgot").innerHTML = mountainstuff();
@@ -1804,8 +1736,8 @@ function getforeststuff(){
   </button>
   <br><br>
     Weather:
-    <button id="getweather" onclick="getweather()">Select</button>  
-    <span id="weathergot"></span>
+    <button id="getmiscfacts" onclick="getmiscfacts()">Select</button>  
+    <span id="miscfactsgot"></span>
     <br>
     <br>
     Flora:
@@ -1922,8 +1854,8 @@ function getforeststuff(){
     <br>
     <br>
     Beach:
-    <button id="getbeachstuff" onclick="getbeachstuff()">Select</button>  
-    <span id="beachstuffgot"></span>
+    <button id="getospffacts" onclick="getospffacts()">Select</button>  
+    <span id="ospffactsgot"></span>
     <br>
     Mountain:
     <button id="getmountainstuff" onclick="getmountainstuff()">Select</button>  
