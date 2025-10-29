@@ -119,8 +119,126 @@ Get-CimInstance Win32_Process -Filter "ProcessId = <PID>" | Select-Object Proces
 
 Get-Process -Id <PID> | Select-Object Id, Name, PriorityClass
 
+
 can query more than one PID with commas
 
 Get-FileHash 'FileYouWantToCheck.bin' -Algorithm MD5
+
+
+tv group assign	"C:\Program Files (x86)\tv\tv.exe" assignment --id 0
+			
+Run program cmd	run program.exe						
+Create textfile cmd	"echo text > textfile.txt
+"						
+Append text to file	"echo new_entry >> ""textfile.txt""
+"						
+Visit webpage cmd	start chrome https://www.windy.com
+						
+Regedit Memory Integrity	Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity If you do not see "HypervisorEnforcedCodeIntegrity" folder under Scenarios. Please create it by right-clicking Scenarios folder > NEW > Key and name it "HypervisorEnforcedCodeIntegrity" Under "HypervisorEnforcedCodeIntegrity", please right-click on the open space on the right panel > NEW > DWORD and name it "Enabled". Make its value 1 > Leave it under Hexadec > Hit OK. 4. Then Restart the computer.				
+		
+User info AD Powershell	Get-ADUser -Identity FIRST.LAST -Properties *						
+Pull OU users AD Powershell	Get-ADuser -Filter * -searchbase "OU=Company, OU=Users,DC=local"		
+				
+audiotroubleshooter batch	"@echo off
+echo ""Please note the following information to understand your internet speed. For questions, please contact...""
+ipconfig /all
+echo ""The program, Event Viewer, is now open. Please double-click Windows then double-click Application to check for errors. List any application errors with red exclamation marks to support. For example, an error that specifies AUDIODG.EXE indicates that the audio driver may have crashed, so it should be reinstalled.""
+start taskkill /f /im voip.exe
+call chrome https://speedtest.net
+call eventvwr.msc
+call taskmgr
+start ms-settings:
+call devmgmt.msc
+start voip.exe
+echo audio troubleshooting initiated %date% %time% >> C:\Users\my-logs.txt
+C:\Users\my-logs.txt
+exit"	
+					
+check-in batch	"@echo off
+echo checked in %date% %time% >> ""C:\Users\Me\Desktop\check-ins.txt"""						
+Get computername	hostname						
+Get computer info	Get-ComputerInfo						
+Convert files to jpg in the folder using Powershell	ren *.* *.jpg						
+Location of Spotlight photos	"
+%localappdata%\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"						
+Stop autoupdating time in Regedit	"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\tzautoupdate\Start
+To turn off ""Set Time zone automatically"" The DWORD value should be 4. One problem computer had 3"						
+Change time	Set-TimeZone -Id "Whatever Time"						
+Batch file.bat to run Powershell.ps1 file	powershell C:\Users\User\SetTimeZone.ps1	
+					
+tasks powershell	Get-Process						
+tasks command prompt	tasklist						
+Email PS script?	Get-MailboxFolderStatistics Name@domain.com -FolderScope RecoverableItems | Ft Name,Folderpath,FolderAndSubfolderSize,ItemsInFolderAndSubfolders						
+Email PS script, enable archiving?	Start-ManagedFolderAssistant -Identity Name@domain.com
+						
+Scan windows files for corruption	sfc /scannow						
+Check disk for errors?	chkdsk /f /r						
+Offensive: Mimikatz fileless (still detectable) PS	Invoke-Mimikatz.ps1						
+Find TVID note *or	>reg query hklm\software\TV *****OR>reg query hklm\software\WowNode *if needed						
+
+PS see audio devices or drivers	Get-CimInstance win32_sounddevice						
+See content	PS: Get-Content CMD: type						
+Grep for windows	findstr	
+					
+reset page	?atFileReset=true		then spam keys				
+shared mailbox?	msExchRecipientTypeDetails:, 
+msExchRemoteRecipientType:,
+						
+scanning server	company.mail.protection.outlook.com						
+admin disabled, re-enable with priv	net user administrator /active:yes									
+Can use to try fixing DLLs?	Once you have identified the DLL, you can try re-registering it by running the command regsvr32 <dllname> in an elevated command prompt. If this does not work, you can try reinstalling the software associated with the DLL.						
+PS ISE script to import emails	"New-DistributionGroup -Name ""Comp"" -PrimarySmtpAddress ""name@domain.com"" -Type Distribution
+
+Import-Csv ""C:\File\File.csv"" | foreach{Add-DistributionGroupMember -Identity “Dept” -Member $_.alias}"						
+Find SFC scan results in cbs logs	findstr /c:"[SR]" windows\logs\cbs\cbs.log >mysfclogdetails.txt	
+					
+check certs	certmgr.msc	
+					
+dev home uninstall 	"Get-AppxPackage Microsoft.Windows.devhome | Remove-AppxPackage"
+						
+delete, uninstall	Remove-Item, del, rm, rmdir, -r, product where name="name-of-the-program" call uninstall, (Get-WmiObject Win32_Product -Filter "Name = 'ProgramName'").Uninstall(), sudo apt-get remove <application_name>			
+			
+append text? 	Get-Content target.file > file.txt, or Add-Content, but you may need to figure out beginning value parameter and path						
+connect to ubiquity ap - ps	powershell ssh ubnt@192.168.1.1 						
+connect to ubiquity ap - putty	connect to ubiquity ap address through ssh, maybe try port 443?	
+					
+getmac address	getmac	
+					
+colors in ps1	Write-Host 'HelloHello' -BackgroundColor Red -ForegroundColor Green	
+					
+Reset passwd PHPadmin with SQL:?????	UPDATE user SET password = PASSWORD("newpassword");
+						
+Check connections	netstat -n						
+Check File Hash	Get-FileHash '.\Filename.pdf' -Algorithm MD5						
+See and delete users	Run: systempropertiesadvanced						
+Install McGraph: 
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 
+Install-Module Microsoft.Graph -Scope CurrentUser -Repository PSGallery -Force 
+Get-InstalledModule Microsoft.Graph 
+Connect-MgGraph 
+Get-MgUser -UserId [UPN which is the same as the email] 
+Set-MgUser -UserId [UPN of account] -OnPremisesExtensionAttributes @{ ExtensionAttribute2 = $null} 
+(get-mguser -userid [UPN of account] -Property OnpremisesExtensionAttributes).OnpremisesExtensionAttributes | Format-List 
+McGraph	Get-MgUser -UserId [UPN which is the same as the email] 
+Set-MgUser -UserId [UPN of account] -OnPremisesExtensionAttributes @{ ExtensionAttribute2 = $null}
+(get-mguser -userid [UPN of account] -Property OnpremisesExtensionAttributes).OnpremisesExtensionAttributes | Format-List 
+
+Get User Attribs McGraph	(get-mguser -userid [UPN of account] -Property OnpremisesExtensionAttributes).OnpremisesExtensionAttributes | Format-List						
+
+Get User list by starting letters	Get-MgUser -ConsistencyLevel eventual -Count userCount -Filter "startsWith(DisplayName, 'Dai')" -Top 10						
+Get Users name containing	Get-MgUser -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:Conf"'						
+Get Users by department, country	Get-MgUser -Filter "Department eq 'Office'"					Get-MgUser -Filter "Country eq 'New Zealand'" -top 10
+	
+Does same as format list?	| Select DisplayName, Id						
+Get user groups	Get-MgUserMemberOf -userId UPN						
+Search users by jobtitle	Get-MgUser -Filter "Jobtitle eq 'Captain'" -top 10
+						
+Search groups by name	Get-MgGroup -Top 20 | Where DisplayName -like "*NZ*" | Select DisplayName, Id	
+					
+unassign property mggraph	Set-MgUser -UserId [UPN of account] -OnPremisesExtensionAttributes @{ Attribute = $null}			 			
+Reset pass mggraph req ELEVATION	Update-MgUser -UserId "user@domain.com" -PasswordProfile @{Password = "NewPassword"}						
+$_ mggraph	$_is an alias for $PSItem which means "the current item in the pipeline." Most of the time you would change aliases to their proper name but the convention is actually to leave $_ as is because it's used so often.	
+					
+Get user device mggraph ps	(Get-MgUser -UserId '<UPN>' -ExpandProperty OwnedDevices).OwnedDevices.id | ForEach-Object { Get-MgDevice -DeviceId $_ } | Select-Object DisplayName, Model, Manufacturer	
 
 -->
