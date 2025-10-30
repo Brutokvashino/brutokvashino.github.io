@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ship with Inertia</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #1e3f66;
+    }
+    #gameArea {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    .ship {
+      position: absolute;
+      width: 60px;
+      height: 30px;
+      background-color: #4caf50;
+      border: 2px solid #333;
+      border-radius: 5px;
+      transform-origin: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div id="playerShip" class="ship"></div>
+  </div>
+
+  <script>
+    const ship = document.getElementById('playerShip');
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    let angle = 0;
+    let speed = 0;
+    let maxSpeed = 5;
+    let acceleration = 0.1;
+    let friction = 0.05;
+    let vx = 0;
+    let vy = 0;
+    let keys = {};
+
+    document.addEventListener('keydown', e => keys[e.key] = true);
+    document.addEventListener('keyup', e => keys[e.key] = false);
+
+    function update() {
+      // Turning
+      if (keys['ArrowLeft']) angle -= 2;
+      if (keys['ArrowRight']) angle += 2;
+
+      // Accelerate forward
+      if (keys['ArrowUp']) {
+        speed += acceleration;
+        if (speed > maxSpeed) speed = maxSpeed;
+      } else {
+        // Apply friction
+        speed -= friction;
+        if (speed < 0) speed = 0;
+      }
+
+      // Decelerate manually
+      if (keys['ArrowDown']) {
+        speed -= acceleration * 2;
+        if (speed < 0) speed = 0;
+      }
+
+      // Calculate velocity based on angle and speed
+      let rad = angle * Math.PI / 180;
+      vx = Math.cos(rad) * speed;
+      vy = Math.sin(rad) * speed;
+
+      x += vx;
+      y += vy;
+
+      // Keep ship within bounds
+      if (x < 0) x = 0;
+      if (x > window.innerWidth - 60) x = window.innerWidth - 60;
+      if (y < 0) y = 0;
+      if (y > window.innerHeight - 30) y = window.innerHeight - 30;
+
+      // Update ship position and rotation
+      ship.style.left = x + 'px';
+      ship.style.top = y + 'px';
+      ship.style.transform = `rotate(${angle}deg)`;
+
+      requestAnimationFrame(update);
+    }
+
+    update();
+  </script>
+</body>
+</html>
