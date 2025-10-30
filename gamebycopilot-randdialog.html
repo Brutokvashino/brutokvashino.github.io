@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Interaction Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #cceeff;
+      font-family: sans-serif;
+    }
+    #gameArea {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #aaddff;
+    }
+    .character {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #444;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .player {
+      background-color: #4caf50;
+    }
+    #dialogueBox {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: #222;
+      color: white;
+      padding: 10px;
+      font-size: 18px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div id="player" class="character player"></div>
+    <div id="dialogueBox"></div>
+  </div>
+
+  <script>
+    const gameArea = document.getElementById('gameArea');
+    const player = document.getElementById('player');
+    const dialogueBox = document.getElementById('dialogueBox');
+
+    let playerX = 100;
+    let playerY = 100;
+    const speed = 5;
+
+    const keys = {};
+    document.addEventListener('keydown', e => keys[e.key] = true);
+    document.addEventListener('keyup', e => keys[e.key] = false);
+
+    function movePlayer() {
+      if (keys['ArrowUp']) playerY -= speed;
+      if (keys['ArrowDown']) playerY += speed;
+      if (keys['ArrowLeft']) playerX -= speed;
+      if (keys['ArrowRight']) playerX += speed;
+
+      playerX = Math.max(0, Math.min(window.innerWidth - 40, playerX));
+      playerY = Math.max(0, Math.min(window.innerHeight - 140, playerY));
+
+      player.style.left = playerX + 'px';
+      player.style.top = playerY + 'px';
+
+      requestAnimationFrame(movePlayer);
+    }
+
+    movePlayer();
+
+    // NPCs
+    const npcData = [
+      { name: 'Alex', phrases: ['Hey there!', 'Nice weather today.', 'Have you seen my cat?'] },
+      { name: 'Jamie', phrases: ['I love sandwiches.', 'Do you play games?', 'Watch out for the wizard.'] },
+      { name: 'Morgan', phrases: ['This place is strange...', 'I’m just wandering.', 'Hello, traveler.'] }
+    ];
+
+    npcData.forEach((npc, i) => {
+      const el = document.createElement('div');
+      el.classList.add('character');
+      el.style.left = (200 + i * 150) + 'px';
+      el.style.top = (200 + i * 100) + 'px';
+      gameArea.appendChild(el);
+
+      // Random movement
+      setInterval(() => {
+        const dx = Math.random() * 20 - 10;
+        const dy = Math.random() * 20 - 10;
+        let x = parseInt(el.style.left) + dx;
+        let y = parseInt(el.style.top) + dy;
+        x = Math.max(0, Math.min(window.innerWidth - 40, x));
+        y = Math.max(0, Math.min(window.innerHeight - 140, y));
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+      }, 1000);
+
+      // Click interaction
+      el.addEventListener('click', () => {
+        const phrase = npc.phrases[Math.floor(Math.random() * npc.phrases.length)];
+        dialogueBox.textContent = `${npc.name}: "${phrase}"`;
+        dialogueBox.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
