@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Match Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 100px);
+      grid-gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .card {
+      width: 100px;
+      height: 100px;
+      background-color: #333;
+      color: white;
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 8px;
+      user-select: none;
+    }
+    .matched {
+      background-color: #4caf50;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <h1>Memory Match</h1>
+  <div id="game-board"></div>
+
+  <script>
+    const board = document.getElementById('game-board');
+    const symbols = ['🍎','🍌','🍇','🍓','🍒','🍍','🥝','🍉'];
+    let cards = [...symbols, ...symbols]; // duplicate for pairs
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
+
+    // Shuffle cards
+    cards.sort(() => 0.5 - Math.random());
+
+    // Create card elements
+    cards.forEach(symbol => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.symbol = symbol;
+      card.textContent = '';
+      board.appendChild(card);
+
+      card.addEventListener('click', () => {
+        if (lockBoard || card.classList.contains('matched') || card === firstCard) return;
+
+        card.textContent = symbol;
+
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          secondCard = card;
+          lockBoard = true;
+
+          if (firstCard.dataset.symbol === secondCard.dataset.symbol) {
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            resetTurn();
+          } else {
+            setTimeout(() => {
+              firstCard.textContent = '';
+              secondCard.textContent = '';
+              resetTurn();
+            }, 1000);
+          }
+        }
+      });
+    });
+
+    function resetTurn() {
+      [firstCard, secondCard] = [null, null];
+      lockBoard = false;
+    }
+  </script>
+</body>
+</html>
