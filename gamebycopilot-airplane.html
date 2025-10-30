@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Simulator</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #87ceeb;
+      font-family: sans-serif;
+    }
+    #cockpit {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #222;
+      overflow: hidden;
+    }
+    #windshield {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background-color: #87ceeb;
+      overflow: hidden;
+      border-bottom: 5px solid #333;
+    }
+    #dashboard {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background-color: #444;
+      color: white;
+      padding: 10px;
+    }
+    .cloud, .object {
+      position: absolute;
+      background-color: white;
+      border-radius: 50%;
+    }
+    .object {
+      background-color: green;
+      border-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="cockpit">
+    <div id="windshield"></div>
+    <div id="dashboard">
+      <div>Throttle: <span id="throttleDisplay">0</span></div>
+      <div>Pitch: <span id="pitchDisplay">0</span></div>
+      <div>Roll: <span id="rollDisplay">0</span></div>
+    </div>
+  </div>
+
+  <script>
+    const windshield = document.getElementById('windshield');
+    const throttleDisplay = document.getElementById('throttleDisplay');
+    const pitchDisplay = document.getElementById('pitchDisplay');
+    const rollDisplay = document.getElementById('rollDisplay');
+
+    let throttle = 0;
+    let pitch = 0;
+    let roll = 0;
+
+    let clouds = [];
+    let objects = [];
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp') throttle = Math.min(throttle + 1, 10);
+      if (e.key === 'ArrowDown') throttle = Math.max(throttle - 1, 0);
+      if (e.key === 'w') pitch = Math.min(pitch + 1, 10);
+      if (e.key === 's') pitch = Math.max(pitch - 1, -10);
+      if (e.key === 'a') roll = Math.max(roll - 1, -10);
+      if (e.key === 'd') roll = Math.min(roll + 1, 10);
+
+      throttleDisplay.textContent = throttle;
+      pitchDisplay.textContent = pitch;
+      rollDisplay.textContent = roll;
+    });
+
+    function spawnCloud() {
+      const cloud = document.createElement('div');
+      cloud.classList.add('cloud');
+      cloud.style.width = '30px';
+      cloud.style.height = '30px';
+      cloud.style.left = Math.random() * window.innerWidth + 'px';
+      cloud.style.top = '-50px';
+      windshield.appendChild(cloud);
+      clouds.push({ el: cloud, size: 30 });
+    }
+
+    function spawnObject() {
+      const obj = document.createElement('div');
+      obj.classList.add('object');
+      obj.style.width = '20px';
+      obj.style.height = '20px';
+      obj.style.left = Math.random() * window.innerWidth + 'px';
+      obj.style.top = '-50px';
+      windshield.appendChild(obj);
+      objects.push({ el: obj, size: 20 });
+    }
+
+    setInterval(spawnCloud, 1000);
+    setInterval(spawnObject, 3000);
+
+    function updateScene() {
+      clouds.forEach((cloud, i) => {
+        cloud.size += throttle * 0.5;
+        cloud.el.style.width = cloud.size + 'px';
+        cloud.el.style.height = cloud.size + 'px';
+        cloud.el.style.top = parseFloat(cloud.el.style.top) + throttle + 'px';
+        cloud.el.style.left = parseFloat(cloud.el.style.left) + roll * 0.5 + 'px';
+
+        if (cloud.size > 200 || parseFloat(cloud.el.style.top) > window.innerHeight) {
+          cloud.el.remove();
+          clouds.splice(i, 1);
+        }
+      });
+
+      objects.forEach((obj, i) => {
+        obj.size += throttle * 0.3;
+        obj.el.style.width = obj.size + 'px';
+        obj.el.style.height = obj.size + 'px';
+        obj.el.style.top = parseFloat(obj.el.style.top) + throttle + 'px';
+        obj.el.style.left = parseFloat(obj.el.style.left) + roll * 0.3 + 'px';
+
+        if (obj.size > 150 || parseFloat(obj.el.style.top) > window.innerHeight) {
+          obj.el.remove();
+          objects.splice(i, 1);
+        }
+      });
+
+      requestAnimationFrame(updateScene);
+    }
+
+    updateScene();
+  </script>
+</body>
+</html>
