@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Catapult Castle Siege</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #87ceeb;
+    }
+    #gameArea {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    .catapult {
+      position: absolute;
+      left: 50px;
+      bottom: 50px;
+      width: 50px;
+      height: 50px;
+      background-color: #8b4513;
+      border-radius: 10px;
+    }
+    .projectile {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #333;
+      border-radius: 50%;
+    }
+    .block {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #aaa;
+      border: 2px solid #555;
+    }
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #333;
+      font-family: sans-serif;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div class="catapult"></div>
+    <div id="ui">Angle: <span id="angleDisplay">45</span>° | Power: <span id="powerDisplay">0</span></div>
+  </div>
+
+  <script>
+    const gameArea = document.getElementById('gameArea');
+    const angleDisplay = document.getElementById('angleDisplay');
+    const powerDisplay = document.getElementById('powerDisplay');
+
+    let angle = 45;
+    let power = 0;
+    let charging = false;
+    let maxPower = 20;
+
+    // Create castle blocks
+    const castleStartX = window.innerWidth - 300;
+    const castleStartY = window.innerHeight - 50;
+    const blocks = [];
+
+    for (let row = 0; row < 5; row++) {
+      for (let col = 0; col < 6; col++) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+        block.style.left = (castleStartX + col * 42) + 'px';
+        block.style.top = (castleStartY - row * 42) + 'px';
+        gameArea.appendChild(block);
+        blocks.push(block);
+      }
+    }
+
+    // Aiming controls
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp') {
+        angle = Math.min(angle + 1, 80);
+        angleDisplay.textContent = angle;
+      }
+      if (e.key === 'ArrowDown') {
+        angle = Math.max(angle - 1, 10);
+        angleDisplay.textContent = angle;
+      }
+      if (e.key === ' ') {
+        charging = true;
+      }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (e.key === ' ') {
+        charging = false;
+        launchProjectile();
+        power = 0;
+        powerDisplay.textContent = power;
+      }
+    });
+
+    // Charging loop
+    setInterval(() => {
+      if (charging && power < maxPower) {
+        power += 1;
+        powerDisplay.textContent = power;
+      }
+    }, 100);
+
+    function launchProjectile() {
+      const projectile = document.createElement('div');
+      projectile.classList.add('projectile');
+      projectile.style.left = '70px';
+      projectile.style.top = (window.innerHeight - 70) + 'px';
+      gameArea.appendChild(projectile);
+
+      let x = 70;
+      let y = window.innerHeight - 70;
+      const rad = angle * Math.PI / 180;
+      let vx = Math.cos(rad) * power;
+      let vy = -Math.sin(rad) * power;
+      const gravity = 0.3;
+
+      const interval = setInterval(() => {
+        x += vx;
+        y += vy;
+        vy += gravity;
+
+        projectile.style.left = x + 'px';
+        projectile.style.top = y + 'px';
+
+        // Check collision with blocks
+        blocks.forEach((block, index) => {
+          const bx = parseInt(block.style.left);
+          const by = parseInt(block.style.top);
+          if (
+            x + 20 > bx &&
+            x < bx + 40 &&
+            y + 20 > by &&
+            y < by + 40
+          ) {
+            block.remove();
+            blocks.splice(index, 1);
+            projectile.remove();
+            clearInterval(interval);
+          }
+        });
+
+        // Remove if off screen
+        if (x > window.innerWidth || y > window.innerHeight || x < 0 || y < 0) {
+          projectile.remove();
+          clearInterval(interval);
+        }
+      }, 30);
+    }
+  </script>
+</body>
+</html>
