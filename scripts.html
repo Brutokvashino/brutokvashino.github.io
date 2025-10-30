@@ -241,4 +241,7 @@ $_ mggraph	$_is an alias for $PSItem which means "the current item in the pipeli
 					
 Get user device mggraph ps	(Get-MgUser -UserId '<UPN>' -ExpandProperty OwnedDevices).OwnedDevices.id | ForEach-Object { Get-MgDevice -DeviceId $_ } | Select-Object DisplayName, Model, Manufacturer	
 
+Translate groups Get-MgGroup -Filter "id eq '?'" | Select displayname, description
+
+
 -->
