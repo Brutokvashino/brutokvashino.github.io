@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Catch the Falling Objects</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+      background-color: #f0f8ff;
+    }
+    #gameCanvas {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #87ceeb;
+    }
+    #basket {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 50px;
+      background-color: #8b4513;
+      border-radius: 10px;
+    }
+    .item {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff6347;
+      border-radius: 50%;
+    }
+    #scoreBoard {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameCanvas">
+    <div id="basket"></div>
+    <div id="scoreBoard">Score: 0</div>
+  </div>
+
+  <script>
+    const basket = document.getElementById('basket');
+    const gameCanvas = document.getElementById('gameCanvas');
+    const scoreBoard = document.getElementById('scoreBoard');
+    let score = 0;
+
+    // Move basket with arrow keys
+    let basketX = window.innerWidth / 2 - 50;
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') basketX -= 20;
+      if (e.key === 'ArrowRight') basketX += 20;
+      basketX = Math.max(0, Math.min(window.innerWidth - 100, basketX));
+      basket.style.left = basketX + 'px';
+    });
+
+    // Create falling items
+    function createItem() {
+      const item = document.createElement('div');
+      item.classList.add('item');
+      item.style.left = Math.random() * (window.innerWidth - 30) + 'px';
+      item.style.top = '0px';
+      gameCanvas.appendChild(item);
+
+      let fallInterval = setInterval(() => {
+        let top = parseInt(item.style.top);
+        top += 5;
+        item.style.top = top + 'px';
+
+        // Check for collision
+        const itemRect = item.getBoundingClientRect();
+        const basketRect = basket.getBoundingClientRect();
+        if (
+          itemRect.bottom >= basketRect.top &&
+          itemRect.left < basketRect.right &&
+          itemRect.right > basketRect.left
+        ) {
+          score++;
+          scoreBoard.textContent = 'Score: ' + score;
+          item.remove();
+          clearInterval(fallInterval);
+        }
+
+        // Remove if it falls off screen
+        if (top > window.innerHeight) {
+          item.remove();
+          clearInterval(fallInterval);
+        }
+      }, 30);
+    }
+
+    // Drop items every second
+    setInterval(createItem, 1000);
+  </script>
+</body>
+</html>
+``
