@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cockpit Launch Challenge</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #1e1e1e;
+      color: white;
+      overflow: hidden;
+    }
+    #cockpit {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px;
+      width: 100vw;
+      height: 70vh;
+      background-color: #333;
+    }
+    .button {
+      background-color: #555;
+      border: 2px solid #888;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #777;
+    }
+    #sequence {
+      padding: 20px;
+      font-size: 20px;
+      background-color: #222;
+    }
+    #status {
+      font-size: 24px;
+      padding: 10px;
+      text-align: center;
+    }
+    #takeoff {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 32px;
+      opacity: 0;
+      transition: opacity 1s, bottom 2s;
+    }
+  </style>
+</head>
+<body>
+  <div id="sequence">Launch Sequence: <span id="sequenceDisplay"></span></div>
+  <div id="cockpit"></div>
+  <div id="status"></div>
+  <div id="takeoff">🛫 Liftoff!</div>
+
+  <script>
+    const cockpit = document.getElementById('cockpit');
+    const sequenceDisplay = document.getElementById('sequenceDisplay');
+    const status = document.getElementById('status');
+    const takeoff = document.getElementById('takeoff');
+
+    const allButtons = ['Fuel', 'Engine', 'Flaps', 'Throttle', 'Radar', 'Nav', 'Comms', 'Gear'];
+    let launchSequence = [];
+    let currentStep = 0;
+
+    function generateSequence() {
+      launchSequence = ['Fuel', 'Engine', 'Flaps', 'Throttle'];
+      sequenceDisplay.textContent = launchSequence.join(' → ');
+      currentStep = 0;
+      status.textContent = '';
+      takeoff.style.opacity = 0;
+      takeoff.style.bottom = '0';
+    }
+
+    function createButtons() {
+      allButtons.forEach(label => {
+        const btn = document.createElement('div');
+        btn.classList.add('button');
+        btn.textContent = label;
+        btn.onclick = () => handlePress(label);
+        cockpit.appendChild(btn);
+      });
+    }
+
+    function handlePress(label) {
+      if (label === launchSequence[currentStep]) {
+        currentStep++;
+        status.textContent = `✅ ${label} activated`;
+        if (currentStep === launchSequence.length) {
+          status.textContent = '✅ All systems go!';
+          takeoff.style.opacity = 1;
+          takeoff.style.bottom = '80vh';
+        }
+      } else {
+        status.textContent = `❌ Incorrect! Restarting sequence.`;
+        generateSequence();
+      }
+    }
+
+    createButtons();
+    generateSequence();
+  </script>
+</body>
+</html>
