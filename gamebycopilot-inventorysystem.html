@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory Interaction</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #eef;
+    }
+    #gameArea {
+      position: relative;
+      width: 100vw;
+      height: 80vh;
+      background-color: #cce;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .item {
+      width: 60px;
+      height: 60px;
+      background-color: #888;
+      border: 2px solid #444;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      color: white;
+    }
+    #inventory {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: #333;
+      height: 20vh;
+    }
+    .slot {
+      width: 80px;
+      height: 80px;
+      background-color: #555;
+      border: 2px solid #999;
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+    .slot span {
+      color: white;
+      font-size: 14px;
+      position: absolute;
+      top: 30px;
+      left: 10px;
+    }
+    .menu {
+      position: absolute;
+      bottom: 100px;
+      background-color: #fff;
+      border: 1px solid #333;
+      padding: 10px;
+      display: none;
+    }
+    .menu button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div class="item" data-name="Apple">Apple</div>
+    <div class="item" data-name="Book">Book</div>
+    <div class="item" data-name="Key">Key</div>
+  </div>
+  <div id="inventory">
+    <div class="slot" data-index="0"></div>
+    <div class="slot" data-index="1"></div>
+  </div>
+  <div class="menu" id="menu">
+    <button id="tossBtn">Toss Item</button>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.item');
+    const slots = document.querySelectorAll('.slot');
+    const menu = document.getElementById('menu');
+    const tossBtn = document.getElementById('tossBtn');
+
+    let inventory = [null, null];
+    let selectedSlot = null;
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const itemName = item.dataset.name;
+        const emptyIndex = inventory.findIndex(i => i === null);
+        if (emptyIndex !== -1) {
+          inventory[emptyIndex] = itemName;
+          updateInventory();
+        } else {
+          alert('Inventory full!');
+        }
+      });
+    });
+
+    slots.forEach(slot => {
+      slot.addEventListener('click', (e) => {
+        const index = slot.dataset.index;
+        if (inventory[index]) {
+          selectedSlot = index;
+          menu.style.left = e.pageX + 'px';
+          menu.style.bottom = '100px';
+          menu.style.display = 'block';
+        }
+      });
+    });
+
+    tossBtn.addEventListener('click', () => {
+      if (selectedSlot !== null) {
+        inventory[selectedSlot] = null;
+        updateInventory();
+        menu.style.display = 'none';
+        selectedSlot = null;
+      }
+    });
+
+    function updateInventory() {
+      slots.forEach((slot, i) => {
+        slot.innerHTML = '';
+        if (inventory[i]) {
+          const label = document.createElement('span');
+          label.textContent = inventory[i];
+          slot.appendChild(label);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
