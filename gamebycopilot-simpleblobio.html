@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blob.io Enhanced</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Blob {
+      constructor(x, y, radius, color, isPlayer = false) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.isPlayer = isPlayer;
+        this.speed = 2;
+        this.dx = 0;
+        this.dy = 0;
+        this.alive = true;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+
+      moveToward(targetX, targetY) {
+        const angle = Math.atan2(targetY - this.y, targetX - this.x);
+        this.dx = Math.cos(angle) * this.speed;
+        this.dy = Math.sin(angle) * this.speed;
+        this.x += this.dx;
+        this.y += this.dy;
+      }
+
+      update() {
+        if (!this.alive) return;
+        if (this.isPlayer) {
+          this.moveToward(mouse.x, mouse.y);
+        } else {
+          const nearest = foods.length > 0 ? foods.reduce((a, b) =>
+            distance(this, a) < distance(this, b) ? a : b
+          ) : { x: this.x, y: this.y };
+          this.moveToward(nearest.x, nearest.y);
+        }
+      }
+    }
+
+    class Food {
+      constructor(x, y, radius = 5, color = "green") {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.color = color;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function distance(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function checkCollision(blob, target) {
+      return distance(blob, target) < blob.radius + target.radius;
+    }
+
+    const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+    canvas.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    const player = new Blob(300, 300, 20, "blue", true);
+    const enemies = [
+      new Blob(500, 500, 20, "red"),
+      new Blob(700, 200, 20, "purple"),
+    ];
+
+    const foods = [];
+    function spawnFood() {
+      foods.push(new Food(Math.random() * canvas.width, Math.random() * canvas.height));
+    }
+
+    function spawnEnemy() {
+      const colors = ["orange", "pink", "cyan", "yellow"];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      enemies.push(new Blob(Math.random() * canvas.width, Math.random() * canvas.height, 20, color));
+    }
+
+    for (let i = 0; i < 100; i++) spawnFood();
+    setInterval(spawnFood, 1000);       // Spawn food every second
+    setInterval(spawnEnemy, 10000);     // Spawn enemy every 10 seconds
+
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (player.alive) {
+        player.update();
+        player.draw();
+      }
+
+      enemies.forEach((enemy) => {
+        if (enemy.alive) {
+          enemy.update();
+          enemy.draw();
+        }
+      });
+
+      foods.forEach((food, index) => {
+        food.draw();
+
+        if (player.alive && checkCollision(player, food)) {
+          player.radius += 0.5;
+          foods.splice(index, 1);
+        }
+
+        enemies.forEach((enemy) => {
+          if (enemy.alive && checkCollision(enemy, food)) {
+            enemy.radius += 0.5;
+            foods.splice(index, 1);
+          }
+        });
+      });
+
+      // Blob vs Blob eating
+      const allBlobs = [player, ...enemies];
+      allBlobs.forEach((blobA) => {
+        allBlobs.forEach((blobB) => {
+          if (blobA !== blobB && blobA.alive && blobB.alive && checkCollision(blobA, blobB)) {
+            if (blobA.radius > blobB.radius * 1.3) {
+              blobA.radius += blobB.radius * 0.5;
+              blobB.alive = false;
+            }
+          }
+        });
+      });
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+  </script>
+</body>
+</html>
