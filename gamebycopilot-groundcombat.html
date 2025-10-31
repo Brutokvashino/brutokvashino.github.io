@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Combat Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #eef;
+    }
+    #gameArea {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: #cce;
+    }
+    #player {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #4caf50;
+      border-radius: 50%;
+    }
+    .projectile {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: black;
+      border-radius: 50%;
+    }
+    .enemy {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: #f44336;
+      border-radius: 50%;
+    }
+     .obstacle {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #333;
+      border-radius: 10px;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div id="player"></div>
+        <div id="centerObstacle" class="obstacle"></div>
+  </div>
+
+  <script>
+    const gameArea = document.getElementById('gameArea');
+    let player = document.getElementById('player');
+     const centerObstacle = document.getElementById('centerObstacle');
+    const speed = 5;
+    let canFire = true;
+
+    // Center obstacle position
+    const obstacleX = window.innerWidth / 2 - 50;
+    const obstacleY = window.innerHeight / 2 - 50;
+    centerObstacle.style.left = obstacleX + 'px';
+    centerObstacle.style.top = obstacleY + 'px';
+
+    let playerX = window.innerWidth / 2 - 20;
+    let playerY = window.innerHeight / 2 - 150;
+    player.style.left = playerX + 'px';
+    player.style.top = playerY + 'px';
+
+    const keys = {};
+    document.addEventListener('keydown', e => keys[e.key] = true);
+    document.addEventListener('keyup', e => keys[e.key] = false);
+
+ function isColliding(x, y, size = 40) {
+      return (
+        x + size > obstacleX &&
+        x < obstacleX + 100 &&
+        y + size > obstacleY &&
+        y < obstacleY + 100
+      );
+    }
+
+    function updatePlayerPosition() {
+      if (!player) return;
+
+      if (keys['ArrowUp']) playerY -= speed;
+      if (keys['ArrowDown']) playerY += speed;
+      if (keys['ArrowLeft']) playerX -= speed;
+      if (keys['ArrowRight']) playerX += speed;
+
+      playerX = Math.max(0, Math.min(window.innerWidth - 40, playerX));
+      playerY = Math.max(0, Math.min(window.innerHeight - 40, playerY));
+
+      player.style.left = playerX + 'px';
+      player.style.top = playerY + 'px';
+
+      requestAnimationFrame(updatePlayerPosition);
+    }
+
+    updatePlayerPosition();
+
+    gameArea.addEventListener('click', (e) => {
+      if (canFire && player) {
+        fireProjectile(playerX + 20, playerY + 20, e.clientX, e.clientY);
+        canFire = false;
+        setTimeout(() => canFire = true, 500);
+      }
+    });
+
+    function fireProjectile(fromX, fromY, toX, toY, isEnemy = false, owner = null) {
+      const proj = document.createElement('div');
+      proj.classList.add('projectile');
+      proj.style.left = fromX + 'px';
+      proj.style.top = fromY + 'px';
+      gameArea.appendChild(proj);
+
+      const dx = toX - fromX;
+      const dy = toY - fromY;
+      const length = Math.sqrt(dx * dx + dy * dy);
+      const vx = (dx / length) * 6;
+      const vy = (dy / length) * 6;
+
+      const interval = setInterval(() => {
+        fromX += vx;
+        fromY += vy;
+        proj.style.left = fromX + 'px';
+        proj.style.top = fromY + 'px';
+
+ if (isColliding(fromX, fromY, 10)) {
+          proj.remove();
+          clearInterval(interval);
+          return;
+        }
+
+        if (!isEnemy) {
+          enemies.forEach((enemyObj, i) => {
+            const ex = parseInt(enemyObj.el.style.left);
+            const ey = parseInt(enemyObj.el.style.top);
+            if (Math.abs(fromX - ex) < 30 && Math.abs(fromY - ey) < 30) {
+              clearInterval(enemyObj.fireInterval);
+              clearInterval(enemyObj.moveInterval);
+              enemyObj.el.remove();
+              enemies.splice(i, 1);
+              proj.remove();
+              clearInterval(interval);
+            }
+          });
+        } else {
+          if (player) {
+            const px = playerX + 20;
+            const py = playerY + 20;
+            if (Math.abs(fromX - px) < 20 && Math.abs(fromY - py) < 20) {
+              player.remove();
+              player = null;
+              proj.remove();
+              clearInterval(interval);
+            }
+          }
+        }
+
+        if (fromX < 0 || fromX > window.innerWidth || fromY < 0 || fromY > window.innerHeight) {
+          proj.remove();
+          clearInterval(interval);
+        }
+      }, 30);
+    }
+
+    const enemies = [];
+
+    function spawnEnemy() {
+      const enemy = document.createElement('div');
+      enemy.classList.add('enemy');
+      let x = Math.random() * (window.innerWidth - 40);
+      let y = Math.random() * (window.innerHeight - 40);
+      enemy.style.left = x + 'px';
+      enemy.style.top = y + 'px';
+      gameArea.appendChild(enemy);
+
+      const moveInterval = setInterval(() => {
+        x += Math.random() * 20 - 10;
+        y += Math.random() * 20 - 10;
+        x = Math.max(0, Math.min(window.innerWidth - 40, x));
+        y = Math.max(0, Math.min(window.innerHeight - 40, y));
+        enemy.style.left = x + 'px';
+        enemy.style.top = y + 'px';
+      }, 500);
+
+      const fireInterval = setInterval(() => {
+        if (player) {
+          fireProjectile(x + 20, y + 20, playerX + 20, playerY + 20, true, enemy);
+        }
+      }, 2000);
+
+      enemies.push({ el: enemy, moveInterval, fireInterval });
+    }
+
+    // Initial enemies
+    for (let i = 0; i < 3; i++) spawnEnemy();
+
+    // Spawn new enemies every 5 seconds
+    setInterval(spawnEnemy, 5000);
+  </script>
+</body>
+</html>
