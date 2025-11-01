@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Survive Together</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #222;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      display: block;
+      background: #6b8e23;
+    }
+
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+      line-height: 1.6;
+      width: 300px;
+    }
+
+    .craft {
+      margin-top: 5px;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+    }
+
+    .craft:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #333;
+      padding: 2px 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .selected {
+      color: orange;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="ui">
+    <div id="inventory">Wood: 0 | Stone: 0</div>
+    <div>
+      <span class="craft" data-tooltip="3 Wood, 1 Stone" onclick="craftTool('axe')">Craft Axe</span> |
+      <span class="craft" data-tooltip="1 Wood, 3 Stone" onclick="craftTool('pickaxe')">Craft Pickaxe</span>
+    </div>
+    <div style="margin-top: 10px;">
+      Tool: 
+      <span class="craft selected" onclick="selectTool('none')">Hand</span> |
+      <span class="craft" onclick="selectTool('axe')">Axe</span> |
+      <span class="craft" onclick="selectTool('pickaxe')">Pickaxe</span>
+    </div>
+    <div style="margin-top: 10px;">
+      Place: 
+      <span class="craft selected" onclick="selectBlock('tree')">Tree</span> |
+      <span class="craft" onclick="selectBlock('wood')">Wood Tile</span> |
+      <span class="craft" onclick="selectBlock('stone')">Stone Tile</span>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const inventoryDisplay = document.getElementById('inventory');
+
+    const player = { x: 400, y: 300, size: 10, speed: 2, color: 'white' };
+    const keys = {};
+    const resources = [];
+    const trees = [];
+    const tiles = [];
+    let inventory = { wood: 0, stone: 0 };
+    let tools = { axe: false, pickaxe: false };
+    let selectedTool = 'none';
+    let selectedBlock = 'tree';
+
+    window.addEventListener('keydown', e => keys[e.key] = true);
+    window.addEventListener('keyup', e => keys[e.key] = false);
+
+    function craftTool(tool) {
+      if (tool === 'axe' && inventory.wood >= 3 && inventory.stone >= 1) {
+        tools.axe = true;
+        inventory.wood -= 3;
+        inventory.stone -= 1;
+        alert('Crafted Axe!');
+      } else if (tool === 'pickaxe' && inventory.wood >= 1 && inventory.stone >= 3) {
+        tools.pickaxe = true;
+        inventory.wood -= 1;
+        inventory.stone -= 3;
+        alert('Crafted Pickaxe!');
+      } else {
+        alert('Not enough resources!');
+      }
+      updateInventory();
+    }
+
+    function selectTool(tool) {
+      selectedTool = tool;
+      document.querySelectorAll('.craft').forEach(el => el.classList.remove('selected'));
+      document.querySelectorAll('.craft').forEach(el => {
+        if (el.textContent.toLowerCase().includes(tool)) el.classList.add('selected');
+      });
+    }
+
+    function selectBlock(type) {
+      selectedBlock = type;
+      document.querySelectorAll('.craft').forEach(el => {
+        if (el.textContent.toLowerCase().includes('tile') || el.textContent.toLowerCase().includes('tree')) {
+          el.classList.remove('selected');
+          if (el.textContent.toLowerCase().includes(type)) el.classList.add('selected');
+        }
+      });
+    }
+
+    function updateInventory() {
+      inventoryDisplay.textContent = `Wood: ${inventory.wood} | Stone: ${inventory.stone}`;
+    }
+
+    function spawnResourcesAround(x, y, type, icon) {
+      for (let i = 0; i < 8; i++) {
+        const angle = (Math.PI * 2 * i) / 8;
+        const rx = x + Math.cos(angle) * 30;
+        const ry = y + Math.sin(angle) * 30;
+        resources.push({ x: rx, y: ry, type, size: 10, icon });
+      }
+    }
+
+    function plantTree(x, y) {
+      const tree = { x, y, stage: 0, timer: 0 };
+      trees.push(tree);
+    }
+
+    function placeTile(x, y, type) {
+      tiles.push({ x, y, type });
+    }
+
+    function update() {
+      if (keys['w'] || keys['ArrowUp']) player.y -= player.speed;
+      if (keys['s'] || keys['ArrowDown']) player.y += player.speed;
+      if (keys['a'] || keys['ArrowLeft']) player.x -= player.speed;
+      if (keys['d'] || keys['ArrowRight']) player.x += player.speed;
+
+      // Collect resources
+      resources.forEach((res, i) => {
+        const dx = player.x - res.x;
+        const dy = player.y - res.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < player.size + res.size) {
+          inventory[res.type]++;
+          resources.splice(i, 1);
+          updateInventory();
+        }
+      });
+
+      // Interact with trees
+      trees.forEach((tree, i) => {
+        tree.timer++;
+        if (tree.timer > 300 && tree.stage === 0) tree.stage = 1;
+        if (tree.timer > 600 && tree.stage === 1) tree.stage = 2;
+
+        const dx = player.x - tree.x;
+        const dy = player.y - tree.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 20 && selectedTool === 'axe' && tree.stage === 2) {
+          spawnResourcesAround(tree.x, tree.y, 'wood', '🪵');
+          trees.splice(i, 1);
+        }
+      });
+
+      // Interact with tiles
+      tiles.forEach((tile, i) => {
+        const dx = player.x - tile.x;
+        const dy = player.y - tile.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 20) {
+          if (tile.type === 'wood' && selectedTool === 'axe') {
+            inventory.wood++;
+            tiles.splice(i, 1);
+            updateInventory();
+          } else if (tile.type === 'stone' && selectedTool === 'pickaxe') {
+            inventory.stone++;
+            tiles.splice(i, 1);
+            updateInventory();
+          }
+        }
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw tiles
+      tiles.forEach(tile => {
+        ctx.fillStyle = tile.type === 'wood' ? '#a1887f' : '#757575';
+        ctx.fillRect(tile.x - 20, tile.y - 20, 40, 40);
+      });
+
+      // Draw resources
+      resources.forEach(res => {
+        ctx.fillStyle = res.type === 'wood' ? 'brown' : 'gray';
+        ctx.beginPath();
+        ctx.arc(res.x, res.y, res.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Draw trees
+      trees.forEach(tree => {
+        ctx.fillStyle = 'green';
+        ctx.font = '16px sans-serif';
+        const icon = tree.stage === 0 ? '🌱' : tree.stage === 1 ? '🍃' : '🌳';
+        ctx.fillText(icon, tree.x - 8, tree.y + 6);
+      });
+
+      // Draw player
+      ctx.fillStyle = player.color;
+      ctx.beginPath();
+      ctx.arc(player.x, player.y, player.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function gameLoop() {
+      update();
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    // Initial setup
+    for (let i = 0; i < 20; i++) {
+      resources.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        type: Math.random() > 0.5 ? 'wood' : 'stone',
+        size: 10,
+        icon: '🪵'
+      });
+    }
+
+    canvas.addEventListener('click', () => {
+      if (selectedTool === 'pickaxe') {
+        spawnResourcesAround(player.x, player.y, 'stone', '🪨');
+      } else if (selectedBlock === 'tree') {
+        plantTree(player.x, player.y);
+      } else if (selectedBlock === 'wood' && inventory.wood > 0) {
+        placeTile(player.x, player.y, 'wood');
+        inventory.wood--;
+        updateInventory();
+      } else if (selectedBlock === 'stone' && inventory.stone > 0) {
+        placeTile(player.x, player.y, 'stone');
+        inventory.stone--;
+        updateInventory();
+      }
+    });
+
+    updateInventory();
+    gameLoop();
+  </script>
+</body>
+</html>
