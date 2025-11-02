@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Boat Navigation Game - Inertia Movement</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #1569C7;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let keys = {};
+    document.addEventListener('keydown', e => keys[e.key] = true);
+    document.addEventListener('keyup', e => keys[e.key] = false);
+
+    let boat = {
+      x: 100,
+      y: canvas.height / 2,
+      width: 40,
+      height: 20,
+      angle: 0,
+      speed: 0,
+      maxSpeed: 5,
+      acceleration: 0.1,
+      friction: 0.05,
+      vx: 0,
+      vy: 0,
+      opacity: 1,
+      wrecked: false,
+      respawnTimer: 0,
+    };
+
+    let rocks = [];
+    let level = 1;
+    let waveOffset = 0;
+    let waterFlowOffset = 0;
+
+    function generateRocks() {
+      rocks = [];
+      for (let i = 0; i < 10 + level * 2; i++) {
+        rocks.push({
+          x: Math.random() * (canvas.width - 200) + 100,
+          y: Math.random() * canvas.height,
+          radius: 20 + Math.random() * 10,
+        });
+      }
+    }
+
+    function drawWaterFlow() {
+      waterFlowOffset += 1;
+      ctx.fillStyle = "rgba(200, 200, 200, 0.5)";
+      for (let i = 0; i < canvas.height; i += 40) {
+        ctx.fillRect((waterFlowOffset + i * 2) % canvas.width, i, 100, 2);
+      }
+    }
+
+  
+function drawBoat() {
+  ctx.save();
+  ctx.globalAlpha = boat.opacity;
+  ctx.translate(boat.x + boat.width / 2, boat.y + boat.height / 2);
+  ctx.rotate(boat.angle * Math.PI / 180);
+  ctx.fillStyle = "saddlebrown";
+
+  ctx.beginPath();
+  ctx.moveTo(0, 0);         // Port Stern
+  ctx.lineTo(60, 0);         // Port
+  ctx.lineTo(90, 15);         // Port Bow
+  ctx.lineTo(90, 15);         // Starboard Bow
+  ctx.lineTo(60, 25);         // Starboard
+  ctx.lineTo(0, 25);         // Starboard Stern
+  ctx.lineTo(-10, 20);         // Stern
+  ctx.lineTo(-10, 5);         // Stern
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.restore();
+}
+
+
+    function drawRocks() {
+      ctx.fillStyle = "#696969";
+      rocks.forEach(rock => {
+        ctx.beginPath();
+        ctx.arc(rock.x, rock.y, rock.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function drawPorts() {
+      ctx.fillStyle = "green";
+      ctx.fillRect(0, canvas.height / 2 - 50, 20, 100); // Start port
+      ctx.fillRect(canvas.width - 20, canvas.height / 2 - 50, 20, 100); // End port
+    }
+
+    function applyWaves() {
+      waveOffset += 0.05;
+      let waveForce = Math.sin(waveOffset) * 0.2;
+      boat.vy += waveForce;
+    }
+
+    function checkCollision() {
+      for (let rock of rocks) {
+        let dx = boat.x + boat.width / 2 - rock.x;
+        let dy = boat.y + boat.height / 2 - rock.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < rock.radius + boat.width / 2 && !boat.wrecked) {
+          boat.wrecked = true;
+          boat.respawnTimer = 120;
+        }
+      }
+    }
+
+    function checkWin() {
+      if (boat.x + boat.width >= canvas.width - 20 && !boat.wrecked) {
+        level++;
+        resetBoat();
+        generateRocks();
+      }
+    }
+
+    function resetBoat() {
+      boat.x = 100;
+      boat.y = canvas.height / 2;
+      boat.angle = 0;
+      boat.speed = 0;
+      boat.vx = 0;
+      boat.vy = 0;
+      boat.opacity = 1;
+      boat.wrecked = false;
+      boat.respawnTimer = 0;
+    }
+
+    function updateMovement() {
+      if (keys['ArrowLeft']) boat.angle -= 2;
+      if (keys['ArrowRight']) boat.angle += 2;
+
+      if (keys['ArrowUp']) {
+        boat.speed += boat.acceleration;
+        if (boat.speed > boat.maxSpeed) boat.speed = boat.maxSpeed;
+      } else {
+        boat.speed -= boat.friction;
+        if (boat.speed < 0) boat.speed = 0;
+      }
+
+      if (keys['ArrowDown']) {
+        boat.speed -= boat.acceleration * 0.5;
+        if (boat.speed < 0) boat.speed = 0;
+      }
+
+      let rad = boat.angle * Math.PI / 180;
+      boat.vx = Math.cos(rad) * boat.speed;
+      boat.vy += Math.sin(rad) * boat.speed;
+    }
+
+    function update() {
+      if (boat.wrecked) {
+        boat.opacity -= 0.02;
+        if (boat.opacity <= 0) {
+          boat.respawnTimer--;
+          if (boat.respawnTimer <= 0) {
+            resetBoat();
+          }
+        }
+        return;
+      }
+
+      updateMovement();
+      applyWaves();
+
+      boat.x += boat.vx;
+      boat.y += boat.vy;
+
+      boat.vx *= 0.5;
+      boat.vy *= 0.5;
+
+      boat.x = Math.max(0, Math.min(canvas.width - boat.width, boat.x));
+      boat.y = Math.max(0, Math.min(canvas.height - boat.height, boat.y));
+
+      checkCollision();
+      checkWin();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawWaterFlow();
+      drawPorts();
+      drawRocks();
+      drawBoat();
+
+      ctx.fillStyle = "white";
+      ctx.font = "20px sans-serif";
+      ctx.fillText("Level: " + level, 20, 30);
+    }
+
+    function gameLoop() {
+      update();
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    generateRocks();
+    gameLoop();
+  </script>
+</body>
+</html>
+``
