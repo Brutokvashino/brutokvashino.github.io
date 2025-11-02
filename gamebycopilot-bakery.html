@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bakery</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fdf6e3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+            margin-right: 500px;
+    }
+    #game-area {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      border: 2px solid #ccc;
+      background: #fff8dc;
+      margin-top: 10px;
+      margin-left: 0px;
+      overflow: hidden;
+    }
+    .item {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 80px;
+      font-weight: bold;
+      cursor: grab;
+      user-select: none;
+    }
+    .source {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 100px;
+      font-weight: bold;
+      background: #eee;
+      border: 2px dashed #aaa;
+      cursor: pointer;
+    }
+    #wheat-source { top: 10px; left: 10px; }
+    #water-source { top: 10px; right: 10px; }
+    #oven {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #444;
+      color: white;
+      text-align: center;
+      line-height: 120px;
+      border-radius: 10px;
+      right: 100px;
+      bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bakery</h1>
+  <div id="game-area">
+    <div id="wheat-source" class="source">Wheat</div>
+    <div id="water-source" class="source">Water</div>
+    <div id="oven">Oven</div>
+  </div>
+
+  <script>
+    const gameArea = document.getElementById('game-area');
+    const wheatSource = document.getElementById('wheat-source');
+    const waterSource = document.getElementById('water-source');
+    const oven = document.getElementById('oven');
+
+    let dragging = null;
+ let offsetX = 0;
+  let offsetY = 0;
+  
+    function createItem(type, x, y) {
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+      item.style.background = type === 'flour' ? 'white' :
+                              type === 'water' ? 'lightblue' :
+                              type === 'dough' ? 'burlywood' : 'peru';
+      item.style.left = x + 'px';
+      item.style.top = y + 'px';
+      item.dataset.type = type;
+      gameArea.appendChild(item);
+
+      item.addEventListener('mousedown', () => dragging = item);
+    }
+
+    document.addEventListener('mouseup', () => dragging = null);
+
+    document.addEventListener('mousemove', e => {
+      if (dragging) {
+        dragging.style.left = (e.pageX - gameArea.offsetLeft - 40) + 'px';
+        dragging.style.top = (e.pageY - gameArea.offsetTop - 40) + 'px';
+        checkForDough();
+        checkForBread();
+      }
+    });
+
+    function getRect(el) {
+      return el.getBoundingClientRect();
+    }
+
+    function isClose(el1, el2, distance = 50) {
+      const r1 = getRect(el1);
+      const r2 = getRect(el2);
+      const dx = r1.left - r2.left;
+      const dy = r1.top - r2.top;
+      return Math.sqrt(dx * dx + dy * dy) < distance;
+    }
+
+    function checkForDough() {
+      const items = Array.from(document.querySelectorAll('.item'));
+      const flourItems = items.filter(i => i.dataset.type === 'flour');
+      const waterItems = items.filter(i => i.dataset.type === 'water');
+
+      flourItems.forEach(flour => {
+        waterItems.forEach(water => {
+          if (isClose(flour, water)) {
+            createItem('dough', parseInt(flour.style.left), parseInt(flour.style.top));
+            flour.remove();
+            water.remove();
+          }
+        });
+      });
+    }
+
+    function checkForBread() {
+      const doughItems = Array.from(document.querySelectorAll('.item')).filter(i => i.dataset.type === 'dough');
+      doughItems.forEach(dough => {
+        if (isClose(dough, oven)) {
+          createItem('bread', parseInt(dough.style.left), parseInt(dough.style.top));
+          dough.remove();
+        }
+      });
+    }
+
+    wheatSource.addEventListener('click', () => {
+      createItem('flour', 120, 120);
+    });
+
+    waterSource.addEventListener('click', () => {
+      createItem('water', 300, 120);
+    });
+  </script>
+</body>
+</html>
