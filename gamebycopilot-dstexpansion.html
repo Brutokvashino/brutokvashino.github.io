@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Survive Together</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #2c3e50;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      display: block;
+      background: #3e8e41;
+    }
+
+    #inventory, #toolDisplay, #healthBar, #cloudButton, #ui {
+      position: absolute;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    #inventory { top: 10px; left: 10px; }
+    #toolDisplay { top: 50px; left: 10px; }
+    #healthBar { top: 90px; left: 10px; }
+    #cloudButton {
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      background: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="inventory">Wood: 0 | Stone: 0 | Water: 0</div>
+  <div id="toolDisplay">Tool: None</div>
+  <div id="healthBar">Health: 10</div>
+  <div id="cloudButton">☁️</div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const inventoryDisplay = document.getElementById('inventory');
+    const toolDisplay = document.getElementById('toolDisplay');
+    const healthBar = document.getElementById('healthBar');
+    const cloudButton = document.getElementById('cloudButton');
+
+    const player = {
+      x: 400,
+      y: 300,
+      size: 20,
+      speed: 2,
+      color: '#fff',
+      health: 10
+    };
+
+    const keys = {};
+    const resources = [];
+    const placedBlocks = [];
+    const fires = [];
+    const waters = [];
+    const apples = [];
+    let inventory = { wood: 0, stone: 0, water: 0 };
+    let currentTool = null;
+
+    // Generate random trees and rocks
+    for (let i = 0; i < 30; i++) {
+      resources.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        type: Math.random() > 0.5 ? 'wood' : 'stone',
+        size: 20
+      });
+    }
+
+    window.addEventListener('keydown', e => {
+      keys[e.key] = true;
+      if (e.key === '1') {
+        currentTool = 'axe';
+        toolDisplay.textContent = 'Tool: Axe';
+      } else if (e.key === '2') {
+        currentTool = 'pickaxe';
+        toolDisplay.textContent = 'Tool: Pickaxe';
+      }
+    });
+
+    window.addEventListener('keyup', e => keys[e.key] = false);
+
+    canvas.addEventListener('click', e => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      // Collect natural resources
+      for (let i = resources.length - 1; i >= 0; i--) {
+        const res = resources[i];
+        const dx = mouseX - res.x;
+        const dy = mouseY - res.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < res.size) {
+          inventory[res.type]++;
+          // Apple drop chance
+          if (res.type === 'wood' && Math.random() < 0.3) {
+            apples.push({ x: res.x, y: res.y, size: 15 });
+          }
+          resources.splice(i, 1);
+          updateInventory();
+          return;
+        }
+      }
+
+      // Destroy placed blocks with tools
+      for (let i = placedBlocks.length - 1; i >= 0; i--) {
+        const block = placedBlocks[i];
+        if (
+          mouseX > block.x &&
+          mouseX < block.x + block.size &&
+          mouseY > block.y &&
+          mouseY < block.y + block.size
+        ) {
+          if (
+            (block.type === 'wood' && currentTool === 'axe') ||
+            (block.type === 'stone' && currentTool === 'pickaxe')
+          ) {
+            placedBlocks.splice(i, 1);
+            return;
+          }
+        }
+      }
+
+      // Place block
+      if (inventory.wood > 0) {
+        placedBlocks.push({ x: mouseX - 10, y: mouseY - 10, size: 20, type: 'wood' });
+        inventory.wood--;
+      } else if (inventory.stone > 0) {
+        placedBlocks.push({ x: mouseX - 10, y: mouseY - 10, size: 20, type: 'stone' });
+        inventory.stone--;
+      }
+      updateInventory();
+    });
+
+//weather
+cloudButton.addEventListener('click', () => {
+      const isFire = Math.random() > 0.5;
+      if (isFire) {
+        // Spawn fire on random placed blocks
+        placedBlocks.forEach(block => {
+          if (Math.random() < 0.3) {
+            fires.push({ x: block.x, y: block.y, size: 20 });
+          }
+        });
+      } else {
+        // Spawn rain (water pickups)
+        for (let i = 0; i < 10; i++) {
+          waters.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: 10
+          });
+        }
+      }
+    });
+
+    function updateInventory() {
+      inventoryDisplay.textContent = `Wood: ${inventory.wood} | Stone: ${inventory.stone} | Water: ${inventory.water}`;
+    }
+
+    function updateHealth() {
+      healthBar.textContent = `Health: ${player.health}`;
+    }
+
+    function update() {
+      if (keys['w'] || keys['ArrowUp']) player.y -= player.speed;
+      if (keys['s'] || keys['ArrowDown']) player.y += player.speed;
+      if (keys['a'] || keys['ArrowLeft']) player.x -= player.speed;
+      if (keys['d'] || keys['ArrowRight']) player.x += player.speed;
+
+      // Fire collision
+      for (let i = fires.length - 1; i >= 0; i--) {
+        const fire = fires[i];
+        const dx = player.x - fire.x;
+        const dy = player.y - fire.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < player.size + fire.size) {
+          if (inventory.water > 0) {
+            inventory.water--;
+            fires.splice(i, 1);
+            updateInventory();
+          } else {
+            player.health = Math.max(0, player.health - 1);
+            updateHealth();
+          }
+        }
+      }
+
+      // Water pickup
+      for (let i = waters.length - 1; i >= 0; i--) {
+        const w = waters[i];
+        const dx = player.x - w.x;
+        const dy = player.y - w.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < player.size + w.size) {
+          inventory.water++;
+          waters.splice(i, 1);
+          updateInventory();
+        }
+      }
+
+      // Apple pickup
+      for (let i = apples.length - 1; i >= 0; i--) {
+        const a = apples[i];
+        const dx = player.x - a.x;
+        const dy = player.y - a.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < player.size + a.size) {
+          player.health = Math.min(10, player.health + 1);
+          apples.splice(i, 1);
+          updateHealth();
+        }
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Resources
+      resources.forEach(res => {
+        ctx.fillStyle = res.type === 'wood' ? '#8B4513' : '#A9A9A9';
+        ctx.beginPath();
+        ctx.arc(res.x, res.y, res.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Placed blocks
+      placedBlocks.forEach(block => {
+        ctx.fillStyle = block.type === 'wood' ? '#deb887' : '#808080';
+        ctx.fillRect(block.x, block.y, block.size, block.size);
+      });
+
+      // Fires
+      fires.forEach(fire => {
+        ctx.font = '20px serif';
+        ctx.fillText('🔥', fire.x, fire.y + 15);
+      });
+
+      // Waters
+      waters.forEach(w => {
+        ctx.fillStyle = '#00f';
+        ctx.beginPath();
+        ctx.arc(w.x, w.y, w.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Apples
+      apples.forEach(a => {
+        ctx.font = '20px serif';
+        ctx.fillText('🍎', a.x, a.y + 15);
+      });
+
+      // Player
+      ctx.fillStyle = player.color;
+      ctx.beginPath();
+      ctx.arc(player.x, player.y, player.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function gameLoop() {
+      update();
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    updateInventory();
+    updateHealth();
+    gameLoop();
+  </script>
+</body>
+</html>
