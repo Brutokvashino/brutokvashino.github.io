@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lunar Lander Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = 800;
+canvas.height = 600;
+
+let keys = {};
+let vehicle = {
+  x: 400,
+  y: 550,
+  width: 40,
+  height: 50,
+  vy: 0,
+  speed: 4,
+  thrustPower: 0,
+  visible: true
+};
+let gravity = 0.5;
+let debris = [];
+let particles = [];
+let respawnTimer = 0;
+const groundY = canvas.height - 50;
+const maxSafeLandingSpeed = 6;
+
+document.addEventListener('keydown', e => keys[e.code] = true);
+document.addEventListener('keyup', e => keys[e.code] = false);
+
+function spawnDebris() {
+  debris.push({
+    x: Math.random() * canvas.width,
+    y: -20,
+    vx: (Math.random() - 0.5) * 2,
+    vy: 2 + Math.random() * 2,
+    size: 10
+  });
+}
+
+function createExplosion(x, y) {
+  for (let i = 0; i < 50; i++) {
+    particles.push({
+      x: x,
+      y: y,
+      vx: (Math.random() - 0.5) * 6,
+      vy: (Math.random() - 0.5) * 6,
+      size: Math.random() * 4 + 2,
+      life: 60,
+      color: `hsl(${Math.random() * 360}, 100%, 50%)`
+    });
+  }
+}
+
+function updateParticles() {
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.life--;
+  });
+  particles = particles.filter(p => p.life > 0);
+}
+
+function drawParticles() {
+  particles.forEach(p => {
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.life / 60;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  });
+}
+
+function resetVehicle() {
+  vehicle.x = 400;
+  vehicle.y = groundY - vehicle.height;
+  vehicle.vy = 0;
+  vehicle.thrustPower = 0;
+  vehicle.visible = false;
+  respawnTimer = 60; // ~1 second delay
+}
+
+function update() {
+  if (respawnTimer > 0) {
+    respawnTimer--;
+    if (respawnTimer === 0) {
+      vehicle.visible = true;
+    }
+  }
+
+  if (vehicle.visible) {
+    // Gradual thrust buildup
+    if (keys['Space']) {
+      vehicle.thrustPower = Math.min(vehicle.thrustPower + 0.1, 1.5);
+    } else {
+      vehicle.thrustPower = 0;
+    }
+
+    vehicle.vy += gravity - vehicle.thrustPower;
+    vehicle.y += vehicle.vy;
+
+    // Horizontal movement
+    if (keys['ArrowLeft']) {
+      vehicle.x -= vehicle.speed;
+    }
+    if (keys['ArrowRight']) {
+      vehicle.x += vehicle.speed;
+    }
+
+    // Ground collision
+    if (vehicle.y + vehicle.height > groundY) {
+      if (vehicle.vy > maxSafeLandingSpeed) {
+        createExplosion(vehicle.x + vehicle.width / 2, vehicle.y + vehicle.height / 2);
+        resetVehicle();
+      } else {
+        vehicle.y = groundY - vehicle.height;
+        vehicle.vy = 0;
+      }
+    }
+
+    // Screen bounds
+    vehicle.x = Math.max(0, Math.min(canvas.width - vehicle.width, vehicle.x));
+
+    // Debris movement
+    debris.forEach(d => {
+      d.x += d.vx;
+      d.y += d.vy;
+    });
+
+    // Collision detection
+    debris.forEach(d => {
+      if (
+        d.x < vehicle.x + vehicle.width &&
+        d.x + d.size > vehicle.x &&
+        d.y < vehicle.y + vehicle.height &&
+        d.y + d.size > vehicle.y
+      ) {
+        createExplosion(vehicle.x + vehicle.width / 2, vehicle.y + vehicle.height / 2);
+        resetVehicle();
+        debris = [];
+      }
+    });
+
+    debris = debris.filter(d => d.y < canvas.height + 20);
+  }
+
+  updateParticles();
+}
+
+function drawVehicle() {
+  const { x, y, width, height } = vehicle;
+
+  // Main body
+  ctx.fillStyle = 'silver';
+  ctx.fillRect(x, y, width, height);
+
+  // Dome
+  ctx.beginPath();
+  ctx.arc(x + width / 2, y, width / 2, Math.PI, 0);
+  ctx.fillStyle = 'gray';
+  ctx.fill();
+
+  // Legs
+  ctx.strokeStyle = 'white';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(x, y + height);
+  ctx.lineTo(x - 10, y + height + 15);
+  ctx.moveTo(x + width, y + height);
+  ctx.lineTo(x + width + 10, y + height + 15);
+  ctx.stroke();
+}
+
+function draw() {
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Ground
+  ctx.fillStyle = 'gray';
+  ctx.fillRect(0, groundY, canvas.width, 50);
+
+  // Vehicle
+  if (vehicle.visible) {
+    drawVehicle();
+  }
+
+  // Debris
+  ctx.fillStyle = 'gray';
+  debris.forEach(d => {
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, d.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // Explosion particles
+  drawParticles();
+}
+
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+setInterval(spawnDebris, 1000);
+loop();
+</script>
+</body>
+</html>
