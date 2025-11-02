@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smooth Background with Hover and Frame</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      background: #00bfff;
+    }
+
+    .frame {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: 60px solid black;
+      box-sizing: border-box;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .background {
+      position: absolute;
+      width: 16000px;
+      height: 16000px;
+      background: linear-gradient(to bottom, #775334, green);
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      box-shadow: 0 0 20px 20px rgba(150, 120, 120, .5);
+    }
+  </style>
+</head>
+<body>
+  <div class="background" id="bg"></div>
+  <div class="frame"></div>
+
+  <script>
+    const bg = document.getElementById('bg');
+
+    let rotation = 0;
+    let offsetY = 300; // Start further down
+    let rotationVelocity = 0;
+    let moveVelocityY = 0;
+
+    const friction = 0.92;
+    const acceleration = 0.5;
+    const rotationAcceleration = 0.05;
+    const maxRotationVelocity = 2;
+
+    // Hovering effect
+    let hoverOffset = 0;
+    let hoverTime = 0;
+    const hoverAmplitude = 30;
+    const hoverSpeed = 0.03;
+
+    const keys = {
+      ArrowLeft: false,
+      ArrowRight: false,
+      ArrowUp: false,
+      ArrowDown: false
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if (keys.hasOwnProperty(e.key)) {
+        keys[e.key] = true;
+      }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (keys.hasOwnProperty(e.key)) {
+        keys[e.key] = false;
+      }
+    });
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function animate() {
+      // Apply acceleration based on keys
+      if (keys.ArrowLeft) rotationVelocity -= rotationAcceleration;
+      if (keys.ArrowRight) rotationVelocity += rotationAcceleration;
+      if (keys.ArrowUp) moveVelocityY += acceleration;
+      if (keys.ArrowDown) moveVelocityY -= acceleration;
+
+      // Clamp rotation velocity
+      rotationVelocity = clamp(rotationVelocity, -maxRotationVelocity, maxRotationVelocity);
+
+      // Apply velocities
+      rotation += rotationVelocity;
+      offsetY += moveVelocityY;
+
+      // Apply friction
+      rotationVelocity *= friction;
+      moveVelocityY *= friction;
+
+      // Hover effect
+      hoverTime += hoverSpeed;
+      hoverOffset = Math.sin(hoverTime) * hoverAmplitude;
+
+      // Update transform
+      bg.style.transform = `translate(-50%, -1.8%) translateY(${offsetY + hoverOffset}px) rotate(${rotation}deg)`;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
