@@ -238,10 +238,13 @@ Search groups by name	Get-MgGroup -Top 20 | Where DisplayName -like "*NZ*" | Sel
 unassign property mggraph	Set-MgUser -UserId [UPN of account] -OnPremisesExtensionAttributes @{ Attribute = $null}			 			
 Reset pass mggraph req ELEVATION	Update-MgUser -UserId "user@domain.com" -PasswordProfile @{Password = "NewPassword"}						
 $_ mggraph	$_is an alias for $PSItem which means "the current item in the pipeline." Most of the time you would change aliases to their proper name but the convention is actually to leave $_ as is because it's used so often.	
-					
+% = foreach
+() = evaluate
+
 Get user device mggraph ps	(Get-MgUser -UserId '<UPN>' -ExpandProperty OwnedDevices).OwnedDevices.id | ForEach-Object { Get-MgDevice -DeviceId $_ } | Select-Object DisplayName, Model, Manufacturer	
 
 Translate groups Get-MgGroup -Filter "id eq '?'" | Select displayname, description
+Get-MgUserMemberOf -userId [UPN] | % {Get-MgGroup -Filter "id eq '$_'" | Select displayname, description}
 
 
 -->
