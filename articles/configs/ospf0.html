@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Configuration Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      font-family: monospace;
+      white-space: pre;
+    }
+    .feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Configuration Challenge</h2>
+    <p><strong>Task:</strong> Configure standard OSPF</p>
+    <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <script>
+    const expectedConfig = `router ospf 1
+network 192.168.1.0 0.0.0.255 area 0`;
+
+    document.getElementById("userInput").addEventListener("input", function() {
+      const userText = this.value.trim();
+      const feedback = document.getElementById("feedback");
+
+      if (userText === expectedConfig) {
+        feedback.textContent = "✅ Correct!";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Incorrect. Try again.";
+        feedback.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
