@@ -215,7 +215,8 @@ Install McGraph:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 
 Install-Module Microsoft.Graph -Scope CurrentUser -Repository PSGallery -Force 
 Get-InstalledModule Microsoft.Graph 
-Connect-MgGraph 
+Connect-MgGraph ...-Scopes "User.ReadWrite.All"
+
 Get-MgUser -UserId [UPN which is the same as the email] 
 Set-MgUser -UserId [UPN of account] -OnPremisesExtensionAttributes @{ ExtensionAttribute2 = $null} 
 (get-mguser -userid [UPN of account] -Property OnpremisesExtensionAttributes).OnpremisesExtensionAttributes | Format-List 
