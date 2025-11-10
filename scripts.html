@@ -247,5 +247,32 @@ Get user device mggraph ps	(Get-MgUser -UserId '<UPN>' -ExpandProperty OwnedDevi
 Translate groups Get-MgGroup -Filter "id eq '?'" | Select displayname, description
 Get-MgUserMemberOf -userId [UPN] | % {Get-MgGroup -Filter "id eq '$_'" | Select displayname, description}
 
+open vscode: code [file]
+open notepad: notepad [file]
+-hidden
+code $PROFILE # Opens in VS Code
+save Microsoft.PowerShell_profile.ps1
+PIMRoles
+Install-Module ExchangeOnlineManagement
+Update-Module ExchangeOnlineManagement
+Connect-ExchangeOnline
+Add-DistributionGroupMember -Identity [Group display name] -Member [UPN]
+
+function PIMRoles { 
+    $PIMScriptPath = "C:\Users\Documents\Repos\EntraIDPIMElevation\invoke-EntraIDPimElevations.ps1" 
+    # The script requires a *single* string of groups separated by commas. 
+    $Groups = @( 
+        "[Group name]" #can do multiple
+    ) 
+    $GroupString = $Groups -join "," 
+    $params = @{ 
+        GroupsToActivate = $GroupString  
+        Justification = "Daily support"  
+        AccessType = "Member" 
+        ActivationDuration = 8 
+   } 
+     . $PIMScriptPath @params 
+} 
+
 
 -->
