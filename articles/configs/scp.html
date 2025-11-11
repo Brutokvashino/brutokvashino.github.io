@@ -56,7 +56,7 @@ const expectedConfig = `enable
 configure terminal
 hostname R1
 interface gigabitethernet0/1
-ip address 192.168.1.254
+ip address 192.168.1.254 255.255.255.0
 ip domain-name cisco.com
 crypto key generate rsa modulus 2048
 ip ssh version 2
