@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Configuration Challenge</title>
+  <title>Configuration Lab</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,14 +33,14 @@
 </head>
 <body>
   <div class="container">
-    <h2>Configuration Challenge</h2>
+    <h2>Configuration Lab</h2>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/acl.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/ospf0.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/dtp.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/fhrp.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/qos.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
-    <p><strong>Task:</strong> Configure standard ACL, extended ACL single host .22, deny subnet telnet, apply to L3svi</p>
+    <p><strong>Task:</strong> Configure standard ACL, extended ACL single host .22, deny telnet for the subnet, apply to L3svi</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -50,14 +50,10 @@
 //CORRECT TEXT AREA
 
 const expectedConfig = `access-list 1 permit ip 192.168.1.22 any
-
 access-list 100 permit ip host 192.168.1.22 any
-
 access-list 100 deny tcp 192.168.1.0 0.0.0.255 any eq 23
-
 interface vlan 10
 access-group 100 in
-
 do write`;
 
 //CORRECT TEXT ABOVE
