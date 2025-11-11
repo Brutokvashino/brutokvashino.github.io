@@ -43,7 +43,7 @@
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/ssh.html</a><br>    
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/scp.html</a><br>    
-    <p><strong>Task:</strong>Configure scp version2, on a router then same on all lines for a switch. Hint: requires a secure communication channel be set up first. verify it from a pc to router for startup-conf backup-conf.txt as admin</p>
+    <p><strong>Task:</strong>Configure scp version2, on a router. Hint: requires a secure communication channel be set up first. verify it from a pc to router with one command for startup-conf backup-conf.txt as admin</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -52,24 +52,11 @@
 
 //CORRECT TEXT AREA
 
-const expectedConfig = `en
+const expectedConfig = `enable
 configure terminal
 hostname R1
 interface gigabitethernet0/1
 ip address 192.168.1.254
-ip domain-name cisco.com
-crypto key generate rsa modulus 2048
-ip ssh version 2
-username admin priv 15 secret cisco
-line vty 0 4
-login local
-transport input ssh
-do write
-en
-configure terminal
-hostname SW1
-interface gigabitethernet0/0
-ip address 192.168.1.1
 ip domain-name cisco.com
 crypto key generate rsa modulus 2048
 ip ssh version 2
