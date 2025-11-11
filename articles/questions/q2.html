@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CCNA Study</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      font-family: monospace;
+      white-space: pre;
+    }
+    .feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Question 2</h2>
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/questions/q1.html</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/questions/q3.html</a><br>    
+    <p><strong>Question:</strong>command for default hsrp hello and hold timers</p>
+    <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <script>
+
+//CORRECT TEXT AREA
+
+const expectedConfig = `standby 1 timers 3 10`;
+
+//CORRECT TEXT ABOVE
+
+
+
+    document.getElementById("userInput").addEventListener("input", function() {
+      const userText = this.value.trim();
+      const feedback = document.getElementById("feedback");
+
+      if (userText === expectedConfig) {
+        feedback.textContent = "✅ Correct!";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Incorrect. Try again.";
+        feedback.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
