@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Configuration Challenge</title>
+  <title>Configuration Lab</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -40,7 +40,7 @@
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/fhrp.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/qos.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
-    <p><strong>Task:</strong>Configure the default then industry standard dtp on the switch interface</p>
+    <p><strong>Task:</strong>Just configure the default command, then industry standard command for dtp</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -50,7 +50,8 @@
 //CORRECT TEXT AREA
 
 const expectedConfig = `switchport mode dynamic desirable
-switchport mode dynamic auto`;
+switchport mode dynamic auto
+do write`;
 
 //CORRECT TEXT ABOVE
 
