@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Configuration Lab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      font-family: monospace;
+      white-space: pre;
+    }
+    .feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Configuration Lab</h2>
+
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/acl.html</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/ospf0.html</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/dtp.html</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/fhrp.html</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/qos.html</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/ssh.html</a><br>    
+    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/scp.html</a><br>    
+    <p><strong>Task:</strong>r1 is the server. ping, with ftp: copy running config to ftp, verify flash, copy from ftp to flash, then save ios.bin from ftp server to flash with one-liner. verify image. set it to boot. write mem</p>
+    <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <script>
+
+//CORRECT TEXT AREA
+
+const expectedConfig = `enable
+configure terminal
+hostname R1
+interface gigabitethernet0/1
+ip address 192.168.1.254
+do write
+ping 192.168.1.254
+copy running-config ftp:
+show flash:
+copy ftp: flash:
+copy ftp://admin:cisco@192.168.1.254/ios.bin flash:
+verify /md5 flash:ios.bin
+boot system flash:ios.bin
+write memory`;
+
+//CORRECT TEXT ABOVE
+
+
+
+    document.getElementById("userInput").addEventListener("input", function() {
+      const userText = this.value.trim();
+      const feedback = document.getElementById("feedback");
+
+      if (userText === expectedConfig) {
+        feedback.textContent = "✅ Correct!";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Incorrect. Try again.";
+        feedback.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
