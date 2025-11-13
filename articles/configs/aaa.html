@@ -40,7 +40,7 @@
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/fhrp.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/qos.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
-    <p><strong>Task:</strong>Port security on an access interface so that no other device will be accepted, first learn sticky, then just specify, handle it, verify</p>
+    <p><strong>Task:</strong>default aaa, R2 radius with guess what ip, R3 tacacs server one-liner then new way, last router is client to better protocol.</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -49,33 +49,45 @@
 
 //CORRECT TEXT AREA
 
-const expectedConfig = `hostname R1
-Aaa new-model 
-Username admin priv 15 secret cisco 
-Aaa authentication login default local 
-line vty 0 4
-login authentication default
-hostname R2
-Radius-server host 192.168.18.12 key cisco 
+const expectedConfig = `enable
+configure terminal
+hostname R1
 aaa new-model 
-Aaa authentication login default group radius local 
+username admin priv 15 secret cisco 
+aaa authentication login default local 
 line vty 0 4
 login authentication default
+do write
+enable
+configure terminal
+hostname R2
+radius-server host 192.168.18.12 key cisco 
+aaa new-model
+aaa authentication login default group radius local 
+line vty 0 4
+login authentication default
+do write
+enable
+configure terminal
 hostname R3
 tacacs-server host 192.168.1.49 key cisco 
-tacacs server TACACS-SERVER  
-address ipv4 192.168.1.49 
+tacacs server TACACS-SERVER 
+address ipv4 192.168.1.49
 key cisco 
 aaa new-model 
 aaa authentication login default group tacacs+ local
 line vty 0 4
 login authentication default
+do write
+enable
+configure terminal
 hostname R4
-aaa group server tacacs+ TACACS-GROUP  
-server name TACACS-SERVER 
+aaa group server tacacs+ TACACS-GROUP
+server name TACACS-SERVER
 aaa authentication login default group TACACS-GROUP local
 line vty 0 4
-login authentication default`;
+login authentication default
+do write`;
     
 //CORRECT TEXT ABOVE
 
