@@ -59,11 +59,16 @@
 
 //CORRECT TEXT AREA
 
-const expectedConfig = `ip nat access-list 1 permit 192.168.1.0 0.0.0.255
+const expectedConfig = `enable
+configure terminal
+hostname R1
+ip nat access-list 1 permit 192.168.1.0 0.0.0.255
 ip nat inside source interface gigabitethernet0/1
 interface gigabitethernet0/1
+ip address 192.168.1.254 255.255.255.0
 ip nat inside
 interface gigabitethernet0/0
+ip address 200.0.0.1 255.255.255.0
 ip nat outside
 do write`;
     
