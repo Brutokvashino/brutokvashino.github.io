@@ -40,7 +40,7 @@
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/fhrp.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/qos.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
-    <p><strong>Task:</strong>Configure vtp server switch, client switch, then transparent switch</p>
+    <p><strong>Task:</strong>3 vlans on SW1. Using the best version, configure vtp server switch, client switch, then transparent switch and verify on that one.</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -54,25 +54,36 @@ configure terminal
 hostname SW1
 delete flash:vlan.dat
 reload
-vtp domain DOMAIN 
-vtp mode server 
-vtp version 2 
+vlan 10
+vlan 20
+vlan 30
+vtp domain DOMAIN
+vtp mode server
+vtp version 2
 vtp password cisco 
 vtp pruning
+do write
 enable
 configure terminal
 hostname SW2
 vt domain DOMAIN 
 vtp mode client 
 vtp version 2 
-vtp password cisco 
+vtp password cisco
+do write
 enable
 configure terminal
 hostname SW3 
 vtp domain DOMAIN 
 vtp mode transparent 
 vtp version 2 
-vtp password cisco`;
+vtp password cisco
+do write
+do show interfaces trunk
+do show vlan
+do show vtp domain
+do show vtp password
+do show vtp pruning`;
 
 //CORRECT TEXT ABOVE
 
