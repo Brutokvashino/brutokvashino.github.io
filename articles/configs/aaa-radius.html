@@ -65,9 +65,10 @@
 const expectedConfig = `enable
 configure terminal
 hostname R2
-radius-server host 192.168.18.12 key cisco 
 aaa new-model
-aaa authentication login default group radius local 
+username admin privilege 15 secret cisco
+radius-server host 192.168.18.12 key cisco
+aaa authentication login default group radius local
 line vty 0 4
 login authentication default
 do write`;
