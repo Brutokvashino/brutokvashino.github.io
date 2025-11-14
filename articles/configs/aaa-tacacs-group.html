@@ -65,12 +65,14 @@
 const expectedConfig = `enable
 configure terminal
 hostname R4
+aaa new-model
 aaa group server tacacs+ TACACS-GROUP
 server name TACACS-SERVER
-tacacs server TACACS-SERVER 
+tacacs server TACACS-SERVER
 address ipv4 192.168.1.49
 key cisco
 aaa authentication login default group TACACS-GROUP local
+username admin privilege 15 secret cisco
 line vty 0 4
 login authentication default
 do write`;
