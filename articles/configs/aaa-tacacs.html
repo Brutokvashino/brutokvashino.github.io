@@ -65,11 +65,12 @@
 const expectedConfig = `enable
 configure terminal
 hostname R3
+aaa new-model
+username admin privilege 15 secret cisco
 tacacs-server host 192.168.1.49 key cisco 
 tacacs server TACACS-SERVER 
 address ipv4 192.168.1.49
 key cisco 
-aaa new-model 
 aaa authentication login default group tacacs+ local
 line vty 0 4
 login authentication default
