@@ -35,6 +35,9 @@
   <div class="container">
     <h2>Configuration Lab</h2>
     <br><a href="http://brutokvashino.github.io/articles/configs/aaa.html">AAA</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/aaa-radius.html">RADIUS</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/aaa-tacacs.html">TACACS</a><br>
+    <br><a href="http://brutokvashino.github.io/articles/configs/aaa-tacacs-group.html">TACACS-GROUP</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/acl.html">ACL</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/dtp.html">DTP</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/dynnat.html">DYNNAT</a><br>    
@@ -65,19 +68,6 @@ hostname R1
 aaa new-model 
 username admin priv 15 secret cisco 
 aaa authentication login default local 
-line vty 0 4
-login authentication default
-do write
-
-enable
-configure terminal
-hostname R4
-aaa group server tacacs+ TACACS-GROUP
-server name TACACS-SERVER
-tacacs server TACACS-SERVER 
-address ipv4 192.168.1.49
-key cisco
-aaa authentication login default group TACACS-GROUP local
 line vty 0 4
 login authentication default
 do write`;
