@@ -68,32 +68,15 @@ aaa authentication login default local
 line vty 0 4
 login authentication default
 do write
-enable
-configure terminal
-hostname R2
-radius-server host 192.168.18.12 key cisco 
-aaa new-model
-aaa authentication login default group radius local 
-line vty 0 4
-login authentication default
-do write
-enable
-configure terminal
-hostname R3
-tacacs-server host 192.168.1.49 key cisco 
-tacacs server TACACS-SERVER 
-address ipv4 192.168.1.49
-key cisco 
-aaa new-model 
-aaa authentication login default group tacacs+ local
-line vty 0 4
-login authentication default
-do write
+
 enable
 configure terminal
 hostname R4
 aaa group server tacacs+ TACACS-GROUP
 server name TACACS-SERVER
+tacacs server TACACS-SERVER 
+address ipv4 192.168.1.49
+key cisco
 aaa authentication login default group TACACS-GROUP local
 line vty 0 4
 login authentication default
