@@ -53,7 +53,7 @@
     <br><a href="http://brutokvashino.github.io/articles/configs/statnat.html">STATNAT</a><br>    
     <br><a href="http://brutokvashino.github.io/articles/configs/syslog.html">SYSLOG</a><br>    
     <br><a href="http://brutokvashino.github.io/articles/configs/vtp.html">VTP</a><br>    
-    <p><strong>Task:</strong>ssh, router default aaa.</p>
+    <p><strong>Task:</strong>ssh, router default aaa, verify aaa and ssh</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -69,12 +69,17 @@ interface gigabitethernet0/1
 ip address 192.168.1.254 255.255.255.0
 no shutdown
 ip domain-name cisco.com
+crypto key generate rsa modulus 2048
+ip ssh version 2
 aaa new-model
 username admin privilege 15 secret cisco
 aaa authentication login default local
 line vty 0 4
 login authentication default
-do write`;
+transport input ssh
+do write
+do show users
+ssh admin@192.168.1.254`;
     
 //CORRECT TEXT ABOVE
 
