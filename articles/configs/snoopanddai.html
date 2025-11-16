@@ -40,7 +40,7 @@
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/fhrp.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/qos.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
-    <p><strong>Task:</strong>snoop on all interfaces and on vlan and dai on vlan</p>
+    <p><strong>Task:</strong>snoop on all interfaces and on vlan and dai on vlan (g0/1 is uplink, g0/2 is a trunk)</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -49,17 +49,31 @@
 
 //CORRECT TEXT AREA
 
-const expectedConfig = `interface range fa0/1 - 0/24 
-ip dhcp snooping 
-ip dhcp snooping vlan 10 
-interface g0/0 
-trust limit rate 10 
-trust database flash: snoop.db 
-ip arp inspection vlan 10 
-interface range fa0/1-0/24 
-inspect limit rate 15
-interface g0/1
-ip arp inspection trust`;
+const expectedConfig = `enable
+configure terminal
+hostname SW1
+vlan 10
+interface range gigabitethernet 0/1 - 2
+switchport mode trunk
+switchport trunk encapsulation dot1q
+switchport allowed vlan 10
+switchport trunk native vlan 99
+interface range fastethernet 0/1 - 24
+switchport mode access
+switchport access vlan 10
+ip dhcp snooping
+ip dhcp snooping database flash:snoop.db
+ip dhcp snooping vlan 10
+interface range gigabitethernet 0/1 - 2
+ip dhcp snooping trust
+interface range fastethernet 0/1 - 24
+ip dhcp snooping limit rate 15
+ip arp inspection vlan 10
+interface range gigabitethernet 0/1 - 2
+ip arp inspection trust
+interface range fastethernet 0/1 - 24
+ip arp inspection limit rate 15
+do write`;
 
 //CORRECT TEXT ABOVE
 
