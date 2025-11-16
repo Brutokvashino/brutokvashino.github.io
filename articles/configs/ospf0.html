@@ -46,8 +46,17 @@
   </div>
 
   <script>
-    const expectedConfig = `router ospf 1
-network 192.168.1.0 0.0.0.255 area 0`;
+    const expectedConfig = `enable
+configure terminal
+hostname R1
+interface gigabitethernet 0/1
+ip address 192.168.1.254 255.255.255.0
+no shutdown
+interface loopback 0
+ip address 1.1.1.1 255.255.255.255
+router ospf 110
+network 192.168.1.0 0.0.0.255 area 0
+do write`;
 
     document.getElementById("userInput").addEventListener("input", function() {
       const userText = this.value.trim();
