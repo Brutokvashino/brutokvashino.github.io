@@ -40,7 +40,7 @@
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/fhrp.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/qos.html</a><br>
     <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">http://brutokvashino.github.io/articles/configs/statnat.html</a><br>    
-    <p><strong>Task:</strong>3 vlans on SW1. Using the best version, configure vtp server switch, client switch, then transparent switch and verify on that one.</p>
+    <p><strong>Task:</strong>delete vlan memory, 3 vlans on SW1 applied to respective intfs: Sales, HR, IT. Using the best version, configure vtp server switch, client switch, then transparent switch and verify on that one.</p>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
@@ -53,37 +53,55 @@ const expectedConfig = `enable
 configure terminal
 hostname SW1
 delete flash:vlan.dat
+do write
 reload
-vlan 10
-vlan 20
-vlan 30
-vtp domain DOMAIN
-vtp mode server
+enable
+configure terminal
 vtp version 2
-vtp password cisco 
+vtp mode server
+vtp password cisco
+vtp domain DOMAIN
+vlan 10
+name Sales
+vlan 20
+name HR
+vlan 30
+name IT
+interface fastethernet 0/10
+switchport mode access
+switchport access vlan 10
+interface fastethernet 0/20
+switchport mode access
+switchport access vlan 20
+interface fastethernet 0/30
+switchport mode access
+switchport access vlan 30
+exit
 vtp pruning
 do write
 enable
 configure terminal
 hostname SW2
-vt domain DOMAIN 
-vtp mode client 
-vtp version 2 
+vtp version 2
+vtp mode client
 vtp password cisco
+vtp domain DOMAIN
 do write
 enable
 configure terminal
-hostname SW3 
-vtp domain DOMAIN 
-vtp mode transparent 
-vtp version 2 
+hostname SW3
+vtp version 2
+vtp mode transparent
 vtp password cisco
+vtp domain DOMAIN
 do write
+do show vlan brief
 do show interfaces trunk
-do show vlan
 do show vtp domain
 do show vtp password
-do show vtp pruning`;
+do show vtp status
+do show vtp pruning
+do show vtp counters`;
 
 //CORRECT TEXT ABOVE
 
