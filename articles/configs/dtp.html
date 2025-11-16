@@ -52,13 +52,14 @@
 const expectedConfig = `enable
 configure terminal
 hostname SW1
-interface gigabitethernet0/1
-switchport mode dynamic auto
+interface gigabitethernet 0/1
+dtp mode dynamic auto
 do write
 enable
 configure terminal
 hostname SW2
-switchport mode dynamic desirable
+interface gigabitethernet 0/2
+dtp mode dynamic desirable
 do write`;
 
 //CORRECT TEXT ABOVE
