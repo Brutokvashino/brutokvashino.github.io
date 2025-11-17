@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zendesk Ticket List Mock</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    /* Header */
+    header {
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header input {
+        width: 300px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .profile {
+        width: 35px;
+        height: 35px;
+        background: #ccc;
+        border-radius: 50%;
+    }
+
+       .sidebar {
+        width: 220px;
+        background: #fff;
+        border-right: 1px solid #ddd;
+        position: fixed;
+        top: 50px;
+        bottom: 0;
+        padding: 20px;
+    }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    .sidebar li {
+        padding: 10px;
+        cursor: pointer;
+        color: #555;
+    }
+    .sidebar li:hover {
+        background: #f0f0f0;
+    }
+
+    /* Main content */
+    .main {
+        margin-left: 240px;
+        padding: 20px;
+    }
+    .ticket-list {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .ticket-header {
+        background: #f5f5f5;
+        padding: 10px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+    }
+    .ticket {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 10px;
+        border-bottom: 1px solid #eee;
+        transition: background 0.2s;
+    }
+    .ticket:hover {
+        background: #f9f9f9;
+    }
+    .ticket-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .ticket-subject {
+        font-weight: bold;
+    }
+    .ticket-meta {
+        font-size: 12px;
+        color: #777;
+    }
+    .ticket-status {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: #fff;
+    }
+    .status-open { background: #28a745; }
+    .status-pending { background: #ffc107; color: #333; }
+    .status-solved { background: #6c757d; }
+    .priority {
+        font-size: 12px;
+        color: #555;
+    }
+    .actions {
+        display: none;
+        gap: 8px;
+    }
+    .ticket:hover .actions {
+        display: flex;
+    }
+    .actions button {
+        padding: 4px 8px;
+        font-size: 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .assign { background: #007bff; color: #fff; }
+    .solve { background: #28a745; color: #fff; }
+    .delete { background: #dc3545; color: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+    <input type="text" placeholder="Search tickets...">
+    <div class="profile"></div>
+</header>
+
+<div class="sidebar">
+    <ul>
+        <li>Home</li>
+        <li>Tickets</li>
+        <li>Views</li>
+    </ul>
+</div>
+
+<div class="main">
+    <div class="ticket-list">
+        <div class="ticket-header">
+            <span>Subject</span>
+            <span>Status | Priority | Updated</span>
+        </div>
+
+        <!-- Ticket Example -->
+        <div class="ticket">
+            <div class="ticket-info">
+                <span class="ticket-subject">Cannot login to account</span>
+                <span class="ticket-meta">Requester: John Doe</span>
+            </div>
+            <div>
+                <span class="ticket-status status-open">Open</span>
+                <span class="priority">High</span>
+                <span class="ticket-meta">Updated 2h ago</span>
+                <div class="actions">
+                    <button class="assign">Assign</button>
+                    <button class="solve">Solve</button>
+                    <button class="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ticket">
+            <div class="ticket-info">
+                <span class="ticket-subject">Billing issue on invoice</span>
+                <span class="ticket-meta">Requester: Sarah Smith</span>
+            </div>
+            <div>
+                <span class="ticket-status status-pending">Pending</span>
+                <span class="priority">Normal</span>
+                <span class="ticket-meta">Updated 1d ago</span>
+                <div class="actions">
+                    <button class="assign">Assign</button>
+                    <button class="solve">Solve</button>
+                    <button class="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ticket">
+            <div class="ticket-info">
+                <span class="ticket-subject">Feature request: Dark mode</span>
+                <span class="ticket-meta">Requester: Alex Brown</span>
+            </div>
+            <div>
+                <span class="ticket-status status-solved">Solved</span>
+                <span class="priority">Low</span>
+                <span class="ticket-meta">Updated 3d ago</span>
+                <div class="actions">
+                    <button class="assign">Assign</button>
+                    <button class="solve">Solve</button>
+                    <button class="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example JS: Add click handlers for actions
+    document.querySelectorAll('.actions button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert(`Action: ${btn.textContent}`);
+        });
+    });
+</script>
+
+</body>
+</html>
