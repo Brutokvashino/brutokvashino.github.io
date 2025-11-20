@@ -66,9 +66,10 @@
 const expectedConfig = `time facility severity mnemonic description
 emergency alert critical error warning notice informational debug
 ...
-logging host 192.168.1.254 
-logging trap informational 
-service timestamps log datetime msec 
+logging host 192.168.1.254
+logging trap informational
+service timestamps log datetime msec
+do write
 debup ip packet`;
 
 //CORRECT TEXT ABOVE
