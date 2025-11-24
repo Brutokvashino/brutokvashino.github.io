@@ -1,0 +1,42 @@
+ipv6 unicast-routing
+
+ipv6 dhcp pool POOL
+address prefix 2001:db8:1::/64
+dns-server 2001:db8::53
+domain-name example.com
+
+int)
+ipv6 address 2001:db8:1::1/64
+ipv6 dhcp server POOL
+ipv6 nd managed-config-flag //// ipv6 nd other-config-flag (use slaac)
+
+
+ipv6 unicast-routing
+interface GigabitEthernet0/0
+ ipv6 address 2001:DB8:1::1/64
+ ipv6 nd prefix 2001:DB8:1::/64
+
+
+STATEFUL
+ipv6 dhcp pool MYPOOL
+ address prefix 2001:DB8:1::/64
+ dns-server 2001:DB8::53
+ domain-name example.com
+
+interface GigabitEthernet0/0
+ ipv6 dhcp server MYPOOL
+ ipv6 nd managed-config-flag
+
+STATELESS
+ipv6 nd other-config-flag
+
+PC:
+ipv6 address autoconfig default
+
+Older PC
+ipv6 address dhcp
+
+SLAAC not supported on pc:
+
+ipv6 address 2001:DB8:1::10/64
+ipv6 default-gateway 2001:DB8:1::1
