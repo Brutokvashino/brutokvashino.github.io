@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocol Headers Visualization</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f4f4f4;
+  }
+  h2 {
+    margin-top: 40px;
+  }
+  .header-container {
+    display: flex;
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    width: fit-content;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+  }
+  .field {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #fff;
+    box-sizing: border-box;
+  }
+  /* Scale: 1 bit = 2px */
+  /* IPv4 Colors */
+  .version { background: #4CAF50; width: calc(4 * 12px); }
+  .ihl { background: #2196F3; width: calc(4 * 12px); }
+  .tos { background: #FF9800; width: calc(8 * 12px); }
+  .length { background: #9C27B0; width: calc(16 * 12px); }
+  .id { background: #E91E63; width: calc(16 * 12px); }
+  .flags { background: #795548; width: calc(3 * 12px); }
+  .frag-offset { background: #607D8B; width: calc(13 * 12px); }
+  .ttl { background: #00BCD4; width: calc(8 * 12px); }
+  .protocol { background: #8BC34A; width: calc(8 * 12px); }
+  .checksum { background: #F44336; width: calc(16 * 12px); }
+  .src-ip { background: #3F51B5; width: calc(32 * 12px); }
+  .dst-ip { background: #FF5722; width: calc(32 * 12px); }
+
+  /* IPv6 */
+  .ipv6-version { background: #4CAF50; width: calc(4 * 12px); }
+  .ipv6-traffic { background: #2196F3; width: calc(8 * 12px); }
+  .ipv6-flow { background: #FF9800; width: calc(20 * 12px); }
+  .ipv6-length { background: #9C27B0; width: calc(16 * 12px); }
+  .ipv6-next { background: #E91E63; width: calc(8 * 12px); }
+  .ipv6-hop { background: #795548; width: calc(8 * 12px); }
+  .ipv6-src { background: #607D8B; width: calc(128 * 12px); }
+  .ipv6-dst { background: #00BCD4; width: calc(128 * 12px); }
+
+  /* TCP */
+  .tcp-src { background: #4CAF50; width: calc(16 * 12px); }
+  .tcp-dst { background: #2196F3; width: calc(16 * 12px); }
+  .tcp-seq { background: #FF9800; width: calc(32 * 12px); }
+  .tcp-ack { background: #9C27B0; width: calc(32 * 12px); }
+  .tcp-offset { background: #E91E63; width: calc(4 * 12px); }
+  .tcp-flags { background: #795548; width: calc(6 * 12px); }
+  .tcp-window { background: #607D8B; width: calc(16 * 12px); }
+  .tcp-checksum { background: #00BCD4; width: calc(16 * 12px); }
+  .tcp-urgent { background: #8BC34A; width: calc(16 * 12px); }
+
+  /* UDP */
+  .udp-src { background: #4CAF50; width: calc(16 * 12px); }
+  .udp-dst { background: #2196F3; width: calc(16 * 12px); }
+  .udp-length { background: #FF9800; width: calc(16 * 12px); }
+  .udp-checksum { background: #9C27B0; width: calc(16 * 12px); }
+
+  /* Ethernet */
+  .eth-dst { background: #4CAF50; width: calc(48 * 12px); }
+  .eth-src { background: #2196F3; width: calc(48 * 12px); }
+  .eth-type { background: #FF9800; width: calc(16 * 12px); }
+
+  /* 802.11 Wi-Fi */
+  .wifi-frame { background: #4CAF50; width: calc(16 * 12px); }
+  .wifi-duration { background: #2196F3; width: calc(16 * 12px); }
+  .wifi-addr { background: #FF9800; width: calc(48 * 12px); }
+
+  /* Dot1Q */
+  .dot1q-tpid { background: #4CAF50; width: calc(16 * 12px); }
+  .dot1q-tci { background: #2196F3; width: calc(16 * 12px); }
+
+  /* ICMP */
+  .icmp-type { background: #4CAF50; width: calc(8 * 12px); }
+  .icmp-code { background: #2196F3; width: calc(8 * 12px); }
+  .icmp-checksum { background: #FF9800; width: calc(16 * 12px); }
+</style>
+</head>
+<body>
+
+<h2>IPv4 Header</h2>
+<div class="header-container">
+  <div class="field version">Version</div>
+  <div class="field ihl">IHL</div>
+  <div class="field tos">TOS</div>
+  <div class="field length">Length</div>
+  <div class="field id">ID</div>
+  <div class="field flags">Flags</div>
+  <div class="field frag-offset">Frag Offset</div>
+  <div class="field ttl">TTL</div>
+  <div class="field protocol">Protocol</div>
+  <div class="field checksum">Checksum</div>
+  <div class="field src-ip">Source IP</div>
+  <div class="field dst-ip">Dest IP</div>
+</div>
+
+<h2>IPv6 Header</h2>
+<div class="header-container">
+  <div class="field ipv6-version">Version</div>
+  <div class="field ipv6-traffic">Traffic Class</div>
+  <div class="field ipv6-flow">Flow Label</div>
+  <div class="field ipv6-length">Payload Length</div>
+  <div class="field ipv6-next">Next Header</div>
+  <div class="field ipv6-hop">Hop Limit</div>
+  <div class="field ipv6-src">Source Addr</div>
+  <div class="field ipv6-dst">Dest Addr</div>
+</div>
+
+<h2>TCP Header</h2>
+<div class="header-container">
+  <div class="field tcp-src">Src Port</div>
+  <div class="field tcp-dst">Dst Port</div>
+  <div class="field tcp-seq">Seq Num</div>
+  <div class="field tcp-ack">Ack Num</div>
+  <div class="field tcp-offset">Offset</div>
+  <div class="field tcp-flags">Flags</div>
+  <div class="field tcp-window">Window</div>
+  <div class="field tcp-checksum">Checksum</div>
+  <div class="field tcp-urgent">Urgent Ptr</div>
+</div>
+
+<h2>UDP Header</h2>
+<div class="header-container">
+  <div class="field udp-src">Src Port</div>
+  <div class="field udp-dst">Dst Port</div>
+  <div class="field udp-length">Length</div>
+  <div class="field udp-checksum">Checksum</div>
+</div>
+
+<h2>Ethernet Header</h2>
+<div class="header-container">
+  <div class="field eth-dst">Dest MAC</div>
+  <div class="field eth-src">Src MAC</div>
+  <div class="field eth-type">Type</div>
+</div>
+
+<h2>802.11 Wi-Fi Header</h2>
+<div class="header-container">
+  <div class="field wifi-frame">Frame Ctrl</div>
+  <div class="field wifi-duration">Duration</div>
+  <div class="field wifi-addr">Addr Fields</div>
+</div>
+
+<h2>Dot1Q Header</h2>
+<div class="header-container">
+  <div class="field dot1q-tpid">TPID</div>
+  <div class="field dot1q-tci">TCI</div>
+</div>
+
+<h2>ICMP Header</h2>
+<div class="header-container">
+  <div class="field icmp-type">Type</div>
+  <div class="field icmp-code">Code</div>
+  <div class="field icmp-checksum">Checksum</div>
+</div>
+
+</body>
+</html>
