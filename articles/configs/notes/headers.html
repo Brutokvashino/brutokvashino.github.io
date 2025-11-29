@@ -74,9 +74,13 @@
   .udp-checksum { background: #9C27B0; width: calc(16 * 12px); }
 
   /* Ethernet */
+  .eth-preamble { background: #9C27B0; width: calc(42 * 12px); }
+  .eth-sfd { background: #E91E63; width: calc(8 * 12px); }
   .eth-dst { background: #4CAF50; width: calc(48 * 12px); }
   .eth-src { background: #2196F3; width: calc(48 * 12px); }
   .eth-type { background: #FF9800; width: calc(16 * 12px); }
+  .eth-dat { background: #795548; width: calc(64 * 12px); }
+  .eth-fcs { background: #607D8B; width: calc(32 * 12px); }
 
   /* 802.11 Wi-Fi */
   .wifi-frame { background: #4CAF50; width: calc(16 * 12px); }
@@ -146,9 +150,13 @@
 
 <h2>Ethernet Header</h2>
 <div class="header-container">
+  <div class="field eth-preamble">Preamble</div>
+  <div class="field eht-sfd">SFD</div>
   <div class="field eth-dst">Dest MAC</div>
   <div class="field eth-src">Src MAC</div>
   <div class="field eth-type">Type</div>
+  <div class="field eth-dat">DAT</div>
+  <div class="field eth-fcs">FCS</div>
 </div>
 
 <h2>802.11 Wi-Fi Header</h2>
