@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Endless Hill Runner</title>
+  <style>
+    :root {
+      --track: #5cf3ff;
+      --pants: #ff9a00;
+      --accent: #75ff9b;
+      --text: #e6f2ff;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: radial-gradient(1200px 800px at 50% 50%, #12172a 0%, #0b0f1a 60%, #090c16 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #game {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .hud {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      background: rgba(4, 8, 16, 0.55);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 10px 12px;
+      backdrop-filter: blur(6px);
+      font-size: 14px;
+      line-height: 1.35;
+      user-select: none;
+      pointer-events: none;
+    }
+    .hud strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div class="hud">
+    <div><strong>Controls:</strong> ←/→ run, Space jump, hold direction in air to flip</div>
+    <div id="readout"></div>
+  </div>
+
+  <script>
+    /*
+      Endless Hill Runner — infinite ground (no falling off edges)
+      - Ground is a continuous function y = baseline - hills(x)
+      - Camera follows player; track is sampled only for rendering
+      - Grounded physics uses slope-based gravity projection along tangent
+      - Air physics: gravity + small air control + landing against ground function
+    */
+
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d', { alpha: false });
+    const readoutEl = document.getElementById('readout');
+
+    const DPR = Math.min(2, window.devicePixelRatio || 1);
+
+    // ===== World / Camera =====
+    let view = { w: 1, h: 1, cameraX: 0, cameraY: 0 };
+
+    function resize() {
+      const w = Math.floor(window.innerWidth * DPR);
+      const h = Math.floor(window.innerHeight * DPR);
+      canvas.width = w;
+      canvas.height = h;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      view.w = w; view.h = h;
+    }
+    window.addEventListener('resize', resize);
+
+    // ===== Input =====
+    const keys = { left: false, right: false, jump: false };
+    let jumpQueued = false;
+
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = true;
+      if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = true;
+      if (e.code === 'Space') {
+        if (!keys.jump) jumpQueued = true;
+        keys.jump = true;
+        e.preventDefault();
+      }
+    });
+    window.addEventListener('keyup', (e) => {
+      if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = false;
+      if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = false;
+      if (e.code === 'Space') keys.jump = false;
+    });
+
+    // ===== Ground function (infinite) =====
+    // Baseline and repeating hills: two sizes, alternating pattern
+    const BASELINE_RATIO = 0.72; // fraction of screen height for baseline (for initial placement)
+    const HILL_PERIOD = 600 * DPR; // horizontal spacing between hill centers
+    const HILL_WIDTH_BIG = 0.58;   // width as fraction of PERIOD for big hills
+    const HILL_WIDTH_SMALL = 0.40; // width as fraction of PERIOD for small hills
+    const AMP_BIG = 120 * DPR;     // pixels
+    const AMP_SMALL = 70 * DPR;    // pixels
+
+    // Raised-cosine bump (0 outside [0,1])
+    function raisedCos01(t) {
+      if (t <= 0 || t >= 1) return 0;
+      return (1 - Math.cos(2 * Math.PI * t)) * 0.5;
+    }
+    // Derivative of raised cosine w.r.t t inside (0,1)
+    function raisedCos01_deriv(t) {
+      if (t <= 0 || t >= 1) return 0;
+      // d/dt [(1 - cos(2πt))/2] = (2π sin(2πt))/2 = π sin(2πt)
+      return Math.PI * Math.sin(2 * Math.PI * t);
+    }
+
+    // World baseline uses a constant Y; visually it's near lower part of screen
+    function baselineY() {
+      return view.h * BASELINE_RATIO;
+    }
+
+    // Ground height at world x
+    function groundY(x) {
+      const base = baselineY();
+      // Determine which two hill centers influence x (nearest left/right)
+      const k = Math.floor(x / HILL_PERIOD);  // hill index
+      const x0 = k * HILL_PERIOD;
+      const x1 = (k + 1) * HILL_PERIOD;
+
+      // Alternate big/small hills by index parity
+      const amp0 = (k % 2 === 0) ? AMP_BIG : AMP_SMALL;
+      const amp1 = ((k + 1) % 2 === 0) ? AMP_BIG : AMP_SMALL;
+      const w0 = ((k % 2 === 0) ? HILL_WIDTH_BIG : HILL_WIDTH_SMALL) * HILL_PERIOD;
+      const w1 = (((k + 1) % 2 === 0) ? HILL_WIDTH_BIG : HILL_WIDTH_SMALL) * HILL_PERIOD;
+
+      // Each hill is a raised cosine centered every PERIOD
+      const left = x0 - w0 * 0.5, right = x0 + w0 * 0.5;
+      const left2 = x1 - w1 * 0.5, right2 = x1 + w1 * 0.5;
+
+      let y = base;
+      // Subtract bumps (upward on screen is negative y)
+      const t0 = (x - left) / (right - left);
+      y -= amp0 * raisedCos01(t0);
+      const t1 = (x - left2) / (right2 - left2);
+      y -= amp1 * raisedCos01(t1);
+
+      return y;
+    }
+
+    // dy/dx slope at world x (derivative)
+    function groundSlope(x) {
+      const k = Math.floor(x / HILL_PERIOD);
+      const x0 = k * HILL_PERIOD;
+      const x1 = (k + 1) * HILL_PERIOD;
+
+      const amp0 = (k % 2 === 0) ? AMP_BIG : AMP_SMALL;
+      const amp1 = ((k + 1) % 2 === 0) ? AMP_BIG : AMP_SMALL;
+      const w0 = ((k % 2 === 0) ? HILL_WIDTH_BIG : HILL_WIDTH_SMALL) * HILL_PERIOD;
+      const w1 = (((k + 1) % 2 === 0) ? HILL_WIDTH_BIG : HILL_WIDTH_SMALL) * HILL_PERIOD;
+
+      const left = x0 - w0 * 0.5, right = x0 + w0 * 0.5;
+      const left2 = x1 - w1 * 0.5, right2 = x1 + w1 * 0.5;
+
+      let s = 0; // dy/dx
+      const len0 = (right - left);
+      if (len0 > 0) {
+        const t0 = (x - left) / len0;
+        s += -amp0 * raisedCos01_deriv(t0) * (1 / len0); // chain rule: dt/dx = 1/len
+      }
+      const len1 = (right2 - left2);
+      if (len1 > 0) {
+        const t1 = (x - left2) / len1;
+        s += -amp1 * raisedCos01_deriv(t1) * (1 / len1);
+      }
+      return s;
+    }
+
+    // Tangent unit vector at x from slope
+    function tangentAt(x) {
+      const s = groundSlope(x);
+      const inv = 1 / Math.hypot(1, s);
+      return { x: 1 * inv, y: s * inv };
+    }
+
+    // ===== Player =====
+    const player = {
+      x: 0, y: 0,         // world position
+      vx: 0, vy: 0,       // world velocity (used in air)
+      vt: 0,              // along-ground speed (used when grounded)
+      grounded: true,
+      rotation: 0,        // visual spin angle (deg) when airborne
+      cumulativeRotation: 0,
+      flipTurns: 0,
+      width: 24 * DPR,
+      height: 52 * DPR,
+    };
+
+    // ===== Physics tuning =====
+    const GRAVITY = 2000 * DPR;       // px/s^2
+    const RUN_ACCEL = 2200 * DPR;     // along-ground accel
+    const MAX_RUN_SPEED = 700 * DPR;  // clamp along-ground speed
+    const FRICTION = 7.0;             // linear damping of vt
+    const AIR_ACCEL = 900 * DPR;      // horizontal steering in air
+    const JUMP_SPEED = 820 * DPR;     // initial upward speed
+    const ANGULAR_SPEED = 600;        // deg/s while flipping
+    const LAND_SNAP = 3.0 * DPR;      // snap tolerance toward ground
+
+    // ===== Camera follow =====
+    function updateCamera(dt) {
+      // Target camera centers the player with slight lead based on velocity
+      const lead = 0.20; // lead factor for horizontal look-ahead
+      const targetX = player.x + player.vx * lead;
+      const stiffness = 10; // camera spring stiffness
+      // Smoothly follow
+      view.cameraX += (targetX - view.cameraX) * (1 - Math.exp(-stiffness * dt));
+      // Keep baseline roughly centered vertically; small vertical follow on jumps
+      const baseline = baselineY();
+      const targetY = baseline - 80 * DPR + (player.y - baseline) * 0.15;
+      view.cameraY += (targetY - view.cameraY) * (1 - Math.exp(-stiffness * dt));
+    }
+
+    // ===== Main loop =====
+    let last = performance.now();
+
+    function step() {
+      const now = performance.now();
+      let dt = (now - last) / 1000;
+      last = now;
+      dt = Math.min(dt, 1 / 30);
+
+      update(dt);
+      updateCamera(dt);
+      render();
+
+      requestAnimationFrame(step);
+    }
+
+    function update(dt) {
+      const input = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
+
+      if (player.grounded) {
+        // Along-ground dynamics
+        const T = tangentAt(player.x);
+        // Gravity component along tangent: g_t = g * sin(theta)
+        // With slope s = dy/dx, sin(theta) = s / sqrt(1+s^2) => equals T.y
+        const g_t = GRAVITY * T.y;
+
+        const a_t = input * RUN_ACCEL + g_t - FRICTION * player.vt;
+        player.vt = clamp(player.vt + a_t * dt, -MAX_RUN_SPEED, MAX_RUN_SPEED);
+
+        // Advance along x by projecting ds along tangent: ds = vt*dt; dx = ds * T.x
+        const ds = player.vt * dt;
+        player.x += ds * T.x;
+
+        // Snap to ground
+        const gy = groundY(player.x);
+        player.y = gy;
+
+        // Jump (edge)
+        if (jumpQueued) {
+          jumpQueued = false;
+          player.grounded = false;
+
+          // Convert along-ground velocity into (vx, vy), add upward impulse
+          player.vx = player.vt * T.x;
+          player.vy = player.vt * T.y - JUMP_SPEED;
+
+          player.rotation = 0;
+          player.cumulativeRotation = 0;
+          player.flipTurns = 0;
+        }
+      } else {
+        // Airborne dynamics
+        player.vx += input * AIR_ACCEL * dt;
+        player.vy += GRAVITY * dt;
+
+        player.x += player.vx * dt;
+        player.y += player.vy * dt;
+
+        // Spins/flips while holding a direction
+        if (input !== 0) {
+          player.rotation += input * ANGULAR_SPEED * dt;
+          player.cumulativeRotation += Math.abs(input * ANGULAR_SPEED * dt);
+        }
+
+        // Ground collision: if we are below ground (y >= groundY) and moving downward-ish, land
+        const gy = groundY(player.x);
+        if (player.y >= gy - LAND_SNAP && player.vy >= -200 * DPR) {
+          const T = tangentAt(player.x);
+          // Preserve tangential component as along-ground speed
+          player.vt = player.vx * T.x + player.vy * T.y;
+          player.grounded = true;
+          player.y = gy;
+
+          // Count flips (360°) on landing
+          player.flipTurns = Math.floor(player.cumulativeRotation / 360);
+          player.rotation = 0;
+          player.cumulativeRotation = 0;
+
+          // Optional: remove any downward normal velocity component to avoid sinking
+          // (Project velocity onto tangent)
+          const vtAlong = player.vt;
+          player.vx = vtAlong * T.x;
+          player.vy = vtAlong * T.y;
+        }
+      }
+
+      // HUD
+      readoutEl.textContent =
+        `State: ${player.grounded ? 'Grounded' : 'Airborne'} | ` +
+        `Speed: ${Math.round(player.grounded ? player.vt : Math.hypot(player.vx, player.vy))} px/s | ` +
+        `Flips: ${player.flipTurns}`;
+    }
+
+    // ===== Rendering =====
+    function render() {
+      const w = view.w, h = view.h;
+
+      // Background
+      ctx.fillStyle = '#0c1020';
+      ctx.fillRect(0, 0, w, h);
+
+      // Subtle grid
+      ctx.save();
+      ctx.globalAlpha = 0.05;
+      ctx.strokeStyle = '#8fd3ff';
+      ctx.lineWidth = 1 * DPR;
+      const grid = 48 * DPR;
+      const camXmod = view.cameraX % grid;
+      const camYmod = view.cameraY % grid;
+      for (let x = -camXmod; x < w; x += grid) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+      for (let y = -camYmod; y < h; y += grid) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+      ctx.restore();
+
+      // Draw ground curve across the screen window
+      ctx.save();
+      ctx.strokeStyle = '#5cf3ff';
+      ctx.lineWidth = 6 * DPR;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.shadowColor = 'rgba(92,243,255,0.35)';
+      ctx.shadowBlur = 12 * DPR;
+
+      const samples = Math.max(300, Math.floor(w / (3 * DPR)));
+      const x0 = view.cameraX - w * 0.6; // render a bit beyond edges to avoid gaps
+      const x1 = view.cameraX + w * 0.6;
+      const dx = (x1 - x0) / samples;
+
+      ctx.beginPath();
+      for (let i = 0; i <= samples; i++) {
+        const wx = x0 + i * dx;
+        const wy = groundY(wx);
+        const sx = wx - view.cameraX + w * 0.5;
+        const sy = wy - view.cameraY + h * 0.5;
+        if (i === 0) ctx.moveTo(sx, sy);
+        else ctx.lineTo(sx, sy);
+      }
+      ctx.stroke();
+      ctx.restore();
+
+      // Draw player
+      drawPlayer();
+    }
+
+    function drawPlayer() {
+      const bodyW = player.width;
+      const bodyH = player.height;
+
+      // Orientation: upright with slight lean on ground; rotate in air for flips
+      let angle = 0;
+      if (player.grounded) {
+        const lean = clamp((player.vt / MAX_RUN_SPEED) * 16, -18, 18);
+        angle = (Math.PI / 180) * lean;
+      } else {
+        angle = (Math.PI / 180) * player.rotation;
+      }
+
+      const w = view.w, h = view.h;
+      const sx = player.x - view.cameraX + w * 0.5;
+      const sy = player.y - view.cameraY + h * 0.5;
+
+      ctx.save();
+      ctx.translate(sx, sy);
+      ctx.rotate(angle);
+
+      // Shadow
+      ctx.save();
+      ctx.translate(0, bodyH * 0.56);
+      ctx.scale(1, 0.25);
+      ctx.fillStyle = 'rgba(0,0,0,0.25)';
+      roundedRect(ctx, -bodyW * 0.45, -bodyW * 0.18, bodyW * 0.9, bodyW * 0.36, 6 * DPR);
+      ctx.fill();
+      ctx.restore();
+
+      // Body (torso)
+      ctx.fillStyle = '#ffffff';
+      roundedRect(ctx, -bodyW * 0.35, -bodyH * 0.5, bodyW * 0.7, bodyH * 0.7, 8 * DPR);
+      ctx.fill();
+
+      // Head
+      ctx.beginPath();
+      ctx.fillStyle = '#fff';
+      ctx.arc(0, -bodyH * 0.68, bodyW * 0.28, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Hair swoosh (accent)
+      ctx.beginPath();
+      ctx.strokeStyle = '#75ff9b';
+      ctx.lineWidth = 4 * DPR;
+      ctx.moveTo(-bodyW * 0.18, -bodyH * 0.86);
+      ctx.quadraticCurveTo(0, -bodyH * 0.96, bodyW * 0.22, -bodyH * 0.88);
+      ctx.stroke();
+
+      // Fancy Pants (orange shorts)
+      ctx.fillStyle = '#ff9a00';
+      roundedRect(ctx, -bodyW * 0.4, -bodyH * 0.05, bodyW * 0.8, bodyH * 0.2, 6 * DPR);
+      ctx.fill();
+
+      // Stick legs
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 5 * DPR;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(-bodyW * 0.16, bodyH * 0.15);
+      ctx.lineTo(-bodyW * 0.16, bodyH * 0.52);
+      ctx.moveTo(bodyW * 0.16, bodyH * 0.15);
+      ctx.lineTo(bodyW * 0.16, bodyH * 0.52);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function roundedRect(ctx, x, y, w, h, r) {
+      const rr = Math.min(r, Math.abs(w/2), Math.abs(h/2));
+      ctx.beginPath();
+      ctx.moveTo(x + rr, y);
+      ctx.lineTo(x + w - rr, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + rr);
+      ctx.lineTo(x + w, y + h - rr);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - rr, y + h);
+      ctx.lineTo(x + rr, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - rr);
+      ctx.lineTo(x, y + rr);
+      ctx.quadraticCurveTo(x, y, x + rr, y);
+    }
+
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+    // ===== Boot =====
+    resize();
+    // Start player near origin on baseline
+    player.x = 0;
+    player.y = groundY(player.x);
+    view.cameraX = player.x;
+    view.cameraY = baselineY();
+    requestAnimationFrame(step);
+  </script>
+</body>
+</html>
