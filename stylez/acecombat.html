@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AC04 // MISSION BRIEFING</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --isaf-blue: #001a33;
+            --isaf-cyan: #00f2ff;
+            --isaf-green: #39ff14;
+            --isaf-gray: #4d4d4d;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--isaf-cyan);
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        /* Tactical Scanlines */
+        body::after {
+            content: " ";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .briefing-window {
+            width: 850px;
+            background: var(--isaf-blue);
+            border: 2px solid var(--isaf-cyan);
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--isaf-cyan);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mission-title {
+            font-size: 2rem;
+            letter-spacing: 5px;
+            text-shadow: 0 0 10px var(--isaf-cyan);
+        }
+
+        .stats-sidebar {
+            border-left: 2px solid var(--isaf-cyan);
+            padding-left: 20px;
+            font-size: 0.8rem;
+        }
+
+        .map-zone {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--isaf-gray);
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        /* Radar sweep effect */
+        .radar-line {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: var(--isaf-cyan);
+            box-shadow: 0 0 10px var(--isaf-cyan);
+            animation: sweep 4s linear infinite;
+        }
+
+        @keyframes sweep {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .mac-display {
+            font-size: 2.2rem;
+            color: #fff;
+            letter-spacing: 8px;
+            z-index: 5;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        input {
+            background: transparent;
+            border: 1px solid var(--isaf-cyan);
+            color: var(--isaf-cyan);
+            padding: 15px;
+            width: 80%;
+            font-size: 1.5rem;
+            text-align: center;
+            font-family: inherit;
+            outline: none;
+        }
+
+        button {
+            background: var(--isaf-cyan);
+            color: #000;
+            border: none;
+            padding: 10px 50px;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: var(--isaf-green);
+            box-shadow: 0 0 20px var(--isaf-green);
+        }
+
+        #feedback {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            height: 20px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="briefing-window">
+    <div class="header">
+        <div class="mission-title">SLAAC RECOGNITION</div>
+        <div class="stats-sidebar">
+            UNIT: MOBIUS 1<br>
+            MISSION NO: 04<br>
+            STATUS: BRIEFING
+        </div>
+    </div>
+
+    <div style="font-size: 0.7rem; color: var(--isaf-cyan);">TARGET IDENTIFIED // MAC DATA:</div>
+    <div class="map-zone">
+        <div class="radar-line"></div>
+        <div class="mac-display" id="target">39:A7:94:07:CB:D0</div>
+    </div>
+
+    <div class="input-group">
+        <input type="text" id="userInput" placeholder="TRANSMIT EUI-64..." spellcheck="false">
+        <button onclick="sorties()">ENGAGE</button>
+        <div id="feedback">WAITING FOR SQUADRON UPLINK...</div>
+    </div>
+</div>
+
+<script>
+    const answer = "3ba7:94ff:fe07:cbd0";
+
+    function sorties() {
+        const val = document.getElementById('userInput').value.trim().toLowerCase();
+        const feedback = document.getElementById('feedback');
+        
+        if (val === answer) {
+            feedback.innerHTML = "<span style='color:var(--isaf-green)'>BULLSEYE! MISSION ACCOMPLISHED.</span>";
+            document.querySelector('.briefing-window').style.borderColor = "var(--isaf-green)";
+        } else {
+            feedback.innerHTML = "<span style='color:red'>MISS! CHECK DATA LINK (BIT 7).</span>";
+            // Flash red effect
+            document.body.style.backgroundColor = "rgba(255,0,0,0.1)";
+            setTimeout(() => document.body.style.backgroundColor = "#000", 150);
+        }
+    }
+</script>
+
+</body>
+</html>
