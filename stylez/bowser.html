@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOWSER'S CASTLE // EUI-64 CHALLENGE</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --lava-glow: #ff4500;
+            --castle-stone: #2c2c2c;
+            --bowser-green: #3fb518;
+            --spiked-iron: #1a1a1a;
+            --flame-yellow: #ffcc00;
+        }
+
+        body {
+            background-color: #000;
+            /* Animated Lava Background */
+            background: linear-gradient(0deg, #4d0000 0%, #000000 50%);
+            color: #fff;
+            font-family: 'Permanent Marker', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* The Stone Fortress Container */
+        .castle-panel {
+            background: var(--castle-stone);
+            width: 600px;
+            padding: 40px;
+            border: 10px solid var(--spiked-iron);
+            position: relative;
+            box-shadow: 0 0 50px var(--lava-glow), inset 0 0 30px #000;
+            text-align: center;
+            /* Jagged/Spiked look */
+            clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%);
+        }
+
+        /* Bowser's Emblem / Header */
+        h1 {
+            font-family: 'Rubik Mono One', sans-serif;
+            font-size: 2.5rem;
+            color: var(--flame-yellow);
+            text-shadow: 4px 4px 0px #8b0000, 0 0 20px var(--lava-glow);
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+        }
+
+        .lava-pit {
+            background: #000;
+            border: 4px solid var(--lava-glow);
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Scrolling Lava Effect */
+        .lava-pit::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 200%; height: 100%;
+            background: repeating-linear-gradient(90deg, transparent, var(--lava-glow) 50%, transparent 100%);
+            opacity: 0.1;
+            animation: flow 3s linear infinite;
+        }
+
+        @keyframes flow {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0%); }
+        }
+
+        .mac-display {
+            font-size: 2.2rem;
+            color: #fff;
+            letter-spacing: 4px;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Spiked Input Box */
+        input {
+            background: #111;
+            border: 3px solid var(--bowser-green);
+            color: var(--bowser-green);
+            padding: 15px;
+            width: 80%;
+            font-size: 1.5rem;
+            text-align: center;
+            font-family: monospace;
+            outline: none;
+            box-shadow: 0 0 10px var(--bowser-green);
+        }
+
+        /* The Boss Battle Button */
+        button {
+            background: linear-gradient(to bottom, #8b0000, #4d0000);
+            color: white;
+            border: 4px solid var(--spiked-iron);
+            padding: 15px 40px;
+            font-family: 'Rubik Mono One', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: 0.2s;
+            box-shadow: 0 5px 0 #000;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: #ff0000;
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        #feedback {
+            margin-top: 20px;
+            font-family: 'Creepster', cursive;
+            font-size: 1.8rem;
+            color: var(--flame-yellow);
+            height: 30px;
+        }
+
+        /* Falling Fireballs */
+        .fireball {
+            position: absolute;
+            color: var(--lava-glow);
+            font-size: 2rem;
+            animation: fall 2s linear forwards;
+        }
+
+        @keyframes fall {
+            from { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="castle-panel">
+        <h1>FINAL STAGE</h1>
+        <p style="color: #aaa;">"BWA-HA-HA! YOU'LL NEVER ACCESS MY NETWORK!"</p>
+
+        <div class="lava-pit">
+            <div style="font-size: 0.8rem; color: var(--lava-glow);">ENCRYPTED MAC:</div>
+            <div class="mac-display" id="target-mac">39:A7:94:07:CB:D0</div>
+        </div>
+
+        <input type="text" id="user-eui" placeholder="????:????:????:????" spellcheck="false">
+        
+        <br>
+        <button onclick="defeatBowser()">STOMP!</button>
+        
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        const correct = "3ba7:94ff:fe07:cbd0";
+
+        function defeatBowser() {
+            const val = document.getElementById('user-eui').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback');
+            
+            if (val === correct) {
+                feedback.innerText = "GWAH?! MY NETWORK!!";
+                feedback.style.color = "var(--bowser-green)";
+                document.body.style.background = "linear-gradient(0deg, #184835 0%, #000 100%)";
+                spawnFire(30);
+            } else {
+                feedback.innerText = "TOO SLOW, MARIO!";
+                feedback.style.color = "var(--lava-glow)";
+                // Shake the castle
+                document.querySelector('.castle-panel').animate([
+                    { transform: 'translate(2px, 2px)' },
+                    { transform: 'translate(-2px, -2px)' },
+                    { transform: 'translate(2px, -2px)' }
+                ], { duration: 100, iterations: 5 });
+            }
+        }
+
+        function spawnFire(count) {
+            for(let i=0; i < count; i++) {
+                const f = document.createElement('div');
+                f.className = 'fireball';
+                f.innerText = '🔥';
+                f.style.left = Math.random() * 100 + "vw";
+                f.style.animationDuration = Math.random() * 1 + 1 + "s";
+                document.body.appendChild(f);
+                setTimeout(() => f.remove(), 2000);
+            }
+        }
+    </script>
+</body>
+</html>
