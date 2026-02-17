@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Garamsythe Waterway // EUI-64 Overflow</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --waterway-deep: #0a1a1a;
+            --moss-green: #2d4c3b;
+            --oxidized-copper: #4fb3a5;
+            --rusted-bronze: #8c6a46;
+            --glow-blue: #00f2ff;
+        }
+
+        body {
+            background-color: var(--waterway-deep);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.05) 0%, transparent 70%),
+                url('https://www.transparenttextures.com');
+            color: #e0f2f1;
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Caustic Water Ripple Effect */
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('https://media.giphy.com');
+            background-size: cover;
+            opacity: 0.15;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: 10;
+        }
+
+        /* Submerged Stone Panel */
+        .waterway-panel {
+            background: linear-gradient(135deg, rgba(45, 76, 59, 0.9), rgba(10, 26, 26, 0.95));
+            width: 650px;
+            padding: 40px;
+            border: 3px solid var(--rusted-bronze);
+            border-radius: 5px;
+            box-shadow: 0 0 50px rgba(0,0,0,1), inset 0 0 30px rgba(0, 242, 255, 0.1);
+            position: relative;
+            text-align: center;
+        }
+
+        /* Rusted Pipes Decoration */
+        .waterway-panel::after {
+            content: "";
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border: 1px solid var(--oxidized-copper);
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--oxidized-copper);
+            text-shadow: 0 0 10px rgba(79, 179, 165, 0.5);
+            margin: 0 0 10px 0;
+            letter-spacing: 3px;
+        }
+
+        .sluice-gate {
+            background: rgba(0,0,0,0.5);
+            border: 2px solid var(--rusted-bronze);
+            padding: 25px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .mac-display {
+            font-family: monospace;
+            font-size: 1.8rem;
+            color: var(--glow-blue);
+            text-shadow: 0 0 15px var(--glow-blue);
+            letter-spacing: 2px;
+        }
+
+        /* Underwater Input Style */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        input {
+            background: rgba(0,0,0,0.3);
+            border: none;
+            border-bottom: 2px solid var(--oxidized-copper);
+            color: #fff;
+            font-family: monospace;
+            font-size: 1.3rem;
+            width: 85%;
+            padding: 10px;
+            text-align: center;
+            outline: none;
+            transition: 0.5s;
+        }
+
+        input:focus {
+            border-bottom-color: var(--glow-blue);
+            background: rgba(0, 242, 255, 0.05);
+        }
+
+        button {
+            background: var(--rusted-bronze);
+            color: #fff;
+            border: none;
+            padding: 12px 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #4a3621;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: var(--oxidized-copper);
+            box-shadow: 0 4px 0 var(--moss-green);
+        }
+
+        #feedback {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            height: 20px;
+            color: var(--rusted-bronze);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Bubbles Animation */
+        .bubble {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 4s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100px) scale(0.5); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-300px) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="waterway-panel">
+    <h1>SLUICE OVERRIDE</h1>
+    <p style="font-size: 0.8rem; color: var(--rusted-bronze);">LOWTOWN // SECTOR S</p>
+
+    <div class="sluice-gate">
+        <div style="font-size: 0.7rem; margin-bottom: 5px; color: var(--moss-green);">DETECTED MAC:</div>
+        <div class="mac-display" id="target-mac">39:A7:94:07:CB:D0</div>
+    </div>
+
+    <div class="input-group">
+        <input type="text" id="user-eui" placeholder="ENTER EUI-64..." spellcheck="false">
+        <button onclick="drain()">RELEASE SLUICE</button>
+        <div id="feedback">WATERS ARE RISING...</div>
+    </div>
+</div>
+
+<script>
+    const correct = "3ba7:94ff:fe07:cbd0";
+
+    function drain() {
+        const val = document.getElementById('user-eui').value.trim().toLowerCase();
+        const feedback = document.getElementById('feedback');
+        
+        if (val === correct) {
+            feedback.innerText = "GATE OPEN. DRAINAGE SUCCESSFUL.";
+            feedback.style.color = "var(--glow-blue)";
+            createBubbles(15);
+        } else {
+            feedback.innerText = "OVERFLOW! CHECK THE 7th BIT.";
+            feedback.style.color = "#ff4444";
+        }
+    }
+
+    function createBubbles(n) {
+        for(let i=0; i<n; i++) {
+            const b = document.createElement('div');
+            b.className = 'bubble';
+            const size = Math.random() * 20 + 5 + "px";
+            b.style.width = size; b.style.height = size;
+            b.style.left = Math.random() * 100 + "%";
+            b.style.bottom = "0";
+            b.style.animationDelay = Math.random() * 2 + "s";
+            document.querySelector('.waterway-panel').appendChild(b);
+            setTimeout(() => b.remove(), 4000);
+        }
+    }
+</script>
+
+</body>
+</html>
