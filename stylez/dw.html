@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DW4 // EUI-64 STAGE</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --dw-gold: #e5b80b;
+            --dw-dark-red: #5e0b0b;
+            --dw-green: #2ecc71;
+            --dw-parchment: #2b2218;
+        }
+
+        body {
+            background-color: #000;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://www.transparenttextures.com');
+            color: #fff;
+            font-family: 'Metamorphous', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* The Main Menu Frame */
+        .stage-frame {
+            width: 700px;
+            background: var(--dw-parchment);
+            border: 4px solid var(--dw-gold);
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,1), inset 0 0 15px var(--dw-gold);
+        }
+
+        /* Top Title Style */
+        .header {
+            border-bottom: 2px solid var(--dw-gold);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin: 0;
+            color: var(--dw-gold);
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        /* DW4 Health Bar */
+        .health-bar-container {
+            width: 100%;
+            height: 25px;
+            background: #222;
+            border: 2px solid #555;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .health-fill {
+            height: 100%;
+            width: 80%;
+            background: linear-gradient(to right, var(--dw-green), #f1c40f);
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.5);
+            transition: width 0.5s;
+        }
+
+        /* Encounter Box */
+        .encounter-box {
+            background: rgba(0,0,0,0.5);
+            border-left: 10px solid var(--dw-gold);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .mac-text {
+            font-size: 2.2rem;
+            color: #fff;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        /* Input Area */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        input {
+            background: #111;
+            border: 2px solid var(--dw-gold);
+            color: var(--dw-gold);
+            padding: 12px;
+            width: 80%;
+            font-size: 1.4rem;
+            text-align: center;
+            font-family: monospace;
+            outline: none;
+        }
+
+        button {
+            background: linear-gradient(to bottom, #8b0000, #5e0b0b);
+            color: #fff;
+            border: 2px solid var(--dw-gold);
+            padding: 10px 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+        }
+
+        /* KO Count Style */
+        .ko-count {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            color: var(--dw-gold);
+            font-size: 1.2rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        #feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--dw-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stage-frame">
+        <div class="header">
+            <h1>STAGE: IP V6 GATE</h1>
+            <div style="font-size: 0.8rem; color: #aaa;">SHU FORCES</div>
+        </div>
+
+        <div style="font-size: 0.8rem; text-transform: uppercase; color: #ccc;">Unit Morale</div>
+        <div class="health-bar-container">
+            <div class="health-fill" id="hp"></div>
+        </div>
+
+        <div class="encounter-box">
+            <div style="color: var(--dw-gold); font-size: 0.7rem; margin-bottom: 5px;">ENEMY OFFICER MAC:</div>
+            <div class="mac-text" id="target">39:A7:94:07:CB:D0</div>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="userInput" placeholder="TRANSLATE ADDRESS..." spellcheck="false">
+            <button onclick="attack()">True Musou</button>
+            <div id="feedback">FEEL MY BLADE!</div>
+        </div>
+
+        <div class="ko-count">K.O. <span id="count">000</span></div>
+    </div>
+
+    <script>
+        const answer = "3ba7:94ff:fe07:cbd0";
+        let koCount = 0;
+
+        function attack() {
+            const val = document.getElementById('userInput').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback');
+            const hp = document.getElementById('hp');
+            const countDisplay = document.getElementById('count');
+
+            if (val === answer) {
+                koCount += 100;
+                countDisplay.innerText = koCount.toString().padStart(3, '0');
+                feedback.innerText = "YOU HAVE DEFEATED THE ADDRESS!";
+                hp.style.width = "100%";
+                hp.style.background = "linear-gradient(to right, #2ecc71, #fff)";
+            } else {
+                feedback.innerText = "CAN ANYBODY PROVIDE ME WITH A DECENT CHALLENGE?";
+                hp.style.width = "30%";
+                hp.style.background = "linear-gradient(to right, #e74c3c, #8b0000)";
+            }
+        }
+    </script>
+</body>
+</html>
