@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft // EUI-64 Crafting</title>
+    <style>
+        /* Using a pixel-style font for the authentic blocky feel */
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --mc-gui-bg: #c6c6c6;
+            --mc-gui-border-light: #ffffff;
+            --mc-gui-border-dark: #555555;
+            --mc-text: #3f3f3f;
+            --mc-green: #3fb518;
+        }
+
+        body {
+            /* Dirt block tiling */
+            background-image: url('https://www.transparenttextures.com'), 
+                              linear-gradient(#5a3921, #5a3921);
+            background-color: #5a3921;
+            font-family: 'VT323', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            image-rendering: pixelated;
+        }
+
+        /* The Classic Minecraft GUI Window */
+        .gui-container {
+            background-color: var(--mc-gui-bg);
+            width: 450px;
+            padding: 20px;
+            border: 4px solid var(--mc-gui-border-dark);
+            box-shadow: inset 4px 4px 0 var(--mc-gui-border-light), 
+                        10px 10px 0 rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        h1 {
+            color: var(--mc-text);
+            font-size: 2.5rem;
+            margin: 0 0 15px 0;
+            text-align: left;
+            text-shadow: 2px 2px 0 #fff;
+        }
+
+        /* Slot style for the MAC address */
+        .item-slot {
+            background-color: #8b8b8b;
+            border: 4px solid #373737;
+            box-shadow: inset 4px 4px 0 #555;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mac-text {
+            color: #fff;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        input {
+            background-color: #000;
+            border: 2px solid #a0a0a0;
+            color: var(--mc-green);
+            padding: 10px;
+            width: calc(100% - 24px);
+            font-size: 1.5rem;
+            font-family: inherit;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        /* The 3D-effect Minecraft Button */
+        button {
+            background-color: #909090;
+            color: #fff;
+            border: 3px solid #000;
+            box-shadow: inset -3px -3px 0 #555, inset 3px 3px 0 #ddd;
+            padding: 10px 0;
+            width: 100%;
+            font-size: 1.8rem;
+            font-family: inherit;
+            cursor: pointer;
+            text-shadow: 2px 2px 0 #333;
+        }
+
+        button:hover {
+            background-color: #7070a0; /* Button hover blue highlight */
+            border-color: #fff;
+        }
+
+        button:active {
+            box-shadow: inset 3px 3px 0 #555, inset -3px -3px 0 #ddd;
+        }
+
+        #feedback {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            height: 20px;
+            text-align: center;
+        }
+
+        /* Achievement Toast Style */
+        .achievement {
+            position: absolute;
+            top: -80px;
+            right: 0;
+            background: #222;
+            border: 2px solid var(--mc-gui-border-dark);
+            padding: 10px;
+            color: #fff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gui-container">
+        <h1>Craft EUI-64</h1>
+        
+        <div style="color: var(--mc-text); margin-bottom: 5px;">Ingredients: 1x MAC Address</div>
+        <div class="item-slot">
+            <div class="mac-text" id="mac">39:A7:94:07:CB:D0</div>
+        </div>
+
+        <input type="text" id="userInput" placeholder="Wait for signal..." spellcheck="false">
+        
+        <button onclick="craft()">CRAFT</button>
+        
+        <div id="feedback">Ready to build.</div>
+    </div>
+
+    <script>
+        const correct = "3ba7:94ff:fe07:cbd0";
+
+        function craft() {
+            const val = document.getElementById('userInput').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback');
+            
+            if (val === correct) {
+                feedback.innerText = "Advancement Made: S.L.A.A.C.";
+                feedback.style.color = "#ffff55"; // Gold color
+                document.body.style.backgroundImage = "url('https://www.transparenttextures.com'), linear-gradient(#3fb518, #3fb518)"; // Grass world
+            } else {
+                feedback.innerText = "Invalid recipe. Check bit 7!";
+                feedback.style.color = "#ff5555"; // Red color
+            }
+        }
+    </script>
+</body>
+</html>
