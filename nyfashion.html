@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NYFW 2026 // EUI-64 EDITORIAL</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --alexandrite-teal: #184835; /* NYFW SS26 Key Color */
+            --lava-falls: #b22222;      /* NYFW SS26 Dramatic Red */
+            --cloud-dancer: #f0f0f0;    /* Pantone 2026 Color of the Year */
+            --onyx: #0d0d0d;
+        }
+
+        body {
+            background-color: var(--cloud-dancer);
+            color: var(--onyx);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* High-Fashion Editorial Layout */
+        .lookbook-container {
+            width: 850px;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            box-shadow: 40px 40px 0px var(--alexandrite-teal);
+            border: 1px solid #ddd;
+        }
+
+        /* Side A: The "Model" Image Area */
+        .image-side {
+            background: var(--alexandrite-teal);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-side::after {
+            content: "SS/26";
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.1);
+        }
+
+        /* Side B: The Content Area */
+        .content-side {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 0.9;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--lava-falls);
+        }
+
+        .mac-display {
+            font-family: 'Bodoni Moda', serif;
+            font-style: italic;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        /* High-Fashion Styled Input */
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid var(--onyx);
+            padding: 15px 0;
+            font-size: 1.2rem;
+            font-family: inherit;
+            outline: none;
+            background: transparent;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-bottom-color: var(--lava-falls);
+        }
+
+        button {
+            margin-top: 30px;
+            background: var(--onyx);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--lava-falls);
+            transform: translateX(10px);
+        }
+
+        #feedback {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            font-style: italic;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lookbook-container">
+        <div class="image-side">
+            <div style="color:white; font-family:'Bodoni Moda'; font-size:12rem; opacity:0.2;">NY</div>
+        </div>
+
+        <div class="content-side">
+            <div class="label">The Collection</div>
+            <h1>MAC TO EUI-64</h1>
+            
+            <div class="label" style="margin-top:40px">Current Look (MAC):</div>
+            <div class="mac-display" id="mac">39:A7:94:07:CB:D0</div>
+
+            <div class="input-wrapper">
+                <input type="text" id="userInput" placeholder="ENTER INTERFACE ID..." spellcheck="false">
+            </div>
+
+            <button onclick="tailor()">Execute Tailoring</button>
+            <div id="feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        const correct = "3ba7:94ff:fe07:cbd0";
+
+        function tailor() {
+            const val = document.getElementById('userInput').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback');
+            
+            if (val === correct) {
+                feedback.innerText = "CHIC. THE UPLINK IS BEYOND PERFECT.";
+                feedback.style.color = "var(--alexandrite-teal)";
+                document.querySelector('.lookbook-container').style.boxShadow = "40px 40px 0px var(--lava-falls)";
+            } else {
+                feedback.innerText = "TRAGIC. RE-EVALUATE THE 7th BIT.";
+                feedback.style.color = "var(--lava-falls)";
+            }
+        }
+    </script>
+</body>
+</html>
