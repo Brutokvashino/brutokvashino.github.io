@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FFX // EUI-64 OVERRIDE</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            /* FFX Signature Blue Gradients */
+            --ffx-blue-top: #283878;
+            --ffx-blue-bottom: #000a20;
+            --ffx-gold: #fde722;
+            --ffx-silver: #b5b8b9;
+            --ffx-cyan: #3d8df2;
+        }
+
+        body {
+            background-color: #000;
+            /* Background inspired by the Farplane or Sphere Grid */
+            background-image: radial-gradient(circle, rgba(61, 141, 242, 0.1) 0%, #000 80%);
+            color: #fff;
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* The Classic FFX Window Box */
+        .window {
+            background: linear-gradient(to bottom, var(--ffx-blue-top), var(--ffx-blue-bottom));
+            width: 700px;
+            padding: 2px; /* For the double border effect */
+            border: 2px solid var(--ffx-silver);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 10px rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+        .inner-content {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--ffx-gold);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px #000;
+            color: #fff;
+        }
+
+        .mission-rank {
+            background: var(--ffx-gold);
+            color: #000;
+            padding: 2px 15px;
+            font-weight: bold;
+            transform: skewX(-15deg);
+        }
+
+        .prompt {
+            font-size: 1.1rem;
+            color: var(--ffx-cyan);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .mac-display {
+            background: rgba(255,255,255,0.05);
+            border-left: 5px solid var(--ffx-gold);
+            padding: 20px;
+            font-size: 2.2rem;
+            text-align: center;
+            letter-spacing: 4px;
+            margin: 20px 0;
+            text-shadow: 0 0 10px var(--ffx-cyan);
+        }
+
+        .input-zone {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        input {
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--ffx-silver);
+            color: var(--ffx-gold);
+            padding: 12px;
+            width: 85%;
+            font-size: 1.4rem;
+            text-align: center;
+            border-radius: 4px;
+            outline: none;
+            box-shadow: inset 0 0 5px #000;
+        }
+
+        input:focus { border-color: var(--ffx-gold); }
+
+        button {
+            background: linear-gradient(to bottom, #eee, #999);
+            color: #000;
+            border: 2px solid #333;
+            padding: 10px 40px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: var(--ffx-gold);
+        }
+
+        #feedback {
+            height: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="window">
+    <div class="inner-content">
+        <div class="header">
+            <h1>SLAAC OVERRIDE</h1>
+            <div class="mission-rank">OVERDRIVE</div>
+        </div>
+
+        <div class="prompt">Calculate the EUI-64 Interface ID:</div>
+        
+        <div class="mac-display" id="target-mac">39:A7:94:07:CB:D0</div>
+
+        <div class="input-zone">
+            <input type="text" id="user-ipv6" placeholder="0000:00FF:FE00:0000" spellcheck="false">
+            <button onclick="check()">EXECUTE</button>
+            <div id="feedback">WAITING FOR COMMAND...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Logic for 39:A7:94:07:CB:D0 -> 3ba7:94ff:fe07:cbd0
+    const correct = "3ba7:94ff:fe07:cbd0";
+
+    function check() {
+        const input = document.getElementById('user-eui').value.trim().toLowerCase();
+        const feedback = document.getElementById('feedback');
+
+        if (input === correct) {
+            feedback.style.color = "var(--ffx-gold)";
+            feedback.innerText = "CRITICAL HIT! ACCESS GRANTED.";
+            // Victory flash
+            document.querySelector('.window').style.boxShadow = "0 0 50px var(--ffx-gold)";
+        } else {
+            feedback.style.color = "#ff4444";
+            feedback.innerText = "MISS! CHECK THE 7th BIT AND FFFE.";
+            // Shake animation
+            document.querySelector('.window').animate([
+                { transform: 'translateX(0px)' },
+                { transform: 'translateX(-5px)' },
+                { transform: 'translateX(5px)' },
+                { transform: 'translateX(0px)' }
+            ], { duration: 150 });
+        }
+    }
+</script>
+
+</body>
+</html>
+
