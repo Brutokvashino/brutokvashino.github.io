@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WAREHOUSE_OS // EUI-64 OVERRIDE</title>
+    <style>
+        :root {
+            --rust: #b7410e;
+            --terminal-green: #00ff41;
+            --oil-slick: #0d0d0d;
+            --caution-yellow: #ffcc00;
+        }
+
+        body {
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            color: var(--terminal-green);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Warehouse Grunge Background */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+        }
+
+        .terminal {
+            width: 700px;
+            padding: 30px;
+            border: 2px solid #333;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 1), inset 0 0 100px rgba(0, 255, 65, 0.05);
+            position: relative;
+        }
+
+        .header {
+            border-bottom: 1px solid var(--terminal-green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: var(--caution-yellow);
+        }
+
+        .task-box {
+            background: #000;
+            border: 1px dashed var(--terminal-green);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .mac-display { font-size: 2rem; color: #fff; letter-spacing: 3px; }
+
+        .input-zone {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        input {
+            background: transparent;
+            border: 1px solid var(--terminal-green);
+            color: var(--terminal-green);
+            padding: 10px;
+            width: 90%;
+            font-size: 1.2rem;
+            text-align: center;
+            outline: none;
+        }
+
+        button {
+            background: var(--terminal-green);
+            color: #000;
+            border: none;
+            padding: 10px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button:hover { background: #fff; }
+
+        .hint { font-size: 0.8rem; color: #666; margin-top: 10px; }
+        
+        /* CRT Flickering */
+        @keyframes flicker {
+            0% { opacity: 0.97; } 5% { opacity: 0.95; } 10% { opacity: 0.9; } 100% { opacity: 1; }
+        }
+        .terminal { animation: flicker 0.1s infinite; }
+    </style>
+</head>
+<body>
+
+<div class="terminal">
+    <div class="header">
+        <span>STATUS: ABANDONED_WAREHOUSE_NODE_04</span>
+        <span>SECURITY: EXPOSED</span>
+    </div>
+
+    <div>PROMPT: INJECT SLAAC INTERFACE ID (EUI-64) FOR THIS HOST</div>
+    
+    <div class="task-box">
+        <div class="mac-display" id="target-mac">00:15:2B:E4:9B:60</div>
+        <div style="margin-top:10px; color:var(--rust)">SENSING MAC ADDRESS...</div>
+    </div>
+
+    <div class="input-zone">
+        <input type="text" id="user-ipv6" placeholder="0000:00FF:FE00:0000" spellcheck="false">
+        <button onclick="checkAddress()">Verify Uplink</button>
+        <div id="feedback">READY FOR INPUT...</div>
+    </div>
+
+    <div class="hint">
+        HINT: 1. Split MAC | 2. Insert FFFE in middle | 3. Flip 7th bit of 1st octet.
+    </div>
+</div>
+
+<script>
+    const macs = ["00:15:2B:E4:9B:60", "52:74:F2:B1:A8:7F", "11:22:33:44:55:66", "39:A7:94:07:CB:D0"];
+    let currentMac = "";
+
+    function generateTask() {
+        currentMac = macs[Math.floor(Math.random() * macs.length)];
+        document.getElementById('target-mac').innerText = currentMac;
+        document.getElementById('user-ipv6').value = "";
+        document.getElementById('feedback').innerText = "CALCULATE EUI-64 INTERFACE ID...";
+    }
+
+    function convertMacToEui64(mac) {
+        // Remove colons/dots
+        let hex = mac.replace(/[:.-]/g, '');
+        
+        // 1. Split and Insert FFFE
+        let left = hex.substring(0, 6);
+        let right = hex.substring(6);
+        let eui64 = left + "FFFE" + right;
+
+        // 2. Flip 7th bit
+        let firstOctetHex = eui64.substring(0, 2);
+        let firstOctetBin = parseInt(firstOctetHex, 16).toString(2).padStart(8, '0');
+        
+        let bitArray = firstOctetBin.split('');
+        bitArray[6] = bitArray[6] === '0' ? '1' : '0'; // 7th bit is index 6
+        
+        let newFirstOctetHex = parseInt(bitArray.join(''), 2).toString(16).padStart(2, '0');
+        let finalHex = newFirstOctetHex + eui64.substring(2);
+
+        // 3. Format as IPv6 groups
+        return finalHex.match(/.{1,4}/g).join(':').toLowerCase();
+    }
+
+    function checkAddress() {
+        const userInput = document.getElementById('user-ipv6').value.trim().toLowerCase();
+        const correctAnswer = convertMacToEui64(currentMac);
+        const feedback = document.getElementById('feedback');
+
+        if (userInput === correctAnswer) {
+            feedback.innerText = "UPLINK SUCCESSFUL. REBOOTING...";
+            feedback.style.color = "var(--terminal-green)";
+            setTimeout(generateTask, 2000);
+        } else {
+            feedback.innerText = "SIGNAL REJECTED. CHECK BIT 7 AND FFFE PLACEMENT.";
+            feedback.style.color = "var(--rust)";
+        }
+    }
+
+    generateTask();
+</script>
+
+</body>
+</html>
