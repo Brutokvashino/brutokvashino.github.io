@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SLAAC SUPERSTARS // MINI-GAME</title>
+    <style>
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --mp-red: #ff3838;
+            --mp-blue: #2e90ff;
+            --mp-green: #44bd32;
+            --mp-yellow: #fbc531;
+            --mp-border: #444;
+        }
+
+        body {
+            background-color: #7ed6df;
+            background-image: 
+                radial-gradient(var(--mp-blue) 2px, transparent 2px),
+                radial-gradient(var(--mp-blue) 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* The Board Game UI Container */
+        .game-panel {
+            background: white;
+            width: 650px;
+            border-radius: 40px;
+            border: 8px solid var(--mp-border);
+            box-shadow: 0 15px 0 rgba(0,0,0,0.2);
+            position: relative;
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Banner Style Header */
+        .banner {
+            background: var(--mp-red);
+            color: white;
+            padding: 15px;
+            margin: -60px -20px 20px -20px;
+            border: 6px solid var(--mp-border);
+            border-radius: 20px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+            transform: rotate(-2deg);
+            box-shadow: 0 8px 0 #b32626;
+        }
+
+        .instruction {
+            color: var(--mp-blue);
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* The MAC "Card" */
+        .mac-card {
+            background: #f1f2f6;
+            border: 4px dashed var(--mp-border);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .mac-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: var(--mp-border);
+            letter-spacing: 2px;
+        }
+
+        .star-icon {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 3rem;
+            filter: drop-shadow(2px 2px 0px var(--mp-border));
+        }
+
+        /* 3D "A-Button" Style */
+        .input-box {
+            background: #fff;
+            border: 5px solid var(--mp-blue);
+            border-radius: 50px;
+            padding: 15px;
+            width: 85%;
+            font-size: 1.5rem;
+            text-align: center;
+            font-family: monospace;
+            outline: none;
+            box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .submit-btn {
+            background: var(--mp-green);
+            color: white;
+            border: 5px solid var(--mp-border);
+            border-radius: 50px;
+            padding: 15px 60px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 10px 0 #2d7d21;
+            transition: all 0.1s;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 4px 0 #2d7d21;
+        }
+
+        #feedback {
+            margin-top: 25px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            height: 30px;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-panel">
+        <div class="banner">IP_ADDRESS FINISH!</div>
+        
+        <p class="instruction">Translate the MAC to win a Star!</p>
+
+        <div class="mac-card">
+            <span class="star-icon">⭐</span>
+            <div class="mac-text" id="target-mac">39:A7:94:07:CB:D0</div>
+        </div>
+
+        <input type="text" id="user-input" class="input-box" placeholder="IPv6 Interface ID" spellcheck="false">
+        
+        <br>
+        <button class="submit-btn" onclick="checkWin()">FINISH!</button>
+        
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        const correctAnswer = "3ba7:94ff:fe07:cbd0";
+
+        function checkWin() {
+            const input = document.getElementById('user-input').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback');
+            
+            if (input === correctAnswer) {
+                feedback.innerText = "SUPERSTAR!!";
+                feedback.style.color = "var(--mp-yellow)";
+                feedback.style.textShadow = "2px 2px 0 var(--mp-border)";
+                spawnConfetti();
+            } else {
+                feedback.innerText = "TOO BAD...";
+                feedback.style.color = "var(--mp-red)";
+                feedback.style.textShadow = "none";
+            }
+        }
+
+        function spawnConfetti() {
+            const colors = [ '#ff3838', '#2e90ff', '#44bd32', '#fbc531' ];
+            for (let i = 0; i < 50; i++) {
+                const c = document.createElement('div');
+                c.className = 'confetti';
+                c.style.left = Math.random() * 100 + "vw";
+                c.style.top = "-10px";
+                c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                c.style.transform = `scale(${Math.random()})`;
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+</html>
+
