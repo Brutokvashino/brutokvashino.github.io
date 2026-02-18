@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CODEC // EUI-64 DATA LINK</title>
+    <style>
+        :root {
+            --mgs-green: #4ade80;
+            --mgs-dark-green: #062012;
+            --mgs-border: #2d5a27;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--mgs-green);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* Scanline Overlay Effect */
+        body::after {
+            content: " ";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .codec-container {
+            width: 800px;
+            height: 400px;
+            background: var(--mgs-dark-green);
+            border: 4px solid var(--mgs-border);
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            padding: 20px;
+            position: relative;
+            box-shadow: inset 0 0 50px #000;
+        }
+
+        /* Portrait Areas with Animated Frequency Bars */
+        .portrait {
+            border: 2px solid var(--mgs-green);
+            height: 200px;
+            background: rgba(74, 222, 128, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+
+        .bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            padding: 5px;
+            height: 60px;
+        }
+
+        .bar {
+            flex: 1;
+            background: var(--mgs-green);
+            animation: bounce 0.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { height: 10%; }
+            to { height: 100%; }
+        }
+
+        /* Center Data Link Zone */
+        .data-zone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .frequency {
+            font-size: 2rem;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--mgs-green);
+        }
+
+        .mac-prompt {
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .mac-val {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px var(--mgs-green);
+        }
+
+        input {
+            background: transparent;
+            border: 2px solid var(--mgs-green);
+            color: var(--mgs-green);
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            font-family: inherit;
+            font-size: 1.2rem;
+            outline: none;
+        }
+
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background: var(--mgs-green);
+            color: #000;
+            border: none;
+            padding: 5px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        button:hover { background: #fff; }
+
+        /* Memory/Status Area */
+        .status-labels {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="codec-container">
+    <!-- Left Portrait (Snake) -->
+    <div class="portrait">
+        <div style="text-align:center; font-size: 0.7rem;">SNAKE</div>
+        <div class="bars">
+            <div class="bar" style="animation-delay: 0.1s"></div>
+            <div class="bar" style="animation-delay: 0.3s"></div>
+            <div class="bar" style="animation-delay: 0.2s"></div>
+            <div class="bar" style="animation-delay: 0.5s"></div>
+        </div>
+    </div>
+
+    <!-- Center UI -->
+    <div class="data-zone">
+        <div class="frequency">140.85</div>
+        <div class="mac-prompt">TARGET_NODE_MAC:</div>
+        <div class="mac-val" id="target-mac">39:A7:94:07:CB:D0</div>
+        
+        <input type="text" id="user-eui" placeholder="TRANSMIT EUI-64..." spellcheck="false">
+        
+        <div class="btn-group">
+            <button onclick="transmit()">ENTER</button>
+        </div>
+        <div id="feedback" style="margin-top:15px; font-size: 0.8rem;">STANDING BY...</div>
+    </div>
+
+    <!-- Right Portrait (Otacon) -->
+    <div class="portrait">
+        <div style="text-align:center; font-size: 0.7rem;">OTACON</div>
+        <div class="bars">
+            <div class="bar" style="animation-delay: 0.4s"></div>
+            <div class="bar" style="animation-delay: 0.1s"></div>
+            <div class="bar" style="animation-delay: 0.6s"></div>
+            <div class="bar" style="animation-delay: 0.2s"></div>
+        </div>
+    </div>
+
+    <div class="status-labels">
+        <span>MEM: 04/16</span>
+        <span>SLAAC_PROTOCOL_V6</span>
+    </div>
+</div>
+
+<script>
+    const correct = "3ba7:94ff:fe07:cbd0";
+
+    function transmit() {
+        const val = document.getElementById('user-eui').value.trim().toLowerCase();
+        const feedback = document.getElementById('feedback');
+        
+        // Play the "Call" sound logic (simulated visual pulse)
+        document.querySelector('.codec-container').style.borderColor = "#fff";
+        setTimeout(() => {
+            document.querySelector('.codec-container').style.borderColor = "var(--mgs-border)";
+        }, 100);
+
+        if (val === correct) {
+            feedback.innerText = "SNAKE, THAT'S IT! DATA LINK ESTABLISHED.";
+            feedback.style.color = "#fff";
+        } else {
+            feedback.innerText = "SNAKE? SNAKE! CHECK THE 7th BIT!";
+            feedback.style.color = "#ff4444";
+        }
+    }
+</script>
+
+</body>
+</html>
