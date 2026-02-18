@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SLAAC Operation Chaos // Black Ops</title>
+    <style>
+        /* CSS: 1980s Cold War Aesthetic */
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --bo-red: #e74c3c;
+            --bo-dark: #1a1a1a;
+            --bo-white: #ffffff;
+            --bo-gray: #7f8c8d;
+        }
+
+        body {
+            background-color: var(--bo-dark);
+            color: var(--bo-white);
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        /* The Main Command Center Panel */
+        .cmd-panel {
+            background: rgba(0, 0, 0, 0.9);
+            width: 700px;
+            padding: 40px;
+            border: 2px solid var(--bo-red);
+            box-shadow: 0 0 50px rgba(231, 76, 60, 0.4), inset 0 0 20px rgba(231, 76, 60, 0.2);
+            position: relative;
+            /* Glitch effect for immersion */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            animation: slight-glitch 4s infinite linear;
+        }
+
+        @keyframes slight-glitch {
+            0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+            1% { clip-path: polygon(0 0, 100% 0, 99% 100%, 0% 100%); }
+            3% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        }
+
+        .header {
+            border-bottom: 3px solid var(--bo-white);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            margin: 0;
+            color: var(--bo-red);
+            letter-spacing: 2px;
+        }
+
+        .status { font-size: 0.8rem; color: var(--bo-gray); }
+
+        .intel-box {
+            background: var(--bo-dark);
+            border: 1px solid var(--bo-gray);
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .mac-display {
+            font-size: 1.8rem;
+            color: var(--bo-white);
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        
+        .redacted {
+            background-color: var(--bo-red);
+            color: var(--bo-red);
+            padding: 0 5px;
+        }
+
+        /* Cold War Input Style */
+        input {
+            background: transparent;
+            border: 1px solid var(--bo-gray);
+            color: var(--bo-white);
+            padding: 12px;
+            width: 80%;
+            font-size: 1.2rem;
+            font-family: inherit;
+            outline: none;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button {
+            background: var(--bo-red);
+            color: white;
+            border: none;
+            padding: 10px 40px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.2s;
+            box-shadow: 0 4px 0 #8b0000;
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #8b0000;
+        }
+
+        #feedback {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            height: 20px;
+            color: var(--bo-gray);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cmd-panel">
+        <div class="header">
+            <h1>OPERATION CHAOS</h1>
+            <div class="status">STATUS: CLASSIFIED</div>
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--bo-red);">:: INTEL GATHERING ::</div>
+        
+        <div class="intel-box">
+            <div style="font-size: 0.7rem; color: var(--bo-gray); margin-bottom: 5px;">SOVIET_MAC_ADDRESS:</div>
+            <div class="mac-display" id="target-mac">39:A7:94:07:CB:D0</div>
+            <div style="font-size: 0.7rem; color: var(--bo-gray); margin-top: 5px;">LOC: <span class="redacted">E. BERLIN</span>, KGB HQ</div>
+        </div>
+
+        <p>DECODE THE ADDRESS TO INFILTRATE NETWORK:</p>
+
+        <div class="input-zone" style="text-align: center;">
+            <input type="text" id="user-eui" placeholder="ENTER EUI-64 ID" spellcheck="false">
+            <button onclick="transmit()">TRANSMIT</button>
+            <div id="feedback">STANDBY FOR ORDERS...</div>
+        </div>
+    </div>
+
+<script>
+    // Logic for 39:A7:94:07:CB:D0 -> 3ba7:94ff:fe07:cbd0
+    const correct = "3ba7:94ff:fe07:cbd0";
+
+    function transmit() {
+        const val = document.getElementById('user-eui').value.trim().toLowerCase();
+        const feedback = document.getElementById('feedback');
+        
+        if (val === correct) {
+            feedback.innerText = "ORDERS RECEIVED. ASSETS DEPLOYING NOW.";
+            feedback.style.color = "var(--bo-red)";
+            document.querySelector('.cmd-panel').style.borderColor = "#fff"; // Flash white for effect
+        } else {
+            feedback.innerText = "NEGATIVE. INTEL IS CORRUPT. CHECK BIT 7.";
+            feedback.style.color = "#ff4444";
+            document.querySelector('.cmd-panel').animate([
+                { transform: 'translate(1px, 1px)' },
+                { transform: 'translate(-1px, -2px)' },
+                { transform: 'translate(1px, -2px)' }
+            ], { duration: 100, iterations: 3 });
+        }
+    }
+</script>
+
+</body>
+</html>
