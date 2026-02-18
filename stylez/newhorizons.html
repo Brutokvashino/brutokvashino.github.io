@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ACNH // NookLink Interface</title>
+    <style>
+        /* Using a clean, simple font that mimics the game's sans-serif font */
+        @import url('https://fonts.googleapis.com');
+
+        :root {
+            --acnh-bg: #fdf8e1; /* Off-white paper background */
+            --acnh-green: #a7e0a7; /* NookPhone UI green */
+            --acnh-teal: #6ad1c4; /* Accent color */
+            --acnh-dark: #402f2a; /* Text color */
+            --acnh-pink: #ffc4d6; /* Accent pink */
+        }
+
+        body {
+            background-color: var(--acnh-bg);
+            /* Subtle paper texture background */
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMCcgaGVpZ2h0PSczMCc+PGZpbHRlciBpZD0nYyc+PGZlVHVyYnVsZW5jZSB0eXBlPSd0dXJidWxlbmNlJyByZWN0eD0nMCcgeT0nMCcgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgYmFzZUZyZXF1ZW5jeT0nMC41JyBudW0lT2N0YXZlcz0nMycgc3RpdGNoRGlmZj0ndHJ1ZScgc2VlZD0nMTQzJy8+PGZlQ29sb3JNYXRyaXggdHlwZT0nY29ubm9sdXRpb24nIGNvbG9yLUludGVyY2VwdGluZ0ZpbHRlcz0nczJSR0InIG91dHB1dD0nYScvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbHRlcj0ndXJsKCNjKScgb3BhY2l0eT0nMC4yJy8+PC9zdmc+');
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: var(--acnh-dark);
+        }
+
+        /* The main interface window */
+        .nook-phone-screen {
+            background: rgba(255, 255, 255, 0.85);
+            width: 550px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2), inset 0 0 0 4px var(--acnh-teal);
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed var(--acnh-dark);
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--acnh-dark);
+        }
+
+        .app-icon { font-size: 2.5rem; }
+
+        .design-slot {
+            background: var(--acnh-green);
+            border: 4px solid var(--acnh-teal);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .mac-display {
+            font-family: monospace;
+            font-size: 1.4rem;
+            color: var(--acnh-dark);
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        /* NookPhone button style */
+        input {
+            background: white;
+            border: 2px solid var(--acnh-dark);
+            border-radius: 10px;
+            padding: 12px;
+            width: 90%;
+            font-size: 1rem;
+            font-family: monospace;
+            outline: none;
+            margin-top: 10px;
+        }
+
+        button {
+            background: var(--acnh-pink);
+            color: var(--acnh-dark);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 4px 0 #cf9eaa;
+            transition: transform 0.1s;
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #cf9eaa;
+        }
+
+        #feedback {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nook-phone-screen">
+        <div class="header">
+            <h1>Custom Design Pro Editor</h1>
+            <div class="app-icon">🧵</div>
+        </div>
+
+        <p>A new pattern arrived on the network! Edit the code to finish the design.</p>
+
+        <div class="design-slot">
+            <div style="font-size: 0.8rem;">Pattern Code (MAC):</div>
+            <div class="mac-display" id="target-mac">39:A7:94:07:CB:D0</div>
+        </div>
+
+        <div class="input-zone">
+            <input type="text" id="user-eui" placeholder="New EUI-64 Design..." spellcheck="false">
+            <button onclick="saveDesign()">Save Design</button>
+            <div id="feedback">Design in progress...</div>
+        </div>
+    </div>
+
+<script>
+    // Logic for 39:A7:94:07:CB:D0 -> 3ba7:94ff:fe07:cbd0
+    const correct = "3ba7:94ff:fe07:cbd0";
+
+    function saveDesign() {
+        const val = document.getElementById('user-eui').value.trim().toLowerCase();
+        const feedback = document.getElementById('feedback');
+        
+        if (val === correct) {
+            feedback.innerText = "Wow! A finished pattern! So cute!";
+            feedback.style.color = "var(--acnh-teal)";
+            // Add Nook Miles "DING" sound effect visually
+            document.querySelector('.app-icon').animate([
+                { transform: 'scale(1)', opacity: 1 },
+                { transform: 'scale(1.5)', opacity: 0.5 },
+                { transform: 'scale(1)', opacity: 1 }
+            ], { duration: 300 });
+        } else {
+            feedback.innerText = "Hmm... this pattern is all wrong. Try editing the 7th stitch (bit)!";
+            feedback.style.color = "#e55039"; /* A harsh red for error */
+        }
+    }
+</script>
+
+</body>
+</html>
