@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lush Forest Canopy</title>
+    <style>
+        :root {
+            --forest-deep: #0a2e0a;
+            --forest-mid: #1b4d1b;
+            --leaf-bright: #4db34d;
+            --sun-ray: rgba(255, 255, 230, 0.2);
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, var(--forest-mid), var(--forest-deep));
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Layered Canopy Shapes */
+        .canopy {
+            position: absolute;
+            top: -10%;
+            width: 120%;
+            height: 60%;
+            background: radial-gradient(circle at 50% 0%, var(--leaf-bright) 0%, transparent 70%);
+            filter: blur(40px);
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        /* Gleaming Sun Rays (God Rays) */
+        .sun-rays {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                105deg,
+                transparent 0%,
+                transparent 10%,
+                var(--sun-ray) 12%,
+                transparent 14%
+            );
+            mask-image: radial-gradient(circle at 50% 20%, black 20%, transparent 80%);
+            z-index: 2;
+            animation: ray-shimmer 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes ray-shimmer {
+            from { opacity: 0.4; transform: scale(1); }
+            to { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* The Meandering Gnats */
+        .gnat {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.6;
+            box-shadow: 0 0 5px #fff;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Foreground Leaf Shadows */
+        .foreground-leaves {
+            position: absolute;
+            bottom: -50px;
+            width: 110%;
+            height: 30%;
+            background: #051a05;
+            clip-path: polygon(0% 100%, 10% 80%, 20% 90%, 35% 70%, 50% 85%, 65% 65%, 80% 90%, 100% 100%);
+            filter: blur(20px);
+            z-index: 15;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="canopy"></div>
+    <div class="sun-rays"></div>
+    <div class="foreground-leaves"></div>
+
+    <script>
+        const gnatCount = 40;
+        const gnats = [];
+
+        for (let i = 0; i < gnatCount; i++) {
+            const gnat = document.createElement('div');
+            gnat.className = 'gnat';
+            document.body.appendChild(gnat);
+            
+            // Initial state
+            const state = {
+                el: gnat,
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2
+            };
+            gnats.push(state);
+        }
+
+        function update() {
+            gnats.forEach(g => {
+                // Meandering logic (brownian-ish motion)
+                g.vx += (Math.random() - 0.5) * 0.2;
+                g.vy += (Math.random() - 0.5) * 0.2;
+                
+                // Limit speed
+                g.vx = Math.max(-1.5, Math.min(1.5, g.vx));
+                g.vy = Math.max(-1.5, Math.min(1.5, g.vy));
+
+                g.x += g.vx;
+                g.y += g.vy;
+
+                // Screen wrap
+                if (g.x < 0) g.x = window.innerWidth;
+                if (g.x > window.innerWidth) g.x = 0;
+                if (g.y < 0) g.y = window.innerHeight;
+                if (g.y > window.innerHeight) g.y = 0;
+
+                g.el.style.transform = `translate(${g.x}px, ${g.y}px)`;
+            });
+            requestAnimationFrame(update);
+        }
+
+        update();
+    </script>
+</body>
+</html>
