@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Mountain - Level 1 Style</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            /* Classic 256-color VGA palette: Bright Sky Blue */
+            background-color: #00AAFF; 
+        }
+
+        /* Pixel-style Clouds */
+        .cloud-container {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+        }
+
+        .cloud {
+            position: absolute;
+            background: #FFFFFF;
+            height: 30px;
+            width: 100px;
+            border-radius: 15px 15px 0 0; /* Flat bottom clouds */
+            opacity: 0.9;
+        }
+
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 50%;
+        }
+
+        .cloud::before { width: 50px; height: 50px; top: -25px; left: 15px; }
+        .cloud::after { width: 40px; height: 40px; top: -15px; right: 10px; }
+
+        .c1 { left: 10%; top: 20px; transform: scale(1.2); }
+        .c2 { left: 40%; top: 60px; transform: scale(0.8); }
+        .c3 { left: 75%; top: 30px; transform: scale(1.1); }
+
+        /* The Mountain - Level 1 (No Snow) */
+        .mountain-range {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80%;
+        }
+
+        /* Distant Peaks - Darker Teal/Green */
+        .peaks-back {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 90%;
+            background: #005555;
+            clip-path: polygon(0% 100%, 10% 40%, 25% 65%, 45% 20%, 65% 55%, 85% 35%, 100% 100%);
+        }
+
+        /* Mid-ground - Deep Forest Green */
+        .peaks-mid {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 70%;
+            background: #008800;
+            clip-path: polygon(0% 100%, 15% 50%, 35% 20%, 55% 60%, 75% 30%, 95% 70%, 100% 100%);
+        }
+
+        /* Fore-ground "Steps" - Bright Green Plateaus */
+        .peaks-front {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 45%;
+            background: #00AA00;
+            /* Creating the "shelf" look of the game's climbable levels */
+            clip-path: polygon(0% 100%, 0% 60%, 20% 60%, 30% 40%, 60% 40%, 70% 20%, 100% 20%, 100% 100%);
+            border-top: 6px solid #005500;
+        }
+
+        /* Path/Walking Area */
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 12%;
+            background: #552200; /* Dirt path color */
+            border-top: 8px solid #00AA00; /* Grass top */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cloud-container">
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+    </div>
+
+    <div class="mountain-range">
+        <div class="peaks-back"></div>
+        <div class="peaks-mid"></div>
+        <div class="peaks-front"></div>
+        <div class="ground"></div>
+    </div>
+
+</body>
+</html>
