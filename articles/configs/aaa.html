@@ -11,6 +11,8 @@
             --oil-slick: #0d0d0d;
             --caution-yellow: #ffcc00;
             --laser-cyan: #00ffff;
+            --laser-pink: #ff00ff;
+            --laser-yellow: #ffff00;
         }
  body {
             background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
@@ -88,18 +90,26 @@
 <body>
     <div class="laser-beam"></div>
   <div class="terminal">
-    <h2 style="color:var(--caution-yellow)">Configuration Lab</h2>
+    <h2 style="color:var(--laser-cyan)">Configuration Lab</h2>
     <br><a href="http://brutokvashino.github.io/articles/configs/aaa.html">AAA</a><br>
        <strong>Directions:</strong>
-       <div style="margin-top:10px; color:var(--rust)">
+       <div style="margin-top:10px;">
 <div style="margin-top:10px; color:red">
 Type out the configuration for the router hitting enter for each new line...</div>
 <br>
 <div style="margin-top:10px; color:var(--terminal-green)">
 Task:</div>
 <br>
+<div style="color:var(--laser-pink)">
+Router 1:
+</div>
 <div style="color:var(--caution-yellow)">
-Get into the router, configure hostname R1, on gigabitethernet 0/1 set an ip address for the last possible host for 192.168.1.0/24. Remember that interfaces are shutdown by default, so make sure this one is open. Set a domain name of cisco.com. Generate an rsa key of 2048 bits. Set ssh version to 2. Start AAA. Set the login to admin priv 15 and a secure encrypted password of "cisco". Set the AAA authentication login to default local. Configure 5 vty lines. Set the login authentication to default. Set the protocol to ssh. Do write. Now do show users to check. Now, type in the command you would on the pc to connect to the router.
+Get into the router, configure hostname R1, on gigabitethernet 0/1 set an ip address for the last possible host for 192.168.1.0/24. Remember that interfaces are shutdown by default, so make sure this one is open. Set a domain name of cisco.com. Generate an rsa key of 2048 bits. Set ssh version to 2. Start AAA. Set the login to admin priv 15 and a secure encrypted password of "cisco". Set the AAA authentication login to default local. Configure 5 vty lines. Set the login authentication to default. Set the protocol to ssh. Do write. Now do show users to check. 
+<div style="color:var(--laser-pink)">
+PC:
+</div>
+<div style="color:var(--laser-yellow)">
+Now, type in the command you would on the pc to connect to the router.</div>
 </div>
 <br>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
