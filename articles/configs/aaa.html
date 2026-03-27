@@ -1,18 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Configuration Lab</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
-      background-color: #f4f4f4;
-    }
+  :root {
+            --rust: #b7410e;
+            --terminal-green: #00ff41;
+            --oil-slick: #0d0d0d;
+            --caution-yellow: #ffcc00;
+            --laser-cyan: #00ffff;
+        }
+ body {
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            color: var(--terminal-green);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
     .container {
       max-width: 600px;
       margin: auto;
-      background: white;
+      background: black;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -21,6 +36,7 @@
       width: 100%;
       height: 120px;
       padding: 10px;
+      background: grey;
       font-size: 16px;
       font-family: monospace;
       white-space: pre;
@@ -29,31 +45,63 @@
       margin-top: 15px;
       font-weight: bold;
     }
+    
+     .terminal {
+            width: 700px;
+            padding: 30px;
+            border: 2px solid #333;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 1), inset 0 0 100px rgba(0, 255, 65, 0.05);
+            position: relative;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.97; } 5% { opacity: 0.95; } 10% { opacity: 0.9; } 100% { opacity: 1; }
+           
+        }
+        .terminal { animation: flicker 3s infinite; }
+        
+         .strobe { animation: strobe-flash 0.1s 3; }
+        @keyframes strobe-flash {
+            0% { background: var(--laser-cyan); }
+            100% { background: transparent; }
+        }
+          .laser-beam {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--laser-cyan);
+            box-shadow: 0 0 15px var(--laser-cyan), 0 0 30px var(--laser-cyan);
+            top: -10%;
+            left: 0;
+            z-index: 1;
+            opacity: 0.5;
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: -10%; opacity: 0; }
+            50% { opacity: .4; }
+            100% { top: 110%; opacity: 0; }
+        }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Configuration Lab</h2>
+    <div class="laser-beam"></div>
+  <div class="terminal">
+    <h2 style="color:var(--caution-yellow)">Configuration Lab</h2>
     <br><a href="http://brutokvashino.github.io/articles/configs/aaa.html">AAA</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/aaa-radius.html">RADIUS</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/aaa-tacacs.html">TACACS</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/aaa-tacacs-group.html">TACACS-GROUP</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/acl.html">ACL</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/dtp.html">DTP</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/dynnat.html">DYNNAT</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/fhrp.html">FHRP</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/ftp.html">FTP</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/ospf0.html">OSPF0</a><br>
-    <br><a href="http://brutokvashino.github.io/articles/configs/pat.html">PAT</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/portsec.html">Portsec</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/qos.html">QOS</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/scp.html">SCP</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/snoopanddai.html">SnoopDAI</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/ssh.html">SSH</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/statnat.html">STATNAT</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/syslog.html">SYSLOG</a><br>    
-    <br><a href="http://brutokvashino.github.io/articles/configs/vtp.html">VTP</a><br>    
-    <p><strong>Task:</strong>ssh, router default aaa, verify aaa and ssh</p>
+       <strong>Directions:</strong>
+       <div style="margin-top:10px; color:var(--rust)">
+<div style="margin-top:10px; color:red">
+Type out the configuration for the router hitting enter for each new line...</div>
+<br>
+<div style="margin-top:10px; color:var(--terminal-green)">
+Task:</div>
+<br>
+<div style="color:var(--caution-yellow)">
+Get into the router, configure hostname R1, on gigabitethernet 0/1 set an ip address for the last possible host for 192.168.1.0/24. Remember that interfaces are shutdown by default, so make sure this one is open. Set a domain name of cisco.com. Generate an rsa key of 2048 bits. Set ssh version to 2. Start AAA. Set the login to admin priv 15 and a secure encrypted password of "cisco". Set the AAA authentication login to default local. Configure 5 vty lines. Set the login authentication to default. Set the protocol to ssh. Do write. Now do show users to check. Now, type in the command you would on the pc to connect to the router.
+</div>
+<br>
     <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
     <div class="feedback" id="feedback"></div>
   </div>
