@@ -45,9 +45,25 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function configlinks() {
-          var txt = getRndInteger(1,2);
-          if (txt == 1) {return "Scenic";}
-          else if (txt == 2) {return "Historic";}
+          var txt = getRndInteger(1,18);
+          if (txt == 1) {return "http://brutokvashino.github.io/articles/configs/aaa.html";}
+          else if (txt == 2) {return "http://brutokvashino.github.io/articles/configs/aaa-radius.html";}
+          else if (txt == 3) {return "http://brutokvashino.github.io/articles/configs/acl.html";}
+          else if (txt == 4) {return "http://brutokvashino.github.io/articles/configs/dot1q.html";}
+          else if (txt == 5) {return "http://brutokvashino.github.io/articles/configs/aaa-tacacs.html";}
+          else if (txt == 6) {return "http://brutokvashino.github.io/articles/configs/aaa-tacacs-group.html";}
+          else if (txt == 7) {return "http://brutokvashino.github.io/articles/configs/dtp.html";}
+          else if (txt == 8) {return "http://brutokvashino.github.io/articles/configs/dynnat.html";}
+          else if (txt == 9) {return "http://brutokvashino.github.io/articles/configs/fhrp.html";}
+          else if (txt == 10) {return "http://brutokvashino.github.io/articles/configs/ftp.html";}
+          else if (txt == 11) {return "http://brutokvashino.github.io/articles/configs/ospf0.html";}
+          else if (txt == 12) {return "http://brutokvashino.github.io/articles/configs/pat.html";}
+          else if (txt == 13) {return "http://brutokvashino.github.io/articles/configs/qos.html";}
+          else if (txt == 14) {return "http://brutokvashino.github.io/articles/configs/scp.html";}
+          else if (txt == 15) {return "http://brutokvashino.github.io/articles/configs/snoopanddai.html";}
+          else if (txt == 16) {return "http://brutokvashino.github.io/articles/configs/statnat.html";}
+          else if (txt == 17) {return "http://brutokvashino.github.io/articles/configs/syslog.html";}
+          else if (txt == 18) {return "http://brutokvashino.github.io/articles/configs/vtp.html";}
         }
     	function getconfiglinks(){
     document.getElementById("configlinkgot").innerHTML = configlinks();
