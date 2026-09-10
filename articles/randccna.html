@@ -84,13 +84,6 @@ svg{
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Daily Practice</h2>
-    <br><a href="https://www.subnetting.net/Subnetting.aspx?mode=practice">Subnetting.net</a><br>
-    <button id="getconfiglinks" onclick="getconfiglinks()">Practice Configs</button>
-<span id="configlinkgot"></span>
-    <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
-  </div>  
   <div id="toolbar">
     <button onclick="addDevice('router')">Add Router</button>
     <button onclick="addDevice('switch')">Add Switch</button>
@@ -103,6 +96,13 @@ svg{
 <div id="workspace">
     <svg id="cables"></svg>
 </div>
+  <div class="container">
+    <h2>Practice</h2>
+    <br><a href="https://www.subnetting.net/Subnetting.aspx?mode=practice">Subnetting.net</a><br>
+    <button id="getconfiglinks" onclick="getconfiglinks()">Practice Configs</button>
+<span id="configlinkgot"></span>
+    <textarea id="userInput" placeholder="Enter configuration here..."></textarea>
+  </div>  
   <script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
