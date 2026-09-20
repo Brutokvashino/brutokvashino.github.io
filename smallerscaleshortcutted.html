@@ -20,7 +20,14 @@ function showStage1() {
     document.getElementById("wizard").onclick = showStage2;
 }
 
-function showStage2() {
+function getrarity() {
+    gameWindow.innerHTML = `
+        <h2>Choose where to go</h2>
+    <span id="raritycollection"></span>
+        <button id="forest">Forest</button>
+        <button id="castle">Castle</button>
+    `;
+    function showStage2() {
     gameWindow.innerHTML = `
         <h2>Choose where to go</h2>
     <span id="raritycollection"></span>
