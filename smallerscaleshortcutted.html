@@ -4,7 +4,9 @@
 <div Id="gameWindow">
 <h1>JavaScript Loops</h1>
 <h2>The While Loop</h2>
-
+              <p>Rare Stones:</p>
+    <button id="getrarity" onclick="getrarity()">Mine!</button>  
+        <span id="raritycollection"></span>
 <p id="demo"></p>
 </div>
 <script>
@@ -12,27 +14,17 @@ const gameWindow = document.getElementById("gameWindow");
 
 function showStage1() {
     gameWindow.innerHTML = `
-          <p>Rare Stones:</p>
-    <button id="getrarity" onclick="getrarity()">Mine!</button>  
-    <br>
-            <button id="wizard">Wizard</button>
+                <button id="wizard">Wizard</button>
     `;
-
     document.getElementById("wizard").onclick = showStage2;
 }
 
 function getrarity() {
     document.getElementById("raritycollection").innerHTML = rarity();
-    gameWindow.innerHTML = `
-    <h2>Choose where to go</h2>
-    <span id="raritycollection"></span>
-        <button id="forest">Forest</button>
-        <button id="castle">Castle</button>
-    `;
+}
     function showStage2() {
     gameWindow.innerHTML = `
         <h2>Choose where to go</h2>
-    <span id="raritycollection"></span>
         <button id="forest">Forest</button>
         <button id="castle">Castle</button>
     `;
