@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
 <body>
+     
 <div Id="gameWindow">
 </div>
 <script>
 const gameWindow = document.getElementById("gameWindow");
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 function showStage1() {
     gameWindow.innerHTML = `
                 <button id="wizard">Wizard</button>
                 <h1>JavaScript Loops</h1>
 <h2>The While Loop</h2>
-              <p>Rare Stones:</p>
-    <button id="getrarity">Mine!</button>  
+   <button id="getrarity">Mine!</button>  
         <span id="raritycollection"></span>
+              <p>Rare Stones:</p>
 <p id="demo"></p>
     `;
     document.getElementById("getrarity").onclick = getrarity;
@@ -109,12 +113,6 @@ function showStage3() {
         }
   function getrarity(){
     document.getElementById("raritycollection").innerHTML = rarity();
-        gameWindow.innerHTML = `
-        <h2>Choose where to go</h2>
-
-        <button id="forest">Forest</button>
-        <button id="castle">Castle</button>
-    `;
 }
 showStage1();
 
