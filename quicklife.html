@@ -327,8 +327,6 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 <![endif]-->
 </head>
 <body>
-
-  <h1>Quick Life G</h1>
   <div class="navbar">
     <a href="index.html" style="padding-left: 10px" class="orientation">About me</a> 
     <a href="webgeologyminer.html" title="Generates random names of rocks" class="templateLink">Geology Game</a> 
@@ -337,14 +335,31 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
     <a href="webalchemie.html" title="Generates the names for random materials" class="templateLink">Alchemy Game</a> 
     <a href="webcrafting.html" title="A crafting game" class="templateLink">Crafting Game</a>   
   </div>
-
+	<h1>Quick Life</h1>
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
 <script>
-	
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+	function showStage1() {
+    gameWindow.innerHTML = `
+ <h3>Year 1</h3>Year 1<br><br>
+        <button id="getstarted" onclick="randptbirth()">Start</button>
+		<button id="getyear1point1" onclick"showStage2()">Next</button>
+    `;
+	function showStage2() {
+    gameWindow.innerHTML = `
+ <h3>Year 1</h3>Year 1<br><br>
+ <br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
+	<br><button id="getfullname" onclick="getfullname()">Name</button>
+	<br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
+	<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+	<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+	<br><button id="lys" onclick="closeyear0()">Next</button>
+   <br>
+    `;
         function regnames() {
           var txt = getRndInteger(1,431);
           if (txt == 0) {return "Nothing";}
@@ -2069,17 +2084,10 @@ document.getElementById("year19").style.display = "block";
 			<br>Occupation: <span id="jobgot"></span>
 			<br>Family: <span id="parentsgot"></span><span id="kidgot"></span>
 			</div>
-	<div id="year0" style="background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-        Years 0-3:<br><br>
-        <button id="getstarted" onclick="randptbirth()">Start</button>
-	<br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
-	<br><button id="getfullname" onclick="getfullname()">Name</button>
-	<br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
-	<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
-	<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
-	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
-	<br><button id="lys" onclick="closeyear0()">Next</button>
-   <br></div>
+	<div id="year1" style="background:#fff8c5; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+    </div>
+	<div id="year1point1">
+	</div>
  	<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 6-10:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
@@ -2283,8 +2291,7 @@ document.getElementById("year19").style.display = "block";
                 L.marker([point.lat, point.long]).addTo(map).bindPopup(txtstudy);
             });
         }
-
-
+showStage1();
 </script>
 	 <h2>Buildings / Rooms</h2>
 <p>Click a square to build</p>
