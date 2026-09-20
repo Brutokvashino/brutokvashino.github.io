@@ -21,8 +21,9 @@ function showStage1() {
 }
 
 function getrarity() {
+    document.getElementById("raritycollection").innerHTML = rarity();
     gameWindow.innerHTML = `
-        <h2>Choose where to go</h2>
+    <h2>Choose where to go</h2>
     <span id="raritycollection"></span>
         <button id="forest">Forest</button>
         <button id="castle">Castle</button>
