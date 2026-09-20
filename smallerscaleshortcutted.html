@@ -2,12 +2,6 @@
 <html>
 <body>
 <div Id="gameWindow">
-<h1>JavaScript Loops</h1>
-<h2>The While Loop</h2>
-              <p>Rare Stones:</p>
-    <button id="getrarity" onclick="getrarity()">Mine!</button>  
-        <span id="raritycollection"></span>
-<p id="demo"></p>
 </div>
 <script>
 const gameWindow = document.getElementById("gameWindow");
@@ -15,6 +9,12 @@ const gameWindow = document.getElementById("gameWindow");
 function showStage1() {
     gameWindow.innerHTML = `
                 <button id="wizard">Wizard</button>
+                <h1>JavaScript Loops</h1>
+<h2>The While Loop</h2>
+              <p>Rare Stones:</p>
+    <button id="getrarity" onclick="getrarity()">Mine!</button>  
+        <span id="raritycollection"></span>
+<p id="demo"></p>
     `;
     document.getElementById("wizard").onclick = showStage2;
 }
