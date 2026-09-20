@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div Id="gameWindow">
+<h1>JavaScript Loops</h1>
+<h2>The While Loop</h2>
+
+<p id="demo"></p>
+</div>
+<script>
+const gameWindow = document.getElementById("gameWindow");
+
+function showStage1() {
+    gameWindow.innerHTML = `
+          Rare Stones:
+    <button id="getrarity" onclick="getrarity()">Mine!</button>  
+    <br>
+    `;
+
+    document.getElementById("wizard").onclick = showStage2;
+}
+
+function showStage2() {
+    gameWindow.innerHTML = `
+        <h2>Choose where to go</h2>
+    <span id="raritycollection"></span>
+        <button id="forest">Forest</button>
+        <button id="castle">Castle</button>
+    `;
+
+    document.getElementById("forest").onclick = showStage3;
+    document.getElementById("castle").onclick = showStage3;
+}
+
+function showStage3() {
+    gameWindow.innerHTML = `
+        <h2>Your adventure begins!</h2>
+        <button id="continue">Continue</button>
+    `;
+}
+
+showStage1();
+
+
+        function rarity() {
+          var txt = getRndInteger(1,145);
+          if (txt == 1) {
+            return "sapphire";
+          }
+          else if (txt == 2){
+            return "emerald";
+          }
+          else if (txt == 3){
+            return "opal";
+          }
+          else if (txt == 4){
+            return "ruby";
+          }
+          else if (txt == 5){
+            return "diamond";
+          }
+          else if (txt == 6){
+            return "jade";
+          }
+          else if (txt >= 7 && txt <= 12){
+            return "lapis lazuli";
+          }
+          else if (txt >= 13 && txt <= 18){
+            return "turquoise";
+          }
+          else if (txt >= 19 && txt <= 24){
+            return "garnet";
+          }
+          else if (txt >= 25 && txt <= 31){
+            return "fluorite";
+          }
+          else if (txt >= 32 && txt <= 39){
+            return "calcite";
+          }
+          else if (txt >= 40 && txt <= 44){
+            return "olivine";
+          }
+          else if (txt >= 45 && txt <= 50){
+            return "jasper";
+          }
+          else if (txt >= 51 && txt <= 54){
+            return "beryl";
+          }
+          else if (txt >= 55 && txt <= 62){
+            return "agate";
+          }
+          else if (txt >= 63 && txt <= 68){
+            return "onyx";
+          }
+          else if (txt >= 69 && txt <= 75){
+            return "pyrite";
+          }
+          else if (txt >= 76 && txt <= 82){
+            return "bismuth";
+          }
+          else if (txt >= 83 && txt <= 89){
+            return "amethyst";
+          }
+          else if (txt >= 90 && txt <= 95){
+            return "malachite";
+          }
+          else if (txt >= 96 && txt <= 145){
+            return "quartz";
+          }
+        }
+  function getrarity(){
+    document.getElementById("raritycollection").innerHTML = rarity();
+        gameWindow.innerHTML = `
+        <h2>Choose where to go</h2>
+
+        <button id="forest">Forest</button>
+        <button id="castle">Castle</button>
+    `;
+}
+
+</script>
+
+</body>
+</html>
+
+
