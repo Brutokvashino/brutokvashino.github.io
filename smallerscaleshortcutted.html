@@ -12,10 +12,11 @@ function showStage1() {
                 <h1>JavaScript Loops</h1>
 <h2>The While Loop</h2>
               <p>Rare Stones:</p>
-    <button id="getrarity" onclick="getrarity()">Mine!</button>  
+    <button id="getrarity">Mine!</button>  
         <span id="raritycollection"></span>
 <p id="demo"></p>
     `;
+    document.getElementById("wizard").onclick = getrarity;
     document.getElementById("wizard").onclick = showStage2;
 }
 
