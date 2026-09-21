@@ -75,9 +75,8 @@ function showStage2() {
 function showStage3() {
     gameWindow.innerHTML = `
 	 <h3>Year 1</h3>
-	  <p>The doctor is coming to take a look at you. Let's see what the doctor thinks.</p>
-		<br><button id="runphysical" onclick="getphysical()">Physical</button><span>...</span><span id="talentgot"></span>
-
+	  <span id="sickgot">The doctor is coming to take a look at you. Let's see what the doctor thinks</span> <span id="organgot"></span>. <span id="questiongot"></span>...</span><span id="talentgot"></span>
+		<br><button id="runphysical" onclick="getphysical()">Physical</button>
         <button id="showStage4">Get Older</button>
     `;
 	    document.getElementById("showStage4").onclick = showStage4;
@@ -1830,6 +1829,9 @@ function getintro(){
     document.getElementById("questiongot").innerHTML = questions();
 }
 	function getphysical(){
+	document.getElementById("sickgot").innerHTML = malady();
+    document.getElementById("organgot").innerHTML = organs();
+    document.getElementById("questiongot").innerHTML = questions();
     document.getElementById("talentgot").innerHTML = talents();
 }
 function getpsychtip(){
