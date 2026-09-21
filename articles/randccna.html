@@ -109,7 +109,7 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function configlinks() {
-          var txt = getRndInteger(1,27);
+          var txt = getRndInteger(1,32);
           if (txt == 1) {return "http://brutokvashino.github.io/articles/configs/aaa.html";}
           else if (txt == 2) {return "http://brutokvashino.github.io/articles/configs/aaa-radius.html";}
           else if (txt == 3) {return "http://brutokvashino.github.io/articles/configs/acl.html";}
@@ -137,6 +137,11 @@ function getRndInteger(min, max) {
           else if (txt == 25) {return "SNMP";}
           else if (txt == 26) {return "SLAAC";}
           else if (txt == 27) {return "DHCP";}
+          else if (txt == 28) {return "http://brutokvashino.github.io/articles/configs/blanks/dai.html";}
+                    else if (txt == 29) {return "http://brutokvashino.github.io/articles/configs/blanks/qos.html";}
+                    else if (txt == 30) {return "http://brutokvashino.github.io/articles/configs/blanks/snoop.html";}
+                    else if (txt == 31) {return "http://brutokvashino.github.io/articles/configs/blanks/syslog.html";}
+                    else if (txt == 32) {return "http://brutokvashino.github.io/articles/configs/blanks/vtp.html";}
         }
     	function getconfiglinks(){
     document.getElementById("configlinkgot").innerHTML = configlinks();
