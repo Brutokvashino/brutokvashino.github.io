@@ -12,13 +12,9 @@ function getRndInteger(min, max) {
 
 function showStage1() {
     gameWindow.innerHTML = `
-                <button id="wizard">Wizard</button>
-                <h1>JavaScript Loops</h1>
-<h2>The While Loop</h2>
-   <button id="getrarity">Mine!</button>  
+   <button id="getrarity">Biome</button>  
         <span id="raritycollection"></span>
-              <p>Rare Stones:</p>
-<p id="demo"></p>
+        <button id="wizard">Next</button>
     `;
     document.getElementById("getrarity").onclick = getrarity;
     document.getElementById("wizard").onclick = showStage2;
@@ -29,90 +25,88 @@ function getrarity() {
 }
     function showStage2() {
     gameWindow.innerHTML = `
-        <h2>Choose where to go</h2>
-        <button id="forest">Forest</button>
-        <button id="castle">Castle</button>
+        <button id="forest">Forage</button><span id="gotforage"></span>
+        <button id="castle">Monster</button><span id="gotmonster"></span>
+        <button id="explore">Explore</button><span id="gotexplore"></span>
+        <button id="back">Back</button>
     `;
-
-    document.getElementById("forest").onclick = showStage3;
-    document.getElementById("castle").onclick = showStage3;
-}
-
-function showStage3() {
-    gameWindow.innerHTML = `
-        <h2>Your adventure begins!</h2>
-        <button id="continue">Continue</button>
-    `;
+    document.getElementById("back").onclick = showStage1;
 }
 
         function rarity() {
           var txt = getRndInteger(1,145);
           if (txt == 1) {
-            return "sapphire";
+            return "grassland";
           }
           else if (txt == 2){
-            return "emerald";
+            return "hardwood forest";
           }
           else if (txt == 3){
-            return "opal";
+            return "desert";
           }
           else if (txt == 4){
-            return "ruby";
+            return "savannah";
           }
           else if (txt == 5){
-            return "diamond";
+            return "mountain";
           }
           else if (txt == 6){
-            return "jade";
+            return "ocean";
           }
-          else if (txt >= 7 && txt <= 12){
-            return "lapis lazuli";
+          else if (txt == 7){
+            return "arctic";
           }
-          else if (txt >= 13 && txt <= 18){
-            return "turquoise";
+          else if (txt == 8){
+            return "canyon";
           }
-          else if (txt >= 19 && txt <= 24){
-            return "garnet";
+          else if (txt == 9){
+            return "jungle";
           }
-          else if (txt >= 25 && txt <= 31){
-            return "fluorite";
+          else if (txt == 10){
+            return "fir tree forest";
           }
-          else if (txt >= 32 && txt <= 39){
-            return "calcite";
+          else if (txt == 11){
+            return "swamp";
           }
-          else if (txt >= 40 && txt <= 44){
-            return "olivine";
+          else if (txt == 12){
+            return "beach";
           }
-          else if (txt >= 45 && txt <= 50){
-            return "jasper";
+          else if (txt == 13){
+            return "lake";
           }
-          else if (txt >= 51 && txt <= 54){
-            return "beryl";
+          else if (txt >= 14 && txt <= 18){
+            return "island";
           }
-          else if (txt >= 55 && txt <= 62){
-            return "agate";
+          else if (txt >= 19 && txt <= 144){
+            return "ocean";
           }
-          else if (txt >= 63 && txt <= 68){
-            return "onyx";
-          }
-          else if (txt >= 69 && txt <= 75){
-            return "pyrite";
-          }
-          else if (txt >= 76 && txt <= 82){
-            return "bismuth";
-          }
-          else if (txt >= 83 && txt <= 89){
-            return "amethyst";
-          }
-          else if (txt >= 90 && txt <= 95){
-            return "malachite";
-          }
-          else if (txt >= 96 && txt <= 145){
-            return "quartz";
+          else if (txt == 145){
+            return "mushroom";
           }
         }
+function forage() { var txt = getRndInteger(1,145); if (txt == 1) {return "beehive";}
+          else if (txt == 2){return "oak wood";}
+          else if (txt == 3){return "seeds";}
+          }
+     function monster() { var txt = getRndInteger(1,145); if (txt == 1) {return "zombie meat";}
+          else if (txt == 2){return "you died";}
+          else if (txt == 3){return "nightray skin";}
+          }
+function explore() { var txt = getRndInteger(1,145); if (txt == 1) {return "flowers";}
+          else if (txt == 2){return "village";}
+          else if (txt == 3){return "cave";}
+          }
   function getrarity(){
     document.getElementById("raritycollection").innerHTML = rarity();
+}
+function getforage(){
+    document.getElementById("gotforage").innerHTML = forage();
+}
+function getmonster(){
+    document.getElementById("gotmonster").innerHTML = monster();
+}
+function getexplore(){
+    document.getElementById("gotexplore").innerHTML = explore();
 }
 showStage1();
 
