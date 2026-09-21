@@ -56,29 +56,88 @@ function getRndInteger(min, max) {
     document.getElementById("wizard").onclick = showStage2;
 }
 
+/*
+ <br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
+*/
+	
 function showStage2() {
     gameWindow.innerHTML = `
-        <h2>Choose where to go</h2>
+	 <h3>Year 1</h3>
+	  <p>What's your name, kid?</p>
+	<br><button id="getfullname" onclick="getfullname()">Name</button>
 
-        <button id="forest">Forest</button>
-        <button id="castle">Castle</button>
+		<button id="castle">Next</button>
     `;
-
-    document.getElementById("forest").onclick = showStage3;
     document.getElementById("castle").onclick = showStage3;
 }
 
 function showStage3() {
     gameWindow.innerHTML = `
-        <h2>Your adventure begins!</h2>
+	 <h3>Year 1</h3>
+	  <p>The doctor is coming to take a look at you. Let's see what the doctor thinks.</p>
+		<br><button id="runphysical" onclick="getphysical()">Physical</button><span>...</span><span id="talentgot"></span>
+
+        <button id="showStage4">Get Older</button>
+    `;
+	    document.getElementById("showStage4").onclick = showStage4;
+}
+function showStage4() {
+    gameWindow.innerHTML = `
+	 <h3>Years 2-5</h3>
+	  <p>Your homelife is is</p><span id="introgot"></span>
+<p>Check out the house you grew up in!</p>
+<p>Click a square to build</p>
+<br>
+ <div id="grid">
+<div id="t1"></div>
+<div id="t2"></div>
+<div id="t3"></div>
+<div id="t4"></div>
+<div id="t5"></div>
+<div id="t6"></div>
+<div id="t7"></div>
+<div id="t8"></div>
+<div id="t9"></div>
+<div id="t10"></div>
+<div id="t11"></div>
+<div id="t12"></div>
+<div id="t13"></div>
+<div id="t14"></div>
+<div id="t15"></div>
+<div id="t16"></div>
+<div id="t17"></div>
+<div id="t18"></div>
+<div id="t19"></div>
+<div id="t20"></div>
+  </div>
+		<br>
+	    Structures:
+    <button id="getstructure" onclick="getstructure()">Select</button>
+    <span id="structuregot"></span>
+    <br><br>
+	Rooms:
+    <button id="getroom" onclick="getroom()">Select</button>
+    <span id="roomgot"></span>
+    <br><br>
         <button id="continue">Continue</button>
     `;
 }
+
 /*
- <h3>Year 1</h3>Year 1<br><br>
- <br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
-	<br><button id="getfullname" onclick="getfullname()">Name</button>
-	<br><button id="runphysical" onclick="getphysical()">Physical</button><span id="talentgot"></span>
+experience
+<p>In general. Your childhood is</p><span id="introgot2"></span>
+get a pet
+developing a talent for
+		<button id="randptstudy" onclick="randptstudy()">School</button>
+		<br><button id="getlover" onclick="getlover()">Relationship</button> 
+		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
+		<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
+		<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
+		<br><button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
+		<br><button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
+		<br><button id="randptmove" onclick="randptmove()">Move</button>
+		<br><button id="lys6" onclick="closeyear6()">Next</button>
 	<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
 	<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
 	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
@@ -1805,16 +1864,6 @@ document.getElementById("year19").style.display = "block";
 </script>
 		<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 6-10:<br><br>
-		<button id="randptstudy" onclick="randptstudy()">School</button>
-		<br><button id="getlover" onclick="getlover()">Relationship</button> 
-		<br><button id="randptvacay" onclick="randptvacay()">Vacation</button>
-		<br><button id="runconsult" onclick="getseen()">Doctor</button><span id="sickgot"></span> <span id="organgot">. </span><span id="questiongot"></span>
-		<br><button id="getcure" onclick="getcure()">Pharmacy</button><span id="curegot"></span>
-		<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
-		<br><button id="getcrime" onclick="getcrime()">Commit crime</button><span id="crimegot"></span>
-		<br><button id="getjsentence" onclick="getjsentence()">Go to court</button><span id="jsentencegot"></span>
-		<br><button id="randptmove" onclick="randptmove()">Move</button>
-		<br><button id="lys6" onclick="closeyear6()">Next</button>
     </div>
 	<div id="year11" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 11-15:<br><br>
