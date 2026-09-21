@@ -30,6 +30,9 @@ function getrarity() {
         <button id="explore">Explore</button><span id="gotexplore"></span>
         <button id="back">Back</button>
     `;
+    document.getElementById("castle").onclick = getmonster;
+    document.getElementById("forest").onclick = getforage;
+    document.getElementById("explore").onclick = getexplore;
     document.getElementById("back").onclick = showStage1;
 }
 
