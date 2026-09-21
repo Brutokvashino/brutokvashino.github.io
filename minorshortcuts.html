@@ -25,13 +25,13 @@ function getrarity() {
 }
     function showStage2() {
     gameWindow.innerHTML = `
-        <button id="forest">Forage</button><span id="gotforage"></span>
+        <button id="trash">Trash</button><span id="gottrash"></span>
         <button id="castle">Monster</button><span id="gotmonster"></span>
         <button id="explore">Explore</button><span id="gotexplore"></span>
         <button id="back">Back</button>
     `;
     document.getElementById("castle").onclick = getmonster;
-    document.getElementById("forest").onclick = getforage;
+    document.getElementById("trash").onclick = gettrash;
     document.getElementById("explore").onclick = getexplore;
     document.getElementById("back").onclick = showStage1;
 }
@@ -58,27 +58,11 @@ function getrarity() {
           else if (txt == 145){return "Fake Golden Apple";}
         }
      
-function forage() { var txt = getRndInteger(1,9); if (txt == 1) {return "beehive";}
-          else if (txt == 2){return "oak wood";}
-          else if (txt == 3){return "seeds";}
-          else if (txt == 4){return "apple";}
-          else if (txt == 5){return "stick";}
-          else if (txt == 6){return "leaves";}
-          else if (txt == 7){return "water";}
-          else if (txt == 8){return "berries";}
-          else if (txt == 9){return "fern";}
-          else if (txt == 9){return "dirt";}
-          else if (txt == 9){return "stone";}
-          else if (txt == 9){return "gravel";}
-          else if (txt == 9){return "sand";}
-          else if (txt == 9){return "fossil";}
-          else if (txt == 9){return "trap";}
-          else if (txt == 9){return "you stepped on a mine and exploded";}
-          else if (txt == 9){return "a creeper killed you";}
-          else if (txt == 9){return "you were shot by an arrow and died";}
-          else if (txt == 9){return "monster";}
-          else if (txt == 9){return "cave-in";}
-          else if (txt == 9){return "spider";}
+function trash() { var txt = getRndInteger(1,5); if (txt == 1) {return "modelo can";}
+          else if (txt == 2){return "monkey";}
+          else if (txt == 3){return "soap";}
+          else if (txt == 4){return "toothpaste";}
+          else if (txt == 5){return "water bottle";}
                   }
      /*
      function swampforage() { var txt = getRndInteger(1,145); if (txt == 1) {return "vine";}
@@ -153,8 +137,8 @@ function explore() { var txt = getRndInteger(1,40);
   function getrarity(){
     document.getElementById("raritycollection").innerHTML = rarity();
 }
-function getforage(){
-    document.getElementById("gotforage").innerHTML = forage();
+function gettrash(){
+    document.getElementById("gottrash").innerHTML = trash();
 }
 function getmonster(){
     document.getElementById("gotmonster").innerHTML = monster();
