@@ -18,6 +18,23 @@ button {
             height: 600px;
             width: 100%;
         }
+	  #grid {
+    display: grid;
+    grid-template-columns: repeat(5, 0fr);
+    gap: 0px;
+  justify-content: start;
+  align-content: start;
+  }
+  #grid div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #444;
+    background-color: black;
+    cursor: pointer;
+      background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
 </style>
 </head>
 <body>
@@ -1866,6 +1883,42 @@ document.getElementById("year16").style.display = "block";
 document.getElementById("year16").style.display = "none"; 
 document.getElementById("year19").style.display = "block"; 
 } 
+		//THIS IS WHERE I GENERATE THE ROOMS
+	 const roomages = [
+ "https://brutokvashino.github.io/images/L1.jpg",
+    "https://brutokvashino.github.io/images/L2.jpg",
+        "https://brutokvashino.github.io/images/H1.jpg",
+        "https://brutokvashino.github.io/images/H2.jpg",
+        "https://brutokvashino.github.io/images/H3.jpg",
+    "https://brutokvashino.github.io/images/D1.jpg",
+    "https://brutokvashino.github.io/images/D2.jpg",
+        "https://brutokvashino.github.io/images/D3.jpg",
+        "https://brutokvashino.github.io/images/D4.jpg",
+        "https://brutokvashino.github.io/images/C1.jpg",
+    "https://brutokvashino.github.io/images/C2.jpg",
+    "https://brutokvashino.github.io/images/C3.jpg",
+    "https://brutokvashino.github.io/images/C4.jpg",
+        "https://brutokvashino.github.io/images/F1.jpg",
+    "https://brutokvashino.github.io/images/F2.jpg",
+    "https://brutokvashino.github.io/images/F3.jpg",
+    "https://brutokvashino.github.io/images/F4.jpg",
+        "https://brutokvashino.github.io/images/Z1.jpg",
+        null
+	 ]; for (let i = 1; i <= 20; i++) {
+    const elem = document.getElementById("t" + i);
+    if (elem) {
+      elem.addEventListener("click", function() {
+        const randIndex = Math.floor(Math.random() * roomages.length);
+        const chosenImage = roomages[randIndex];
+        elem.style.backgroundImage = `url(${chosenImage})`;
+        elem.style.backgroundSize = "contain";
+        elem.style.backgroundPosition = "center"; 
+        elem.style.backgroundRepeat = "no-repeat"; 
+      }); }  
+	 else {
+    elem.style.backgroundImage = "none"; // clears background safely
+  }
+	 }
 </script>
 		<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 6-10:<br><br>
