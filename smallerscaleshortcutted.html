@@ -37,68 +37,89 @@ function getrarity() {
 }
 
         function rarity() {
-          var txt = getRndInteger(1,145);
-          if (txt == 1) {
-            return "grassland";
-          }
-          else if (txt == 2){
-            return "hardwood forest";
-          }
-          else if (txt == 3){
-            return "desert";
-          }
-          else if (txt == 4){
-            return "savannah";
-          }
-          else if (txt == 5){
-            return "mountain";
-          }
-          else if (txt == 6){
-            return "ocean";
-          }
-          else if (txt == 7){
-            return "arctic";
-          }
+          var txt = getRndInteger(1,145); if (txt == 1) {return "grassland";}
+          else if (txt == 2){return "hardwood forest";}
+          else if (txt == 3){return "desert";}
+          else if (txt == 4){return "savannah";}
+          else if (txt == 5){return "mountain";
+          }          
+          else if (txt == 6){return "ocean"; } 
+          else if (txt == 7){return "arctic";}
           else if (txt == 8){
-            return "canyon";
-          }
+            return "canyon";}
           else if (txt == 9){
-            return "jungle";
-          }
+            return "jungle";}
           else if (txt == 10){
-            return "fir tree forest";
-          }
+            return "fir tree forest";}
           else if (txt == 11){
-            return "swamp";
-          }
+            return "swamp";}
           else if (txt == 12){
-            return "beach";
-          }
+            return "beach";}
           else if (txt == 13){
-            return "lake";
-          }
+            return "lake";}
           else if (txt >= 14 && txt <= 18){
             return "island";
           }
-          else if (txt >= 19 && txt <= 144){
-            return "ocean";
-          }
-          else if (txt == 145){
-            return "mushroom";
-          }
-        }
+          else if (txt >= 19 && txt <= 144){return "ocean";}
+          else if (txt == 145){return "mushroom";}}
+     
 function forage() { var txt = getRndInteger(1,145); if (txt == 1) {return "beehive";}
           else if (txt == 2){return "oak wood";}
           else if (txt == 3){return "seeds";}
-          }
+          else if (txt == 3){return "apple";}
+          else if (txt == 3){return "stick";}
+          else if (txt == 3){return "leaves";}
+          else if (txt == 3){return "water";}
+          else if (txt == 3){return "berries";}
+          else if (txt == 3){return "fern";}
+                  }
+     /*
+     function swampforage() { var txt = getRndInteger(1,145); if (txt == 1) {return "vine";}
+          else if (txt == 2){return "red mushroom";}
+          else if (txt == 3){return "brown mushroom";}
+          else if (txt == 3){return "";}
+                  }
+     */
      function monster() { var txt = getRndInteger(1,145); if (txt == 1) {return "zombie meat";}
           else if (txt == 2){return "you died";}
           else if (txt == 3){return "nightray skin";}
+          else if (txt == 3){return "bone";}
+          else if (txt == 3){return "arrow";}
+          else if (txt == 3){return "bow";}
+          else if (txt == 3){return "shield";}
+          else if (txt == 3){return "chicken";}
           }
 function explore() { var txt = getRndInteger(1,145); if (txt == 1) {return "flowers";}
           else if (txt == 2){return "village";}
           else if (txt == 3){return "cave";}
-          }
+          else if (txt == 3){return "chickens";}
+          else if (txt == 3){return "pigs";}
+          else if (txt == 3){return "cows";}
+          else if (txt == 3){return "llamas";}
+          else if (txt == 3){return "sheep";}
+          else if (txt == 3){return "lava";}
+          else if (txt == 3){return "hot spring";}
+          else if (txt == 3){return "lake";}
+          else if (txt == 3){return "tree";}
+          else if (txt == 3){return "hill";}
+          else if (txt == 3){return "mine";}
+          else if (txt == 3){return "ruins";}
+          else if (txt == 3){return "mansion";}
+          else if (txt == 3){return "wolf";}
+          else if (txt == 3){return "fox";}
+          else if (txt == 3){return "parrot";}
+          else if (txt == 3){return "watchtower";}
+          else if (txt == 3){return "marauders";}
+          else if (txt == 3){return "cat";}
+          else if (txt == 3){return "well";}
+                   }
+     /*
+     function swampexplore() { var txt = getRndInteger(1,145); if (txt == 1) {return "witch's house";}
+          else if (txt == 2){return "bog iron";}
+          else if (txt == 3){return "clay deposit";}
+          else if (txt == 3){return "";}
+                  }
+     */
   function getrarity(){
     document.getElementById("raritycollection").innerHTML = rarity();
 }
