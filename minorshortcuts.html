@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<body>
+     
+<div Id="gameWindow">
+</div>
+<script>
+const gameWindow = document.getElementById("gameWindow");
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function showStage1() {
+    gameWindow.innerHTML = `
+   <button id="getrarity">Apple Manor</button>  
+        <span id="raritycollection"></span>
+        <button id="wizard">Next</button>
+    `;
+    document.getElementById("getrarity").onclick = getrarity;
+    document.getElementById("wizard").onclick = showStage2;
+}
+
+function getrarity() {
+    document.getElementById("raritycollection").innerHTML = rarity();
+}
+    function showStage2() {
+    gameWindow.innerHTML = `
+        <button id="forest">Forage</button><span id="gotforage"></span>
+        <button id="castle">Monster</button><span id="gotmonster"></span>
+        <button id="explore">Explore</button><span id="gotexplore"></span>
+        <button id="back">Back</button>
+    `;
+    document.getElementById("castle").onclick = getmonster;
+    document.getElementById("forest").onclick = getforage;
+    document.getElementById("explore").onclick = getexplore;
+    document.getElementById("back").onclick = showStage1;
+}
+
+        function rarity() {
+          var txt = getRndInteger(1,145); if (txt == 1) {return "Slime";}
+          else if (txt == 2){return "Worm";}
+          else if (txt == 3){return "Vampire";}
+          else if (txt == 4){return "Dragon";}
+          else if (txt == 5){return "Invisible Stalker";}          
+          else if (txt == 6){return "Ghost"; } 
+          else if (txt == 7){return "Troll";}
+          else if (txt == 8){return "Dagger";}
+          else if (txt == 9){return "Sword";}
+          else if (txt == 10){return "Magic Sword";}
+          else if (txt == 11){return "Hand Axe";}
+          else if (txt == 12){return "Leather Armor";}
+          else if (txt == 13){return "Chain Armor";}
+          else if (txt >= 14 && txt <= 18){return "Plate Armor";}
+          else if (txt >= 19 && txt <= 144){return "Gold";}
+          else if (txt == 145){return "Golden Apple";}}
+          else if (txt == 145){return "Exploding Apple";}}
+          else if (txt == 145){return "Magic Wand";}}
+          else if (txt == 145){return "Fake Golden Apple";}}
+     
+function forage() { var txt = getRndInteger(1,9); if (txt == 1) {return "beehive";}
+          else if (txt == 2){return "oak wood";}
+          else if (txt == 3){return "seeds";}
+          else if (txt == 4){return "apple";}
+          else if (txt == 5){return "stick";}
+          else if (txt == 6){return "leaves";}
+          else if (txt == 7){return "water";}
+          else if (txt == 8){return "berries";}
+          else if (txt == 9){return "fern";}
+          else if (txt == 9){return "dirt";}
+          else if (txt == 9){return "stone";}
+          else if (txt == 9){return "gravel";}
+          else if (txt == 9){return "sand";}
+          else if (txt == 9){return "fossil";}
+          else if (txt == 9){return "trap";}
+          else if (txt == 9){return "you stepped on a mine and exploded";}
+          else if (txt == 9){return "a creeper killed you";}
+          else if (txt == 9){return "you were shot by an arrow and died";}
+          else if (txt == 9){return "monster";}
+          else if (txt == 9){return "cave-in";}
+          else if (txt == 9){return "spider";}
+                  }
+     /*
+     function swampforage() { var txt = getRndInteger(1,145); if (txt == 1) {return "vine";}
+          else if (txt == 2){return "red mushroom";}
+          else if (txt == 3){return "brown mushroom";}
+          else if (txt == 3){return "";}
+                  }
+     */
+     function monster() { var txt = getRndInteger(1,12); 
+          if (txt == 1) {return "rotten meat";}
+          else if (txt == 2){return "you were killed";}
+          else if (txt == 3){return "nightray skin";}
+          else if (txt == 4){return "bone";}
+          else if (txt == 5){return "arrow";}
+          else if (txt == 6){return "bow";}
+          else if (txt == 7){return "shield";}
+          else if (txt == 8){return "chicken";}
+          else if (txt == 9){return "sword";}
+          else if (txt == 10){return "thread";}
+          else if (txt == 11){return "eyeball";}
+          else if (txt == 12){return "ender eye";}
+          }
+function explore() { var txt = getRndInteger(1,40); 
+          if (txt == 1) {return "flowers";}
+          else if (txt == 2){return "village";}
+          else if (txt == 3){return "cave";}
+          else if (txt == 4){return "chickens";}
+          else if (txt == 5){return "pigs";}
+          else if (txt == 6){return "cows";}
+          else if (txt == 7){return "llamas";}
+          else if (txt == 8){return "sheep";}
+          else if (txt == 9){return "lava";}
+          else if (txt == 10){return "hot spring";}
+          else if (txt == 11){return "lake";}
+          else if (txt == 12){return "tree";}
+          else if (txt == 13){return "hill";}
+          else if (txt == 14){return "mine";}
+          else if (txt == 15){return "ruins";}
+          else if (txt == 16){return "mansion";}
+          else if (txt == 17){return "wolf";}
+          else if (txt == 18){return "fox";}
+          else if (txt == 19){return "parrot";}
+          else if (txt == 20){return "watchtower";}
+          else if (txt == 21){return "marauders";}
+          else if (txt == 22){return "cat";}
+          else if (txt == 23){return "well";}
+          else if (txt == 24){return "pumpkins";}
+          else if (txt == 25){return "new biome";}
+          else if (txt == 26){return "cliff";}
+          else if (txt == 27){return "witch";}
+          else if (txt == 28){return "bear";}
+          else if (txt == 29){return "trap";}
+          else if (txt == 30){return "you fell down and died";}
+          else if (txt == 31){return "forest fire";}
+          else if (txt == 32){return "villager";}
+          else if (txt == 33){return "trader";}
+          else if (txt == 34){return "grave";}
+          else if (txt == 35){return "sunken ship";}
+          else if (txt == 36){return "spawner";}
+          else if (txt == 37){return "cacao";}
+          else if (txt == 38){return "melon";}
+          else if (txt == 39){return "reef";}
+          else if (txt == 40){return "mineral deposit";}
+                   }
+     /*
+     function swampexplore() { var txt = getRndInteger(1,145); if (txt == 1) {return "witch's house";}
+          else if (txt == 2){return "bog iron";}
+          else if (txt == 3){return "clay deposit";}
+          else if (txt == 3){return "";}
+                  }
+     */
+  function getrarity(){
+    document.getElementById("raritycollection").innerHTML = rarity();
+}
+function getforage(){
+    document.getElementById("gotforage").innerHTML = forage();
+}
+function getmonster(){
+    document.getElementById("gotmonster").innerHTML = monster();
+}
+function getexplore(){
+    document.getElementById("gotexplore").innerHTML = explore();
+}
+showStage1();
+
+</script>
+
+</body>
+</html>
+
+
