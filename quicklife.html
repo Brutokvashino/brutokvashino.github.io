@@ -345,10 +345,7 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 			<br>Family: <span id="parentsgot"></span><span id="kidgot"></span>
 			</div>
 	<div id="gameWindow" style="background:#fff8c5; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-		 <h3>Year 1</h3><br><br>
-        <button id="getstarted" onclick="randptbirth()">Start</button>
-		<button id="getyear1point1" onclick"showStage2()">Next</button>
-    </div>
+		</div>
 <script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -357,13 +354,12 @@ function getRndInteger(min, max) {
 
 	function showStage1() {
     gameWindow.innerHTML = `
-        <h2>Choose your character</h2>
-
-        <button id="warrior">Warrior</button>
-        <button id="wizard">Wizard</button>
+ <h3>Year 1</h3><br><br>
+ <p>Click the Start button to be born. Scroll down to see where you were born on the map.</p>
+        <button id="getstarted" onclick="randptbirth()">Start</button>
+		<button id="getyear1point1" onclick"showStage2()">Next</button>
+            <button id="wizard">Next</button>
     `;
-
-    document.getElementById("warrior").onclick = showStage2;
     document.getElementById("wizard").onclick = showStage2;
 }
 
