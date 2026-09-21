@@ -45,6 +45,7 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 	const gameWindow = document.getElementById("gameWindow");
+	const feedback = document.getElementById("feedback");
 
 	function showStage1() {
     gameWindow.innerHTML = `
@@ -63,7 +64,7 @@ function getRndInteger(min, max) {
 function showStage2() {
     gameWindow.innerHTML = `
 	 <h3>Year 1</h3>
-	  <p>What's your name, kid?</p>
+	  <span id="feedback">What's your name, kid?</span>
 	<br><button id="getfullname" onclick="getfullname()">Name</button>
 
 		<button id="castle">Next</button>
@@ -1792,6 +1793,8 @@ developing a talent for
 function getfullname(){
 fullname = regnames() + " " + middlenames() + " " + lastnames();
 document.getElementById("fullnamegot").innerHTML = fullname; 
+	    feedback.innerHTML = `
+	 Scroll up to see your name.`;
 }
 
 function getintro(){
