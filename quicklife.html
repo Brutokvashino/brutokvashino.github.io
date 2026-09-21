@@ -343,13 +343,13 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 	function showStage1() {
-    gameWindow.innerHTML = `
+    year1.innerHTML = `
  <h3>Year 1</h3>Year 1<br><br>
         <button id="getstarted" onclick="randptbirth()">Start</button>
 		<button id="getyear1point1" onclick"showStage2()">Next</button>
     `;
 	function showStage2() {
-    gameWindow.innerHTML = `
+    year1.innerHTML = `
  <h3>Year 1</h3>Year 1<br><br>
  <br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
 	<br><button id="getfullname" onclick="getfullname()">Name</button>
@@ -2078,7 +2078,7 @@ document.getElementById("year16").style.display = "none";
 document.getElementById("year19").style.display = "block"; 
 } 
 </script>
-		<div id="profileplace" style="background:orange; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+		<div id="profileplace" style="background:#ffffc0; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
 			Your profile: <span id="titlegot"><span id="fullnamegot"></span>
 			<br>Relationship: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
 			<br>Occupation: <span id="jobgot"></span>
