@@ -344,10 +344,7 @@ function getRndInteger(min, max) {
 }
 	function showStage1() {
     year1.innerHTML = `
- <h3>Year 1</h3>Year 1<br><br>
-        <button id="getstarted" onclick="randptbirth()">Start</button>
-		<button id="getyear1point1" onclick"showStage2()">Next</button>
-    `;
+  `;
 	function showStage2() {
     year1.innerHTML = `
  <h3>Year 1</h3>Year 1<br><br>
@@ -2079,15 +2076,16 @@ document.getElementById("year19").style.display = "block";
 } 
 </script>
 		<div id="profileplace" style="background:#ffffc0; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-			Your profile: <span id="titlegot"><span id="fullnamegot"></span>
-			<br>Relationship: <span id="lovertitlegot"><span id="lovergot"><span id="loverjob"></span>
+			Your profile: <span id="titlegot"></span><span id="fullnamegot"></span>
+			<br>Relationship: <span id="lovertitlegot"></span><span id="lovergot"></span><span id="loverjob"></span>
 			<br>Occupation: <span id="jobgot"></span>
 			<br>Family: <span id="parentsgot"></span><span id="kidgot"></span>
 			</div>
 	<div id="year1" style="background:#fff8c5; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+		 <h3>Year 1</h3><br><br>
+        <button id="getstarted" onclick="randptbirth()">Start</button>
+		<button id="getyear1point1" onclick"showStage2()">Next</button>
     </div>
-	<div id="year1point1">
-	</div>
  	<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 6-10:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
