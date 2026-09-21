@@ -338,7 +338,17 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 	<h1>Quick Life</h1>
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
-	<div id="gameWindow"></div>
+	<div id="profileplace" style="background:#fff8c5; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+			Your profile: <span id="titlegot"></span><span id="fullnamegot"></span>
+			<br>Relationship: <span id="lovertitlegot"></span><span id="lovergot"></span><span id="loverjob"></span>
+			<br>Occupation: <span id="jobgot"></span>
+			<br>Family: <span id="parentsgot"></span><span id="kidgot"></span>
+			</div>
+	<div id="gameWindow" style="background:#fff8c5; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+		 <h3>Year 1</h3><br><br>
+        <button id="getstarted" onclick="randptbirth()">Start</button>
+		<button id="getyear1point1" onclick"showStage2()">Next</button>
+    </div>
 <script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -2104,18 +2114,7 @@ document.getElementById("year16").style.display = "none";
 document.getElementById("year19").style.display = "block"; 
 } 
 </script>
-		<div id="profileplace" style="background:#fff8c5; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-			Your profile: <span id="titlegot"></span><span id="fullnamegot"></span>
-			<br>Relationship: <span id="lovertitlegot"></span><span id="lovergot"></span><span id="loverjob"></span>
-			<br>Occupation: <span id="jobgot"></span>
-			<br>Family: <span id="parentsgot"></span><span id="kidgot"></span>
-			</div>
-	<div id="year1" style="background:#fff8c5; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
-		 <h3>Year 1</h3><br><br>
-        <button id="getstarted" onclick="randptbirth()">Start</button>
-		<button id="getyear1point1" onclick"showStage2()">Next</button>
-    </div>
- 	<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
+		<div id="year6" style="display:none; background:#38444d; margin: 40px 0px 0px 0px; padding: 30px; border: 2px solid #000000;">
        Years 6-10:<br><br>
 		<button id="randptstudy" onclick="randptstudy()">School</button>
 		<br><button id="getlover" onclick="getlover()">Relationship</button> 
