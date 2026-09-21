@@ -109,7 +109,7 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
         function configlinks() {
-          var txt = getRndInteger(1,32);
+          var txt = getRndInteger(1,44);
           if (txt == 1) {return "http://brutokvashino.github.io/articles/configs/aaa.html";}
           else if (txt == 2) {return "http://brutokvashino.github.io/articles/configs/aaa-radius.html";}
           else if (txt == 3) {return "http://brutokvashino.github.io/articles/configs/acl.html";}
@@ -142,6 +142,20 @@ function getRndInteger(min, max) {
                     else if (txt == 30) {return "http://brutokvashino.github.io/articles/configs/blanks/snoop.html";}
                     else if (txt == 31) {return "http://brutokvashino.github.io/articles/configs/blanks/syslog.html";}
                     else if (txt == 32) {return "http://brutokvashino.github.io/articles/configs/blanks/vtp.html";}
+                    else if (txt == 33) {return "LLDP";}
+                    else if (txt == 34) {return "LACP";}
+                    else if (txt == 35) {return "PAGP";}
+          else if (txt == 36) {return "HDLC";}
+          else if (txt == 37) {return "PAP/CHAP";}
+          else if (txt == 38) {return "PPP";}
+          else if (txt == 39) {return "PPTP";}
+          else if (txt == 40) {return "GRE";}
+          else if (txt == 41) {return "EIGRP";}
+          else if (txt == 42) {return "Rootguard";}
+          else if (txt == 43) {return "BDPUguard";}
+          else if (txt == 44) {return "CDP";}
+
+
         }
     	function getconfiglinks(){
     document.getElementById("configlinkgot").innerHTML = configlinks();
