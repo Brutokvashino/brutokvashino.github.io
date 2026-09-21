@@ -338,15 +338,44 @@ a.topnav-icons, a.topnav-icons.fa-home, a.topnav-icons.fa-menu, button.topnav-ic
 	<h1>Quick Life</h1>
 <a href="javascript:void(0)" id="dragbar"></a>
 <p>
+	<div id="gameWindow"></div>
 <script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+	const gameWindow = document.getElementById("gameWindow");
+
 	function showStage1() {
-    year1.innerHTML = `
-  `;
-	function showStage2() {
-    year1.innerHTML = `
+    gameWindow.innerHTML = `
+        <h2>Choose your character</h2>
+
+        <button id="warrior">Warrior</button>
+        <button id="wizard">Wizard</button>
+    `;
+
+    document.getElementById("warrior").onclick = showStage2;
+    document.getElementById("wizard").onclick = showStage2;
+}
+
+function showStage2() {
+    gameWindow.innerHTML = `
+        <h2>Choose where to go</h2>
+
+        <button id="forest">Forest</button>
+        <button id="castle">Castle</button>
+    `;
+
+    document.getElementById("forest").onclick = showStage3;
+    document.getElementById("castle").onclick = showStage3;
+}
+
+function showStage3() {
+    gameWindow.innerHTML = `
+        <h2>Your adventure begins!</h2>
+        <button id="continue">Continue</button>
+    `;
+}
+/*
  <h3>Year 1</h3>Year 1<br><br>
  <br><button id="getparents" onclick="getparents()">Parents</button><span id="homelife">
 	<br><button id="getfullname" onclick="getfullname()">Name</button>
@@ -356,7 +385,7 @@ function getRndInteger(min, max) {
 	<br><button id="getcrime" onclick="getcrime()">Bad news</button><span id="crimegot"></span>
 	<br><button id="lys" onclick="closeyear0()">Next</button>
    <br>
-    `;
+	*/
         function regnames() {
           var txt = getRndInteger(1,431);
           if (txt == 0) {return "Nothing";}
